@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lingo/Core/Configs/LingoTheme.dart';
+import 'package:lingo/Core/Utils/InjectionContainer.dart';
 
 import 'infrastructure/Navigation/Routes.dart';
 
-void main() {
+void main() async{
+  await initInjections();
   runApp(const MyApp());
 }
 
