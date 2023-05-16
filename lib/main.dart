@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:lingo/Core/Configs/LingoTheme.dart';
+
+import 'infrastructure/Navigation/Routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,12 +14,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    var theme = LingoTheme();
+    return GetMaterialApp(
       title: 'Lingo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Container(),
+      textDirection: TextDirection.rtl,
+      theme: theme.toThemeData(),
+      initialRoute: Routes.authentication,
+      getPages: Routes.navRoutes,
+      debugShowCheckedModeBanner: false,
     );
   }
 }
