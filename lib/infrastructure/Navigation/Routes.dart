@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 import 'package:lingo/Presentation/Authentication/AuthenticationScreen.dart';
+import 'package:lingo/Presentation/Authentication/ChangePassScreen.dart';
+import 'package:lingo/Presentation/Authentication/ResetPasswordScreen.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/AuthScreenControllerBindings.dart';
 
 class Routes {
@@ -7,7 +9,13 @@ class Routes {
     GetPage(
         name: authentication,
         page: () => AuthenticationScreen(),
-        binding: AuthScreenControllerBindings())
+        binding: AuthScreenControllerBindings()),
+    GetPage(
+        name: resetPassword,
+        page: () => const ResetPasswordScreen(),),
+    GetPage(
+      name: changePassword,
+      page: () => const ChangePassScreen(),),
   ];
 
   static const root = "/";
@@ -17,4 +25,6 @@ class Routes {
 
   //Authentication
   static const authentication = "${root}Authentication";
+  static const resetPassword = "$authentication/ResetPassword";
+  static const changePassword = "$authentication/ChangePassword";
 }

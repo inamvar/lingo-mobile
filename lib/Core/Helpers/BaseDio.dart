@@ -21,4 +21,8 @@ class BaseDio {
 
     return dio;
   }
+
+  BaseDio(){
+    _dio = _initDio();
+  }
 }

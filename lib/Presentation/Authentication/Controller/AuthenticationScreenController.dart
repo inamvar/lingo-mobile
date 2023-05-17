@@ -13,9 +13,5 @@ class AuthenticationScreenController extends GetxController{
     pageType.value = AuthPageTypes.LOGIN;
   }
 
-  void toResetPass() {
-    pageType.value = AuthPageTypes.RESET_PASSWORD;
-  }
-
 
 }

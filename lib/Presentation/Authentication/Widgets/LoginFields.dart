@@ -4,6 +4,7 @@ import 'package:lingo/Core/Dto/Enums/AuthPageTypes.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
 
 import '../../../Core/Configs/StringResource.dart';
+import '../../../infrastructure/Navigation/Routes.dart';
 import '../Controller/AuthenticationScreenController.dart';
 import 'AuthTextField.dart';
 
@@ -32,7 +33,7 @@ class LoginFields extends StatelessWidget {
           ),
           TextButton(
               onPressed: () {
-                controller.toResetPass();
+                Get.toNamed(Routes.resetPassword);
               },
               child: Text(
                 StringResource.forgotPassword,

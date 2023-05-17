@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
@@ -6,8 +7,8 @@ import '../../../Core/Configs/StringResource.dart';
 import '../Controller/AuthenticationScreenController.dart';
 import 'AuthTextField.dart';
 
-class ResetPassFields extends StatelessWidget {
-  ResetPassFields({Key? key}) : super(key: key);
+class ChangePassFields extends StatelessWidget {
+  ChangePassFields({Key? key}) : super(key: key);
 
   final controller = Get.find<AuthenticationScreenController>();
 
@@ -23,24 +24,16 @@ class ResetPassFields extends StatelessWidget {
           Wrap(
             runSpacing: 5,
             children: const [
-              AuthTextField(labelText: StringResource.email,),
+              AuthTextField(labelText: StringResource.confirmCode,),
+              AuthTextField(labelText: StringResource.password,),
+              AuthTextField(labelText: StringResource.repeatPassword,),
             ],
           ),
           const SizedBox(
-            height: 120,
-          ),
-          Text(
-            StringResource.checkEmailTxt,
-            textAlign: TextAlign.center,
-            style: const TextStyle().withIranSans(
-                fontSize: 12, color: colorScheme.primary),
-          ),
-          const SizedBox(
-            height: 40,
+            height: 130,
           ),
         ],
       ),
     );
   }
 }
-

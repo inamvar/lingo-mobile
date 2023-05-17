@@ -1,1 +1,1 @@
-enum AuthPageTypes {LOGIN,REGISTER,RESET_PASSWORD}
+enum AuthPageTypes {LOGIN,REGISTER}

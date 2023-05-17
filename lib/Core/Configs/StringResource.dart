@@ -14,5 +14,8 @@ class StringResource{
   static const repeatPassword = "تکرار رمز عبور";
   static const changePassword = "تغییر رمز عبور";
   static const policyInfo = "© تمامی حقوق مادی و معنوی سایت متعلق به آموزشگاه لینگو می باشد.";
+  static const enter = "ثبت";
+  static const confirmCode = "کد تایید";
+  static const checkEmailTxt = "لطفا پس از ثبت, برای دریافت کد تایید ایمیل خود را بررسی کنید.";
 
 }
