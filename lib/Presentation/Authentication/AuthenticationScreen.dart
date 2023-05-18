@@ -34,7 +34,15 @@ class AuthenticationScreen extends StatelessWidget {
           buttonText = StringResource.register;
           break;
       }
-      return ConfirmButton(buttonText: buttonText, onConfirm: (){});
+      return ConfirmButton(buttonText: buttonText, onConfirm: (){
+        switch (controller.pageType.value) {
+          case AuthPageTypes.LOGIN:
+            controller.login();
+            break;
+          case AuthPageTypes.REGISTER:
+            break;
+        }
+      });
     });
   }
 

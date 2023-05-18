@@ -23,9 +23,15 @@ class LoginFields extends StatelessWidget {
         children: [
           Wrap(
             runSpacing: 5,
-            children: const [
-              AuthTextField(labelText: StringResource.email,),
-              AuthTextField(labelText: StringResource.password,),
+            children: [
+              AuthTextField(
+                labelText: StringResource.email,
+                controller: controller.loginEmailController,
+              ),
+              AuthTextField(
+                labelText: StringResource.password,
+                controller: controller.loginPasswordController,
+              ),
             ],
           ),
           const SizedBox(
@@ -37,8 +43,8 @@ class LoginFields extends StatelessWidget {
               },
               child: Text(
                 StringResource.forgotPassword,
-                style: const TextStyle().withIranSans(
-                    fontSize: 12, color: colorScheme.primary),
+                style: const TextStyle()
+                    .withIranSans(fontSize: 12, color: colorScheme.primary),
               )),
           const SizedBox(
             height: 60,
@@ -49,8 +55,8 @@ class LoginFields extends StatelessWidget {
               },
               child: Text(
                 StringResource.registerButtonTxt,
-                style: const TextStyle().withIranSans(
-                    fontSize: 12, color: colorScheme.primary),
+                style: const TextStyle()
+                    .withIranSans(fontSize: 12, color: colorScheme.primary),
               )),
         ],
       ),
