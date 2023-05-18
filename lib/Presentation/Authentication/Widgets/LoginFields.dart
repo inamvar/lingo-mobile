@@ -51,7 +51,7 @@ class LoginFields extends StatelessWidget {
           ),
           TextButton(
               onPressed: () {
-                controller.toRegister();
+                controller.toRegisterFields();
               },
               child: Text(
                 StringResource.registerButtonTxt,

@@ -39,7 +39,7 @@ class RegisterFields extends StatelessWidget {
           ),
           TextButton(
               onPressed: () {
-                 controller.toLogin();
+                 controller.toLoginFields();
               },
               child: Text(
                 StringResource.loginIntoAccount,

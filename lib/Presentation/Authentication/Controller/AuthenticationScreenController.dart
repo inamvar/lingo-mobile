@@ -31,11 +31,11 @@ class AuthenticationScreenController extends GetxController {
     super.onClose();
   }
 
-  void toRegister() {
+  void toRegisterFields() {
     pageType.value = AuthPageTypes.REGISTER;
   }
 
-  void toLogin() {
+  void toLoginFields() {
     pageType.value = AuthPageTypes.LOGIN;
   }
 
