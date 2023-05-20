@@ -5,7 +5,7 @@ import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
 
 import '../../../Core/Configs/StringResource.dart';
 import '../Controller/AuthenticationScreenController.dart';
-import 'AuthTextField.dart';
+import 'FormTextField.dart';
 
 class ChangePassFields extends StatelessWidget {
   ChangePassFields({Key? key}) : super(key: key);
@@ -24,9 +24,9 @@ class ChangePassFields extends StatelessWidget {
           Wrap(
             runSpacing: 5,
             children: const [
-              AuthTextField(labelText: StringResource.confirmCode,),
-              AuthTextField(labelText: StringResource.password,),
-              AuthTextField(labelText: StringResource.repeatPassword,),
+              FormTextField(labelText: StringResource.confirmCode,),
+              FormTextField(labelText: StringResource.password,),
+              FormTextField(labelText: StringResource.repeatPassword,),
             ],
           ),
           const SizedBox(

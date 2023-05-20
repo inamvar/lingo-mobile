@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lingo/Core/Dto/Enums/AuthPageTypes.dart';
+import 'package:lingo/Core/Dto/Enums/FormTextFieldType.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
+import 'package:lingo/Presentation/Authentication/Controller/LoginFormController.dart';
 
 import '../../../Core/Configs/StringResource.dart';
 import '../../../infrastructure/Navigation/Routes.dart';
-import '../Controller/AuthenticationScreenController.dart';
-import 'AuthTextField.dart';
+import 'FormTextField.dart';
 
-class LoginFields extends StatelessWidget {
-  LoginFields({Key? key}) : super(key: key);
+class LoginForm extends StatelessWidget {
+  LoginForm({Key? key}) : super(key: key);
 
-  final controller = Get.find<AuthenticationScreenController>();
+  final controller = Get.find<LoginFormController>();
 
   @override
   Widget build(BuildContext context) {
@@ -21,18 +21,24 @@ class LoginFields extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Column(
         children: [
-          Wrap(
-            runSpacing: 5,
-            children: [
-              AuthTextField(
-                labelText: StringResource.email,
-                controller: controller.loginEmailController,
-              ),
-              AuthTextField(
-                labelText: StringResource.password,
-                controller: controller.loginPasswordController,
-              ),
-            ],
+          Form(
+            key: controller.loginFormKey,
+            child: Wrap(
+              runSpacing: 5,
+              children: [
+                FormTextField(
+                  required: false,
+                  formTextFieldType: FormTextFieldType.EMAIL,
+                  labelText: StringResource.email,
+                  controller: controller.loginEmailController,
+                ),
+                FormTextField(
+                  formTextFieldType: FormTextFieldType.PASSWORD,
+                  labelText: StringResource.password,
+                  controller: controller.loginPasswordController,
+                ),
+              ],
+            ),
           ),
           const SizedBox(
             height: 30,
@@ -51,7 +57,7 @@ class LoginFields extends StatelessWidget {
           ),
           TextButton(
               onPressed: () {
-                controller.toRegisterFields();
+                controller.toRegister();
               },
               child: Text(
                 StringResource.registerButtonTxt,

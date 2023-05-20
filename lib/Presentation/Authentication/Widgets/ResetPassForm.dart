@@ -4,10 +4,10 @@ import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
 
 import '../../../Core/Configs/StringResource.dart';
 import '../Controller/AuthenticationScreenController.dart';
-import 'AuthTextField.dart';
+import 'FormTextField.dart';
 
-class ResetPassFields extends StatelessWidget {
-  ResetPassFields({Key? key}) : super(key: key);
+class ResetPassForm extends StatelessWidget {
+  ResetPassForm({Key? key}) : super(key: key);
 
   final controller = Get.find<AuthenticationScreenController>();
 
@@ -23,7 +23,7 @@ class ResetPassFields extends StatelessWidget {
           Wrap(
             runSpacing: 5,
             children: const [
-              AuthTextField(labelText: StringResource.email,),
+              FormTextField(labelText: StringResource.email,),
             ],
           ),
           const SizedBox(

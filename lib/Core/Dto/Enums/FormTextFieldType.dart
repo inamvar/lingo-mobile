@@ -1,0 +1,1 @@
+enum FormTextFieldType{SIMPLE,EMAIL,PASSWORD}

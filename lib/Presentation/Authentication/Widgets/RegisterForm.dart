@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
-import 'package:lingo/Presentation/Authentication/Widgets/AuthTextField.dart';
+import 'package:lingo/Presentation/Authentication/Widgets/FormTextField.dart';
 
 import '../../../Core/Configs/StringResource.dart';
 import '../Controller/AuthenticationScreenController.dart';
 
-class RegisterFields extends StatelessWidget {
-  RegisterFields({Key? key}) : super(key: key);
+class RegisterForm extends StatelessWidget {
+  RegisterForm({Key? key}) : super(key: key);
 
   final controller = Get.find<AuthenticationScreenController>();
 
@@ -22,13 +22,13 @@ class RegisterFields extends StatelessWidget {
           Wrap(
             runSpacing: 5,
             children: const [
-              AuthTextField(labelText: StringResource.name,),
-              AuthTextField(labelText: StringResource.lastName,),
-              AuthTextField(labelText: StringResource.email,),
-              AuthTextField(labelText: StringResource.phoneNumber,),
-              AuthTextField(labelText: StringResource.referralCode,),
-              AuthTextField(labelText: StringResource.password,),
-              AuthTextField(labelText: StringResource.repeatPassword,),
+              FormTextField(labelText: StringResource.name,),
+              FormTextField(labelText: StringResource.lastName,),
+              FormTextField(labelText: StringResource.email,),
+              FormTextField(labelText: StringResource.phoneNumber,),
+              FormTextField(labelText: StringResource.referralCode,),
+              FormTextField(labelText: StringResource.password,),
+              FormTextField(labelText: StringResource.repeatPassword,),
             ],
           ),
           const SizedBox(
@@ -39,7 +39,7 @@ class RegisterFields extends StatelessWidget {
           ),
           TextButton(
               onPressed: () {
-                 controller.toLoginFields();
+                 controller.showLoginForm();
               },
               child: Text(
                 StringResource.loginIntoAccount,

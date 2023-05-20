@@ -17,5 +17,7 @@ class StringResource{
   static const enter = "ثبت";
   static const confirmCode = "کد تایید";
   static const checkEmailTxt = "لطفا پس از ثبت, برای دریافت کد تایید ایمیل خود را بررسی کنید.";
+  static const enterValidEmailError = "ایمیل معتبر نمیباشد!";
+  static const fieldRequiredError = "این فیلد اجباری میباشد";
 
 }
