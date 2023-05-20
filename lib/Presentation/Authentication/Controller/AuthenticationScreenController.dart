@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lingo/Core/Configs/StringResource.dart';
 import 'package:lingo/Core/Dto/Enums/AuthPageTypes.dart';
+import 'package:lingo/Core/Dto/Enums/MessageType.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/LoginRequestDtoUseCase.dart';
+import 'package:lingo/Core/Helpers/ShowMessage.dart';
 
 import '../../../Core/Interfaces/UseCases/ISignInUseCase.dart';
 
@@ -42,13 +45,13 @@ class AuthenticationScreenController extends GetxController {
   login() {
     if (loginValid()) {
       LoginRequestDtoUseCase requestDtoUseCase = LoginRequestDtoUseCase(
-        userName: loginEmailController?.text,
-        password: loginPasswordController?.text
-      );
+          userName: loginEmailController?.text,
+          password: loginPasswordController?.text);
 
-      iLoginUseCase.execute(params: requestDtoUseCase).then((response){
-        response.fold((l){
-          print(l);
+      iLoginUseCase.execute(params: requestDtoUseCase).then((response) {
+        response.fold((serverError) {
+          ShowMessage.getSnackBar(
+              message: serverError.errorMessage!, type: MessageType.ERROR);
         }, (r) {
           print("response got: $r");
         });

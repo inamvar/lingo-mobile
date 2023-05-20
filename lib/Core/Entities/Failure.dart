@@ -1,3 +1,3 @@
 abstract class Failure {
-  late String errorMessage;
+  String? errorMessage;
 }
