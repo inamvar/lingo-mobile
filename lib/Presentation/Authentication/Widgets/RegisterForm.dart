@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lingo/Core/Dto/Enums/FormTextFieldType.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
 import 'package:lingo/Presentation/Authentication/Controller/RegisterFormController.dart';
 import 'package:lingo/Presentation/Authentication/Widgets/FormTextField.dart';
@@ -19,17 +20,39 @@ class RegisterForm extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Column(
         children: [
-          Wrap(
-            runSpacing: 5,
-            children: const [
-              FormTextField(labelText: StringResource.name,),
-              FormTextField(labelText: StringResource.lastName,),
-              FormTextField(labelText: StringResource.email,),
-              FormTextField(labelText: StringResource.phoneNumber,),
-              FormTextField(labelText: StringResource.referralCode,),
-              FormTextField(labelText: StringResource.password,),
-              FormTextField(labelText: StringResource.repeatPassword,),
-            ],
+          Form(
+            key: controller.registerFormKey,
+            child: Wrap(
+              runSpacing: 5,
+              children: const [
+                FormTextField(
+                  labelText: StringResource.name,
+                  required: true,
+                ),
+                FormTextField(
+                  labelText: StringResource.lastName,
+                  required: true,
+                ),
+                FormTextField(
+                    labelText: StringResource.email,
+                    required: true,
+                    formTextFieldType: FormTextFieldType.EMAIL),
+                FormTextField(
+                  labelText: StringResource.phoneNumber,
+                ),
+                FormTextField(
+                  labelText: StringResource.referralCode,
+                ),
+                FormTextField(
+                    labelText: StringResource.password,
+                    required: true,
+                    formTextFieldType: FormTextFieldType.PASSWORD),
+                FormTextField(
+                    labelText: StringResource.repeatPassword,
+                    required: true,
+                    formTextFieldType: FormTextFieldType.PASSWORD),
+              ],
+            ),
           ),
           const SizedBox(
             height: 30,
@@ -39,17 +62,15 @@ class RegisterForm extends StatelessWidget {
           ),
           TextButton(
               onPressed: () {
-                 controller.showLoginForm();
+                controller.showLoginForm();
               },
               child: Text(
                 StringResource.loginIntoAccount,
-                style: const TextStyle().withIranSans(
-                    fontSize: 12, color: colorScheme.primary),
+                style: const TextStyle()
+                    .withIranSans(fontSize: 12, color: colorScheme.primary),
               )),
         ],
       ),
     );
   }
 }
-
-

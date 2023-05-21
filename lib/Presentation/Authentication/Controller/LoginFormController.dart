@@ -37,7 +37,6 @@ class LoginFormController extends GetxController {
 
   login() {
     if (isFormValid()) {
-      ShowMessage.getSnackBar(message: "is valid");
       // LoginRequestDtoUseCase requestDtoUseCase = LoginRequestDtoUseCase(
       //     userName: loginEmailController?.text,
       //     password: loginPasswordController?.text);
@@ -52,7 +51,7 @@ class LoginFormController extends GetxController {
       // });
     }
     else{
-      ShowMessage.getSnackBar(message: "not valid");
+
     }
   }
 

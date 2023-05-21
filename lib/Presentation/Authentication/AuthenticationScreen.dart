@@ -40,6 +40,7 @@ class AuthenticationScreen extends StatelessWidget {
             controller.login();
             break;
           case AuthPageTypes.REGISTER:
+            controller.register();
             break;
         }
       });
