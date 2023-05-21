@@ -26,12 +26,15 @@ class ShowMessage{
         leftBarIndicatorColor = Colors.red;
         break;
       case MessageType.SUCCESS:
+        icon = const FaIcon(FontAwesomeIcons.circleExclamation,color: Colors.green,);
         leftBarIndicatorColor = Colors.green;
         break;
       case MessageType.INFO:
+        icon = const FaIcon(FontAwesomeIcons.circleExclamation,color: Colors.blue,);
         leftBarIndicatorColor = Colors.blue;
         break;
       case MessageType.CONNECTION_ERROR:
+        icon = const FaIcon(FontAwesomeIcons.circleExclamation,color: Colors.red,);
         leftBarIndicatorColor = Colors.red;
         break;
     }

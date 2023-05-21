@@ -23,7 +23,7 @@ mixin _$ResponseDtoUseCase {
   Map<String, dynamic>? get data => throw _privateConstructorUsedError;
   List<String>? get errorMessages => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
-  int? get statusCode => throw _privateConstructorUsedError;
+  dynamic get statusCode => throw _privateConstructorUsedError;
   String? get dateTime => throw _privateConstructorUsedError;
   bool? get success => throw _privateConstructorUsedError;
 
@@ -43,7 +43,7 @@ abstract class $ResponseDtoUseCaseCopyWith<$Res> {
       {Map<String, dynamic>? data,
       List<String>? errorMessages,
       String? message,
-      int? statusCode,
+      dynamic statusCode,
       String? dateTime,
       bool? success});
 }
@@ -84,7 +84,7 @@ class _$ResponseDtoUseCaseCopyWithImpl<$Res, $Val extends ResponseDtoUseCase>
       statusCode: freezed == statusCode
           ? _value.statusCode
           : statusCode // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as dynamic,
       dateTime: freezed == dateTime
           ? _value.dateTime
           : dateTime // ignore: cast_nullable_to_non_nullable
@@ -109,7 +109,7 @@ abstract class _$$_ResponseDtoUseCaseCopyWith<$Res>
       {Map<String, dynamic>? data,
       List<String>? errorMessages,
       String? message,
-      int? statusCode,
+      dynamic statusCode,
       String? dateTime,
       bool? success});
 }
@@ -148,7 +148,7 @@ class __$$_ResponseDtoUseCaseCopyWithImpl<$Res>
       statusCode: freezed == statusCode
           ? _value.statusCode
           : statusCode // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as dynamic,
       dateTime: freezed == dateTime
           ? _value.dateTime
           : dateTime // ignore: cast_nullable_to_non_nullable
@@ -202,7 +202,7 @@ class _$_ResponseDtoUseCase
   @override
   final String? message;
   @override
-  final int? statusCode;
+  final dynamic statusCode;
   @override
   final String? dateTime;
   @override
@@ -235,8 +235,8 @@ class _$_ResponseDtoUseCase
             const DeepCollectionEquality()
                 .equals(other._errorMessages, _errorMessages) &&
             (identical(other.message, message) || other.message == message) &&
-            (identical(other.statusCode, statusCode) ||
-                other.statusCode == statusCode) &&
+            const DeepCollectionEquality()
+                .equals(other.statusCode, statusCode) &&
             (identical(other.dateTime, dateTime) ||
                 other.dateTime == dateTime) &&
             (identical(other.success, success) || other.success == success));
@@ -249,7 +249,7 @@ class _$_ResponseDtoUseCase
       const DeepCollectionEquality().hash(_data),
       const DeepCollectionEquality().hash(_errorMessages),
       message,
-      statusCode,
+      const DeepCollectionEquality().hash(statusCode),
       dateTime,
       success);
 
@@ -273,7 +273,7 @@ abstract class _ResponseDtoUseCase implements ResponseDtoUseCase {
       {final Map<String, dynamic>? data,
       final List<String>? errorMessages,
       final String? message,
-      final int? statusCode,
+      final dynamic statusCode,
       final String? dateTime,
       final bool? success}) = _$_ResponseDtoUseCase;
 
@@ -287,7 +287,7 @@ abstract class _ResponseDtoUseCase implements ResponseDtoUseCase {
   @override
   String? get message;
   @override
-  int? get statusCode;
+  dynamic get statusCode;
   @override
   String? get dateTime;
   @override

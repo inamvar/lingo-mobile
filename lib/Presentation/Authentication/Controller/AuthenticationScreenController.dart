@@ -8,7 +8,7 @@ import '../../../Core/Interfaces/UseCases/ISignInUseCase.dart';
 class AuthenticationScreenController extends GetxController {
   var pageType = AuthPageTypes.LOGIN.obs;
 
-
+  var isLoading = false.obs;
 
   AuthenticationScreenController();
 

@@ -7,8 +7,11 @@ import 'package:lingo/Presentation/Authentication/Controller/RegisterFormControl
 class AuthScreenControllerBindings extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<AuthenticationScreenController>(() => AuthenticationScreenController());
-    Get.lazyPut<LoginFormController>(() => LoginFormController(iLoginUseCase: appSingleton()));
-    Get.lazyPut<RegisterFormController>(() => RegisterFormController());
+    Get.lazyPut<AuthenticationScreenController>(
+        () => AuthenticationScreenController());
+    Get.lazyPut<LoginFormController>(
+        () => LoginFormController(iLoginUseCase: appSingleton()));
+    Get.lazyPut<RegisterFormController>(
+        () => RegisterFormController(iRegisterUseCase: appSingleton()));
   }
 }

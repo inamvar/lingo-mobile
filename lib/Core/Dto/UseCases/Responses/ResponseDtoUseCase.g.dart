@@ -14,7 +14,7 @@ _$_ResponseDtoUseCase _$$_ResponseDtoUseCaseFromJson(
           ?.map((e) => e as String)
           .toList(),
       message: json['message'] as String?,
-      statusCode: json['statusCode'] as int?,
+      statusCode: json['statusCode'],
       dateTime: json['dateTime'] as String?,
       success: json['success'] as bool?,
     );

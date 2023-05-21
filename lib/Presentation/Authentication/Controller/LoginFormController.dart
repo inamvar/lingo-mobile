@@ -37,22 +37,24 @@ class LoginFormController extends GetxController {
 
   login() {
     if (isFormValid()) {
-      // LoginRequestDtoUseCase requestDtoUseCase = LoginRequestDtoUseCase(
-      //     userName: loginEmailController?.text,
-      //     password: loginPasswordController?.text);
-      //
-      // iLoginUseCase.execute(params: requestDtoUseCase).then((response) {
-      //   response.fold((serverError) {
-      //     ShowMessage.getSnackBar(
-      //         message: serverError.errorMessage!, type: MessageType.ERROR);
-      //   }, (r) {
-      //     print("response got: $r");
-      //   });
-      // });
-    }
-    else{
+      authController.isLoading.value = true;
 
-    }
+      LoginRequestDtoUseCase requestDtoUseCase = LoginRequestDtoUseCase(
+          userName: loginEmailController?.text,
+          password: loginPasswordController?.text);
+
+      iLoginUseCase.execute(params: requestDtoUseCase).then((response) {
+        authController.isLoading.value = false;
+
+        response.fold(
+            (serverError) => ShowMessage.getSnackBar(
+                message: serverError.errorMessage!,
+                type: MessageType.ERROR), (r) {
+          ShowMessage.getSnackBar(
+              message: "Login Success", type: MessageType.SUCCESS);
+        });
+      });
+    } else {}
   }
 
   bool isFormValid() {

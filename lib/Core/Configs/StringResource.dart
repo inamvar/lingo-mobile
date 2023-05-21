@@ -20,5 +20,6 @@ class StringResource{
   static const enterValidEmailError = "ایمیل معتبر نمیباشد!";
   static const fieldRequiredError = "این فیلد اجباری میباشد";
   static const passwordValidationError = "رمز عبور باید شامل عدد,حروف ویژه,حروف بزرگ و کوچک و حداقل 8 کاراکتر باشد.";
-
+  static const formNotValidError = "فرم به درستی تکمیل نشده است.";
+  static const passwordMatchError = "رمز عبور با تکرارش برابر نیست.";
 }

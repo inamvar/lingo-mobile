@@ -10,7 +10,7 @@ class ResponseDtoUseCase with _$ResponseDtoUseCase {
     Map<String,dynamic>? data,
     List<String>? errorMessages,
     String? message,
-    int? statusCode,
+    dynamic statusCode,
     String? dateTime,
     bool? success
   }) = _ResponseDtoUseCase;

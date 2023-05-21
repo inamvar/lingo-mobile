@@ -1,6 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/LoginRequestDtoUseCase.dart';
+import 'package:lingo/Core/Dto/UseCases/Requests/RegisterRequestDtoUseCase.dart';
+import 'package:lingo/Core/Dto/UseCases/Responses/RegisterResponseDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/ResponseDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/TokenResponseDtoUseCase.dart';
 import 'package:lingo/Core/Entities/Failure.dart';
@@ -20,16 +22,18 @@ class AuthRepositoryImpl extends AuthRemoteRepository {
       var result = await authRemoteDataSource.login(requestDtoUseCase);
       return Right(result);
     } on DioError catch (error) {
-      var serverError = ServerFailure();
-      var errorData = error.response?.data;
-      if (errorData != null) {
-        var errorResponse = ResponseDtoUseCase.fromJson(errorData);
-        if (errorResponse.errorMessages != null &&
-            errorResponse.errorMessages!.isNotEmpty) {
-          serverError.errorMessage = errorResponse.errorMessages![0];
-        }
-      }
-      return Left(serverError);
+      return Left(parseServerError(error));
+    }
+  }
+
+  @override
+  Future<Either<Failure, RegisterResponseDtoUseCase>>? register(
+      RegisterRequestDtoUseCase requestDtoUseCase) async{
+    try {
+      var result = await authRemoteDataSource.register(requestDtoUseCase);
+      return Right(result);
+    } on DioError catch (error) {
+      return Left(parseServerError(error));
     }
   }
 }
