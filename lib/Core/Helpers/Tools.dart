@@ -1,6 +1,6 @@
 class Tools{
-  static bool validateEmail(String email){
-    return RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-        .hasMatch(email);
+  static bool isValidPass(String pass){
+    return RegExp(r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&]).{8,10}$")
+        .hasMatch(pass);
   }
 }

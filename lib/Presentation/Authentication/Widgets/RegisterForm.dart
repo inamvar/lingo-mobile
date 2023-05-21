@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
+import 'package:lingo/Presentation/Authentication/Controller/RegisterFormController.dart';
 import 'package:lingo/Presentation/Authentication/Widgets/FormTextField.dart';
 
 import '../../../Core/Configs/StringResource.dart';
-import '../Controller/AuthenticationScreenController.dart';
 
 class RegisterForm extends StatelessWidget {
   RegisterForm({Key? key}) : super(key: key);
 
-  final controller = Get.find<AuthenticationScreenController>();
+  final controller = Get.find<RegisterFormController>();
 
   @override
   Widget build(BuildContext context) {

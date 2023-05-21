@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lingo/Core/Configs/StringResource.dart';
 import 'package:lingo/Core/Dto/Enums/FormTextFieldType.dart';
+import 'package:lingo/Core/Helpers/Tools.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
+import 'package:lingo/Core/Utils/Extensions/StringExtensions.dart';
 
 class FormTextField extends StatelessWidget {
   const FormTextField(
@@ -25,9 +27,11 @@ class FormTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
+      obscureText: (formTextFieldType == FormTextFieldType.PASSWORD) ? true : false,
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      style: const TextStyle().withIranSans(color: const Color(0xff989292)),
+      style: const TextStyle().withIranSans(color: const Color(0xff666262)),
       decoration: InputDecoration(
+        errorMaxLines: 2,
           label: Text(
         labelText,
         style: const TextStyle().withIranSans(
@@ -39,47 +43,51 @@ class FormTextField extends StatelessWidget {
           case FormTextFieldType.EMAIL:
             return validateEmail(text);
           case FormTextFieldType.SIMPLE:
-            return ((text ?? "").isEmpty && required)
-                ? StringResource.fieldRequiredError
-                : null;
+            return validateRequiredField(text);
           case FormTextFieldType.PASSWORD:
-            return (text ?? "").isEmpty
-                ? StringResource.fieldRequiredError
-                : null;
+            return validatePassword(text);
         }
       },
     );
   }
 
   String? validateEmail(String? text){
-
-    if(required) {
-      if(text != null && text.isNotEmpty){
-        if(GetUtils.isEmail(text)){
-          return null;
-        }
-        else{
-          return StringResource.enterValidEmailError;
-        }
-      }
-      else{
-        return StringResource.fieldRequiredError;
-      }
+    var requiredCheck = validateRequiredField(text);
+    if(requiredCheck != null){
+      return requiredCheck;
     }
-    else if(!required){
-      if(text != null && text.isNotEmpty){
-        if(GetUtils.isEmail(text)){
-          return null;
-        }
-        else{
-          return StringResource.enterValidEmailError;
-        }
-      }
-      else{
+    else{
+      if(!required && (text ?? "").isEmpty) return null;
+      if(text!.isEmail){
         return null;
       }
+      else{
+        return StringResource.enterValidEmailError;
+      }
     }
+  }
 
-    return null;
+  String? validatePassword(String? text){
+    var requiredCheck = validateRequiredField(text);
+    if(requiredCheck != null){
+      return requiredCheck;
+    }
+    else{
+      if(!required && (text ?? "").isEmpty) return null;
+
+      if(text!.isValidPass){
+        return null;
+      }
+      return StringResource.passwordValidationError;
+    }
+  }
+
+  String? validateRequiredField(String? text){
+    if(required && (text ?? "").isEmpty){
+      return StringResource.fieldRequiredError;
+    }
+    else{
+      return null;
+    }
   }
 }

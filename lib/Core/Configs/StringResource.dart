@@ -19,5 +19,6 @@ class StringResource{
   static const checkEmailTxt = "لطفا پس از ثبت, برای دریافت کد تایید ایمیل خود را بررسی کنید.";
   static const enterValidEmailError = "ایمیل معتبر نمیباشد!";
   static const fieldRequiredError = "این فیلد اجباری میباشد";
+  static const passwordValidationError = "رمز عبور باید شامل عدد,حروف ویژه,حروف بزرگ و کوچک و حداقل 8 کاراکتر باشد.";
 
 }

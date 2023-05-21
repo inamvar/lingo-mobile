@@ -27,12 +27,13 @@ class LoginForm extends StatelessWidget {
               runSpacing: 5,
               children: [
                 FormTextField(
-                  required: false,
+                  required: true,
                   formTextFieldType: FormTextFieldType.EMAIL,
                   labelText: StringResource.email,
                   controller: controller.loginEmailController,
                 ),
                 FormTextField(
+                  required: true,
                   formTextFieldType: FormTextFieldType.PASSWORD,
                   labelText: StringResource.password,
                   controller: controller.loginPasswordController,
@@ -57,7 +58,7 @@ class LoginForm extends StatelessWidget {
           ),
           TextButton(
               onPressed: () {
-                controller.toRegister();
+                controller.showRegisterForm();
               },
               child: Text(
                 StringResource.registerButtonTxt,

@@ -60,7 +60,7 @@ class LoginFormController extends GetxController {
     return loginFormKey.currentState?.validate() ?? false;
   }
 
-  void toRegister() {
+  void showRegisterForm() {
     authController.showRegisterForm();
   }
 }
