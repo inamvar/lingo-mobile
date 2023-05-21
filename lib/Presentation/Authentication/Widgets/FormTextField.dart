@@ -6,7 +6,7 @@ import 'package:lingo/Core/Helpers/Tools.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
 import 'package:lingo/Core/Utils/Extensions/StringExtensions.dart';
 
-class FormTextField extends StatelessWidget {
+class FormTextField extends StatefulWidget {
   const FormTextField(
       {super.key,
       required this.labelText,
@@ -24,22 +24,50 @@ class FormTextField extends StatelessWidget {
   final bool required;
 
   @override
+  State<FormTextField> createState() => _FormTextFieldState();
+}
+
+class _FormTextFieldState extends State<FormTextField> {
+  var passVisibility = false;
+
+  @override
+  void initState() {
+    if (widget.formTextFieldType == FormTextFieldType.PASSWORD) {
+      passVisibility = true;
+    }
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: controller,
-      obscureText: (formTextFieldType == FormTextFieldType.PASSWORD) ? true : false,
+      controller: widget.controller,
+      obscureText: (widget.formTextFieldType == FormTextFieldType.PASSWORD && !passVisibility)
+          ? true
+          : false,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       style: const TextStyle().withIranSans(color: const Color(0xff666262)),
       decoration: InputDecoration(
-        errorMaxLines: 2,
+          suffixIcon: (widget.formTextFieldType == FormTextFieldType.PASSWORD)
+              ? IconButton(iconSize: 18,
+                  onPressed: () {
+                    setState(() {
+                      passVisibility = !passVisibility;
+                    });
+                  },
+                  icon: Icon(
+                      passVisibility ? Icons.visibility_off : Icons.visibility,))
+              : null,
+          errorMaxLines: 2,
           label: Text(
-        labelText,
-        style: const TextStyle().withIranSans(
-            fontSize: fontSize,
-            color: hintColor ?? Theme.of(context).colorScheme.primary),
-      )),
+            widget.labelText,
+            style: const TextStyle().withIranSans(
+                fontSize: widget.fontSize,
+                color:
+                    widget.hintColor ?? Theme.of(context).colorScheme.primary),
+          )),
       validator: (text) {
-        switch (formTextFieldType) {
+        switch (widget.formTextFieldType) {
           case FormTextFieldType.EMAIL:
             return validateEmail(text);
           case FormTextFieldType.SIMPLE:
@@ -51,42 +79,38 @@ class FormTextField extends StatelessWidget {
     );
   }
 
-  String? validateEmail(String? text){
+  String? validateEmail(String? text) {
     var requiredCheck = validateRequiredField(text);
-    if(requiredCheck != null){
+    if (requiredCheck != null) {
       return requiredCheck;
-    }
-    else{
-      if(!required && (text ?? "").isEmpty) return null;
-      if(text!.isEmail){
+    } else {
+      if (!widget.required && (text ?? "").isEmpty) return null;
+      if (text!.isEmail) {
         return null;
-      }
-      else{
+      } else {
         return StringResource.enterValidEmailError;
       }
     }
   }
 
-  String? validatePassword(String? text){
+  String? validatePassword(String? text) {
     var requiredCheck = validateRequiredField(text);
-    if(requiredCheck != null){
+    if (requiredCheck != null) {
       return requiredCheck;
-    }
-    else{
-      if(!required && (text ?? "").isEmpty) return null;
+    } else {
+      if (!widget.required && (text ?? "").isEmpty) return null;
 
-      if(text!.isValidPass){
+      if (text!.isValidPass) {
         return null;
       }
       return StringResource.passwordValidationError;
     }
   }
 
-  String? validateRequiredField(String? text){
-    if(required && (text ?? "").isEmpty){
+  String? validateRequiredField(String? text) {
+    if (widget.required && (text ?? "").isEmpty) {
       return StringResource.fieldRequiredError;
-    }
-    else{
+    } else {
       return null;
     }
   }
