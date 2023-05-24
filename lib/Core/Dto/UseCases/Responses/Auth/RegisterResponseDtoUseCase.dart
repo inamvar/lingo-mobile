@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:lingo/Core/Dto/UseCases/Responses/TokenResponseDtoUseCase.dart';
+import 'package:lingo/Core/Dto/UseCases/Responses/Auth/TokenResponseDtoUseCase.dart';
 
 part 'RegisterResponseDtoUseCase.freezed.dart';
 part 'RegisterResponseDtoUseCase.g.dart';

@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
 import '../../Dto/UseCases/Responses/ResponseDtoUseCase.dart';
-import '../../Entities/ServerFailure.dart';
+import '../../Dto/Models/ServerFailure.dart';
 
 abstract class BaseRemoteRepository{
   ServerFailure parseServerError(DioError error){

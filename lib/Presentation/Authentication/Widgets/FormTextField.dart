@@ -28,12 +28,12 @@ class FormTextField extends StatefulWidget {
 }
 
 class _FormTextFieldState extends State<FormTextField> {
-  var passVisibility = false;
+  var passVisibility = true;
 
   @override
   void initState() {
     if (widget.formTextFieldType == FormTextFieldType.PASSWORD) {
-      passVisibility = true;
+      passVisibility = false;
     }
     super.initState();
   }

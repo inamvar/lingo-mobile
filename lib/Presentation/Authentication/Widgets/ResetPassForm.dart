@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lingo/Core/Dto/Enums/FormTextFieldType.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
 
 import '../../../Core/Configs/StringResource.dart';
@@ -23,7 +24,10 @@ class ResetPassForm extends StatelessWidget {
           Wrap(
             runSpacing: 5,
             children: const [
-              FormTextField(labelText: StringResource.email,),
+              FormTextField(
+                  required: true,
+                  labelText: StringResource.email,
+                  formTextFieldType: FormTextFieldType.EMAIL),
             ],
           ),
           const SizedBox(
@@ -32,8 +36,8 @@ class ResetPassForm extends StatelessWidget {
           Text(
             StringResource.checkEmailTxt,
             textAlign: TextAlign.center,
-            style: const TextStyle().withIranSans(
-                fontSize: 12, color: colorScheme.primary),
+            style: const TextStyle()
+                .withIranSans(fontSize: 12, color: colorScheme.primary),
           ),
           const SizedBox(
             height: 40,
@@ -43,4 +47,3 @@ class ResetPassForm extends StatelessWidget {
     );
   }
 }
-

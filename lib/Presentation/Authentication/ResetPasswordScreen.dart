@@ -14,8 +14,10 @@ class ResetPasswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseAuthScreen(
         fields: ResetPassForm(),
-        confirmButton: ConfirmButton(bottomMargin: 120,
-            buttonText: StringResource.enter, onConfirm: onConfirm));
+        confirmButton: ConfirmButton(
+            bottomMargin: 120,
+            buttonText: StringResource.enter,
+            onConfirm: onConfirm));
   }
 
   onConfirm() {

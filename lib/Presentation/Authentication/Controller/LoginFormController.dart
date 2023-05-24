@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:lingo/Presentation/Authentication/Controller/AuthenticationScreenController.dart';
 
 import '../../../Core/Dto/Enums/MessageType.dart';
-import '../../../Core/Dto/UseCases/Requests/LoginRequestDtoUseCase.dart';
+import '../../../Core/Dto/UseCases/Requests/Auth/LoginRequestDtoUseCase.dart';
 import '../../../Core/Helpers/ShowMessage.dart';
 import '../../../Core/Interfaces/UseCases/ISignInUseCase.dart';
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lingo/Core/Configs/StringResource.dart';
 import 'package:lingo/Core/Dto/Enums/MessageType.dart';
-import 'package:lingo/Core/Dto/UseCases/Requests/RegisterRequestDtoUseCase.dart';
+import 'package:lingo/Core/Dto/UseCases/Requests/Auth/RegisterRequestDtoUseCase.dart';
 import 'package:lingo/Core/Helpers/ShowMessage.dart';
 
 import '../../../Core/Interfaces/UseCases/IRegisterUseCase.dart';

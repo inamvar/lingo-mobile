@@ -1,4 +1,4 @@
-import 'package:lingo/Core/Entities/Failure.dart';
+import 'package:lingo/Core/Dto/Models/Failure.dart';
 
 class ServerFailure extends Failure {
 

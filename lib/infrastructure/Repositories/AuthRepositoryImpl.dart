@@ -1,12 +1,13 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:lingo/Core/Dto/UseCases/Requests/LoginRequestDtoUseCase.dart';
-import 'package:lingo/Core/Dto/UseCases/Requests/RegisterRequestDtoUseCase.dart';
-import 'package:lingo/Core/Dto/UseCases/Responses/RegisterResponseDtoUseCase.dart';
+import 'package:lingo/Core/Dto/UseCases/Requests/Auth/LoginRequestDtoUseCase.dart';
+import 'package:lingo/Core/Dto/UseCases/Requests/Auth/RegisterRequestDtoUseCase.dart';
+import 'package:lingo/Core/Dto/UseCases/Responses/Auth/RegisterResponseDtoUseCase.dart';
+import 'package:lingo/Core/Dto/Models/BaseNetworkResponse.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/ResponseDtoUseCase.dart';
-import 'package:lingo/Core/Dto/UseCases/Responses/TokenResponseDtoUseCase.dart';
-import 'package:lingo/Core/Entities/Failure.dart';
-import 'package:lingo/Core/Entities/ServerFailure.dart';
+import 'package:lingo/Core/Dto/UseCases/Responses/Auth/TokenResponseDtoUseCase.dart';
+import 'package:lingo/Core/Dto/Models/Failure.dart';
+import 'package:lingo/Core/Dto/Models/ServerFailure.dart';
 import 'package:lingo/Core/Interfaces/DataSources/AuthDataSource/AuthRemoteDataSource.dart';
 import 'package:lingo/Core/Interfaces/Repositories/AuthRemoteRepository.dart';
 
@@ -16,7 +17,7 @@ class AuthRepositoryImpl extends AuthRemoteRepository {
   AuthRepositoryImpl(this.authRemoteDataSource);
 
   @override
-  Future<Either<Failure, TokenResponseDtoUseCase>>? login(
+  Future<Either<Failure, BaseNetworkResponse<TokenResponseDtoUseCase>>>? login(
       LoginRequestDtoUseCase requestDtoUseCase) async {
     try {
       var result = await authRemoteDataSource.login(requestDtoUseCase);
@@ -27,8 +28,8 @@ class AuthRepositoryImpl extends AuthRemoteRepository {
   }
 
   @override
-  Future<Either<Failure, RegisterResponseDtoUseCase>>? register(
-      RegisterRequestDtoUseCase requestDtoUseCase) async{
+  Future<Either<Failure, BaseNetworkResponse<RegisterResponseDtoUseCase>>>? register(
+      RegisterRequestDtoUseCase requestDtoUseCase) async {
     try {
       var result = await authRemoteDataSource.register(requestDtoUseCase);
       return Right(result);
