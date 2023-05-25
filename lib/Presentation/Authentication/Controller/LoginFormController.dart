@@ -5,7 +5,7 @@ import 'package:lingo/Presentation/Authentication/Controller/AuthenticationScree
 import '../../../Core/Dto/Enums/MessageType.dart';
 import '../../../Core/Dto/UseCases/Requests/Auth/LoginRequestDtoUseCase.dart';
 import '../../../Core/Helpers/ShowMessage.dart';
-import '../../../Core/Interfaces/UseCases/ISignInUseCase.dart';
+import '../../../Core/Interfaces/UseCases/Auth/ISignInUseCase.dart';
 
 class LoginFormController extends GetxController {
   final loginFormKey = GlobalKey<FormState>();

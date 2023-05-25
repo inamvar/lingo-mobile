@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lingo/Core/Configs/StringResource.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/User/ForgotPassRequestDtoUseCase.dart';
-import 'package:lingo/Core/Interfaces/UseCases/IForgotPassUseCase.dart';
+import 'package:lingo/Core/Interfaces/UseCases/User/IForgotPassUseCase.dart';
+import 'package:lingo/infrastructure/Navigation/Routes.dart';
 
 import '../../../Core/Dto/Enums/MessageType.dart';
 import '../../../Core/Helpers/ShowMessage.dart';
@@ -41,8 +42,10 @@ class ResetPassScreenController extends GetxController {
                 message: serverError.errorMessage!,
                 type: MessageType.ERROR), (r) {
           ShowMessage.getSnackBar(
-              message: r.message ?? StringResource.resetPassEmailSentMsg,
+              message: StringResource.resetPassEmailSentMsg,
               type: MessageType.SUCCESS);
+          Get.toNamed(Routes.changePassword,
+              arguments: {"email": emailController?.text});
         });
       });
     }

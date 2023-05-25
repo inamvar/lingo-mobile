@@ -3,7 +3,7 @@ import 'package:lingo/Core/Dto/Models/BaseNetworkResponse.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/Auth/RegisterRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/Auth/RegisterResponseDtoUseCase.dart';
 import 'package:lingo/Core/Dto/Models/Failure.dart';
-import 'package:lingo/Core/Interfaces/UseCases/IRegisterUseCase.dart';
+import 'package:lingo/Core/Interfaces/UseCases/Auth/IRegisterUseCase.dart';
 
 import '../../Interfaces/Repositories/AuthRemoteRepository.dart';
 

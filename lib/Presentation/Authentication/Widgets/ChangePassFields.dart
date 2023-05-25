@@ -1,7 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lingo/Core/Dto/Enums/FormTextFieldType.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
+import 'package:lingo/Presentation/Authentication/Controller/ChangePassScreenController.dart';
 
 import '../../../Core/Configs/StringResource.dart';
 import '../Controller/AuthenticationScreenController.dart';
@@ -10,7 +11,7 @@ import 'FormTextField.dart';
 class ChangePassFields extends StatelessWidget {
   ChangePassFields({Key? key}) : super(key: key);
 
-  final controller = Get.find<AuthenticationScreenController>();
+  final controller = Get.find<ChangePassScreenController>();
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +22,30 @@ class ChangePassFields extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Wrap(
-            runSpacing: 5,
-            children: const [
-              FormTextField(labelText: StringResource.confirmCode,),
-              FormTextField(labelText: StringResource.password,),
-              FormTextField(labelText: StringResource.repeatPassword,),
-            ],
+          Form(
+            key: controller.changePassFormKey,
+            child: Wrap(
+              runSpacing: 5,
+              children: [
+                FormTextField(
+                  labelText: StringResource.confirmCode,
+                  controller: controller.codeController,
+                  required: true,
+                ),
+                FormTextField(
+                  labelText: StringResource.password,
+                  controller: controller.passController,
+                  formTextFieldType: FormTextFieldType.PASSWORD,
+                  required: true,
+                ),
+                FormTextField(
+                  labelText: StringResource.repeatPassword,
+                  controller: controller.repeatPassController,
+                  formTextFieldType: FormTextFieldType.PASSWORD,
+                  required: true,
+                ),
+              ],
+            ),
           ),
           const SizedBox(
             height: 130,

@@ -5,7 +5,7 @@ import 'package:lingo/Core/Dto/Enums/MessageType.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/Auth/RegisterRequestDtoUseCase.dart';
 import 'package:lingo/Core/Helpers/ShowMessage.dart';
 
-import '../../../Core/Interfaces/UseCases/IRegisterUseCase.dart';
+import '../../../Core/Interfaces/UseCases/Auth/IRegisterUseCase.dart';
 import 'AuthenticationScreenController.dart';
 
 class RegisterFormController extends GetxController {

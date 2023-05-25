@@ -23,4 +23,5 @@ class StringResource{
   static const formNotValidError = "فرم به درستی تکمیل نشده است.";
   static const passwordMatchError = "رمز عبور با تکرارش برابر نیست.";
   static const resetPassEmailSentMsg = "کد به ایمیل شما ارسال شد!";
+  static const serverErrorOccurred = "خطای سرور";
 }

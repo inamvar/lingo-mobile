@@ -5,4 +5,5 @@ class ApiEndpoints{
 
   ///User Endpoints
   static const String forgotPass = "User/ResetPasswordRequest";
+  static const String resetPass = "User/ResetPassword";
 }
