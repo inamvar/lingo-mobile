@@ -8,7 +8,7 @@ import 'package:lingo/Core/Dto/UseCases/Responses/ResponseDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/Auth/TokenResponseDtoUseCase.dart';
 import 'package:lingo/Core/Dto/Models/Failure.dart';
 import 'package:lingo/Core/Dto/Models/ServerFailure.dart';
-import 'package:lingo/Core/Interfaces/DataSources/AuthDataSource/AuthRemoteDataSource.dart';
+import 'package:lingo/Core/Interfaces/DataSources/AuthRemoteDataSource.dart';
 import 'package:lingo/Core/Interfaces/Repositories/AuthRemoteRepository.dart';
 
 class AuthRepositoryImpl extends AuthRemoteRepository {
