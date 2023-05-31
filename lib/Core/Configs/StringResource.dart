@@ -24,4 +24,6 @@ class StringResource{
   static const passwordMatchError = "رمز عبور با تکرارش برابر نیست.";
   static const resetPassEmailSentMsg = "کد به ایمیل شما ارسال شد!";
   static const serverErrorOccurred = "خطای سرور";
+  static const login = "ورود";
+  static const packages = "پکیج ها";
 }
