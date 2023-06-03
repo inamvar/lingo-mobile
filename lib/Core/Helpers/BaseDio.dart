@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:lingo/Core/Helpers/AuthInterceptor.dart';
 import 'package:lingo/Core/Helpers/BaseBrain.dart';
+import 'package:lingo/Core/Utils/InjectionContainer.dart';
 
 class BaseDio {
   late Dio _dio;
@@ -18,6 +20,8 @@ class BaseDio {
     if(kDebugMode){
       dio.interceptors.add(LogInterceptor(requestBody: true,request: true));
     }
+
+    dio.interceptors.add(AuthInterceptor(dio,iRefreshTokenUseCase: appSingleton()));
 
     return dio;
   }

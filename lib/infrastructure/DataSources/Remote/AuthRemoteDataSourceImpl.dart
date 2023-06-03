@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/Auth/LoginRequestDtoUseCase.dart';
+import 'package:lingo/Core/Dto/UseCases/Requests/Auth/RefreshTokenRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/Auth/RegisterRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/Auth/RegisterResponseDtoUseCase.dart';
 import 'package:lingo/Core/Dto/Models/BaseNetworkResponse.dart';
@@ -38,8 +39,25 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
         .post(ApiEndpoints.register, data: jsonEncode(requestDtoUseCase))
         .then((value) {
       ResponseDtoUseCase response = ResponseDtoUseCase.fromJson(value.data);
-      var dataResponse =  RegisterResponseDtoUseCase.fromJson(response.data!);
+      var dataResponse = RegisterResponseDtoUseCase.fromJson(response.data!);
       return BaseNetworkResponse<RegisterResponseDtoUseCase>(
+          data: dataResponse, message: response.message);
+    });
+
+    return result;
+  }
+
+  @override
+  Future<BaseNetworkResponse<TokenResponseDtoUseCase>> refreshToken(
+      RefreshTokenRequestDtoUseCase requestDtoUseCase) async{
+    var dio = BaseBrain.dio;
+
+    var result = await dio
+        .post(ApiEndpoints.refreshToken, data: jsonEncode(requestDtoUseCase))
+        .then((value) {
+      ResponseDtoUseCase response = ResponseDtoUseCase.fromJson(value.data);
+      var dataResponse = TokenResponseDtoUseCase.fromJson(response.data!);
+      return BaseNetworkResponse<TokenResponseDtoUseCase>(
           data: dataResponse, message: response.message);
     });
 

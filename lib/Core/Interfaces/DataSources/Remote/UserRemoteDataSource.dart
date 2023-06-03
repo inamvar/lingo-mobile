@@ -9,4 +9,5 @@ abstract class UserRemoteDataSource{
 
   Future<BaseNetworkResponse<ResponseDtoUseCase>> resetPass(ResetPassRequestDtoUseCase requestDtoUseCase);
 
+  Future<BaseNetworkResponse<ResponseDtoUseCase>> getProfile();
 }

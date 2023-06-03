@@ -34,4 +34,5 @@ class StringResource{
   static const contactUs = "تماس با ما";
   static const loginSuccessMessage = "ورود با موفقیت انجام شد";
   static const registerSuccessMessage = "ثبت نام با موفقیت انجام شد";
+  static const unauthError = "باید دوباره به حساب خود وارد شوید.";
 }

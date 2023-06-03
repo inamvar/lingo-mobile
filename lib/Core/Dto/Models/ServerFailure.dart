@@ -1,8 +1,8 @@
 import 'package:lingo/Core/Dto/Models/Failure.dart';
 
 class ServerFailure extends Failure {
-
-  ServerFailure({errorMessage}){
+  int? statusCode;
+  ServerFailure( {this.statusCode,errorMessage}){
     this.errorMessage = errorMessage;
   }
 }

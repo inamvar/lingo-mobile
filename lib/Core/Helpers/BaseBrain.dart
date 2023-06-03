@@ -9,4 +9,8 @@ class BaseBrain{
   static late Dio dio;
   static TokenResponseDtoUseCase? authToken;
   static Rx<User> user = User().obs;
+
+  static void logout() {
+    authToken = null;
+  }
 }

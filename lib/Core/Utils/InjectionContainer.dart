@@ -7,15 +7,19 @@ import 'package:lingo/Core/Interfaces/DataSources/Remote/PackagesRemoteDataSourc
 import 'package:lingo/Core/Interfaces/DataSources/Remote/UserRemoteDataSource.dart';
 import 'package:lingo/Core/Interfaces/Repositories/PackagesRemoteRepository.dart';
 import 'package:lingo/Core/Interfaces/Repositories/UserRemoteRepository.dart';
+import 'package:lingo/Core/Interfaces/UseCases/Auth/IRefreshTokenUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Packages/IGetPackagesUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/User/IForgotPassUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Auth/IRegisterUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Auth/ISignInUseCase.dart';
+import 'package:lingo/Core/Interfaces/UseCases/User/IGetProfileUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/User/IResetPassUseCase.dart';
+import 'package:lingo/Core/UseCases/AuthUseCases/RefreshTokenUseCase.dart';
 import 'package:lingo/Core/UseCases/PackagesUseCases/GetPackagesUseCase.dart';
 import 'package:lingo/Core/UseCases/UserUseCases/ForgotPassUseCase.dart';
 import 'package:lingo/Core/UseCases/AuthUseCases/LoginUseCase.dart';
 import 'package:lingo/Core/UseCases/AuthUseCases/RegisterUseCase.dart';
+import 'package:lingo/Core/UseCases/UserUseCases/GetProfileUseCase.dart';
 import 'package:lingo/Core/UseCases/UserUseCases/ResetPassUseCase.dart';
 import 'package:lingo/infrastructure/DataSources/Remote/AuthRemoteDataSourceImpl.dart';
 import 'package:lingo/infrastructure/DataSources/Remote/UserRemoteDataSourceImpl.dart';
@@ -29,7 +33,6 @@ import '../Interfaces/Repositories/AuthRemoteRepository.dart';
 final appSingleton = GetIt.instance;
 
 initInjections() async{
-  BaseBrain.dio = BaseDio().dio;
 
   //UseCases
   appSingleton.registerLazySingleton<ILoginUseCase>(()=> LoginUseCase(repository: appSingleton()));
@@ -37,6 +40,8 @@ initInjections() async{
   appSingleton.registerLazySingleton<IForgotPassUseCase>(()=> ForgotPassUseCase(repository: appSingleton()));
   appSingleton.registerLazySingleton<IResetPassUseCase>(()=> ResetPassUseCase(repository: appSingleton()));
   appSingleton.registerLazySingleton<IGetPackagesUseCase>(()=> GetPackagesUseCase(repository: appSingleton()));
+  appSingleton.registerLazySingleton<IRefreshTokenUseCase>(()=> RefreshTokenUseCase(repository: appSingleton()));
+  appSingleton.registerLazySingleton<IGetProfileUseCase>(()=> GetProfileUseCase(repository: appSingleton()));
 
   //Repositories
   appSingleton.registerLazySingleton<AuthRemoteRepository>(()=> AuthRepositoryImpl(appSingleton()));
@@ -47,4 +52,7 @@ initInjections() async{
   appSingleton.registerLazySingleton<AuthRemoteDataSource>(()=> AuthRemoteDataSourceImpl());
   appSingleton.registerLazySingleton<UserRemoteDataSource>(()=> UserRemoteDataSourceImpl());
   appSingleton.registerLazySingleton<PackagesRemoteDataSource>(()=> PackagesRemoteDataSourceImpl());
+
+  BaseBrain.dio = BaseDio().dio;
+
 }

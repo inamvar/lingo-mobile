@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/Auth/LoginRequestDtoUseCase.dart';
+import 'package:lingo/Core/Dto/UseCases/Requests/Auth/RefreshTokenRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/User/ForgotPassRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/Auth/RegisterResponseDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/Auth/TokenResponseDtoUseCase.dart';
@@ -16,4 +17,7 @@ abstract class AuthRemoteRepository extends BaseRemoteRepository {
 
   Future<Either<Failure, BaseNetworkResponse<RegisterResponseDtoUseCase>>>? register(
       RegisterRequestDtoUseCase requestDtoUseCase);
+
+  Future<Either<Failure, BaseNetworkResponse<TokenResponseDtoUseCase>>>? refreshToken(
+      RefreshTokenRequestDtoUseCase requestDtoUseCase);
 }

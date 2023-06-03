@@ -13,6 +13,7 @@ abstract class BaseRemoteRepository{
           errorResponse.errorMessages!.isNotEmpty) {
         serverError.errorMessage = errorResponse.errorMessages![0];
       }
+      serverError.statusCode = error.response?.statusCode;
     }
     return serverError;
   }

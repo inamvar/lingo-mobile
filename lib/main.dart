@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lingo/Core/Configs/LingoTheme.dart';
+import 'package:lingo/Core/Helpers/BaseBrain.dart';
 import 'package:lingo/Core/Utils/InjectionContainer.dart';
+import 'package:lingo/infrastructure/DataSources/Local/IdentityLocalDataSourceImpl.dart';
 
 import 'infrastructure/Navigation/Routes.dart';
 
 void main() async{
   await initInjections();
+  WidgetsFlutterBinding.ensureInitialized();
+  BaseBrain.authToken = await IdentityLocalDataSourceImpl.getToken();
   runApp(const MyApp());
 }
 

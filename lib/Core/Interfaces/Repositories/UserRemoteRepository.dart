@@ -7,12 +7,13 @@ import '../../Dto/Models/Failure.dart';
 import '../../Dto/UseCases/Requests/User/ForgotPassRequestDtoUseCase.dart';
 import '../../Dto/UseCases/Responses/ResponseDtoUseCase.dart';
 
-abstract class UserRemoteRepository extends BaseRemoteRepository{
-  Future<Either<Failure,BaseNetworkResponse<ResponseDtoUseCase>>>? forgotPass(
-      ForgotPassRequestDtoUseCase requestDtoUseCase
-      );
+abstract class UserRemoteRepository extends BaseRemoteRepository {
+  Future<Either<Failure, BaseNetworkResponse<ResponseDtoUseCase>>>? forgotPass(
+      ForgotPassRequestDtoUseCase requestDtoUseCase);
 
-  Future<Either<Failure,BaseNetworkResponse<ResponseDtoUseCase>>>? resetPass(
-      ResetPassRequestDtoUseCase requestDtoUseCase
-      );
+  Future<Either<Failure, BaseNetworkResponse<ResponseDtoUseCase>>>? resetPass(
+      ResetPassRequestDtoUseCase requestDtoUseCase);
+
+  Future<Either<Failure, BaseNetworkResponse<ResponseDtoUseCase>>>?
+      getProfile();
 }

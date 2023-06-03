@@ -34,4 +34,14 @@ class UserRepositoryImpl extends UserRemoteRepository {
       return Left(parseServerError(error));
     }
   }
+
+  @override
+  Future<Either<Failure, BaseNetworkResponse<ResponseDtoUseCase>>>? getProfile() async{
+    try {
+      var result = await userRemoteDataSource.getProfile();
+      return Right(result);
+    } on DioError catch (error) {
+      return Left(parseServerError(error));
+    }
+  }
 }

@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/Auth/LoginRequestDtoUseCase.dart';
+import 'package:lingo/Core/Dto/UseCases/Requests/Auth/RefreshTokenRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/Auth/RegisterRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/Auth/RegisterResponseDtoUseCase.dart';
 import 'package:lingo/Core/Dto/Models/BaseNetworkResponse.dart';
@@ -28,10 +29,21 @@ class AuthRepositoryImpl extends AuthRemoteRepository {
   }
 
   @override
-  Future<Either<Failure, BaseNetworkResponse<RegisterResponseDtoUseCase>>>? register(
-      RegisterRequestDtoUseCase requestDtoUseCase) async {
+  Future<Either<Failure, BaseNetworkResponse<RegisterResponseDtoUseCase>>>?
+      register(RegisterRequestDtoUseCase requestDtoUseCase) async {
     try {
       var result = await authRemoteDataSource.register(requestDtoUseCase);
+      return Right(result);
+    } on DioError catch (error) {
+      return Left(parseServerError(error));
+    }
+  }
+
+  @override
+  Future<Either<Failure, BaseNetworkResponse<TokenResponseDtoUseCase>>>?
+      refreshToken(RefreshTokenRequestDtoUseCase requestDtoUseCase) async{
+    try {
+      var result = await authRemoteDataSource.refreshToken(requestDtoUseCase);
       return Right(result);
     } on DioError catch (error) {
       return Left(parseServerError(error));
