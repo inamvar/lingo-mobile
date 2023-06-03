@@ -26,4 +26,10 @@ class StringResource{
   static const serverErrorOccurred = "خطای سرور";
   static const login = "ورود";
   static const packages = "پکیج ها";
+  static const guestUser = "کاربر مهمان";
+  static const home = "خانه";
+  static const freePackages = "پکیج های رایگان";
+  static const educationalPackages = "پکیج های آموزشی";
+  static const discounts = "تخفیف ها";
+  static const contactUs = "تماس با ما";
 }
