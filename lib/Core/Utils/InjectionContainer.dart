@@ -2,9 +2,9 @@
 import 'package:get_it/get_it.dart';
 import 'package:lingo/Core/Helpers/BaseBrain.dart';
 import 'package:lingo/Core/Helpers/BaseDio.dart';
-import 'package:lingo/Core/Interfaces/DataSources/AuthRemoteDataSource.dart';
-import 'package:lingo/Core/Interfaces/DataSources/PackagesRemoteDataSource.dart';
-import 'package:lingo/Core/Interfaces/DataSources/UserRemoteDataSource.dart';
+import 'package:lingo/Core/Interfaces/DataSources/Remote/AuthRemoteDataSource.dart';
+import 'package:lingo/Core/Interfaces/DataSources/Remote/PackagesRemoteDataSource.dart';
+import 'package:lingo/Core/Interfaces/DataSources/Remote/UserRemoteDataSource.dart';
 import 'package:lingo/Core/Interfaces/Repositories/PackagesRemoteRepository.dart';
 import 'package:lingo/Core/Interfaces/Repositories/UserRemoteRepository.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Packages/IGetPackagesUseCase.dart';
@@ -17,13 +17,13 @@ import 'package:lingo/Core/UseCases/UserUseCases/ForgotPassUseCase.dart';
 import 'package:lingo/Core/UseCases/AuthUseCases/LoginUseCase.dart';
 import 'package:lingo/Core/UseCases/AuthUseCases/RegisterUseCase.dart';
 import 'package:lingo/Core/UseCases/UserUseCases/ResetPassUseCase.dart';
-import 'package:lingo/infrastructure/DataSources/AuthRemoteDataSourceImpl.dart';
-import 'package:lingo/infrastructure/DataSources/UserRemoteDataSourceImpl.dart';
+import 'package:lingo/infrastructure/DataSources/Remote/AuthRemoteDataSourceImpl.dart';
+import 'package:lingo/infrastructure/DataSources/Remote/UserRemoteDataSourceImpl.dart';
 import 'package:lingo/infrastructure/Repositories/AuthRepositoryImpl.dart';
 import 'package:lingo/infrastructure/Repositories/PackagesRepositoryImpl.dart';
 import 'package:lingo/infrastructure/Repositories/UserRepositoryImpl.dart';
 
-import '../../infrastructure/DataSources/PackagesRemoteDataSourceImpl.dart';
+import '../../infrastructure/DataSources/Remote/PackagesRemoteDataSourceImpl.dart';
 import '../Interfaces/Repositories/AuthRemoteRepository.dart';
 
 final appSingleton = GetIt.instance;

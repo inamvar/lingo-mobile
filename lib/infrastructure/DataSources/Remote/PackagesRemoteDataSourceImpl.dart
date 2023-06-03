@@ -1,11 +1,11 @@
 import 'package:lingo/Core/Dto/Models/BaseNetworkResponse.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/Packages/GetPackagesRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/Packages/GetPackagesResponseDtoUseCase.dart';
-import 'package:lingo/Core/Interfaces/DataSources/PackagesRemoteDataSource.dart';
+import 'package:lingo/Core/Interfaces/DataSources/Remote/PackagesRemoteDataSource.dart';
 
-import '../../Core/Dto/UseCases/Responses/ResponseDtoUseCase.dart';
-import '../../Core/Helpers/BaseBrain.dart';
-import '../../Core/Utils/ApiEndpoints.dart';
+import '../../../Core/Dto/UseCases/Responses/ResponseDtoUseCase.dart';
+import '../../../Core/Helpers/BaseBrain.dart';
+import '../../../Core/Utils/ApiEndpoints.dart';
 
 class PackagesRemoteDataSourceImpl extends PackagesRemoteDataSource {
   @override

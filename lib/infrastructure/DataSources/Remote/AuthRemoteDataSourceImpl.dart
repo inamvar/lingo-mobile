@@ -8,7 +8,7 @@ import 'package:lingo/Core/Dto/Models/BaseNetworkResponse.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/ResponseDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/Auth/TokenResponseDtoUseCase.dart';
 import 'package:lingo/Core/Helpers/BaseBrain.dart';
-import 'package:lingo/Core/Interfaces/DataSources/AuthRemoteDataSource.dart';
+import 'package:lingo/Core/Interfaces/DataSources/Remote/AuthRemoteDataSource.dart';
 import 'package:lingo/Core/Utils/ApiEndpoints.dart';
 
 class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {

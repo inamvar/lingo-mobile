@@ -5,7 +5,7 @@ import 'package:lingo/Core/Dto/Models/Failure.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/User/ForgotPassRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/User/ResetPassRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/ResponseDtoUseCase.dart';
-import 'package:lingo/Core/Interfaces/DataSources/UserRemoteDataSource.dart';
+import 'package:lingo/Core/Interfaces/DataSources/Remote/UserRemoteDataSource.dart';
 import 'package:lingo/Core/Interfaces/Repositories/UserRemoteRepository.dart';
 
 class UserRepositoryImpl extends UserRemoteRepository {

@@ -8,6 +8,7 @@ import 'package:lingo/Presentation/Main/Controller/MainScreenController.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 import '../../Core/Configs/StringResource.dart';
+import '../../infrastructure/Navigation/Routes.dart';
 import 'Widgets/DrawerWidget.dart';
 
 class MainScreen extends StatelessWidget {
@@ -52,7 +53,9 @@ class MainScreen extends StatelessWidget {
                       text: StringResource.login,
                       width: 79,
                       height: 40,
-                      onClick: () {},
+                      onClick: () {
+                        Get.toNamed(Routes.authentication);
+                      },
                     )
                   ],
                 ),

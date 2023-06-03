@@ -66,7 +66,7 @@ class DrawerWidget extends StatelessWidget {
                     child: InkWell(
                       onTap: () {},
                       child: ListTile(
-                        contentPadding: EdgeInsets.only(right: 35),
+                        contentPadding: const EdgeInsets.only(right: 35),
                         title: Text(
                           StringResource.register,
                           style: const TextStyle().withIranSans(
@@ -82,7 +82,7 @@ class DrawerWidget extends StatelessWidget {
                     child: InkWell(
                       onTap: () {},
                       child: ListTile(
-                        contentPadding: EdgeInsets.only(right: 35),
+                        contentPadding: const EdgeInsets.only(right: 35),
                         title: Text(
                           StringResource.home,
                           style: const TextStyle().withIranSans(
@@ -98,7 +98,7 @@ class DrawerWidget extends StatelessWidget {
                     child: InkWell(
                       onTap: () {},
                       child: ListTile(
-                        contentPadding: EdgeInsets.only(right: 35),
+                        contentPadding: const EdgeInsets.only(right: 35),
                         title: Text(
                           StringResource.freePackages,
                           style: const TextStyle().withIranSans(
@@ -114,7 +114,7 @@ class DrawerWidget extends StatelessWidget {
                     child: InkWell(
                       onTap: () {},
                       child: ListTile(
-                        contentPadding: EdgeInsets.only(right: 35),
+                        contentPadding: const EdgeInsets.only(right: 35),
                         title: Text(
                           StringResource.educationalPackages,
                           style: const TextStyle().withIranSans(
@@ -130,7 +130,7 @@ class DrawerWidget extends StatelessWidget {
                     child: InkWell(
                       onTap: () {},
                       child: ListTile(
-                        contentPadding: EdgeInsets.only(right: 35),
+                        contentPadding: const EdgeInsets.only(right: 35),
                         title: Text(
                           StringResource.discounts,
                           style: const TextStyle().withIranSans(
@@ -151,7 +151,7 @@ class DrawerWidget extends StatelessWidget {
                     child: InkWell(
                       onTap: () {},
                       child: ListTile(
-                        contentPadding: EdgeInsets.only(right: 35),
+                        contentPadding: const EdgeInsets.only(right: 35),
                         title: Text(
                           StringResource.contactUs,
                           style: const TextStyle().withIranSans(

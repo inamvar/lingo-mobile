@@ -4,6 +4,7 @@ import 'package:lingo/Core/Configs/StringResource.dart';
 import 'package:lingo/Core/Dto/Enums/MessageType.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/Auth/RegisterRequestDtoUseCase.dart';
 import 'package:lingo/Core/Helpers/ShowMessage.dart';
+import 'package:lingo/infrastructure/DataSources/Local/IdentityLocalDataSourceImpl.dart';
 
 import '../../../Core/Interfaces/UseCases/Auth/IRegisterUseCase.dart';
 import 'AuthenticationScreenController.dart';
@@ -82,8 +83,10 @@ class RegisterFormController extends GetxController {
             (serverError) => ShowMessage.getSnackBar(
                 message: serverError.errorMessage!,
                 type: MessageType.ERROR), (response) {
+          IdentityLocalDataSourceImpl.saveToken(response.data!.authToken!);
           ShowMessage.getSnackBar(
-              message: "Register Success", type: MessageType.SUCCESS);
+              message: StringResource.registerSuccessMessage,
+              type: MessageType.SUCCESS);
         });
       });
     } else {

@@ -32,4 +32,6 @@ class StringResource{
   static const educationalPackages = "پکیج های آموزشی";
   static const discounts = "تخفیف ها";
   static const contactUs = "تماس با ما";
+  static const loginSuccessMessage = "ورود با موفقیت انجام شد";
+  static const registerSuccessMessage = "ثبت نام با موفقیت انجام شد";
 }

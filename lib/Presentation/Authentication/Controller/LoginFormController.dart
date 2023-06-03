@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lingo/Core/Configs/StringResource.dart';
 import 'package:lingo/Presentation/Authentication/Controller/AuthenticationScreenController.dart';
+import 'package:lingo/infrastructure/DataSources/Local/IdentityLocalDataSourceImpl.dart';
 
 import '../../../Core/Dto/Enums/MessageType.dart';
 import '../../../Core/Dto/UseCases/Requests/Auth/LoginRequestDtoUseCase.dart';
@@ -49,9 +51,11 @@ class LoginFormController extends GetxController {
         response.fold(
             (serverError) => ShowMessage.getSnackBar(
                 message: serverError.errorMessage!,
-                type: MessageType.ERROR), (r) {
+                type: MessageType.ERROR), (response) {
           ShowMessage.getSnackBar(
-              message: "Login Success", type: MessageType.SUCCESS);
+              message: StringResource.loginSuccessMessage,
+              type: MessageType.SUCCESS);
+          IdentityLocalDataSourceImpl.saveToken(response.data!);
         });
       });
     } else {}
