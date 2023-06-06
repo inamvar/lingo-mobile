@@ -43,7 +43,7 @@ class ConfirmButton extends StatelessWidget {
     return Center(
       child: Text(
         buttonText,
-        style: const TextStyle().withIranSans(color: Colors.white),
+        style: const TextStyle().withIranSans(fontSize: 15,fontWeight: FontWeight.bold,color: Colors.white),
       ),
     );
   }

@@ -51,7 +51,7 @@ class LoginForm extends StatelessWidget {
               child: Text(
                 StringResource.forgotPassword,
                 style: const TextStyle()
-                    .withIranSans(fontSize: 12, color: colorScheme.primary),
+                    .withIranSans(fontSize: 12, color: colorScheme.primary,fontWeight: FontWeight.bold),
               )),
           const SizedBox(
             height: 60,
@@ -63,7 +63,7 @@ class LoginForm extends StatelessWidget {
               child: Text(
                 StringResource.registerButtonTxt,
                 style: const TextStyle()
-                    .withIranSans(fontSize: 12, color: colorScheme.primary),
+                    .withIranSans(fontSize: 14, color: colorScheme.primary,fontWeight: FontWeight.bold),
               )),
         ],
       ),

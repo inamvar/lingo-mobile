@@ -74,7 +74,7 @@ class RegisterForm extends StatelessWidget {
               child: Text(
                 StringResource.loginIntoAccount,
                 style: const TextStyle()
-                    .withIranSans(fontSize: 12, color: colorScheme.primary),
+                    .withIranSans(fontSize: 14,fontWeight: FontWeight.bold, color: colorScheme.primary),
               )),
         ],
       ),

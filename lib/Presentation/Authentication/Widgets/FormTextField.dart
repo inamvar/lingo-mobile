@@ -13,7 +13,7 @@ class FormTextField extends StatefulWidget {
       this.hintColor,
       this.controller,
       this.formTextFieldType = FormTextFieldType.SIMPLE,
-      this.fontSize = 13,
+      this.fontSize = 14,
       this.required = false});
 
   final String labelText;
