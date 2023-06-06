@@ -5,6 +5,7 @@ import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
 import 'package:lingo/Presentation/Authentication/Widgets/ConfirmButton.dart';
 
 import '../../../Core/Configs/StringResource.dart';
+import '../../../infrastructure/Navigation/Routes.dart';
 
 class BaseAuthScreen extends StatelessWidget {
   const BaseAuthScreen(
@@ -25,6 +26,7 @@ class BaseAuthScreen extends StatelessWidget {
         backgroundColor: colorScheme.background,
         leading: IconButton(
             onPressed: () {
+              Get.until((route) => route.settings.name == Routes.main);
             },
             icon: const FaIcon(
               FontAwesomeIcons.house,

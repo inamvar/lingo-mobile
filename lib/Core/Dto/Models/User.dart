@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'User.g.dart';
 
-@JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
+@JsonSerializable()
 class User {
   User({this.firstName, this.lastName, this.email, this.phoneNumber});
 

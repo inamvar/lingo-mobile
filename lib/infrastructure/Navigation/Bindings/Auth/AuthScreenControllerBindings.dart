@@ -9,8 +9,8 @@ class AuthScreenControllerBindings extends Bindings {
   void dependencies() {
     Get.lazyPut<AuthenticationScreenController>(
         () => AuthenticationScreenController());
-    Get.lazyPut<LoginFormController>(
-        () => LoginFormController(iLoginUseCase: appSingleton()));
+    Get.lazyPut<LoginFormController>(() => LoginFormController(
+        iGetProfileUseCase: appSingleton(), iLoginUseCase: appSingleton()));
     Get.lazyPut<RegisterFormController>(
         () => RegisterFormController(iRegisterUseCase: appSingleton()));
   }

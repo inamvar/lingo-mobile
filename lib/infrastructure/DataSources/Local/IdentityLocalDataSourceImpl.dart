@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:lingo/Core/Dto/Models/User.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/Auth/TokenResponseDtoUseCase.dart';
 import 'package:lingo/Core/Helpers/BaseBrain.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -16,5 +17,18 @@ class IdentityLocalDataSourceImpl {
     if(!prefs.containsKey("token")) return null;
     return TokenResponseDtoUseCase.fromJson(
         jsonDecode(prefs.getString("token") ?? ""));
+  }
+
+  static Future<bool> saveUser(User user) async {
+    final prefs = await SharedPreferences.getInstance();
+    BaseBrain.user.value = user;
+    return prefs.setString('user', jsonEncode(user.toJson()));
+  }
+
+  static Future<User?> getUser() async{
+    final prefs = await SharedPreferences.getInstance();
+    if(!prefs.containsKey("user")) return null;
+    return User.fromJson(
+        jsonDecode(prefs.getString("user") ?? ""));
   }
 }

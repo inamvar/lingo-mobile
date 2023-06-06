@@ -23,18 +23,20 @@ class HomeScreenController extends GetxController {
 
   @override
   void onInit() {
-    refreshController = RefreshController();
-
-    getProducts(isFirstTime: true);
-
+    resetRefreshController();
     super.onInit();
   }
 
+  @override
+  void onReady() {
+    getProducts(isFirstTime: true);
+
+    super.onReady();
+  }
 
   @override
   void onClose() {
     refreshController.dispose();
-
     super.onClose();
   }
 
@@ -77,5 +79,9 @@ class HomeScreenController extends GetxController {
     currentPage = 1;
     packages.clear();
     getProducts(isFirstTime: false);
+  }
+
+  void resetRefreshController() {
+    refreshController = RefreshController();
   }
 }

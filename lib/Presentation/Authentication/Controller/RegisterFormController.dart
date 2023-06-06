@@ -3,10 +3,14 @@ import 'package:get/get.dart';
 import 'package:lingo/Core/Configs/StringResource.dart';
 import 'package:lingo/Core/Dto/Enums/MessageType.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/Auth/RegisterRequestDtoUseCase.dart';
+import 'package:lingo/Core/Dto/UseCases/Responses/Auth/RegisterResponseDtoUseCase.dart';
 import 'package:lingo/Core/Helpers/ShowMessage.dart';
 import 'package:lingo/infrastructure/DataSources/Local/IdentityLocalDataSourceImpl.dart';
 
+import '../../../Core/Dto/Models/User.dart';
+import '../../../Core/Helpers/BaseBrain.dart';
 import '../../../Core/Interfaces/UseCases/Auth/IRegisterUseCase.dart';
+import '../../../infrastructure/Navigation/Routes.dart';
 import 'AuthenticationScreenController.dart';
 
 class RegisterFormController extends GetxController {
@@ -83,7 +87,9 @@ class RegisterFormController extends GetxController {
             (serverError) => ShowMessage.getSnackBar(
                 message: serverError.errorMessage!,
                 type: MessageType.ERROR), (response) {
-          IdentityLocalDataSourceImpl.saveToken(response.data!.authToken!);
+          storeAuthInfo(response.data!);
+          Get.back();
+
           ShowMessage.getSnackBar(
               message: StringResource.registerSuccessMessage,
               type: MessageType.SUCCESS);
@@ -93,6 +99,14 @@ class RegisterFormController extends GetxController {
       ShowMessage.getSnackBar(
           message: StringResource.formNotValidError, type: MessageType.WARNING);
     }
+  }
+
+  storeAuthInfo(RegisterResponseDtoUseCase response) {
+    IdentityLocalDataSourceImpl.saveToken(response.authToken!);
+
+    User user = User.fromJson(response.toJson());
+
+    IdentityLocalDataSourceImpl.saveUser(user);
   }
 
   bool isFormValid() {
