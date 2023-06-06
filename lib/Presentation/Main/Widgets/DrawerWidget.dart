@@ -60,8 +60,10 @@ class DrawerWidget extends StatelessWidget {
                     ),
                     TextButton(
                         onPressed: () {
-                          Get.back();
-                          Get.toNamed(Routes.authentication);
+                          if(!BaseBrain.isLogin.value){
+                            Get.back();
+                            Get.toNamed(Routes.authentication);
+                          }
                         },
                         child: Text(
                           (BaseBrain.isLogin.value)
