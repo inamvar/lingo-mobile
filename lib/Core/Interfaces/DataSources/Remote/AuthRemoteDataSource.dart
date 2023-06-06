@@ -17,4 +17,6 @@ abstract class AuthRemoteDataSource {
 
   Future<BaseNetworkResponse<TokenResponseDtoUseCase>> refreshToken(
       RefreshTokenRequestDtoUseCase requestDtoUseCase);
+
+  Future<BaseNetworkResponse<ResponseDtoUseCase>> logout();
 }

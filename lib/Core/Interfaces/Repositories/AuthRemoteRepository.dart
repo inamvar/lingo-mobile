@@ -20,4 +20,6 @@ abstract class AuthRemoteRepository extends BaseRemoteRepository {
 
   Future<Either<Failure, BaseNetworkResponse<TokenResponseDtoUseCase>>>? refreshToken(
       RefreshTokenRequestDtoUseCase requestDtoUseCase);
+
+  Future<Either<Failure, BaseNetworkResponse<ResponseDtoUseCase>>>? logout();
 }

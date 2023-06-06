@@ -63,4 +63,19 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
 
     return result;
   }
+
+  @override
+  Future<BaseNetworkResponse<ResponseDtoUseCase>> logout() async{
+    var dio = BaseBrain.dio;
+
+    var result = await dio
+        .get(ApiEndpoints.logout)
+        .then((value) {
+      ResponseDtoUseCase response = ResponseDtoUseCase.fromJson(value.data);
+      return BaseNetworkResponse<ResponseDtoUseCase>(
+          data: response, message: response.message);
+    });
+
+    return result;
+  }
 }

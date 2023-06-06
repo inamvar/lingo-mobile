@@ -49,4 +49,14 @@ class AuthRepositoryImpl extends AuthRemoteRepository {
       return Left(parseServerError(error));
     }
   }
+
+  @override
+  Future<Either<Failure, BaseNetworkResponse<ResponseDtoUseCase>>>? logout() async {
+    try {
+      var result = await authRemoteDataSource.logout();
+      return Right(result);
+    } on DioError catch (error) {
+      return Left(parseServerError(error));
+    }
+  }
 }

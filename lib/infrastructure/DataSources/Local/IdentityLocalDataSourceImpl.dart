@@ -22,6 +22,7 @@ class IdentityLocalDataSourceImpl {
   static Future<bool> saveUser(User user) async {
     final prefs = await SharedPreferences.getInstance();
     BaseBrain.user.value = user;
+    BaseBrain.isLogin.value = true;
     return prefs.setString('user', jsonEncode(user.toJson()));
   }
 
@@ -30,5 +31,11 @@ class IdentityLocalDataSourceImpl {
     if(!prefs.containsKey("user")) return null;
     return User.fromJson(
         jsonDecode(prefs.getString("user") ?? ""));
+  }
+
+  static Future<void> logout()async {
+    final prefs = await SharedPreferences.getInstance();
+    await Future.wait([prefs.remove("user"),prefs.remove("token")]);
+    return;
   }
 }

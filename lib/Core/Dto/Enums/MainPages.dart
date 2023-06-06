@@ -1,0 +1,1 @@
+enum MainPage {HOME,PROFILE,SEARCH}

@@ -18,12 +18,12 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
-    _controller.resetRefreshController();
+    // _controller.resetRefreshController();
     return SmartRefresher(
       physics: const BouncingScrollPhysics(),
-      controller: RefreshController(),
+      controller: _controller.refreshController,
       enablePullUp: true,
-      enablePullDown: true,
+      enablePullDown: false,
       footer: const ClassicFooter(
         idleText: "",
         noDataText: "",

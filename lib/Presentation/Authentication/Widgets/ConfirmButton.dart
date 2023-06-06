@@ -29,6 +29,7 @@ class ConfirmButton extends StatelessWidget {
           color: const Color(0xffFC0706).withOpacity(0.75),
           child: InkWell(
             onTap: (isLoading) ? null : () {
+              FocusManager.instance.primaryFocus?.unfocus();
               onConfirm();
             },
             child: (isLoading) ? buildLoading() : buildText(),

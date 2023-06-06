@@ -7,6 +7,7 @@ import 'package:lingo/Core/Interfaces/DataSources/Remote/PackagesRemoteDataSourc
 import 'package:lingo/Core/Interfaces/DataSources/Remote/UserRemoteDataSource.dart';
 import 'package:lingo/Core/Interfaces/Repositories/PackagesRemoteRepository.dart';
 import 'package:lingo/Core/Interfaces/Repositories/UserRemoteRepository.dart';
+import 'package:lingo/Core/Interfaces/UseCases/Auth/ILogoutUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Auth/IRefreshTokenUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Packages/IGetPackagesUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/User/IForgotPassUseCase.dart';
@@ -14,6 +15,7 @@ import 'package:lingo/Core/Interfaces/UseCases/Auth/IRegisterUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Auth/ISignInUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/User/IGetProfileUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/User/IResetPassUseCase.dart';
+import 'package:lingo/Core/UseCases/AuthUseCases/LogoutUseCase.dart';
 import 'package:lingo/Core/UseCases/AuthUseCases/RefreshTokenUseCase.dart';
 import 'package:lingo/Core/UseCases/PackagesUseCases/GetPackagesUseCase.dart';
 import 'package:lingo/Core/UseCases/UserUseCases/ForgotPassUseCase.dart';
@@ -42,6 +44,7 @@ initInjections() async{
   appSingleton.registerLazySingleton<IGetPackagesUseCase>(()=> GetPackagesUseCase(repository: appSingleton()));
   appSingleton.registerLazySingleton<IRefreshTokenUseCase>(()=> RefreshTokenUseCase(repository: appSingleton()));
   appSingleton.registerLazySingleton<IGetProfileUseCase>(()=> GetProfileUseCase(repository: appSingleton()));
+  appSingleton.registerLazySingleton<ILogoutUseCase>(()=> LogoutUseCase(repository: appSingleton()));
 
   //Repositories
   appSingleton.registerLazySingleton<AuthRemoteRepository>(()=> AuthRepositoryImpl(appSingleton()));

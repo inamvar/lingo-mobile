@@ -7,7 +7,7 @@ class MainScreenControllerBinding extends Bindings{
   @override
   void dependencies() {
     Get.lazyPut<MainScreenController>(
-            () => MainScreenController());
+            () => MainScreenController(iLogoutUseCase: appSingleton()));
 
     Get.lazyPut<HomeScreenController>(
             () => HomeScreenController(getPackagesUseCase: appSingleton()));

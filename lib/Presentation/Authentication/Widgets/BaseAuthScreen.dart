@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:lingo/Core/Dto/Enums/MainPages.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
 import 'package:lingo/Presentation/Authentication/Widgets/ConfirmButton.dart';
+import 'package:lingo/Presentation/Main/Controller/MainScreenController.dart';
 
 import '../../../Core/Configs/StringResource.dart';
 import '../../../infrastructure/Navigation/Routes.dart';
 
 class BaseAuthScreen extends StatelessWidget {
-  const BaseAuthScreen(
+  BaseAuthScreen(
       {Key? key, required this.fields, required this.confirmButton})
       : super(key: key);
 
   final Widget fields;
   final Widget confirmButton;
+
+  final _controller = Get.find<MainScreenController>();
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +31,7 @@ class BaseAuthScreen extends StatelessWidget {
         leading: IconButton(
             onPressed: () {
               Get.until((route) => route.settings.name == Routes.main);
+              _controller.changePage(page:MainPage.HOME);
             },
             icon: const FaIcon(
               FontAwesomeIcons.house,

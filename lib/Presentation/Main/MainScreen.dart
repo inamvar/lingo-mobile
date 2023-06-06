@@ -24,7 +24,7 @@ class MainScreen extends StatelessWidget {
     return Scaffold(
       key: _key,
       backgroundColor: const Color(0xffEDEFF3),
-      drawer: const Drawer(
+      drawer: Drawer(
         child: DrawerWidget(),
       ),
       body: SafeArea(
@@ -48,15 +48,6 @@ class MainScreen extends StatelessWidget {
                       height: 60,
                       width: 128,
                     ),
-                    CustomButton(
-                      padding: const EdgeInsets.all(5),
-                      text: StringResource.login,
-                      width: 79,
-                      height: 40,
-                      onClick: () {
-                        Get.toNamed(Routes.authentication);
-                      },
-                    )
                   ],
                 ),
                 Expanded(
@@ -74,11 +65,11 @@ class MainScreen extends StatelessWidget {
             ),
             Align(
               alignment: Alignment.bottomCenter,
-              child: CurvedNavigationBar(
+              child: Obx(() => CurvedNavigationBar(
                 height: 60,
                 backgroundColor: Colors.transparent,
                 color: colorScheme.background,
-                index: 1,
+                index: _controller.currentIndex.value,
                 animationDuration: const Duration(milliseconds: 250),
                 items: const <Widget>[
                   Padding(
@@ -107,10 +98,10 @@ class MainScreen extends StatelessWidget {
                   ),
                 ],
                 onTap: (index) {
-                  _controller.changePage(index);
+                  _controller.changePage(pageIndex: index);
                   //Handle button tap
                 },
-              ),
+              )),
             )
           ],
         ),
@@ -118,4 +109,3 @@ class MainScreen extends StatelessWidget {
     );
   }
 }
-

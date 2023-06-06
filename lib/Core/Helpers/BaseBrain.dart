@@ -11,16 +11,22 @@ class BaseBrain{
   static late Dio dio;
   static TokenResponseDtoUseCase? authToken;
   static Rx<User> user = User().obs;
+  static Rx<bool> isLogin = false.obs;
 
-  static void logout() {
+  static void logout() async{
     authToken = null;
     user.value = User();
+    isLogin.value = false;
+    await IdentityLocalDataSourceImpl.logout();
   }
 
   static void init() async{
     authToken = await IdentityLocalDataSourceImpl.getToken();
     IdentityLocalDataSourceImpl.getUser().then((value) {
-      if(value != null) user.value = value;
+      if(value != null) {
+        user.value = value;
+        isLogin.value = true;
+      }
     });
   }
 }

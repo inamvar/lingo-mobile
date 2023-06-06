@@ -35,4 +35,13 @@ class StringResource{
   static const loginSuccessMessage = "خوش آمدید";
   static const registerSuccessMessage = "ثبت نام با موفقیت انجام شد";
   static const unauthError = "باید دوباره به حساب خود وارد شوید.";
+  static const seeProfile = "مشاهده پروفایل";
+  static const myPackages = "پکیج های من";
+  static const myTransaction = "تراکنش های من";
+  static const logout = "خروج";
+  static const logoutDialogTitle = "خروج از حساب";
+  static const logoutDialogMessage = "آیا میخواهید از حساب خود خارج شوید؟!";
+  static const confirm = "تایید";
+  static const cancel = "لفو";
+  static const logoutSuccessMessage = "خروج از حساب با موفقیت انجام شد.";
 }
