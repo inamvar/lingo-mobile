@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:lingo/Core/Dto/Enums/MainPages.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
-import 'package:lingo/Presentation/Authentication/Widgets/ConfirmButton.dart';
+import 'package:lingo/Presentation/CommonWidgets/ConfirmButton.dart';
 import 'package:lingo/Presentation/Main/Controller/MainScreenController.dart';
 
 import '../../../Core/Configs/StringResource.dart';

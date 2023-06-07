@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:lingo/Core/Configs/StringResource.dart';
 import 'package:lingo/Presentation/Authentication/Widgets/BaseAuthScreen.dart';
 import 'package:lingo/Presentation/Authentication/Widgets/ChangePassFields.dart';
-import 'package:lingo/Presentation/Authentication/Widgets/ConfirmButton.dart';
+import 'package:lingo/Presentation/CommonWidgets/ConfirmButton.dart';
 
 import 'Controller/ChangePassScreenController.dart';
 

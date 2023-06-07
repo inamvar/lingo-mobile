@@ -14,7 +14,9 @@ class FormTextField extends StatefulWidget {
       this.controller,
       this.formTextFieldType = FormTextFieldType.SIMPLE,
       this.fontSize = 14,
-      this.required = false});
+      this.required = false,
+      this.readOnly = false,
+      this.autovalidateMode = AutovalidateMode.onUserInteraction});
 
   final String labelText;
   final Color? hintColor;
@@ -22,6 +24,8 @@ class FormTextField extends StatefulWidget {
   final FormTextFieldType formTextFieldType;
   final double fontSize;
   final bool required;
+  final bool readOnly;
+  final AutovalidateMode? autovalidateMode;
 
   @override
   State<FormTextField> createState() => _FormTextFieldState();
@@ -41,22 +45,26 @@ class _FormTextFieldState extends State<FormTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      readOnly: widget.readOnly,
       controller: widget.controller,
-      obscureText: (widget.formTextFieldType == FormTextFieldType.PASSWORD && !passVisibility)
+      obscureText: (widget.formTextFieldType == FormTextFieldType.PASSWORD &&
+              !passVisibility)
           ? true
           : false,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
+      autovalidateMode: widget.autovalidateMode,
       style: const TextStyle().withIranSans(color: const Color(0xff666262)),
       decoration: InputDecoration(
           suffixIcon: (widget.formTextFieldType == FormTextFieldType.PASSWORD)
-              ? IconButton(iconSize: 18,
+              ? IconButton(
+                  iconSize: 18,
                   onPressed: () {
                     setState(() {
                       passVisibility = !passVisibility;
                     });
                   },
                   icon: Icon(
-                      passVisibility ? Icons.visibility_off : Icons.visibility,))
+                    passVisibility ? Icons.visibility_off : Icons.visibility,
+                  ))
               : null,
           errorMaxLines: 2,
           label: Text(

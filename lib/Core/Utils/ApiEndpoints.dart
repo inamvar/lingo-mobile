@@ -9,6 +9,7 @@ class ApiEndpoints{
   static const String forgotPass = "User/ResetPasswordRequest";
   static const String resetPass = "User/ResetPassword";
   static const String profile = "User/Profile";
+  static const String changePassword = "User/ChangePassword";
 
   ///Packages Endpoints
   static const String findAll = "Package";

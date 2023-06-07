@@ -6,7 +6,7 @@ import 'package:lingo/Presentation/Authentication/Controller/ResetPassScreenCont
 
 import '../../../Core/Configs/StringResource.dart';
 import '../Controller/AuthenticationScreenController.dart';
-import 'FormTextField.dart';
+import '../../CommonWidgets/FormTextField.dart';
 
 class ResetPassForm extends StatelessWidget {
   ResetPassForm({Key? key}) : super(key: key);

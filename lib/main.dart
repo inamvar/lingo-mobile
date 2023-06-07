@@ -10,7 +10,7 @@ import 'infrastructure/Navigation/Routes.dart';
 void main() async{
   await initInjections();
   WidgetsFlutterBinding.ensureInitialized();
-  BaseBrain.init();
+  await BaseBrain.init();
   runApp(const MyApp());
 }
 

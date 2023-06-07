@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:lingo/Core/Utils/InjectionContainer.dart';
 import 'package:lingo/Presentation/Home/Contoller/HomeScreenController.dart';
 import 'package:lingo/Presentation/Main/Controller/MainScreenController.dart';
+import 'package:lingo/Presentation/Profile/Controller/ProfileScreenController.dart';
 
 class MainScreenControllerBinding extends Bindings{
   @override
@@ -11,6 +12,9 @@ class MainScreenControllerBinding extends Bindings{
 
     Get.lazyPut<HomeScreenController>(
             () => HomeScreenController(getPackagesUseCase: appSingleton()));
+
+    Get.lazyPut<ProfileScreenController>(
+            () => ProfileScreenController());
   }
 
 }

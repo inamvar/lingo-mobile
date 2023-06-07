@@ -44,4 +44,11 @@ class StringResource{
   static const confirm = "تایید";
   static const cancel = "لفو";
   static const logoutSuccessMessage = "خروج از حساب با موفقیت انجام شد.";
+  static const profileInfo = "اطلاعات پروفایل";
+  static const confirmChanges = "ثبت تغییرات";
+  static const iWantChangePass = "قصد تغییر رمز دارم";
+  static const oldPassword = "رمز عبور قدیمی";
+  static const changePass = "تغییر رمز";
+  static const back = "بازگشت";
+  static const editProfileSuccessMessage = "اطلاعات پروفایل با موفقیت ویرایش شد.";
 }

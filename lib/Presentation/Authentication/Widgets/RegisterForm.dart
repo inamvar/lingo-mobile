@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:lingo/Core/Dto/Enums/FormTextFieldType.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
 import 'package:lingo/Presentation/Authentication/Controller/RegisterFormController.dart';
-import 'package:lingo/Presentation/Authentication/Widgets/FormTextField.dart';
+import 'package:lingo/Presentation/CommonWidgets/FormTextField.dart';
 
 import '../../../Core/Configs/StringResource.dart';
 

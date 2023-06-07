@@ -4,7 +4,7 @@ import 'package:lingo/Core/Configs/StringResource.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
 import 'package:lingo/Presentation/Authentication/Controller/AuthenticationScreenController.dart';
 import 'package:lingo/Presentation/Authentication/Widgets/BaseAuthScreen.dart';
-import 'package:lingo/Presentation/Authentication/Widgets/ConfirmButton.dart';
+import 'package:lingo/Presentation/CommonWidgets/ConfirmButton.dart';
 import 'package:lingo/Presentation/Authentication/Widgets/LoginForm.dart';
 import 'package:lingo/Presentation/Authentication/Widgets/RegisterForm.dart';
 

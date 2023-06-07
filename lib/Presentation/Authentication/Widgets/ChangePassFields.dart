@@ -6,7 +6,7 @@ import 'package:lingo/Presentation/Authentication/Controller/ChangePassScreenCon
 
 import '../../../Core/Configs/StringResource.dart';
 import '../Controller/AuthenticationScreenController.dart';
-import 'FormTextField.dart';
+import '../../CommonWidgets/FormTextField.dart';
 
 class ChangePassFields extends StatelessWidget {
   ChangePassFields({Key? key}) : super(key: key);

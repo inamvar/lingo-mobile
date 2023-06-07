@@ -20,7 +20,7 @@ class BaseBrain{
     await IdentityLocalDataSourceImpl.logout();
   }
 
-  static void init() async{
+  static Future<void> init() async{
     authToken = await IdentityLocalDataSourceImpl.getToken();
     IdentityLocalDataSourceImpl.getUser().then((value) {
       if(value != null) {

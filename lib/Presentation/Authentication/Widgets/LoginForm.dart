@@ -6,7 +6,7 @@ import 'package:lingo/Presentation/Authentication/Controller/LoginFormController
 
 import '../../../Core/Configs/StringResource.dart';
 import '../../../infrastructure/Navigation/Routes.dart';
-import 'FormTextField.dart';
+import '../../CommonWidgets/FormTextField.dart';
 
 class LoginForm extends StatelessWidget {
   LoginForm({Key? key}) : super(key: key);
