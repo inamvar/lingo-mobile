@@ -51,4 +51,7 @@ class StringResource{
   static const changePass = "تغییر رمز";
   static const back = "بازگشت";
   static const editProfileSuccessMessage = "اطلاعات پروفایل با موفقیت ویرایش شد.";
+  static const searchScreenTitle = "مهارت مورد نظر خود را جست و جو کنید...";
+  static const nothingSearchedYet = "چیزی جستجو نشده است.";
+  static const noResult = "نتیجه ای یافت نشد.";
 }

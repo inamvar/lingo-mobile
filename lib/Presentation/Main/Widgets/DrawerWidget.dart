@@ -64,6 +64,9 @@ class DrawerWidget extends StatelessWidget {
                             Get.back();
                             Get.toNamed(Routes.authentication);
                           }
+                          else{
+                            _mainScreenController.navProfileButtonClick();
+                          }
                         },
                         child: Text(
                           (BaseBrain.isLogin.value)
@@ -86,9 +89,7 @@ class DrawerWidget extends StatelessWidget {
                       color: const Color(0xffEDEFF3),
                       child: InkWell(
                         onTap: () {
-                          Get.back();
-                          Get.until((route) => route.settings.name == Routes.main);
-                          _mainScreenController.changePage(page: MainPage.HOME);
+                          _mainScreenController.navHomeButtonClick();
                         },
                         child: ListTile(
                           contentPadding: const EdgeInsets.only(right: 35),

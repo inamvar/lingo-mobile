@@ -4,10 +4,12 @@ import 'package:lingo/Core/Helpers/BaseDio.dart';
 import 'package:lingo/Core/Interfaces/DataSources/Remote/AuthRemoteDataSource.dart';
 import 'package:lingo/Core/Interfaces/DataSources/Remote/PackagesRemoteDataSource.dart';
 import 'package:lingo/Core/Interfaces/DataSources/Remote/UserRemoteDataSource.dart';
+import 'package:lingo/Core/Interfaces/Repositories/GeneralRemoteRepository.dart';
 import 'package:lingo/Core/Interfaces/Repositories/PackagesRemoteRepository.dart';
 import 'package:lingo/Core/Interfaces/Repositories/UserRemoteRepository.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Auth/ILogoutUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Auth/IRefreshTokenUseCase.dart';
+import 'package:lingo/Core/Interfaces/UseCases/General/ISearchUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Packages/IGetPackagesUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/User/IChangePassUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/User/IForgotPassUseCase.dart';
@@ -18,6 +20,7 @@ import 'package:lingo/Core/Interfaces/UseCases/User/IResetPassUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/User/IUpdateProfileUseCase.dart';
 import 'package:lingo/Core/UseCases/AuthUseCases/LogoutUseCase.dart';
 import 'package:lingo/Core/UseCases/AuthUseCases/RefreshTokenUseCase.dart';
+import 'package:lingo/Core/UseCases/General/SearchUseCase.dart';
 import 'package:lingo/Core/UseCases/PackagesUseCases/GetPackagesUseCase.dart';
 import 'package:lingo/Core/UseCases/UserUseCases/ChangePassUseCase.dart';
 import 'package:lingo/Core/UseCases/UserUseCases/ForgotPassUseCase.dart';
@@ -28,10 +31,13 @@ import 'package:lingo/Core/UseCases/UserUseCases/ResetPassUseCase.dart';
 import 'package:lingo/infrastructure/DataSources/Remote/AuthRemoteDataSourceImpl.dart';
 import 'package:lingo/infrastructure/DataSources/Remote/UserRemoteDataSourceImpl.dart';
 import 'package:lingo/infrastructure/Repositories/AuthRepositoryImpl.dart';
+import 'package:lingo/infrastructure/Repositories/GeneralRepositoryImpl.dart';
 import 'package:lingo/infrastructure/Repositories/PackagesRepositoryImpl.dart';
 import 'package:lingo/infrastructure/Repositories/UserRepositoryImpl.dart';
 
+import '../../infrastructure/DataSources/Remote/GeneralRemoteDataSourceImpl.dart';
 import '../../infrastructure/DataSources/Remote/PackagesRemoteDataSourceImpl.dart';
+import '../Interfaces/DataSources/Remote/GeneralRemoteDataSource.dart';
 import '../Interfaces/Repositories/AuthRemoteRepository.dart';
 import '../UseCases/UserUseCases/UpdateProfileUseCase.dart';
 
@@ -59,6 +65,8 @@ initInjections() async {
       () => UpdateProfileUseCase(repository: appSingleton()));
   appSingleton.registerLazySingleton<IChangePassUseCase>(
       () => ChangePassUseCase(repository: appSingleton()));
+  appSingleton.registerLazySingleton<ISearchUseCase>(
+      () => SearchUseCase(repository: appSingleton()));
 
   //Repositories
   appSingleton.registerLazySingleton<AuthRemoteRepository>(
@@ -67,6 +75,8 @@ initInjections() async {
       () => UserRepositoryImpl(appSingleton()));
   appSingleton.registerLazySingleton<PackagesRemoteRepository>(
       () => PackagesRepositoryImpl(appSingleton()));
+  appSingleton.registerLazySingleton<GeneralRemoteRepository>(
+      () => GeneralRepositoryImpl(appSingleton()));
 
   //Data Sources
   appSingleton.registerLazySingleton<AuthRemoteDataSource>(
@@ -75,6 +85,8 @@ initInjections() async {
       () => UserRemoteDataSourceImpl());
   appSingleton.registerLazySingleton<PackagesRemoteDataSource>(
       () => PackagesRemoteDataSourceImpl());
+  appSingleton.registerLazySingleton<GeneralRemoteDataSource>(
+      () => GeneralRemoteDataSourceImpl());
 
   BaseBrain.dio = BaseDio().dio;
 }

@@ -3,6 +3,7 @@ import 'package:lingo/Core/Utils/InjectionContainer.dart';
 import 'package:lingo/Presentation/Home/Contoller/HomeScreenController.dart';
 import 'package:lingo/Presentation/Main/Controller/MainScreenController.dart';
 import 'package:lingo/Presentation/Profile/Controller/ProfileScreenController.dart';
+import 'package:lingo/Presentation/Search/Controller/SearchScreenController.dart';
 
 class MainScreenControllerBinding extends Bindings{
   @override
@@ -15,6 +16,10 @@ class MainScreenControllerBinding extends Bindings{
 
     Get.lazyPut<ProfileScreenController>(
             () => ProfileScreenController());
+
+    Get.lazyPut<SearchScreenController>(() => SearchScreenController(
+      searchUseCase: appSingleton()
+    ));
   }
 
 }

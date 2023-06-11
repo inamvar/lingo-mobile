@@ -22,6 +22,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       key: _key,
       backgroundColor: const Color(0xffEDEFF3),
       drawer: Drawer(

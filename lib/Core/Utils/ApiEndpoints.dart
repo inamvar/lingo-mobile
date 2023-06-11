@@ -13,4 +13,7 @@ class ApiEndpoints{
 
   ///Packages Endpoints
   static const String findAll = "Package";
+
+  ///General Endpoints
+  static const String search = "Search";
 }
