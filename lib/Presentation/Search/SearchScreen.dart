@@ -16,6 +16,7 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() => Stack(
+      fit: StackFit.expand,
           children: [
             Column(
               children: [
@@ -74,29 +75,25 @@ class SearchScreen extends StatelessWidget {
                 color: Colors.red,
               ),
             if (!_controller.hasSearched.value)
-              Expanded(
-                child: Center(
-                  child: Text(
-                    StringResource.nothingSearchedYet,
-                    style: const TextStyle().withIranSans(
-                        color: const Color(0xffCCCCCC),
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold),
-                  ),
+              Center(
+                child: Text(
+                  StringResource.nothingSearchedYet,
+                  style: const TextStyle().withIranSans(
+                      color: const Color(0xffCCCCCC),
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
             if (_controller.hasSearched.value &&
                 _controller.searchResults.isEmpty &&
                 !_controller.isLoading.value)
-              Expanded(
-                child: Center(
-                  child: Text(
-                    StringResource.noResult,
-                    style: const TextStyle().withIranSans(
-                        color: const Color(0xffCCCCCC),
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold),
-                  ),
+              Center(
+                child: Text(
+                  StringResource.noResult,
+                  style: const TextStyle().withIranSans(
+                      color: const Color(0xffCCCCCC),
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
           ],
