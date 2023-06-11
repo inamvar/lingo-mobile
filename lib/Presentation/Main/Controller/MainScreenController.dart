@@ -51,6 +51,7 @@ class MainScreenController extends GetxController {
 
     currentIndex.value = index;
     update();
+    FocusManager.instance.primaryFocus?.unfocus();
   }
 
   Future<dynamic> logout() async {

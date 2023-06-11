@@ -39,6 +39,7 @@ class MainScreen extends StatelessWidget {
                     IconButton(
                         onPressed: () {
                           _key.currentState?.openDrawer();
+                          FocusManager.instance.primaryFocus?.unfocus();
                         },
                         icon: Icon(
                           FontAwesomeIcons.bars,
