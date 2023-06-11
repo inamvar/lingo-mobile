@@ -73,13 +73,11 @@ class MainScreenController extends GetxController {
     Get.back();
     Get.until((route) => route.settings.name == Routes.main);
     changePage(page: MainPage.HOME);
-    FocusManager.instance.primaryFocus?.unfocus();
   }
 
   navProfileButtonClick(){
     Get.back();
     Get.until((route) => route.settings.name == Routes.main);
     changePage(page: MainPage.PROFILE);
-    FocusManager.instance.primaryFocus?.unfocus();
   }
 }
