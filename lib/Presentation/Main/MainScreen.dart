@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:lingo/Core/Helpers/BaseBrain.dart';
 import 'package:lingo/Core/Helpers/ShowMessage.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
 import 'package:lingo/Presentation/CommonWidgets/CustomButton.dart';
@@ -69,6 +70,13 @@ class MainScreen extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: Obx(() => CurvedNavigationBar(
                 height: 60,
+                letIndexChange: (index){
+                  if(index == 0 && BaseBrain.authToken == null){
+                    Get.toNamed(Routes.authentication);
+                    return false;
+                  }
+                  return true;
+                },
                 backgroundColor: Colors.transparent,
                 color: colorScheme.background,
                 index: _controller.currentIndex.value,

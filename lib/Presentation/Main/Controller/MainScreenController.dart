@@ -64,6 +64,7 @@ class MainScreenController extends GetxController {
         ShowMessage.getSnackBar(
             message: StringResource.logoutSuccessMessage,
             type: MessageType.SUCCESS);
+        changePage(page: MainPage.HOME);
         BaseBrain.logout();
       });
     });
