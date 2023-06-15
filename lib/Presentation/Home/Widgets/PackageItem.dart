@@ -1,7 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lingo/Core/Dto/Models/Package.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
+
+import '../../../infrastructure/Navigation/Routes.dart';
 
 class PackageItem extends StatelessWidget {
   const PackageItem({Key? key, required this.package}) : super(key: key);
@@ -10,8 +13,6 @@ class PackageItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var colorScheme = Theme.of(context).colorScheme;
-
     return Container(
       height: 350,
       margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
@@ -20,7 +21,9 @@ class PackageItem extends StatelessWidget {
         child: Material(
           color: Colors.white,
           child: InkWell(
-            onTap: (){},
+            onTap: (){
+              Get.toNamed(Routes.courses,arguments: {"packageSlug":package.slug});
+            },
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
               child: Column(

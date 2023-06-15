@@ -12,6 +12,7 @@ _$_GetPackagesRequestDtoUseCase _$$_GetPackagesRequestDtoUseCaseFromJson(
       pageNumber: json['pageNumber'] as int?,
       pageSize: json['pageSize'] as int?,
       filter: json['filter'] as String?,
+      path: json['path'] as String?,
     );
 
 Map<String, dynamic> _$$_GetPackagesRequestDtoUseCaseToJson(
@@ -20,4 +21,5 @@ Map<String, dynamic> _$$_GetPackagesRequestDtoUseCaseToJson(
       'pageNumber': instance.pageNumber,
       'pageSize': instance.pageSize,
       'filter': instance.filter,
+      'path': instance.path,
     };

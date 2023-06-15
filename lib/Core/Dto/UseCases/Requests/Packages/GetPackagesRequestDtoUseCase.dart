@@ -9,7 +9,8 @@ class GetPackagesRequestDtoUseCase with _$GetPackagesRequestDtoUseCase {
   const factory GetPackagesRequestDtoUseCase({
     int? pageNumber,
     int? pageSize,
-    String? filter
+    String? filter,
+    String? path,
   }) = _GetPackagesRequestDtoUseCase;
 
 

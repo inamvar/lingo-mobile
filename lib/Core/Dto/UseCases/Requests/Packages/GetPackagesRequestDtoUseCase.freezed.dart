@@ -24,6 +24,7 @@ mixin _$GetPackagesRequestDtoUseCase {
   int? get pageNumber => throw _privateConstructorUsedError;
   int? get pageSize => throw _privateConstructorUsedError;
   String? get filter => throw _privateConstructorUsedError;
+  String? get path => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,7 +40,7 @@ abstract class $GetPackagesRequestDtoUseCaseCopyWith<$Res> {
       _$GetPackagesRequestDtoUseCaseCopyWithImpl<$Res,
           GetPackagesRequestDtoUseCase>;
   @useResult
-  $Res call({int? pageNumber, int? pageSize, String? filter});
+  $Res call({int? pageNumber, int? pageSize, String? filter, String? path});
 }
 
 /// @nodoc
@@ -59,6 +60,7 @@ class _$GetPackagesRequestDtoUseCaseCopyWithImpl<$Res,
     Object? pageNumber = freezed,
     Object? pageSize = freezed,
     Object? filter = freezed,
+    Object? path = freezed,
   }) {
     return _then(_value.copyWith(
       pageNumber: freezed == pageNumber
@@ -73,6 +75,10 @@ class _$GetPackagesRequestDtoUseCaseCopyWithImpl<$Res,
           ? _value.filter
           : filter // ignore: cast_nullable_to_non_nullable
               as String?,
+      path: freezed == path
+          ? _value.path
+          : path // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -86,7 +92,7 @@ abstract class _$$_GetPackagesRequestDtoUseCaseCopyWith<$Res>
       __$$_GetPackagesRequestDtoUseCaseCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? pageNumber, int? pageSize, String? filter});
+  $Res call({int? pageNumber, int? pageSize, String? filter, String? path});
 }
 
 /// @nodoc
@@ -105,6 +111,7 @@ class __$$_GetPackagesRequestDtoUseCaseCopyWithImpl<$Res>
     Object? pageNumber = freezed,
     Object? pageSize = freezed,
     Object? filter = freezed,
+    Object? path = freezed,
   }) {
     return _then(_$_GetPackagesRequestDtoUseCase(
       pageNumber: freezed == pageNumber
@@ -119,6 +126,10 @@ class __$$_GetPackagesRequestDtoUseCaseCopyWithImpl<$Res>
           ? _value.filter
           : filter // ignore: cast_nullable_to_non_nullable
               as String?,
+      path: freezed == path
+          ? _value.path
+          : path // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -129,7 +140,7 @@ class _$_GetPackagesRequestDtoUseCase
     with DiagnosticableTreeMixin
     implements _GetPackagesRequestDtoUseCase {
   const _$_GetPackagesRequestDtoUseCase(
-      {this.pageNumber, this.pageSize, this.filter});
+      {this.pageNumber, this.pageSize, this.filter, this.path});
 
   factory _$_GetPackagesRequestDtoUseCase.fromJson(Map<String, dynamic> json) =>
       _$$_GetPackagesRequestDtoUseCaseFromJson(json);
@@ -140,10 +151,12 @@ class _$_GetPackagesRequestDtoUseCase
   final int? pageSize;
   @override
   final String? filter;
+  @override
+  final String? path;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'GetPackagesRequestDtoUseCase(pageNumber: $pageNumber, pageSize: $pageSize, filter: $filter)';
+    return 'GetPackagesRequestDtoUseCase(pageNumber: $pageNumber, pageSize: $pageSize, filter: $filter, path: $path)';
   }
 
   @override
@@ -153,7 +166,8 @@ class _$_GetPackagesRequestDtoUseCase
       ..add(DiagnosticsProperty('type', 'GetPackagesRequestDtoUseCase'))
       ..add(DiagnosticsProperty('pageNumber', pageNumber))
       ..add(DiagnosticsProperty('pageSize', pageSize))
-      ..add(DiagnosticsProperty('filter', filter));
+      ..add(DiagnosticsProperty('filter', filter))
+      ..add(DiagnosticsProperty('path', path));
   }
 
   @override
@@ -165,12 +179,14 @@ class _$_GetPackagesRequestDtoUseCase
                 other.pageNumber == pageNumber) &&
             (identical(other.pageSize, pageSize) ||
                 other.pageSize == pageSize) &&
-            (identical(other.filter, filter) || other.filter == filter));
+            (identical(other.filter, filter) || other.filter == filter) &&
+            (identical(other.path, path) || other.path == path));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, pageNumber, pageSize, filter);
+  int get hashCode =>
+      Object.hash(runtimeType, pageNumber, pageSize, filter, path);
 
   @JsonKey(ignore: true)
   @override
@@ -192,7 +208,8 @@ abstract class _GetPackagesRequestDtoUseCase
   const factory _GetPackagesRequestDtoUseCase(
       {final int? pageNumber,
       final int? pageSize,
-      final String? filter}) = _$_GetPackagesRequestDtoUseCase;
+      final String? filter,
+      final String? path}) = _$_GetPackagesRequestDtoUseCase;
 
   factory _GetPackagesRequestDtoUseCase.fromJson(Map<String, dynamic> json) =
       _$_GetPackagesRequestDtoUseCase.fromJson;
@@ -203,6 +220,8 @@ abstract class _GetPackagesRequestDtoUseCase
   int? get pageSize;
   @override
   String? get filter;
+  @override
+  String? get path;
   @override
   @JsonKey(ignore: true)
   _$$_GetPackagesRequestDtoUseCaseCopyWith<_$_GetPackagesRequestDtoUseCase>
