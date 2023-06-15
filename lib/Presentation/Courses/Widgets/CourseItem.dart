@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
+import 'package:lingo/Core/Utils/Extensions/PriceExtension.dart';
 
 import '../../../Core/Dto/Models/Course.dart';
 
@@ -42,7 +43,7 @@ class CourseItem extends StatelessWidget {
                     thickness: 2,
                   ),
                   Text(
-                    "450,0000 تومان" ?? "",
+                    course.getIRR() ?? "",
                     textAlign: TextAlign.center,
                     style: const TextStyle().withIranSans(
                         fontWeight: FontWeight.bold,
