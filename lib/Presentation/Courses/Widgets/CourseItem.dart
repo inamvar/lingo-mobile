@@ -1,7 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
-import 'package:lingo/Core/Utils/Extensions/PriceExtension.dart';
+import 'package:lingo/Core/Utils/Extensions/CourseExtensions.dart';
+import 'package:lingo/Presentation/CommonWidgets/RoundedNetworkImage.dart';
+import 'package:lingo/infrastructure/Navigation/Routes.dart';
 
 import '../../../Core/Dto/Models/Course.dart';
 
@@ -22,14 +25,16 @@ class CourseItem extends StatelessWidget {
         child: Material(
           color: Colors.white,
           child: InkWell(
-            onTap: () {},
+            onTap: () {
+              Get.toNamed(Routes.courseDetails,arguments: {"courseId": course.id.toString()});
+            },
             child: Padding(
               padding: const EdgeInsets.symmetric(
                   vertical: 20, horizontal: 20),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  CachedNetworkImage(
+                  RoundedNetworkImage(
                       height: 215,
                       imageUrl:
                       course.thumbnailImageUrl ??

@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:lingo/Core/Dto/Models/Chapter.dart';
 
 import 'Discount.dart';
 import 'Pricing.dart';
@@ -18,7 +19,7 @@ class Course with _$Course {
     dynamic? categories,
     int? availableMonth,
     int? sellingType,
-    List<dynamic>? chapters,
+    List<Chapter>? chapters,
     dynamic? teacher,
     dynamic? teacherId,
     dynamic? duration,
@@ -34,6 +35,8 @@ class Course with _$Course {
     int? id,
     DateTime? createdAt,
     DateTime? updatedAt,
+    int? videoCount,
+    String? videoTotalDuration
   }) = _Course;
 
   factory Course.fromJson(Map<String, dynamic> json) => _$CourseFromJson(json);

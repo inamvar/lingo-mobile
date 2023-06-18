@@ -54,4 +54,10 @@ class StringResource{
   static const searchScreenTitle = "مهارت مورد نظر خود را جست و جو کنید...";
   static const nothingSearchedYet = "چیزی جستجو نشده است.";
   static const noResult = "نتیجه ای یافت نشد.";
+  static const chapter = "جلسه";
+  static const courseDescription = "توضیحات دوره";
+  static const courseVideos = "ویدئوهای دوره";
+  static const buyCourseBtn = "دوره را می خرم";
+  static const noVideoCourse = "این دوره ویدئوهای آموزشی ندارد";
+  static const tags = "برچسب ها";
 }

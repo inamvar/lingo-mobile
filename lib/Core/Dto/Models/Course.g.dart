@@ -16,7 +16,9 @@ _$_Course _$$_CourseFromJson(Map<String, dynamic> json) => _$_Course(
       categories: json['categories'],
       availableMonth: json['availableMonth'] as int?,
       sellingType: json['sellingType'] as int?,
-      chapters: json['chapters'] as List<dynamic>?,
+      chapters: (json['chapters'] as List<dynamic>?)
+          ?.map((e) => Chapter.fromJson(e as Map<String, dynamic>))
+          .toList(),
       teacher: json['teacher'],
       teacherId: json['teacherId'],
       duration: json['duration'],
@@ -40,6 +42,8 @@ _$_Course _$$_CourseFromJson(Map<String, dynamic> json) => _$_Course(
       updatedAt: json['updatedAt'] == null
           ? null
           : DateTime.parse(json['updatedAt'] as String),
+      videoCount: json['videoCount'] as int?,
+      videoTotalDuration: json['videoTotalDuration'] as String?,
     );
 
 Map<String, dynamic> _$$_CourseToJson(_$_Course instance) => <String, dynamic>{
@@ -68,4 +72,6 @@ Map<String, dynamic> _$$_CourseToJson(_$_Course instance) => <String, dynamic>{
       'id': instance.id,
       'createdAt': instance.createdAt?.toIso8601String(),
       'updatedAt': instance.updatedAt?.toIso8601String(),
+      'videoCount': instance.videoCount,
+      'videoTotalDuration': instance.videoTotalDuration,
     };

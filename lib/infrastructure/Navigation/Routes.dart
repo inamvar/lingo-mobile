@@ -2,11 +2,13 @@ import 'package:get/get.dart';
 import 'package:lingo/Presentation/Authentication/AuthenticationScreen.dart';
 import 'package:lingo/Presentation/Authentication/ChangePassScreen.dart';
 import 'package:lingo/Presentation/Authentication/ResetPasswordScreen.dart';
+import 'package:lingo/Presentation/CourseDetails/CourseDetailsScreen.dart';
 import 'package:lingo/Presentation/Courses/CoursesScreen.dart';
 import 'package:lingo/Presentation/Main/MainScreen.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/AuthScreenControllerBindings.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/ChangePassControllerBindings.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/ResetPassControllerBindings.dart';
+import 'package:lingo/infrastructure/Navigation/Bindings/Courses/CourseDetailsControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Courses/CoursesScreenControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Main/MainScreenControllerBinding.dart';
 
@@ -31,7 +33,11 @@ class Routes {
     GetPage(
         name: courses,
         page: () => CoursesScreen(),
-        binding: CoursesScreenControllerBinding())
+        binding: CoursesScreenControllerBinding()),
+    GetPage(
+        name: courseDetails,
+        page: () => CourseDetailsScreen(),
+        binding: CourseDetailsControllerBinding())
   ];
 
   static const root = "/";
@@ -46,4 +52,5 @@ class Routes {
 
   //Courses
   static const courses = "${root}Courses";
+  static const courseDetails = "${root}CourseDetails";
 }

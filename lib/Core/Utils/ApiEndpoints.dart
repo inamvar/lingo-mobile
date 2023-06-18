@@ -14,6 +14,9 @@ class ApiEndpoints{
   ///Packages Endpoints
   static const String findAll = "Package";
 
+  ///Course Endpoints
+  static const String course = "Course";
+
   ///General Endpoints
   static const String search = "Search";
 }

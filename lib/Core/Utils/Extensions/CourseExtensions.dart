@@ -1,15 +1,17 @@
 import 'package:lingo/Core/Dto/Models/Course.dart';
 
-extension PriceExtension on Course{
-  String getIRR(){
+import '../../Dto/Models/Chapter.dart';
+
+extension CourseExtensions on Course {
+  String getIRR() {
     var price = "";
     pricings?.forEach((element) {
-      if(element.currencyType! == "IRR") price = element.amount.toString();
+      if (element.currencyType! == "IRR") price = element.amount.toString();
     });
-    return "${seRagham(price)} تومان ";
+    return "${_seRagham(price)} تومان ";
   }
 
-  static String seRagham(String number, {String separator = ","}) {
+  _seRagham(String number, {String separator = ","}) {
     String str = "";
     var numberSplit = number.split('.');
     number = numberSplit[0].replaceAll(separator, '');

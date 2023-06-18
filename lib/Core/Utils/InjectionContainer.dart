@@ -11,6 +11,7 @@ import 'package:lingo/Core/Interfaces/Repositories/PackagesRemoteRepository.dart
 import 'package:lingo/Core/Interfaces/Repositories/UserRemoteRepository.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Auth/ILogoutUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Auth/IRefreshTokenUseCase.dart';
+import 'package:lingo/Core/Interfaces/UseCases/Course/IGetCourseByIdUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Course/IGetPackageCoursesUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/General/ISearchUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Packages/IGetPackagesUseCase.dart';
@@ -23,6 +24,7 @@ import 'package:lingo/Core/Interfaces/UseCases/User/IResetPassUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/User/IUpdateProfileUseCase.dart';
 import 'package:lingo/Core/UseCases/AuthUseCases/LogoutUseCase.dart';
 import 'package:lingo/Core/UseCases/AuthUseCases/RefreshTokenUseCase.dart';
+import 'package:lingo/Core/UseCases/CourseUseCases/GetCourseByIdUseCase.dart';
 import 'package:lingo/Core/UseCases/CourseUseCases/GetPackageCoursesUseCase.dart';
 import 'package:lingo/Core/UseCases/General/SearchUseCase.dart';
 import 'package:lingo/Core/UseCases/PackagesUseCases/GetPackagesUseCase.dart';
@@ -75,6 +77,8 @@ initInjections() async {
       () => SearchUseCase(repository: appSingleton()));
   appSingleton.registerLazySingleton<IGetPackageCoursesUseCase>(
       () => GetPackageCoursesUseCase(appSingleton()));
+  appSingleton.registerLazySingleton<IGetCourseByIdUseCase>(
+      () => GetCourseByIdUseCase(appSingleton()));
 
   //Repositories
   appSingleton.registerLazySingleton<AuthRemoteRepository>(

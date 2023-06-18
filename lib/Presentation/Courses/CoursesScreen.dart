@@ -1,14 +1,10 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
-import 'package:lingo/Core/Dto/Models/Course.dart';
 import 'package:lingo/Presentation/CommonWidgets/BaseScreen.dart';
 import 'package:lingo/Presentation/Courses/Controller/CoursesScreenController.dart';
 import 'package:lingo/Presentation/Courses/Widgets/CoursesList.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-
-import 'Widgets/CourseItem.dart';
 
 class CoursesScreen extends StatelessWidget {
   CoursesScreen({Key? key}) : super(key: key);

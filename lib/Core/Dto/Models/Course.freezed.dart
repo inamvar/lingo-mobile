@@ -29,7 +29,7 @@ mixin _$Course {
   dynamic? get categories => throw _privateConstructorUsedError;
   int? get availableMonth => throw _privateConstructorUsedError;
   int? get sellingType => throw _privateConstructorUsedError;
-  List<dynamic>? get chapters => throw _privateConstructorUsedError;
+  List<Chapter>? get chapters => throw _privateConstructorUsedError;
   dynamic? get teacher => throw _privateConstructorUsedError;
   dynamic? get teacherId => throw _privateConstructorUsedError;
   dynamic? get duration => throw _privateConstructorUsedError;
@@ -45,6 +45,8 @@ mixin _$Course {
   int? get id => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
+  int? get videoCount => throw _privateConstructorUsedError;
+  String? get videoTotalDuration => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -66,7 +68,7 @@ abstract class $CourseCopyWith<$Res> {
       dynamic? categories,
       int? availableMonth,
       int? sellingType,
-      List<dynamic>? chapters,
+      List<Chapter>? chapters,
       dynamic? teacher,
       dynamic? teacherId,
       dynamic? duration,
@@ -81,7 +83,9 @@ abstract class $CourseCopyWith<$Res> {
       Discount? discount,
       int? id,
       DateTime? createdAt,
-      DateTime? updatedAt});
+      DateTime? updatedAt,
+      int? videoCount,
+      String? videoTotalDuration});
 
   $DiscountCopyWith<$Res>? get discount;
 }
@@ -124,6 +128,8 @@ class _$CourseCopyWithImpl<$Res, $Val extends Course>
     Object? id = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
+    Object? videoCount = freezed,
+    Object? videoTotalDuration = freezed,
   }) {
     return _then(_value.copyWith(
       title: freezed == title
@@ -165,7 +171,7 @@ class _$CourseCopyWithImpl<$Res, $Val extends Course>
       chapters: freezed == chapters
           ? _value.chapters
           : chapters // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
+              as List<Chapter>?,
       teacher: freezed == teacher
           ? _value.teacher
           : teacher // ignore: cast_nullable_to_non_nullable
@@ -226,6 +232,14 @@ class _$CourseCopyWithImpl<$Res, $Val extends Course>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      videoCount: freezed == videoCount
+          ? _value.videoCount
+          : videoCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      videoTotalDuration: freezed == videoTotalDuration
+          ? _value.videoTotalDuration
+          : videoTotalDuration // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -258,7 +272,7 @@ abstract class _$$_CourseCopyWith<$Res> implements $CourseCopyWith<$Res> {
       dynamic? categories,
       int? availableMonth,
       int? sellingType,
-      List<dynamic>? chapters,
+      List<Chapter>? chapters,
       dynamic? teacher,
       dynamic? teacherId,
       dynamic? duration,
@@ -273,7 +287,9 @@ abstract class _$$_CourseCopyWith<$Res> implements $CourseCopyWith<$Res> {
       Discount? discount,
       int? id,
       DateTime? createdAt,
-      DateTime? updatedAt});
+      DateTime? updatedAt,
+      int? videoCount,
+      String? videoTotalDuration});
 
   @override
   $DiscountCopyWith<$Res>? get discount;
@@ -314,6 +330,8 @@ class __$$_CourseCopyWithImpl<$Res>
     Object? id = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
+    Object? videoCount = freezed,
+    Object? videoTotalDuration = freezed,
   }) {
     return _then(_$_Course(
       title: freezed == title
@@ -355,7 +373,7 @@ class __$$_CourseCopyWithImpl<$Res>
       chapters: freezed == chapters
           ? _value._chapters
           : chapters // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
+              as List<Chapter>?,
       teacher: freezed == teacher
           ? _value.teacher
           : teacher // ignore: cast_nullable_to_non_nullable
@@ -416,6 +434,14 @@ class __$$_CourseCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      videoCount: freezed == videoCount
+          ? _value.videoCount
+          : videoCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      videoTotalDuration: freezed == videoTotalDuration
+          ? _value.videoTotalDuration
+          : videoTotalDuration // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -433,7 +459,7 @@ class _$_Course implements _Course {
       this.categories,
       this.availableMonth,
       this.sellingType,
-      final List<dynamic>? chapters,
+      final List<Chapter>? chapters,
       this.teacher,
       this.teacherId,
       this.duration,
@@ -448,7 +474,9 @@ class _$_Course implements _Course {
       this.discount,
       this.id,
       this.createdAt,
-      this.updatedAt})
+      this.updatedAt,
+      this.videoCount,
+      this.videoTotalDuration})
       : _tags = tags,
         _chapters = chapters,
         _pricings = pricings;
@@ -482,9 +510,9 @@ class _$_Course implements _Course {
   final int? availableMonth;
   @override
   final int? sellingType;
-  final List<dynamic>? _chapters;
+  final List<Chapter>? _chapters;
   @override
-  List<dynamic>? get chapters {
+  List<Chapter>? get chapters {
     final value = _chapters;
     if (value == null) return null;
     if (_chapters is EqualUnmodifiableListView) return _chapters;
@@ -530,10 +558,14 @@ class _$_Course implements _Course {
   final DateTime? createdAt;
   @override
   final DateTime? updatedAt;
+  @override
+  final int? videoCount;
+  @override
+  final String? videoTotalDuration;
 
   @override
   String toString() {
-    return 'Course(title: $title, description: $description, slug: $slug, tags: $tags, flowStep: $flowStep, code: $code, categories: $categories, availableMonth: $availableMonth, sellingType: $sellingType, chapters: $chapters, teacher: $teacher, teacherId: $teacherId, duration: $duration, imageName: $imageName, imageBucket: $imageBucket, thumbnailImageUrl: $thumbnailImageUrl, package: $package, packageId: $packageId, pricings: $pricings, currentVideo: $currentVideo, costType: $costType, discount: $discount, id: $id, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Course(title: $title, description: $description, slug: $slug, tags: $tags, flowStep: $flowStep, code: $code, categories: $categories, availableMonth: $availableMonth, sellingType: $sellingType, chapters: $chapters, teacher: $teacher, teacherId: $teacherId, duration: $duration, imageName: $imageName, imageBucket: $imageBucket, thumbnailImageUrl: $thumbnailImageUrl, package: $package, packageId: $packageId, pricings: $pricings, currentVideo: $currentVideo, costType: $costType, discount: $discount, id: $id, createdAt: $createdAt, updatedAt: $updatedAt, videoCount: $videoCount, videoTotalDuration: $videoTotalDuration)';
   }
 
   @override
@@ -578,7 +610,11 @@ class _$_Course implements _Course {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+                other.updatedAt == updatedAt) &&
+            (identical(other.videoCount, videoCount) ||
+                other.videoCount == videoCount) &&
+            (identical(other.videoTotalDuration, videoTotalDuration) ||
+                other.videoTotalDuration == videoTotalDuration));
   }
 
   @JsonKey(ignore: true)
@@ -609,7 +645,9 @@ class _$_Course implements _Course {
         discount,
         id,
         createdAt,
-        updatedAt
+        updatedAt,
+        videoCount,
+        videoTotalDuration
       ]);
 
   @JsonKey(ignore: true)
@@ -637,7 +675,7 @@ abstract class _Course implements Course {
       final dynamic? categories,
       final int? availableMonth,
       final int? sellingType,
-      final List<dynamic>? chapters,
+      final List<Chapter>? chapters,
       final dynamic? teacher,
       final dynamic? teacherId,
       final dynamic? duration,
@@ -652,7 +690,9 @@ abstract class _Course implements Course {
       final Discount? discount,
       final int? id,
       final DateTime? createdAt,
-      final DateTime? updatedAt}) = _$_Course;
+      final DateTime? updatedAt,
+      final int? videoCount,
+      final String? videoTotalDuration}) = _$_Course;
 
   factory _Course.fromJson(Map<String, dynamic> json) = _$_Course.fromJson;
 
@@ -675,7 +715,7 @@ abstract class _Course implements Course {
   @override
   int? get sellingType;
   @override
-  List<dynamic>? get chapters;
+  List<Chapter>? get chapters;
   @override
   dynamic? get teacher;
   @override
@@ -706,6 +746,10 @@ abstract class _Course implements Course {
   DateTime? get createdAt;
   @override
   DateTime? get updatedAt;
+  @override
+  int? get videoCount;
+  @override
+  String? get videoTotalDuration;
   @override
   @JsonKey(ignore: true)
   _$$_CourseCopyWith<_$_Course> get copyWith =>
