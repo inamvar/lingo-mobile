@@ -17,6 +17,7 @@ class BeforeLoginDrawerItems extends StatelessWidget {
           color: const Color(0xffEDEFF3),
           child: InkWell(
             onTap: () {
+              Get.back();
               Get.toNamed(Routes.freePackages);
             },
             child: ListTile(
