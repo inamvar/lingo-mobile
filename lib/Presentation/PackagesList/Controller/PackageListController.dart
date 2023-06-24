@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:lingo/Core/Dto/Enums/PackagePath.dart';
+import 'package:lingo/Core/Dto/Enums/PackageType.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../../../Core/Configs/StringResource.dart';
@@ -15,11 +15,11 @@ class PackageListController extends GetxController {
   IGetPackagesUseCase getPackagesUseCase;
 
   PackageListController(
-      {this.path = PackagePath.NONE, required this.getPackagesUseCase}) {
+      {this.type = PackageType.NONE, required this.getPackagesUseCase}) {
     resetRefreshController();
   }
 
-  final PackagePath path;
+  final PackageType type;
 
   var packages = RxList<Package>();
 
@@ -50,7 +50,8 @@ class PackageListController extends GetxController {
     var params = GetPackagesRequestDtoUseCase(
         pageSize: perPage,
         pageNumber: currentPage,
-        path: path == PackagePath.FREE ? "free" : null);
+        filter: type == PackageType.EDUCATIONAL ? "آموزش" : null,
+        path: type == PackageType.FREE ? "free" : null);
 
     getPackagesUseCase.execute(params: params).then((result) {
       isLoading.value = false;

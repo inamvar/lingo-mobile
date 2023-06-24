@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lingo/Core/Configs/StringResource.dart';
-import 'package:lingo/Core/Dto/Enums/PackagePath.dart';
+import 'package:lingo/Core/Dto/Enums/PackageType.dart';
 import 'package:lingo/Core/Utils/InjectionContainer.dart';
 import 'package:lingo/Presentation/CommonWidgets/BaseScreen.dart';
 import 'package:lingo/Presentation/PackagesList/Controller/PackageListController.dart';
@@ -12,7 +12,7 @@ class FreePackagesScreen extends StatelessWidget {
 
   final _controller = Get.put(
       PackageListController(
-          path: PackagePath.FREE, getPackagesUseCase: appSingleton()),
+          type: PackageType.FREE, getPackagesUseCase: appSingleton()),
       tag: "freePackages");
 
   @override

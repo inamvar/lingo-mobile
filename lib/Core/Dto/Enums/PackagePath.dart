@@ -1,1 +1,0 @@
-enum PackagePath {FREE,NONE}

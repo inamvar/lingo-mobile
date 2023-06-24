@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
+import 'package:lingo/Presentation/Main/Controller/MainScreenController.dart';
 import 'package:lingo/infrastructure/Navigation/Routes.dart';
 
 import '../../../Core/Configs/StringResource.dart';
 
 class BeforeLoginDrawerItems extends StatelessWidget {
-  const BeforeLoginDrawerItems({Key? key}) : super(key: key);
+  BeforeLoginDrawerItems({Key? key}) : super(key: key);
+
+  final _controller = Get.find<MainScreenController>();
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +20,7 @@ class BeforeLoginDrawerItems extends StatelessWidget {
           color: const Color(0xffEDEFF3),
           child: InkWell(
             onTap: () {
-              Get.back();
-              Get.toNamed(Routes.freePackages);
+              _controller.navFreePackagesBtnClick();
             },
             child: ListTile(
               contentPadding: const EdgeInsets.only(right: 35),
@@ -35,7 +37,9 @@ class BeforeLoginDrawerItems extends StatelessWidget {
         Material(
           color: const Color(0xffEDEFF3),
           child: InkWell(
-            onTap: () {},
+            onTap: () {
+              _controller.navEduPackagesBtnClick();
+            },
             child: ListTile(
               contentPadding: const EdgeInsets.only(right: 35),
               title: Text(

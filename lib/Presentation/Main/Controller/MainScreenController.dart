@@ -81,4 +81,14 @@ class MainScreenController extends GetxController {
     Get.until((route) => route.settings.name == Routes.main);
     changePage(page: MainPage.PROFILE);
   }
+
+  navFreePackagesBtnClick(){
+    Get.back();
+    Get.toNamed(Routes.freePackages);
+  }
+
+  navEduPackagesBtnClick(){
+    Get.back();
+    Get.toNamed(Routes.eduPackages);
+  }
 }

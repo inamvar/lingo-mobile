@@ -105,7 +105,7 @@ class DrawerWidget extends StatelessWidget {
                     ),
                     (BaseBrain.isLogin.value)
                         ? AfterLoginDrawerItems()
-                        : const BeforeLoginDrawerItems()
+                        : BeforeLoginDrawerItems()
                   ],
                 ),
               ),
