@@ -4,6 +4,7 @@ import 'package:lingo/Presentation/Authentication/ChangePassScreen.dart';
 import 'package:lingo/Presentation/Authentication/ResetPasswordScreen.dart';
 import 'package:lingo/Presentation/CourseDetails/CourseDetailsScreen.dart';
 import 'package:lingo/Presentation/Courses/CoursesScreen.dart';
+import 'package:lingo/Presentation/FreePackages/FreePackagesScreen.dart';
 import 'package:lingo/Presentation/Main/MainScreen.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/AuthScreenControllerBindings.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/ChangePassControllerBindings.dart';
@@ -37,7 +38,8 @@ class Routes {
     GetPage(
         name: courseDetails,
         page: () => CourseDetailsScreen(),
-        binding: CourseDetailsControllerBinding())
+        binding: CourseDetailsControllerBinding()),
+    GetPage(name: freePackages, page: ()=> FreePackagesScreen())
   ];
 
   static const root = "/";
@@ -53,4 +55,7 @@ class Routes {
   //Courses
   static const courses = "${root}Courses";
   static const courseDetails = "${root}CourseDetails";
+
+  //Packages
+  static const freePackages = "${root}FreePackages";
 }

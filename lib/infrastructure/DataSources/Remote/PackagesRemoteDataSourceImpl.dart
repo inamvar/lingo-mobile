@@ -12,8 +12,10 @@ class PackagesRemoteDataSourceImpl extends PackagesRemoteDataSource {
   Future<BaseNetworkResponse<GetPackagesResponseDtoUseCase>> getAllPackages(
       GetPackagesRequestDtoUseCase requestDtoUseCase) async {
     var dio = BaseBrain.dio;
+    var url = ApiEndpoints.findAll;
+    if (requestDtoUseCase.path != null) url = "$url/${requestDtoUseCase.path}";
     var result = await dio
-        .get(ApiEndpoints.findAll, queryParameters: requestDtoUseCase.toJson())
+        .get(url, queryParameters: requestDtoUseCase.toJson())
         .then((value) {
       ResponseDtoUseCase response = ResponseDtoUseCase.fromJson(value.data);
       return BaseNetworkResponse<GetPackagesResponseDtoUseCase>(
