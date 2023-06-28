@@ -25,7 +25,7 @@ mixin _$Package {
   String? get thumbnailImageName => throw _privateConstructorUsedError;
   dynamic? get thumbnailImageBucket => throw _privateConstructorUsedError;
   String? get thumbnailUrl => throw _privateConstructorUsedError;
-  List<Course>? get courses => throw _privateConstructorUsedError;
+  List<Course?>? get courses => throw _privateConstructorUsedError;
   String? get stockIn => throw _privateConstructorUsedError;
   String? get slug => throw _privateConstructorUsedError;
   dynamic? get firstCourseSlug => throw _privateConstructorUsedError;
@@ -50,7 +50,7 @@ abstract class $PackageCopyWith<$Res> {
       String? thumbnailImageName,
       dynamic? thumbnailImageBucket,
       String? thumbnailUrl,
-      List<Course>? courses,
+      List<Course?>? courses,
       String? stockIn,
       String? slug,
       dynamic? firstCourseSlug,
@@ -111,7 +111,7 @@ class _$PackageCopyWithImpl<$Res, $Val extends Package>
       courses: freezed == courses
           ? _value.courses
           : courses // ignore: cast_nullable_to_non_nullable
-              as List<Course>?,
+              as List<Course?>?,
       stockIn: freezed == stockIn
           ? _value.stockIn
           : stockIn // ignore: cast_nullable_to_non_nullable
@@ -157,7 +157,7 @@ abstract class _$$_PackageCopyWith<$Res> implements $PackageCopyWith<$Res> {
       String? thumbnailImageName,
       dynamic? thumbnailImageBucket,
       String? thumbnailUrl,
-      List<Course>? courses,
+      List<Course?>? courses,
       String? stockIn,
       String? slug,
       dynamic? firstCourseSlug,
@@ -215,7 +215,7 @@ class __$$_PackageCopyWithImpl<$Res>
       courses: freezed == courses
           ? _value._courses
           : courses // ignore: cast_nullable_to_non_nullable
-              as List<Course>?,
+              as List<Course?>?,
       stockIn: freezed == stockIn
           ? _value.stockIn
           : stockIn // ignore: cast_nullable_to_non_nullable
@@ -257,7 +257,7 @@ class _$_Package implements _Package {
       this.thumbnailImageName,
       this.thumbnailImageBucket,
       this.thumbnailUrl,
-      final List<Course>? courses,
+      final List<Course?>? courses,
       this.stockIn,
       this.slug,
       this.firstCourseSlug,
@@ -280,9 +280,9 @@ class _$_Package implements _Package {
   final dynamic? thumbnailImageBucket;
   @override
   final String? thumbnailUrl;
-  final List<Course>? _courses;
+  final List<Course?>? _courses;
   @override
-  List<Course>? get courses {
+  List<Course?>? get courses {
     final value = _courses;
     if (value == null) return null;
     if (_courses is EqualUnmodifiableListView) return _courses;
@@ -377,7 +377,7 @@ abstract class _Package implements Package {
       final String? thumbnailImageName,
       final dynamic? thumbnailImageBucket,
       final String? thumbnailUrl,
-      final List<Course>? courses,
+      final List<Course?>? courses,
       final String? stockIn,
       final String? slug,
       final dynamic? firstCourseSlug,
@@ -399,7 +399,7 @@ abstract class _Package implements Package {
   @override
   String? get thumbnailUrl;
   @override
-  List<Course>? get courses;
+  List<Course?>? get courses;
   @override
   String? get stockIn;
   @override

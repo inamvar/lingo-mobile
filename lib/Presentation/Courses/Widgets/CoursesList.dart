@@ -15,7 +15,10 @@ class CoursesList extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemCount: courses.length,
-      itemBuilder: (context, index) => CourseItem(course: courses[index],),
+      itemBuilder: (context, index) => CourseItem(
+        margin: const EdgeInsets.symmetric(horizontal: 60, vertical: 20),
+        course: courses[index],
+      ),
     );
   }
 }

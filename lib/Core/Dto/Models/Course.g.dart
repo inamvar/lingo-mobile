@@ -25,7 +25,9 @@ _$_Course _$$_CourseFromJson(Map<String, dynamic> json) => _$_Course(
       imageName: json['imageName'] as String?,
       imageBucket: json['imageBucket'],
       thumbnailImageUrl: json['thumbnailImageUrl'] as String?,
-      package: json['package'],
+      package: json['package'] == null
+          ? null
+          : Package.fromJson(json['package'] as Map<String, dynamic>),
       packageId: json['packageId'] as int?,
       pricings: (json['pricings'] as List<dynamic>?)
           ?.map((e) => Pricing.fromJson(e as Map<String, dynamic>))

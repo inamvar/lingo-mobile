@@ -36,7 +36,7 @@ mixin _$Course {
   String? get imageName => throw _privateConstructorUsedError;
   dynamic? get imageBucket => throw _privateConstructorUsedError;
   String? get thumbnailImageUrl => throw _privateConstructorUsedError;
-  dynamic? get package => throw _privateConstructorUsedError;
+  Package? get package => throw _privateConstructorUsedError;
   int? get packageId => throw _privateConstructorUsedError;
   List<Pricing>? get pricings => throw _privateConstructorUsedError;
   dynamic? get currentVideo => throw _privateConstructorUsedError;
@@ -75,7 +75,7 @@ abstract class $CourseCopyWith<$Res> {
       String? imageName,
       dynamic? imageBucket,
       String? thumbnailImageUrl,
-      dynamic? package,
+      Package? package,
       int? packageId,
       List<Pricing>? pricings,
       dynamic? currentVideo,
@@ -87,6 +87,7 @@ abstract class $CourseCopyWith<$Res> {
       int? videoCount,
       String? videoTotalDuration});
 
+  $PackageCopyWith<$Res>? get package;
   $DiscountCopyWith<$Res>? get discount;
 }
 
@@ -199,7 +200,7 @@ class _$CourseCopyWithImpl<$Res, $Val extends Course>
       package: freezed == package
           ? _value.package
           : package // ignore: cast_nullable_to_non_nullable
-              as dynamic?,
+              as Package?,
       packageId: freezed == packageId
           ? _value.packageId
           : packageId // ignore: cast_nullable_to_non_nullable
@@ -245,6 +246,18 @@ class _$CourseCopyWithImpl<$Res, $Val extends Course>
 
   @override
   @pragma('vm:prefer-inline')
+  $PackageCopyWith<$Res>? get package {
+    if (_value.package == null) {
+      return null;
+    }
+
+    return $PackageCopyWith<$Res>(_value.package!, (value) {
+      return _then(_value.copyWith(package: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $DiscountCopyWith<$Res>? get discount {
     if (_value.discount == null) {
       return null;
@@ -279,7 +292,7 @@ abstract class _$$_CourseCopyWith<$Res> implements $CourseCopyWith<$Res> {
       String? imageName,
       dynamic? imageBucket,
       String? thumbnailImageUrl,
-      dynamic? package,
+      Package? package,
       int? packageId,
       List<Pricing>? pricings,
       dynamic? currentVideo,
@@ -291,6 +304,8 @@ abstract class _$$_CourseCopyWith<$Res> implements $CourseCopyWith<$Res> {
       int? videoCount,
       String? videoTotalDuration});
 
+  @override
+  $PackageCopyWith<$Res>? get package;
   @override
   $DiscountCopyWith<$Res>? get discount;
 }
@@ -401,7 +416,7 @@ class __$$_CourseCopyWithImpl<$Res>
       package: freezed == package
           ? _value.package
           : package // ignore: cast_nullable_to_non_nullable
-              as dynamic?,
+              as Package?,
       packageId: freezed == packageId
           ? _value.packageId
           : packageId // ignore: cast_nullable_to_non_nullable
@@ -533,7 +548,7 @@ class _$_Course implements _Course {
   @override
   final String? thumbnailImageUrl;
   @override
-  final dynamic? package;
+  final Package? package;
   @override
   final int? packageId;
   final List<Pricing>? _pricings;
@@ -597,7 +612,7 @@ class _$_Course implements _Course {
                 .equals(other.imageBucket, imageBucket) &&
             (identical(other.thumbnailImageUrl, thumbnailImageUrl) ||
                 other.thumbnailImageUrl == thumbnailImageUrl) &&
-            const DeepCollectionEquality().equals(other.package, package) &&
+            (identical(other.package, package) || other.package == package) &&
             (identical(other.packageId, packageId) ||
                 other.packageId == packageId) &&
             const DeepCollectionEquality().equals(other._pricings, _pricings) &&
@@ -637,7 +652,7 @@ class _$_Course implements _Course {
         imageName,
         const DeepCollectionEquality().hash(imageBucket),
         thumbnailImageUrl,
-        const DeepCollectionEquality().hash(package),
+        package,
         packageId,
         const DeepCollectionEquality().hash(_pricings),
         const DeepCollectionEquality().hash(currentVideo),
@@ -682,7 +697,7 @@ abstract class _Course implements Course {
       final String? imageName,
       final dynamic? imageBucket,
       final String? thumbnailImageUrl,
-      final dynamic? package,
+      final Package? package,
       final int? packageId,
       final List<Pricing>? pricings,
       final dynamic? currentVideo,
@@ -729,7 +744,7 @@ abstract class _Course implements Course {
   @override
   String? get thumbnailImageUrl;
   @override
-  dynamic? get package;
+  Package? get package;
   @override
   int? get packageId;
   @override

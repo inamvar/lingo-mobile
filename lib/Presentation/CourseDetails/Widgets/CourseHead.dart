@@ -8,9 +8,9 @@ import '../../../Core/Configs/StringResource.dart';
 import '../../CommonWidgets/RoundedNetworkImage.dart';
 
 class CourseHead extends StatelessWidget {
-  CourseHead({Key? key}) : super(key: key);
+  const CourseHead({Key? key, required this.controller}) : super(key: key);
 
-  final _controller = Get.find<CourseDetailsScreenController>();
+  final CourseDetailsScreenController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class CourseHead extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      _controller.course.value.title ?? "",
+                      controller.course.value.title ?? "",
                       style: const TextStyle().withIranSans(
                           color: colorScheme.background,
                           fontSize: 17,
@@ -43,7 +43,7 @@ class CourseHead extends StatelessWidget {
                     ),
                     RoundedNetworkImage(
                       height: 180,
-                      imageUrl: _controller
+                      imageUrl: controller
                           .course.value.thumbnailImageUrl,
                     )
                   ],
@@ -67,7 +67,7 @@ class CourseHead extends StatelessWidget {
                       borderRadius: BorderRadius.circular(7),
                       color: Colors.white),
                   child: Text(
-                    "${_controller.course.value.videoCount} ${StringResource.chapter}",
+                    "${controller.course.value.videoCount} ${StringResource.chapter}",
                     style: const TextStyle().withIranSans(
                       color: colorScheme.background,
                       fontWeight: FontWeight.bold
@@ -88,7 +88,7 @@ class CourseHead extends StatelessWidget {
                       borderRadius: BorderRadius.circular(7),
                       color: Colors.white),
                   child: Text(
-                  _controller.course.value.videoTotalDuration ?? "00:00:00",
+                    controller.course.value.videoTotalDuration ?? "00:00:00",
                     style: const TextStyle().withIranSans(
                       color: colorScheme.background,
                       fontWeight: FontWeight.bold

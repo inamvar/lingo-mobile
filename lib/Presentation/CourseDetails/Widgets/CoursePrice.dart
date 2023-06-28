@@ -8,9 +8,9 @@ import '../../../Core/Configs/StringResource.dart';
 import '../../CommonWidgets/ConfirmButton.dart';
 
 class CoursePrice extends StatelessWidget {
-  CoursePrice({Key? key}) : super(key: key);
+  const CoursePrice({Key? key, required this.controller}) : super(key: key);
 
-  final _controller = Get.find<CourseDetailsScreenController>();
+  final CourseDetailsScreenController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -19,15 +19,15 @@ class CoursePrice extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            if (_controller.course.value.discount != null)
-              Text(_controller.course.value.getIRR() ?? "",
+            if (controller.course.value.discount != null)
+              Text(controller.course.value.getIRR() ?? "",
                   textAlign: TextAlign.center,
                   style: const TextStyle().withIranSans(
                     textDecoration: TextDecoration.lineThrough,
                     fontSize: 14,
                     color: const Color(0xff525252),
                   )),
-            Text(_controller.course.value.getIRR() ?? "",
+            Text(controller.course.value.getIRR() ?? "",
                 textAlign: TextAlign.center,
                 style: const TextStyle().withIranSans(
                     fontWeight: FontWeight.bold,
@@ -38,7 +38,7 @@ class CoursePrice extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        if (_controller.course.value.discount != null)
+        if (controller.course.value.discount != null)
           SizedBox(
             height: 90,
             child: Stack(
@@ -66,7 +66,7 @@ class CoursePrice extends StatelessWidget {
                             angle: -0.5,
                             child: Center(
                                 child: Text(
-                              "%${(_controller.course.value.discount!.discountValue ?? 0).toString()}",
+                              "%${(controller.course.value.discount!.discountValue ?? 0).toString()}",
                               style: TextStyle().withIranSans(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold),

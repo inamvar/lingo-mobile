@@ -3,18 +3,26 @@ import 'package:lingo/Core/Dto/Models/Course.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Course/IGetCourseByIdUseCase.dart';
 
 import '../../../Core/Configs/StringResource.dart';
+import '../../../Core/Dto/UseCases/Requests/Packages/GetPackagesRequestDtoUseCase.dart';
 import '../../../Core/Helpers/ShowMessage.dart';
+import '../../../Core/Interfaces/UseCases/Course/IGetPackageCoursesUseCase.dart';
 
 class CourseDetailsScreenController extends GetxController {
   Rx<Course> course = const Course().obs;
 
   var isLoading = false.obs;
 
-  final IGetCourseByIdUseCase getCourseByIdUseCase;
+  var isLoadingRelated = false.obs;
 
-  CourseDetailsScreenController(this.getCourseByIdUseCase);
+  final IGetCourseByIdUseCase getCourseByIdUseCase;
+  final IGetPackageCoursesUseCase getRelatedCoursesUseCase;
+
+  CourseDetailsScreenController(
+      this.getCourseByIdUseCase, this.getRelatedCoursesUseCase);
 
   late String courseId;
+
+  var relatedCourses = RxList<Course>();
 
   @override
   void onInit() {
@@ -22,7 +30,6 @@ class CourseDetailsScreenController extends GetxController {
 
     super.onInit();
   }
-
 
   @override
   void onReady() {
@@ -42,6 +49,26 @@ class CourseDetailsScreenController extends GetxController {
               message: serverError.errorMessage ??
                   StringResource.serverErrorOccurred), (response) {
         course.value = response.data!;
+        getRelatedCourses();
+      });
+    });
+  }
+
+  getRelatedCourses(){
+    isLoadingRelated.value = true;
+
+    getRelatedCoursesUseCase.execute(
+      params: GetPackagesRequestDtoUseCase(
+        pageSize: 30,
+        path: course.value.package?.slug
+      )
+    ).then((result) {
+      isLoadingRelated.value = false;
+
+      result.fold((serverError) => ShowMessage.getSnackBar(
+          message: serverError.errorMessage ??
+              StringResource.serverErrorOccurred), (response) {
+        relatedCourses.value = response.data!.data!;
       });
     });
   }

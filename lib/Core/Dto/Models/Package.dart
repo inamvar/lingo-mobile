@@ -14,7 +14,7 @@ class Package with _$Package {
     String? thumbnailImageName,
     dynamic? thumbnailImageBucket,
     String? thumbnailUrl,
-    List<Course>? courses,
+    List<Course?>? courses,
     String? stockIn,
     String? slug,
     dynamic? firstCourseSlug,

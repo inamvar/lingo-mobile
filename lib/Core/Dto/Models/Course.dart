@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:lingo/Core/Dto/Models/Chapter.dart';
+import 'package:lingo/Core/Dto/Models/Package.dart';
 
 import 'Discount.dart';
 import 'Pricing.dart';
@@ -26,7 +27,7 @@ class Course with _$Course {
     String? imageName,
     dynamic? imageBucket,
     String? thumbnailImageUrl,
-    dynamic? package,
+    Package? package,
     int? packageId,
     List<Pricing>? pricings,
     dynamic? currentVideo,

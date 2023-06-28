@@ -6,14 +6,14 @@ import 'package:lingo/Presentation/CourseDetails/Controller/CourseDetailsScreenC
 import '../../../Core/Configs/StringResource.dart';
 
 class CourseVideos extends StatelessWidget {
-  CourseVideos({Key? key}) : super(key: key);
+  const CourseVideos({Key? key, required this.controller}) : super(key: key);
 
-  final _controller = Get.find<CourseDetailsScreenController>();
+  final CourseDetailsScreenController controller;
 
   @override
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
-    if(_controller.course.value.chapters == null || _controller.course.value.chapters!.isEmpty) {
+    if(controller.course.value.chapters == null || controller.course.value.chapters!.isEmpty) {
       return Container(
         padding: EdgeInsets.all(20),
         decoration: BoxDecoration(
@@ -40,10 +40,10 @@ class CourseVideos extends StatelessWidget {
         ListView.builder(
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
-          itemCount: _controller.course.value.chapters?.length,
+          itemCount: controller.course.value.chapters?.length,
           itemBuilder: (context, index) {
             var chapter =
-            _controller.course.value.chapters![index];
+            controller.course.value.chapters![index];
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: ClipRRect(

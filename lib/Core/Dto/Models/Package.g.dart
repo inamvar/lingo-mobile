@@ -13,7 +13,8 @@ _$_Package _$$_PackageFromJson(Map<String, dynamic> json) => _$_Package(
       thumbnailImageBucket: json['thumbnailImageBucket'],
       thumbnailUrl: json['thumbnailUrl'] as String?,
       courses: (json['courses'] as List<dynamic>?)
-          ?.map((e) => Course.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              e == null ? null : Course.fromJson(e as Map<String, dynamic>))
           .toList(),
       stockIn: json['stockIn'] as String?,
       slug: json['slug'] as String?,

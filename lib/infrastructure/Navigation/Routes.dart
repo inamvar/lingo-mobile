@@ -36,10 +36,6 @@ class Routes {
         name: courses,
         page: () => CoursesScreen(),
         binding: CoursesScreenControllerBinding()),
-    GetPage(
-        name: courseDetails,
-        page: () => CourseDetailsScreen(),
-        binding: CourseDetailsControllerBinding()),
     GetPage(name: freePackages, page: () => FreePackagesScreen()),
     GetPage(name: eduPackages, page: () => EducationalPackagesScreen()),
   ];

@@ -7,9 +7,10 @@ import 'package:lingo/Presentation/CourseDetails/Controller/CourseDetailsScreenC
 import '../../../Core/Configs/StringResource.dart';
 
 class CourseDescription extends StatelessWidget {
-  CourseDescription({Key? key}) : super(key: key);
+  const CourseDescription({Key? key, required this.controller}) : super(key: key);
 
-  final _controller = Get.find<CourseDetailsScreenController>();
+  final CourseDetailsScreenController controller;
+
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class CourseDescription extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 fontSize: 16)),
         Html(
-          data: _controller.course.value.description,
+          data: controller.course.value.description,
           style: {
             "body": Style(
               fontFamily: 'IranSans',

@@ -60,4 +60,5 @@ class StringResource{
   static const buyCourseBtn = "دوره را می خرم";
   static const noVideoCourse = "این دوره ویدئوهای آموزشی ندارد";
   static const tags = "برچسب ها";
+  static const relatedCourses = "دوره های مرتبط";
 }
