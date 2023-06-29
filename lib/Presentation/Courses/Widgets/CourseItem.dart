@@ -32,7 +32,7 @@ class CourseItem extends StatelessWidget {
           color: Colors.white,
           child: InkWell(
             onTap: () {
-              Get.to(CourseDetailsScreen(controllerTag: course.id.toString()),
+              Get.to(() => CourseDetailsScreen(controllerTag: course.id.toString()),
                   preventDuplicates: false,
                   arguments: {"courseId": course.id.toString()});
             },

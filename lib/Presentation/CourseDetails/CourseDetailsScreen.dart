@@ -12,6 +12,7 @@ import 'package:lingo/Presentation/CourseDetails/Widgets/CourseHead.dart';
 import 'package:lingo/Presentation/CourseDetails/Widgets/CoursePrice.dart';
 import 'package:lingo/Presentation/CourseDetails/Widgets/CourseTags.dart';
 import 'package:lingo/Presentation/CourseDetails/Widgets/CourseVideos.dart';
+import 'package:lingo/Presentation/CourseDetails/Widgets/RelatedCourses.dart';
 import 'package:lingo/Presentation/Courses/Widgets/CourseItem.dart';
 
 class CourseDetailsScreen extends StatelessWidget {
@@ -46,36 +47,7 @@ class CourseDetailsScreen extends StatelessWidget {
                       CourseDescription(controller: controller),
                       CoursePrice(controller: controller),
                       CourseTags(controller: controller),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            StringResource.relatedCourses,
-                            style: const TextStyle().withIranSans(
-                                color: colorScheme.background,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          SizedBox(
-                            width: double.infinity,
-                            height: 340,
-                            child: ListView.builder(
-                              itemCount: controller.relatedCourses.length,
-                              shrinkWrap: true,
-                              scrollDirection: Axis.horizontal,
-                              itemBuilder: (context, index) {
-                                return CourseItem(
-                                    margin: const EdgeInsets.symmetric(
-                                        horizontal: 10),
-                                    course: controller.relatedCourses[index]);
-                              },
-                            ),
-                          ),
-                        ],
-                      )
+                      RelatedCourses(controller: controller)
                     ],
                   ),
                 ),
