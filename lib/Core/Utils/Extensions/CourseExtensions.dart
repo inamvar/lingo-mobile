@@ -3,9 +3,17 @@ import 'package:lingo/Core/Dto/Models/Course.dart';
 import '../../Dto/Models/Chapter.dart';
 
 extension CourseExtensions on Course {
-  String getIRR() {
+  String getPriceIRR() {
     var price = "";
     pricings?.forEach((element) {
+      if (element.currencyType! == "IRR") price = element.amount.toString();
+    });
+    return "${_seRagham(price)} تومان ";
+  }
+
+  String getFinalPriceIRR() {
+    var price = "";
+    discount?.finalAmounts?.forEach((element) {
       if (element.currencyType! == "IRR") price = element.amount.toString();
     });
     return "${_seRagham(price)} تومان ";

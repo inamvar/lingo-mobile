@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
 import 'package:lingo/Presentation/CourseDetails/Controller/CourseDetailsScreenController.dart';
+import 'package:lingo/infrastructure/Navigation/Routes.dart';
 
 import '../../../Core/Configs/StringResource.dart';
 
@@ -13,17 +14,17 @@ class CourseVideos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
-    if(controller.course.value.chapters == null || controller.course.value.chapters!.isEmpty) {
+    if (controller.course.value.chapters == null ||
+        controller.course.value.chapters!.isEmpty) {
       return Container(
         padding: EdgeInsets.all(20),
         decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(7)
-        ),
+            color: Colors.white, borderRadius: BorderRadius.circular(7)),
         alignment: Alignment.center,
-        child: Text(StringResource.noVideoCourse,style: TextStyle().withIranSans(
-          color: colorScheme.background
-        ),),
+        child: Text(
+          StringResource.noVideoCourse,
+          style: TextStyle().withIranSans(color: colorScheme.background),
+        ),
       );
     }
     return Column(
@@ -42,8 +43,7 @@ class CourseVideos extends StatelessWidget {
           shrinkWrap: true,
           itemCount: controller.course.value.chapters?.length,
           itemBuilder: (context, index) {
-            var chapter =
-            controller.course.value.chapters![index];
+            var chapter = controller.course.value.chapters![index];
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: ClipRRect(
@@ -53,8 +53,8 @@ class CourseVideos extends StatelessWidget {
                   child: ExpansionTile(
                     title: Text(
                       chapter.title ?? "",
-                      style: TextStyle().withIranSans(
-                          fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle().withIranSans(fontWeight: FontWeight.bold),
                     ),
                     children: [
                       const Divider(
@@ -63,8 +63,7 @@ class CourseVideos extends StatelessWidget {
                         endIndent: 10,
                       ),
                       ListView.builder(
-                        physics:
-                        const NeverScrollableScrollPhysics(),
+                        physics: const NeverScrollableScrollPhysics(),
                         itemCount: chapter.videos?.length,
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
@@ -72,7 +71,12 @@ class CourseVideos extends StatelessWidget {
                           return Material(
                             color: Colors.white,
                             child: InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                if (video.isActive!) {
+                                  Get.toNamed(Routes.courseDisplay,
+                                      arguments: {"video": video});
+                                }
+                              },
                               child: ListTile(
                                 leading: Icon(
                                   Icons.local_movies_outlined,
@@ -82,14 +86,10 @@ class CourseVideos extends StatelessWidget {
                                 ),
                                 title: Text(
                                   video.title ?? "",
-                                  style: const TextStyle()
-                                      .withIranSans(
-                                      color: (video
-                                          .isActive ??
-                                          false)
+                                  style: const TextStyle().withIranSans(
+                                      color: (video.isActive ?? false)
                                           ? Colors.black
-                                          : const Color(
-                                          0xff9E9E9E)),
+                                          : const Color(0xff9E9E9E)),
                                 ),
                                 trailing: Icon(
                                   (video.isActive ?? false)

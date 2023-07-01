@@ -24,6 +24,8 @@ class Video with _$Video {
     bool? isActive,
     String? description,
     String? slug,
+    String? videoHls,
+    String? podcastHls,
     int? id,
     DateTime? createdAt,
     DateTime? updatedAt,

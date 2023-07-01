@@ -20,14 +20,14 @@ class CoursePrice extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             if (controller.course.value.discount != null)
-              Text(controller.course.value.getIRR() ?? "",
+              Text(controller.course.value.getPriceIRR() ?? "",
                   textAlign: TextAlign.center,
                   style: const TextStyle().withIranSans(
                     textDecoration: TextDecoration.lineThrough,
                     fontSize: 14,
                     color: const Color(0xff525252),
                   )),
-            Text(controller.course.value.getIRR() ?? "",
+            Text(controller.course.value.getFinalPriceIRR() ?? "",
                 textAlign: TextAlign.center,
                 style: const TextStyle().withIranSans(
                     fontWeight: FontWeight.bold,

@@ -24,6 +24,8 @@ _$_Video _$$_VideoFromJson(Map<String, dynamic> json) => _$_Video(
       isActive: json['isActive'] as bool?,
       description: json['description'] as String?,
       slug: json['slug'] as String?,
+      videoHls: json['videoHls'] as String?,
+      podcastHls: json['podcastHls'] as String?,
       id: json['id'] as int?,
       createdAt: json['createdAt'] == null
           ? null
@@ -51,6 +53,8 @@ Map<String, dynamic> _$$_VideoToJson(_$_Video instance) => <String, dynamic>{
       'isActive': instance.isActive,
       'description': instance.description,
       'slug': instance.slug,
+      'videoHls': instance.videoHls,
+      'podcastHls': instance.podcastHls,
       'id': instance.id,
       'createdAt': instance.createdAt?.toIso8601String(),
       'updatedAt': instance.updatedAt?.toIso8601String(),

@@ -37,6 +37,8 @@ mixin _$Video {
   bool? get isActive => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get slug => throw _privateConstructorUsedError;
+  String? get videoHls => throw _privateConstructorUsedError;
+  String? get podcastHls => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
@@ -69,6 +71,8 @@ abstract class $VideoCopyWith<$Res> {
       bool? isActive,
       String? description,
       String? slug,
+      String? videoHls,
+      String? podcastHls,
       int? id,
       DateTime? createdAt,
       DateTime? updatedAt});
@@ -104,6 +108,8 @@ class _$VideoCopyWithImpl<$Res, $Val extends Video>
     Object? isActive = freezed,
     Object? description = freezed,
     Object? slug = freezed,
+    Object? videoHls = freezed,
+    Object? podcastHls = freezed,
     Object? id = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
@@ -177,6 +183,14 @@ class _$VideoCopyWithImpl<$Res, $Val extends Video>
           ? _value.slug
           : slug // ignore: cast_nullable_to_non_nullable
               as String?,
+      videoHls: freezed == videoHls
+          ? _value.videoHls
+          : videoHls // ignore: cast_nullable_to_non_nullable
+              as String?,
+      podcastHls: freezed == podcastHls
+          ? _value.podcastHls
+          : podcastHls // ignore: cast_nullable_to_non_nullable
+              as String?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -217,6 +231,8 @@ abstract class _$$_VideoCopyWith<$Res> implements $VideoCopyWith<$Res> {
       bool? isActive,
       String? description,
       String? slug,
+      String? videoHls,
+      String? podcastHls,
       int? id,
       DateTime? createdAt,
       DateTime? updatedAt});
@@ -248,6 +264,8 @@ class __$$_VideoCopyWithImpl<$Res> extends _$VideoCopyWithImpl<$Res, _$_Video>
     Object? isActive = freezed,
     Object? description = freezed,
     Object? slug = freezed,
+    Object? videoHls = freezed,
+    Object? podcastHls = freezed,
     Object? id = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
@@ -321,6 +339,14 @@ class __$$_VideoCopyWithImpl<$Res> extends _$VideoCopyWithImpl<$Res, _$_Video>
           ? _value.slug
           : slug // ignore: cast_nullable_to_non_nullable
               as String?,
+      videoHls: freezed == videoHls
+          ? _value.videoHls
+          : videoHls // ignore: cast_nullable_to_non_nullable
+              as String?,
+      podcastHls: freezed == podcastHls
+          ? _value.podcastHls
+          : podcastHls // ignore: cast_nullable_to_non_nullable
+              as String?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -358,6 +384,8 @@ class _$_Video with DiagnosticableTreeMixin implements _Video {
       this.isActive,
       this.description,
       this.slug,
+      this.videoHls,
+      this.podcastHls,
       this.id,
       this.createdAt,
       this.updatedAt});
@@ -400,6 +428,10 @@ class _$_Video with DiagnosticableTreeMixin implements _Video {
   @override
   final String? slug;
   @override
+  final String? videoHls;
+  @override
+  final String? podcastHls;
+  @override
   final int? id;
   @override
   final DateTime? createdAt;
@@ -408,7 +440,7 @@ class _$_Video with DiagnosticableTreeMixin implements _Video {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Video(title: $title, examFileName: $examFileName, courseId: $courseId, chapterId: $chapterId, duration: $duration, size: $size, isFree: $isFree, status: $status, podcastStatus: $podcastStatus, examFileUrl: $examFileUrl, priority: $priority, stockIn: $stockIn, embedPlayer: $embedPlayer, podcastEmbedPlayer: $podcastEmbedPlayer, isActive: $isActive, description: $description, slug: $slug, id: $id, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Video(title: $title, examFileName: $examFileName, courseId: $courseId, chapterId: $chapterId, duration: $duration, size: $size, isFree: $isFree, status: $status, podcastStatus: $podcastStatus, examFileUrl: $examFileUrl, priority: $priority, stockIn: $stockIn, embedPlayer: $embedPlayer, podcastEmbedPlayer: $podcastEmbedPlayer, isActive: $isActive, description: $description, slug: $slug, videoHls: $videoHls, podcastHls: $podcastHls, id: $id, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -433,6 +465,8 @@ class _$_Video with DiagnosticableTreeMixin implements _Video {
       ..add(DiagnosticsProperty('isActive', isActive))
       ..add(DiagnosticsProperty('description', description))
       ..add(DiagnosticsProperty('slug', slug))
+      ..add(DiagnosticsProperty('videoHls', videoHls))
+      ..add(DiagnosticsProperty('podcastHls', podcastHls))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('createdAt', createdAt))
       ..add(DiagnosticsProperty('updatedAt', updatedAt));
@@ -470,6 +504,10 @@ class _$_Video with DiagnosticableTreeMixin implements _Video {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.slug, slug) || other.slug == slug) &&
+            (identical(other.videoHls, videoHls) ||
+                other.videoHls == videoHls) &&
+            (identical(other.podcastHls, podcastHls) ||
+                other.podcastHls == podcastHls) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -498,6 +536,8 @@ class _$_Video with DiagnosticableTreeMixin implements _Video {
         isActive,
         description,
         slug,
+        videoHls,
+        podcastHls,
         id,
         createdAt,
         updatedAt
@@ -536,6 +576,8 @@ abstract class _Video implements Video {
       final bool? isActive,
       final String? description,
       final String? slug,
+      final String? videoHls,
+      final String? podcastHls,
       final int? id,
       final DateTime? createdAt,
       final DateTime? updatedAt}) = _$_Video;
@@ -576,6 +618,10 @@ abstract class _Video implements Video {
   String? get description;
   @override
   String? get slug;
+  @override
+  String? get videoHls;
+  @override
+  String? get podcastHls;
   @override
   int? get id;
   @override

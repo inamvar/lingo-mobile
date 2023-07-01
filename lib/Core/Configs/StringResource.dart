@@ -61,4 +61,6 @@ class StringResource{
   static const noVideoCourse = "این دوره ویدئوهای آموزشی ندارد";
   static const tags = "برچسب ها";
   static const relatedCourses = "دوره های مرتبط";
+  static const downloadFile = "دانلود فایل ضمیمه";
+  static const playAudio = "پخش صوتی ویدیو";
 }

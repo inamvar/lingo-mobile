@@ -7,7 +7,7 @@ import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
 import 'package:lingo/Core/Utils/InjectionContainer.dart';
 import 'package:lingo/Presentation/CommonWidgets/BaseScreen.dart';
 import 'package:lingo/Presentation/CourseDetails/Controller/CourseDetailsScreenController.dart';
-import 'package:lingo/Presentation/CourseDetails/Widgets/CourseDescription.dart';
+import 'package:lingo/Presentation/CommonWidgets/DescriptionWidget.dart';
 import 'package:lingo/Presentation/CourseDetails/Widgets/CourseHead.dart';
 import 'package:lingo/Presentation/CourseDetails/Widgets/CoursePrice.dart';
 import 'package:lingo/Presentation/CourseDetails/Widgets/CourseTags.dart';
@@ -44,7 +44,19 @@ class CourseDetailsScreen extends StatelessWidget {
                     children: [
                       CourseHead(controller: controller),
                       CourseVideos(controller: controller),
-                      CourseDescription(controller: controller),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(StringResource.courseDescription,
+                              style: const TextStyle().withIranSans(
+                                  color: colorScheme.background,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16)),
+                          DescriptionWidget(
+                            content: controller.course.value.description ?? "",
+                          ),
+                        ],
+                      ),
                       CoursePrice(controller: controller),
                       CourseTags(controller: controller),
                       RelatedCourses(controller: controller)

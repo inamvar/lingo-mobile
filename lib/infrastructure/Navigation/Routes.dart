@@ -3,6 +3,8 @@ import 'package:lingo/Presentation/Authentication/AuthenticationScreen.dart';
 import 'package:lingo/Presentation/Authentication/ChangePassScreen.dart';
 import 'package:lingo/Presentation/Authentication/ResetPasswordScreen.dart';
 import 'package:lingo/Presentation/CourseDetails/CourseDetailsScreen.dart';
+import 'package:lingo/Presentation/CourseDisplay/Controller/CourseDisplayScreenController.dart';
+import 'package:lingo/Presentation/CourseDisplay/CourseDisplayScreen.dart';
 import 'package:lingo/Presentation/Courses/CoursesScreen.dart';
 import 'package:lingo/Presentation/EducationalPackages/EducationalPackagesScreen.dart';
 import 'package:lingo/Presentation/FreePackages/FreePackagesScreen.dart';
@@ -11,6 +13,7 @@ import 'package:lingo/infrastructure/Navigation/Bindings/Auth/AuthScreenControll
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/ChangePassControllerBindings.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/ResetPassControllerBindings.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Courses/CourseDetailsControllerBinding.dart';
+import 'package:lingo/infrastructure/Navigation/Bindings/Courses/CourseDisplayControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Courses/CoursesScreenControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Main/MainScreenControllerBinding.dart';
 
@@ -38,6 +41,10 @@ class Routes {
         binding: CoursesScreenControllerBinding()),
     GetPage(name: freePackages, page: () => FreePackagesScreen()),
     GetPage(name: eduPackages, page: () => EducationalPackagesScreen()),
+    GetPage(
+        name: courseDisplay,
+        page: () => CourseDisplayScreen(),
+        binding: CourseDisplayControllerBinding()),
   ];
 
   static const root = "/";
@@ -52,9 +59,11 @@ class Routes {
 
   //Courses
   static const courses = "${root}Courses";
-  static const courseDetails = "${root}CourseDetails";
+  static const courseDetails = "${courses}CourseDetails";
+  static const courseDisplay = "${courses}CourseDisplay";
 
   //Packages
-  static const freePackages = "${root}FreePackages";
-  static const eduPackages = "${root}EduPackages";
+  static const packages = "${root}Packages";
+  static const freePackages = "${packages}FreePackages";
+  static const eduPackages = "${packages}EduPackages";
 }

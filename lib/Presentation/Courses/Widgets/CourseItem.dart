@@ -52,7 +52,7 @@ class CourseItem extends StatelessWidget {
                     thickness: 2,
                   ),
                   Text(
-                    course.getIRR() ?? "",
+                    course.getPriceIRR() ?? "",
                     textAlign: TextAlign.center,
                     style: const TextStyle().withIranSans(
                         fontWeight: FontWeight.bold,

@@ -21,7 +21,7 @@ Discount _$DiscountFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Discount {
   int? get discountValue => throw _privateConstructorUsedError;
-  List<dynamic>? get finalAmounts => throw _privateConstructorUsedError;
+  List<Pricing>? get finalAmounts => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ abstract class $DiscountCopyWith<$Res> {
   factory $DiscountCopyWith(Discount value, $Res Function(Discount) then) =
       _$DiscountCopyWithImpl<$Res, Discount>;
   @useResult
-  $Res call({int? discountValue, List<dynamic>? finalAmounts});
+  $Res call({int? discountValue, List<Pricing>? finalAmounts});
 }
 
 /// @nodoc
@@ -61,7 +61,7 @@ class _$DiscountCopyWithImpl<$Res, $Val extends Discount>
       finalAmounts: freezed == finalAmounts
           ? _value.finalAmounts
           : finalAmounts // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
+              as List<Pricing>?,
     ) as $Val);
   }
 }
@@ -73,7 +73,7 @@ abstract class _$$_DiscountCopyWith<$Res> implements $DiscountCopyWith<$Res> {
       __$$_DiscountCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? discountValue, List<dynamic>? finalAmounts});
+  $Res call({int? discountValue, List<Pricing>? finalAmounts});
 }
 
 /// @nodoc
@@ -98,7 +98,7 @@ class __$$_DiscountCopyWithImpl<$Res>
       finalAmounts: freezed == finalAmounts
           ? _value._finalAmounts
           : finalAmounts // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
+              as List<Pricing>?,
     ));
   }
 }
@@ -106,7 +106,7 @@ class __$$_DiscountCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Discount implements _Discount {
-  const _$_Discount({this.discountValue, final List<dynamic>? finalAmounts})
+  const _$_Discount({this.discountValue, final List<Pricing>? finalAmounts})
       : _finalAmounts = finalAmounts;
 
   factory _$_Discount.fromJson(Map<String, dynamic> json) =>
@@ -114,9 +114,9 @@ class _$_Discount implements _Discount {
 
   @override
   final int? discountValue;
-  final List<dynamic>? _finalAmounts;
+  final List<Pricing>? _finalAmounts;
   @override
-  List<dynamic>? get finalAmounts {
+  List<Pricing>? get finalAmounts {
     final value = _finalAmounts;
     if (value == null) return null;
     if (_finalAmounts is EqualUnmodifiableListView) return _finalAmounts;
@@ -162,14 +162,14 @@ class _$_Discount implements _Discount {
 abstract class _Discount implements Discount {
   const factory _Discount(
       {final int? discountValue,
-      final List<dynamic>? finalAmounts}) = _$_Discount;
+      final List<Pricing>? finalAmounts}) = _$_Discount;
 
   factory _Discount.fromJson(Map<String, dynamic> json) = _$_Discount.fromJson;
 
   @override
   int? get discountValue;
   @override
-  List<dynamic>? get finalAmounts;
+  List<Pricing>? get finalAmounts;
   @override
   @JsonKey(ignore: true)
   _$$_DiscountCopyWith<_$_Discount> get copyWith =>
