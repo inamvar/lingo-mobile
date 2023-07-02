@@ -46,7 +46,9 @@ class SearchScreen extends StatelessWidget {
                         itemBuilder: (context, index) {
                           var item = _controller.searchResults[index];
                           return InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              _controller.handleItemClick(item);
+                            },
                             child: ListTile(
                               contentPadding:
                                   const EdgeInsets.symmetric(horizontal: 35),

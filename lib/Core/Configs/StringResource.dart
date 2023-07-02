@@ -63,4 +63,5 @@ class StringResource{
   static const relatedCourses = "دوره های مرتبط";
   static const downloadFile = "دانلود فایل ضمیمه";
   static const playAudio = "پخش صوتی ویدیو";
+  static const noCourseFound = "دوره ای یافت نشد";
 }

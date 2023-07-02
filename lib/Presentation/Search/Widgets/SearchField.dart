@@ -29,9 +29,11 @@ class SearchField extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(15),
             child: TextField(
-                onChanged: _controller.onSearchTextChanged,
+                onEditingComplete: _controller.onSearchSubmitted,
+                onChanged: _controller.onSearchChanged,
                 controller: _controller.searchFieldController,
                 maxLines: 1,
+                textInputAction: TextInputAction.search,
                 style: const TextStyle().withIranSans(),
                 decoration: InputDecoration(
                     suffixIcon: (_controller.hasSearched.value)
@@ -39,7 +41,7 @@ class SearchField extends StatelessWidget {
                             icon: const Icon(Icons.close),
                             onPressed: () {
                               _controller.searchFieldController?.clear();
-                              _controller.onSearchTextChanged("");
+                              _controller.onSearchSubmitted();
                             },
                           )
                         : const Icon(Icons.search),

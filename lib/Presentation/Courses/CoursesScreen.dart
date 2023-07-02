@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:lingo/Core/Configs/StringResource.dart';
+import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
 import 'package:lingo/Presentation/CommonWidgets/BaseScreen.dart';
 import 'package:lingo/Presentation/Courses/Controller/CoursesScreenController.dart';
 import 'package:lingo/Presentation/Courses/Widgets/CoursesList.dart';
@@ -21,9 +24,14 @@ class CoursesScreen extends StatelessWidget {
       enablePullUp: true,
       enablePullDown: false,
       onLoading: _controller.loadNextPage,
-      footer: const ClassicFooter(
+      footer: ClassicFooter(
         idleText: "",
-        noDataText: "",
+        idleIcon: null,
+        canLoadingIcon: null,
+        noMoreIcon: FaIcon(FontAwesomeIcons.file,color: Colors.grey.shade700),
+        noDataText: StringResource.noCourseFound,
+        textStyle: const TextStyle()
+            .withIranSans(fontSize: 16,color: Colors.grey.shade700, fontWeight: FontWeight.bold),
         loadingText: "",
         failedText: "",
         canLoadingText: "",

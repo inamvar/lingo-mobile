@@ -6,7 +6,10 @@ import 'package:lingo/Core/Dto/Models/SearchItem.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/Packages/GetPackagesRequestDtoUseCase.dart';
 import 'package:lingo/Core/Helpers/ShowMessage.dart';
 import 'package:lingo/Core/Interfaces/UseCases/General/ISearchUseCase.dart';
+import 'package:lingo/infrastructure/Navigation/Routes.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+
+import '../../CourseDetails/CourseDetailsScreen.dart';
 
 class SearchScreenController extends GetxController {
   final ISearchUseCase searchUseCase;
@@ -41,10 +44,16 @@ class SearchScreenController extends GetxController {
     super.onClose();
   }
 
-  onSearchTextChanged(text){
-    hasSearched.value = (text).isNotEmpty;
+  onSearchSubmitted() async{
+    hasSearched.value = (searchFieldController?.text ?? "").isNotEmpty;
     currentPage = 1;
     if(hasSearched.value) search(isFirstTime: true);
+  }
+
+  onSearchChanged(String text){
+    if((searchFieldController?.text ?? "").isEmpty){
+      hasSearched.value = false;
+    }
   }
 
   search({bool isFirstTime = false}) {
@@ -87,5 +96,18 @@ class SearchScreenController extends GetxController {
     currentPage = 1;
     searchResults.clear();
     search(isFirstTime: false);
+  }
+
+  handleItemClick(SearchItem searchItem){
+    switch(searchItem.productType!){
+      case "Package":
+        Get.toNamed(Routes.courses,arguments: {"packageSlug":searchItem.slug ?? ""});
+        break;
+      case "Course":
+        Get.to(() => CourseDetailsScreen(controllerTag: searchItem.slug!),
+            preventDuplicates: false,
+            arguments: {"courseId": searchItem.id!.toString()});
+        break;
+    }
   }
 }

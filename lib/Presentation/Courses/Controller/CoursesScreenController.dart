@@ -65,6 +65,7 @@ class CoursesScreenController extends GetxController{
                   StringResource.serverErrorOccurred),
               (response) {
             courses.addAll(response.data?.data ?? []);
+            if(courses.isEmpty) refreshController.loadNoData();
             maxPage = response.data?.totalPages ?? 1;
           });
     });
@@ -75,7 +76,7 @@ class CoursesScreenController extends GetxController{
       currentPage++;
       getCourses();
     }else{
-      refreshController.loadNoData();
+      refreshController.loadComplete();
     }
   }
 
