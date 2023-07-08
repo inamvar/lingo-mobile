@@ -6,7 +6,9 @@ import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
 import 'package:lingo/Core/Utils/Extensions/StringExtensions.dart';
 import 'package:lingo/Presentation/CommonWidgets/BaseScreen.dart';
 import 'package:lingo/Presentation/CommonWidgets/DescriptionWidget.dart';
+import 'package:lingo/Presentation/CourseDisplay/Controller/SoundPlayerController.dart';
 import 'package:lingo/Presentation/CourseDisplay/VideoPlayerWidget.dart';
+import 'package:lingo/Presentation/CourseDisplay/Widgets/SoundPlayerBottomSheet.dart';
 
 import 'Controller/CourseDisplayScreenController.dart';
 
@@ -23,7 +25,7 @@ class CourseDisplayScreen extends StatelessWidget {
       child: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Padding(
-          padding: const EdgeInsets.only(left: 17,right: 17,bottom: 70),
+          padding: const EdgeInsets.only(left: 17, right: 17, bottom: 70),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,47 +54,65 @@ class CourseDisplayScreen extends StatelessWidget {
                       onTap: () {
                         _controller.video.examFileUrl?.openAsUrl();
                       },
-                      child: Row(
-                        children: [
-                          const FaIcon(
-                            FontAwesomeIcons.download,
-                            color: Color(0xffF84C4D),
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            StringResource.downloadFile,
-                            style: const TextStyle().withIranSans(
-                                color: Colors.black,
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold),
-                          )
-                        ],
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            const FaIcon(
+                              FontAwesomeIcons.download,
+                              color: Color(0xffF84C4D),
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              StringResource.downloadFile,
+                              style: const TextStyle().withIranSans(
+                                  color: Color(0xff525252),
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        ),
                       ),
                     ),
-
                   if (_controller.video.podcastHls != null)
                     InkWell(
                       onTap: () {
+                        Get.bottomSheet(
+                            SoundPlayerBottomSheet(
+                              title: _controller.video.title ?? "",
+                              audioUrl: _controller.video.podcastHls!,
+                            ),
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(15),
+                                topRight: Radius.circular(15),
+                              )
+                            ),
+                            barrierColor: Colors.black.withOpacity(0.5),
+                            backgroundColor: colorScheme.background,);
                       },
-                      child: Row(
-                        children: [
-                          const FaIcon(
-                            FontAwesomeIcons.play,
-                            color: Color(0xffF84C4D),
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            StringResource.playAudio,
-                            style: const TextStyle().withIranSans(
-                                color: Colors.black,
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold),
-                          )
-                        ],
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            const FaIcon(
+                              FontAwesomeIcons.play,
+                              color: Color(0xffF84C4D),
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              StringResource.playAudio,
+                              style: const TextStyle().withIranSans(
+                                  color: Color(0xff525252),
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                 ],

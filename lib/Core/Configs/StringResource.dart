@@ -62,6 +62,6 @@ class StringResource{
   static const tags = "برچسب ها";
   static const relatedCourses = "دوره های مرتبط";
   static const downloadFile = "دانلود فایل ضمیمه";
-  static const playAudio = "پخش صوتی ویدیو";
+  static const playAudio = "پخش صوتی درس";
   static const noCourseFound = "دوره ای یافت نشد";
 }
