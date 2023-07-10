@@ -64,4 +64,5 @@ class StringResource{
   static const downloadFile = "دانلود فایل ضمیمه";
   static const playAudio = "پخش صوتی درس";
   static const noCourseFound = "دوره ای یافت نشد";
+  static const myCoursesCount = "تعداد دوره های من:";
 }

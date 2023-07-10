@@ -41,7 +41,7 @@ class CourseItem extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  RoundedNetworkImage(
+                  RoundedNetworkImage(width: 160,
                       height: 215, imageUrl: course.thumbnailImageUrl ?? ""),
                   Text(
                     course.title ?? "",

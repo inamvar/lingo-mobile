@@ -9,6 +9,7 @@ import 'package:lingo/Presentation/Courses/CoursesScreen.dart';
 import 'package:lingo/Presentation/EducationalPackages/EducationalPackagesScreen.dart';
 import 'package:lingo/Presentation/FreePackages/FreePackagesScreen.dart';
 import 'package:lingo/Presentation/Main/MainScreen.dart';
+import 'package:lingo/Presentation/MyCourses/MyCoursesScreen.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/AuthScreenControllerBindings.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/ChangePassControllerBindings.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/ResetPassControllerBindings.dart';
@@ -16,6 +17,7 @@ import 'package:lingo/infrastructure/Navigation/Bindings/Courses/CourseDetailsCo
 import 'package:lingo/infrastructure/Navigation/Bindings/Courses/CourseDisplayControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Courses/CoursesScreenControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Main/MainScreenControllerBinding.dart';
+import 'package:lingo/infrastructure/Navigation/Bindings/Report/MyCoursesControllerBinding.dart';
 
 class Routes {
   static List<GetPage> navRoutes = [
@@ -45,6 +47,9 @@ class Routes {
         name: courseDisplay,
         page: () => CourseDisplayScreen(),
         binding: CourseDisplayControllerBinding()),
+    GetPage(name: purchasedCourses, page: () => MyCoursesScreen(),
+      binding: MyCoursesControllerBinding()
+    )
   ];
 
   static const root = "/";
@@ -59,11 +64,15 @@ class Routes {
 
   //Courses
   static const courses = "${root}Courses";
-  static const courseDetails = "${courses}CourseDetails";
-  static const courseDisplay = "${courses}CourseDisplay";
+  static const courseDetails = "$courses/CourseDetails";
+  static const courseDisplay = "$courses/CourseDisplay";
 
   //Packages
   static const packages = "${root}Packages";
-  static const freePackages = "${packages}FreePackages";
-  static const eduPackages = "${packages}EduPackages";
+  static const freePackages = "$packages/FreePackages";
+  static const eduPackages = "$packages/EduPackages";
+
+  //Report
+  static const report = "${root}Report";
+  static const purchasedCourses = "$report/PurchasedCourses";
 }

@@ -87,6 +87,11 @@ class MainScreenController extends GetxController {
     Get.toNamed(Routes.freePackages);
   }
 
+  navMyCourses(){
+    Get.back();
+    Get.toNamed(Routes.purchasedCourses);
+  }
+
   navEduPackagesBtnClick(){
     Get.back();
     Get.toNamed(Routes.eduPackages);

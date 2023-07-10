@@ -4,10 +4,12 @@ import 'package:lingo/Core/Helpers/BaseDio.dart';
 import 'package:lingo/Core/Interfaces/DataSources/Remote/AuthRemoteDataSource.dart';
 import 'package:lingo/Core/Interfaces/DataSources/Remote/CourseRemoteDataSource.dart';
 import 'package:lingo/Core/Interfaces/DataSources/Remote/PackagesRemoteDataSource.dart';
+import 'package:lingo/Core/Interfaces/DataSources/Remote/ReportRemoteDataSource.dart';
 import 'package:lingo/Core/Interfaces/DataSources/Remote/UserRemoteDataSource.dart';
 import 'package:lingo/Core/Interfaces/Repositories/CourseRemoteRepository.dart';
 import 'package:lingo/Core/Interfaces/Repositories/GeneralRemoteRepository.dart';
 import 'package:lingo/Core/Interfaces/Repositories/PackagesRemoteRepository.dart';
+import 'package:lingo/Core/Interfaces/Repositories/ReportRemoteRepository.dart';
 import 'package:lingo/Core/Interfaces/Repositories/UserRemoteRepository.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Auth/ILogoutUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Auth/IRefreshTokenUseCase.dart';
@@ -15,6 +17,7 @@ import 'package:lingo/Core/Interfaces/UseCases/Course/IGetCourseByIdUseCase.dart
 import 'package:lingo/Core/Interfaces/UseCases/Course/IGetPackageCoursesUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/General/ISearchUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Packages/IGetPackagesUseCase.dart';
+import 'package:lingo/Core/Interfaces/UseCases/Report/IPurchasedCoursesUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/User/IChangePassUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/User/IForgotPassUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Auth/IRegisterUseCase.dart';
@@ -28,6 +31,7 @@ import 'package:lingo/Core/UseCases/CourseUseCases/GetCourseByIdUseCase.dart';
 import 'package:lingo/Core/UseCases/CourseUseCases/GetPackageCoursesUseCase.dart';
 import 'package:lingo/Core/UseCases/General/SearchUseCase.dart';
 import 'package:lingo/Core/UseCases/PackagesUseCases/GetPackagesUseCase.dart';
+import 'package:lingo/Core/UseCases/Report/PurchasedCoursesUseCase.dart';
 import 'package:lingo/Core/UseCases/UserUseCases/ChangePassUseCase.dart';
 import 'package:lingo/Core/UseCases/UserUseCases/ForgotPassUseCase.dart';
 import 'package:lingo/Core/UseCases/AuthUseCases/LoginUseCase.dart';
@@ -36,11 +40,13 @@ import 'package:lingo/Core/UseCases/UserUseCases/GetProfileUseCase.dart';
 import 'package:lingo/Core/UseCases/UserUseCases/ResetPassUseCase.dart';
 import 'package:lingo/infrastructure/DataSources/Remote/AuthRemoteDataSourceImpl.dart';
 import 'package:lingo/infrastructure/DataSources/Remote/CourseRemoteDataSourceImpl.dart';
+import 'package:lingo/infrastructure/DataSources/Remote/ReportRemoteDataSourceImpl.dart';
 import 'package:lingo/infrastructure/DataSources/Remote/UserRemoteDataSourceImpl.dart';
 import 'package:lingo/infrastructure/Repositories/AuthRepositoryImpl.dart';
 import 'package:lingo/infrastructure/Repositories/CourseRepositoryImpl.dart';
 import 'package:lingo/infrastructure/Repositories/GeneralRepositoryImpl.dart';
 import 'package:lingo/infrastructure/Repositories/PackagesRepositoryImpl.dart';
+import 'package:lingo/infrastructure/Repositories/ReportRepositoryImpl.dart';
 import 'package:lingo/infrastructure/Repositories/UserRepositoryImpl.dart';
 
 import '../../infrastructure/DataSources/Remote/GeneralRemoteDataSourceImpl.dart';
@@ -79,6 +85,8 @@ initInjections() async {
       () => GetPackageCoursesUseCase(appSingleton()));
   appSingleton.registerLazySingleton<IGetCourseByIdUseCase>(
       () => GetCourseByIdUseCase(appSingleton()));
+  appSingleton.registerLazySingleton<IPurchasedCoursesUseCase>(
+      () => PurchasedCoursesUseCase(appSingleton()));
 
   //Repositories
   appSingleton.registerLazySingleton<AuthRemoteRepository>(
@@ -91,6 +99,8 @@ initInjections() async {
       () => GeneralRepositoryImpl(appSingleton()));
   appSingleton.registerLazySingleton<CourseRemoteRepository>(
       () => CourseRepositoryImpl(appSingleton()));
+  appSingleton.registerLazySingleton<ReportRemoteRepository>(
+          () => ReportRepositoryImpl(appSingleton()));
 
   //Data Sources
   appSingleton.registerLazySingleton<AuthRemoteDataSource>(
@@ -103,6 +113,8 @@ initInjections() async {
       () => GeneralRemoteDataSourceImpl());
   appSingleton.registerLazySingleton<CourseRemoteDataSource>(
       () => CourseRemoteDataSourceImpl());
+  appSingleton.registerLazySingleton<ReportRemoteDataSource>(
+          () => ReportRemoteDataSourceImpl());
 
   BaseBrain.dio = BaseDio().dio;
 }

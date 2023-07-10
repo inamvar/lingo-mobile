@@ -17,6 +17,9 @@ class ApiEndpoints{
   ///Course Endpoints
   static const String course = "Course";
 
+  ///Report Endpoints
+  static const String purchasedCourses = "Report/PurchasedCourses";
+
   ///General Endpoints
   static const String search = "Search";
 }
