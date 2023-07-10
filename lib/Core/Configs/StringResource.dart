@@ -37,6 +37,7 @@ class StringResource{
   static const unauthError = "باید دوباره به حساب خود وارد شوید.";
   static const seeProfile = "مشاهده پروفایل";
   static const myPackages = "پکیج های من";
+  static const myCourses = "دوره های من";
   static const myTransaction = "تراکنش های من";
   static const logout = "خروج";
   static const logoutDialogTitle = "خروج از حساب";

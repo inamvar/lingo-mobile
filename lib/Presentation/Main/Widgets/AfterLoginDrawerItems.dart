@@ -27,7 +27,7 @@ class AfterLoginDrawerItems extends StatelessWidget {
             child: ListTile(
               contentPadding: const EdgeInsets.only(right: 35),
               title: Text(
-                StringResource.myPackages,
+                StringResource.myCourses,
                 style: const TextStyle().withIranSans(
                     fontWeight: FontWeight.w300,
                     fontSize: 17,
