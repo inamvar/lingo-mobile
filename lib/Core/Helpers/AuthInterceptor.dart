@@ -30,7 +30,7 @@ class AuthInterceptor extends Interceptor {
   void onError(DioError err, ErrorInterceptorHandler handler) async {
     if (err.response?.statusCode == 401) {
       if (BaseBrain.authToken != null) {
-        DateFormat dateFormat = DateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZZZZ");
+        DateFormat dateFormat = DateFormat("yyyy-MM-dd'T'HH:mm:ss");
         DateTime expireDate =
             dateFormat.parse(BaseBrain.authToken!.accessTokenExpiresAt!);
         DateTime currentDate = DateTime.now();
