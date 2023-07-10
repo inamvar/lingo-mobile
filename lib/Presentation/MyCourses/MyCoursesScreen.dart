@@ -67,12 +67,12 @@ class MyCoursesScreen extends StatelessWidget {
                   )
                 ];
               },
-              body: Container(
+              body:(_controller.courses.isNotEmpty) ? Container(
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(6)),
                 margin: const EdgeInsets.symmetric(horizontal: 37),
-                padding: EdgeInsets.symmetric(vertical: 20,horizontal: 0),
+                padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 0),
                 child: SmartRefresher(
                   physics: const BouncingScrollPhysics(),
                   controller: _controller.refreshController!,
@@ -126,7 +126,7 @@ class MyCoursesScreen extends StatelessWidget {
                     },
                   ),
                 ),
-              ),
+              ) : Container(),
             )),
     );
   }
