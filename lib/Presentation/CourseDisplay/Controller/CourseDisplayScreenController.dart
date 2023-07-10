@@ -32,6 +32,7 @@ class CourseDisplayScreenController extends GetxController {
 
     betterPlayerDataSource = BetterPlayerDataSource(
         BetterPlayerDataSourceType.network,
+        videoFormat: BetterPlayerVideoFormat.hls,
         cacheConfiguration: const BetterPlayerCacheConfiguration(
           useCache: true,
         ),
