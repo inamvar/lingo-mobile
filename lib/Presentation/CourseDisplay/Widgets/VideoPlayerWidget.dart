@@ -2,7 +2,7 @@ import 'package:better_player/better_player.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'Controller/CourseDisplayScreenController.dart';
+import '../Controller/CourseDisplayScreenController.dart';
 
 class VideoPlayerWidget extends StatelessWidget {
   VideoPlayerWidget({super.key});

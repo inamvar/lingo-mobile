@@ -7,7 +7,7 @@ import 'package:lingo/Core/Utils/Extensions/StringExtensions.dart';
 import 'package:lingo/Presentation/CommonWidgets/BaseScreen.dart';
 import 'package:lingo/Presentation/CommonWidgets/DescriptionWidget.dart';
 import 'package:lingo/Presentation/CourseDisplay/Controller/SoundPlayerController.dart';
-import 'package:lingo/Presentation/CourseDisplay/VideoPlayerWidget.dart';
+import 'package:lingo/Presentation/CourseDisplay/Widgets/VideoPlayerWidget.dart';
 import 'package:lingo/Presentation/CourseDisplay/Widgets/SoundPlayerBottomSheet.dart';
 
 import 'Controller/CourseDisplayScreenController.dart';
