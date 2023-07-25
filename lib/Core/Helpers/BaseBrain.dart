@@ -13,11 +13,11 @@ class BaseBrain{
   static Rx<User> user = User().obs;
   static Rx<bool> isLogin = false.obs;
 
-  static void logout() async{
+  static Future<bool> logout() async{
     authToken = null;
     user.value = User();
     isLogin.value = false;
-    await IdentityLocalDataSourceImpl.logout();
+    return await IdentityLocalDataSourceImpl.logout();
   }
 
   static Future<void> init() async{

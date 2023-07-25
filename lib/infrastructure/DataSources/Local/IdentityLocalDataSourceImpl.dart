@@ -14,7 +14,7 @@ class IdentityLocalDataSourceImpl {
 
   static Future<TokenResponseDtoUseCase?> getToken() async {
     final prefs = await SharedPreferences.getInstance();
-    if(!prefs.containsKey("token")) return null;
+    if (!prefs.containsKey("token")) return null;
     return TokenResponseDtoUseCase.fromJson(
         jsonDecode(prefs.getString("token") ?? ""));
   }
@@ -26,16 +26,19 @@ class IdentityLocalDataSourceImpl {
     return prefs.setString('user', jsonEncode(user.toJson()));
   }
 
-  static Future<User?> getUser() async{
+  static Future<User?> getUser() async {
     final prefs = await SharedPreferences.getInstance();
-    if(!prefs.containsKey("user")) return null;
-    return User.fromJson(
-        jsonDecode(prefs.getString("user") ?? ""));
+    if (!prefs.containsKey("user")) return null;
+    return User.fromJson(jsonDecode(prefs.getString("user") ?? ""));
   }
 
-  static Future<void> logout()async {
+  static Future<bool> logout() async {
     final prefs = await SharedPreferences.getInstance();
-    await Future.wait([prefs.remove("user"),prefs.remove("token")]);
-    return;
+    var s = await Future.wait([prefs.remove("user"), prefs.remove("token")])
+        .then((value) {
+      return true;
+    });
+
+    return s;
   }
 }

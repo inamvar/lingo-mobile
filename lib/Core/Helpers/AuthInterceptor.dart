@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:get/route_manager.dart';
 import 'package:lingo/Core/Configs/StringResource.dart';
 import 'package:lingo/Core/Dto/Enums/MessageType.dart';
 import 'package:lingo/Core/Dto/Models/ServerFailure.dart';
@@ -8,6 +9,7 @@ import 'package:lingo/Core/Helpers/ShowMessage.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Auth/IRefreshTokenUseCase.dart';
 import 'package:lingo/infrastructure/DataSources/Local/IdentityLocalDataSourceImpl.dart';
 import 'package:intl/intl.dart';
+import '../../infrastructure/Navigation/Routes.dart';
 import '../Dto/UseCases/Requests/Auth/RefreshTokenRequestDtoUseCase.dart';
 
 class AuthInterceptor extends Interceptor {
@@ -62,17 +64,19 @@ class AuthInterceptor extends Interceptor {
             params: RefreshTokenRequestDtoUseCase(
                 refreshToken: BaseBrain.authToken!.refreshToken!))
         .then((value) {
-      value.fold((l) {
+      value.fold((l) async {
         if (l is ServerFailure) {
           if (kDebugMode) {
             print(l.errorMessage);
           }
 
-          if(l.statusCode == 401){
+          if(l.statusCode != 200){
             ShowMessage.getSnackBar(
                 message: StringResource.unauthError, type: MessageType.ERROR);
             _mainDio.options.headers.remove("Authorization");
-            BaseBrain.logout();
+            await BaseBrain.logout();
+            Get.until((route) => route.settings.name == Routes.main);
+            Get.toNamed(Routes.authentication);
           }
         }
       }, (r) async {
