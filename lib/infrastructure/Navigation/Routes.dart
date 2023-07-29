@@ -10,6 +10,7 @@ import 'package:lingo/Presentation/EducationalPackages/EducationalPackagesScreen
 import 'package:lingo/Presentation/FreePackages/FreePackagesScreen.dart';
 import 'package:lingo/Presentation/Main/MainScreen.dart';
 import 'package:lingo/Presentation/MyCourses/MyCoursesScreen.dart';
+import 'package:lingo/Presentation/MyTransactions/MyTransactionsScreen.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/AuthScreenControllerBindings.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/ChangePassControllerBindings.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/ResetPassControllerBindings.dart';
@@ -18,6 +19,7 @@ import 'package:lingo/infrastructure/Navigation/Bindings/Courses/CourseDisplayCo
 import 'package:lingo/infrastructure/Navigation/Bindings/Courses/CoursesScreenControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Main/MainScreenControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Report/MyCoursesControllerBinding.dart';
+import 'package:lingo/infrastructure/Navigation/Bindings/Report/MyTransactionsControllerBinding.dart';
 
 class Routes {
   static List<GetPage> navRoutes = [
@@ -49,7 +51,9 @@ class Routes {
         binding: CourseDisplayControllerBinding()),
     GetPage(name: purchasedCourses, page: () => MyCoursesScreen(),
       binding: MyCoursesControllerBinding()
-    )
+    ),
+    GetPage(name: orderHistory, page: ()=> MyTransactionsScreen(),
+    binding: MyTransactionsControllerBinding())
   ];
 
   static const root = "/";
@@ -75,4 +79,5 @@ class Routes {
   //Report
   static const report = "${root}Report";
   static const purchasedCourses = "$report/PurchasedCourses";
+  static const orderHistory = "$report/OrderHistory";
 }

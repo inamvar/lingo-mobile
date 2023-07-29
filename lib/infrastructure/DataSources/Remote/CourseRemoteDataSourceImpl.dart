@@ -1,6 +1,6 @@
 import 'package:lingo/Core/Dto/Models/BaseNetworkResponse.dart';
 import 'package:lingo/Core/Dto/Models/Course.dart';
-import 'package:lingo/Core/Dto/UseCases/Requests/Packages/GetPackagesRequestDtoUseCase.dart';
+import 'package:lingo/Core/Dto/UseCases/Requests/PaginationRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/Course/GetCoursesResponseDtoUseCase.dart';
 import 'package:lingo/Core/Interfaces/DataSources/Remote/CourseRemoteDataSource.dart';
 
@@ -11,7 +11,7 @@ import '../../../Core/Utils/ApiEndpoints.dart';
 class CourseRemoteDataSourceImpl extends CourseRemoteDataSource {
   @override
   Future<BaseNetworkResponse<GetCoursesResponseDtoUseCase>> getPackageCourses(
-      GetPackagesRequestDtoUseCase requestDtoUseCase) async {
+      PaginationRequestDtoUseCase requestDtoUseCase) async {
     var dio = BaseBrain.dio;
 
     var result = await dio

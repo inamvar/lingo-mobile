@@ -19,6 +19,8 @@ class ApiEndpoints{
 
   ///Report Endpoints
   static const String purchasedCourses = "Report/PurchasedCourses";
+  static const String orderHistory = "Report/OrderHistory";
+  static const String orderPdfDownload = "Report/GetOrderHistoryPdf";
 
   ///General Endpoints
   static const String search = "Search";

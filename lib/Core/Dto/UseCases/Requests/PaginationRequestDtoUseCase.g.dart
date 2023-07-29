@@ -1,22 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'GetPackagesRequestDtoUseCase.dart';
+part of 'PaginationRequestDtoUseCase.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_GetPackagesRequestDtoUseCase _$$_GetPackagesRequestDtoUseCaseFromJson(
+_$_PaginationRequestDtoUseCase _$$_PaginationRequestDtoUseCaseFromJson(
         Map<String, dynamic> json) =>
-    _$_GetPackagesRequestDtoUseCase(
+    _$_PaginationRequestDtoUseCase(
       pageNumber: json['pageNumber'] as int?,
       pageSize: json['pageSize'] as int?,
       filter: json['filter'] as String?,
       path: json['path'] as String?,
     );
 
-Map<String, dynamic> _$$_GetPackagesRequestDtoUseCaseToJson(
-        _$_GetPackagesRequestDtoUseCase instance) =>
+Map<String, dynamic> _$$_PaginationRequestDtoUseCaseToJson(
+        _$_PaginationRequestDtoUseCase instance) =>
     <String, dynamic>{
       'pageNumber': instance.pageNumber,
       'pageSize': instance.pageSize,

@@ -4,7 +4,7 @@ import 'package:lingo/Core/Interfaces/UseCases/Course/IGetPackageCoursesUseCase.
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../../../Core/Configs/StringResource.dart';
-import '../../../Core/Dto/UseCases/Requests/Packages/GetPackagesRequestDtoUseCase.dart';
+import '../../../Core/Dto/UseCases/Requests/PaginationRequestDtoUseCase.dart';
 import '../../../Core/Helpers/ShowMessage.dart';
 
 class CoursesScreenController extends GetxController{
@@ -48,7 +48,7 @@ class CoursesScreenController extends GetxController{
       isLoading.value = true;
     }
 
-    var params = GetPackagesRequestDtoUseCase(
+    var params = PaginationRequestDtoUseCase(
         pageSize: perPage,
         pageNumber: currentPage,
       path: packageSlug

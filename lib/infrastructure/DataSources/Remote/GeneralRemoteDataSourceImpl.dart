@@ -1,6 +1,6 @@
 import 'package:lingo/Core/Dto/Models/BaseNetworkResponse.dart';
 
-import 'package:lingo/Core/Dto/UseCases/Requests/Packages/GetPackagesRequestDtoUseCase.dart';
+import 'package:lingo/Core/Dto/UseCases/Requests/PaginationRequestDtoUseCase.dart';
 
 import 'package:lingo/Core/Dto/UseCases/Responses/Search/SearchResponseDtoUseCase.dart';
 
@@ -12,7 +12,7 @@ import '../../../Core/Utils/ApiEndpoints.dart';
 class GeneralRemoteDataSourceImpl implements GeneralRemoteDataSource{
 
   @override
-  Future<BaseNetworkResponse<SearchResponseDtoUseCase>> search(GetPackagesRequestDtoUseCase requestDtoUseCase)async {
+  Future<BaseNetworkResponse<SearchResponseDtoUseCase>> search(PaginationRequestDtoUseCase requestDtoUseCase)async {
     var dio = BaseBrain.dio;
     var result = await dio
         .get(ApiEndpoints.search, queryParameters: requestDtoUseCase.toJson())

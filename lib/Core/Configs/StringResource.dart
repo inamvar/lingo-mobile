@@ -66,4 +66,9 @@ class StringResource{
   static const playAudio = "پخش صوتی درس";
   static const noCourseFound = "دوره ای یافت نشد";
   static const myCoursesCount = "تعداد دوره های من:";
+  static const myTransactionsCount = "تعداد تراکنش های من:";
+  static const price = "قیمت:";
+  static const discount = "تخفیف:";
+  static const finalPrice = "قیمت نهایی:";
+  static const downloadReceipt = "دانلود رسید";
 }

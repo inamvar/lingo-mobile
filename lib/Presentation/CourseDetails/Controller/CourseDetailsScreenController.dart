@@ -3,7 +3,7 @@ import 'package:lingo/Core/Dto/Models/Course.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Course/IGetCourseByIdUseCase.dart';
 
 import '../../../Core/Configs/StringResource.dart';
-import '../../../Core/Dto/UseCases/Requests/Packages/GetPackagesRequestDtoUseCase.dart';
+import '../../../Core/Dto/UseCases/Requests/PaginationRequestDtoUseCase.dart';
 import '../../../Core/Helpers/ShowMessage.dart';
 import '../../../Core/Interfaces/UseCases/Course/IGetPackageCoursesUseCase.dart';
 
@@ -58,7 +58,7 @@ class CourseDetailsScreenController extends GetxController {
     isLoadingRelated.value = true;
 
     getRelatedCoursesUseCase.execute(
-      params: GetPackagesRequestDtoUseCase(
+      params: PaginationRequestDtoUseCase(
         pageSize: 30,
         path: course.value.package?.slug
       )

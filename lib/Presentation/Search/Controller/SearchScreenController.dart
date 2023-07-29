@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:lingo/Core/Configs/StringResource.dart';
 import 'package:lingo/Core/Dto/Enums/MessageType.dart';
 import 'package:lingo/Core/Dto/Models/SearchItem.dart';
-import 'package:lingo/Core/Dto/UseCases/Requests/Packages/GetPackagesRequestDtoUseCase.dart';
+import 'package:lingo/Core/Dto/UseCases/Requests/PaginationRequestDtoUseCase.dart';
 import 'package:lingo/Core/Helpers/ShowMessage.dart';
 import 'package:lingo/Core/Interfaces/UseCases/General/ISearchUseCase.dart';
 import 'package:lingo/infrastructure/Navigation/Routes.dart';
@@ -59,7 +59,7 @@ class SearchScreenController extends GetxController {
   search({bool isFirstTime = false}) {
     if(isFirstTime) isLoading.value = true;
 
-    var params = GetPackagesRequestDtoUseCase(
+    var params = PaginationRequestDtoUseCase(
         pageNumber: currentPage,
         pageSize: perPage,
         filter: searchFieldController?.text);

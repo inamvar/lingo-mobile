@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'GetPackagesRequestDtoUseCase.dart';
+part of 'PaginationRequestDtoUseCase.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,13 +14,13 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-GetPackagesRequestDtoUseCase _$GetPackagesRequestDtoUseCaseFromJson(
+PaginationRequestDtoUseCase _$PaginationRequestDtoUseCaseFromJson(
     Map<String, dynamic> json) {
-  return _GetPackagesRequestDtoUseCase.fromJson(json);
+  return _PaginationRequestDtoUseCase.fromJson(json);
 }
 
 /// @nodoc
-mixin _$GetPackagesRequestDtoUseCase {
+mixin _$PaginationRequestDtoUseCase {
   int? get pageNumber => throw _privateConstructorUsedError;
   int? get pageSize => throw _privateConstructorUsedError;
   String? get filter => throw _privateConstructorUsedError;
@@ -28,26 +28,26 @@ mixin _$GetPackagesRequestDtoUseCase {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $GetPackagesRequestDtoUseCaseCopyWith<GetPackagesRequestDtoUseCase>
+  $PaginationRequestDtoUseCaseCopyWith<PaginationRequestDtoUseCase>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GetPackagesRequestDtoUseCaseCopyWith<$Res> {
-  factory $GetPackagesRequestDtoUseCaseCopyWith(
-          GetPackagesRequestDtoUseCase value,
-          $Res Function(GetPackagesRequestDtoUseCase) then) =
-      _$GetPackagesRequestDtoUseCaseCopyWithImpl<$Res,
-          GetPackagesRequestDtoUseCase>;
+abstract class $PaginationRequestDtoUseCaseCopyWith<$Res> {
+  factory $PaginationRequestDtoUseCaseCopyWith(
+          PaginationRequestDtoUseCase value,
+          $Res Function(PaginationRequestDtoUseCase) then) =
+      _$PaginationRequestDtoUseCaseCopyWithImpl<$Res,
+          PaginationRequestDtoUseCase>;
   @useResult
   $Res call({int? pageNumber, int? pageSize, String? filter, String? path});
 }
 
 /// @nodoc
-class _$GetPackagesRequestDtoUseCaseCopyWithImpl<$Res,
-        $Val extends GetPackagesRequestDtoUseCase>
-    implements $GetPackagesRequestDtoUseCaseCopyWith<$Res> {
-  _$GetPackagesRequestDtoUseCaseCopyWithImpl(this._value, this._then);
+class _$PaginationRequestDtoUseCaseCopyWithImpl<$Res,
+        $Val extends PaginationRequestDtoUseCase>
+    implements $PaginationRequestDtoUseCaseCopyWith<$Res> {
+  _$PaginationRequestDtoUseCaseCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -84,25 +84,25 @@ class _$GetPackagesRequestDtoUseCaseCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_GetPackagesRequestDtoUseCaseCopyWith<$Res>
-    implements $GetPackagesRequestDtoUseCaseCopyWith<$Res> {
-  factory _$$_GetPackagesRequestDtoUseCaseCopyWith(
-          _$_GetPackagesRequestDtoUseCase value,
-          $Res Function(_$_GetPackagesRequestDtoUseCase) then) =
-      __$$_GetPackagesRequestDtoUseCaseCopyWithImpl<$Res>;
+abstract class _$$_PaginationRequestDtoUseCaseCopyWith<$Res>
+    implements $PaginationRequestDtoUseCaseCopyWith<$Res> {
+  factory _$$_PaginationRequestDtoUseCaseCopyWith(
+          _$_PaginationRequestDtoUseCase value,
+          $Res Function(_$_PaginationRequestDtoUseCase) then) =
+      __$$_PaginationRequestDtoUseCaseCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int? pageNumber, int? pageSize, String? filter, String? path});
 }
 
 /// @nodoc
-class __$$_GetPackagesRequestDtoUseCaseCopyWithImpl<$Res>
-    extends _$GetPackagesRequestDtoUseCaseCopyWithImpl<$Res,
-        _$_GetPackagesRequestDtoUseCase>
-    implements _$$_GetPackagesRequestDtoUseCaseCopyWith<$Res> {
-  __$$_GetPackagesRequestDtoUseCaseCopyWithImpl(
-      _$_GetPackagesRequestDtoUseCase _value,
-      $Res Function(_$_GetPackagesRequestDtoUseCase) _then)
+class __$$_PaginationRequestDtoUseCaseCopyWithImpl<$Res>
+    extends _$PaginationRequestDtoUseCaseCopyWithImpl<$Res,
+        _$_PaginationRequestDtoUseCase>
+    implements _$$_PaginationRequestDtoUseCaseCopyWith<$Res> {
+  __$$_PaginationRequestDtoUseCaseCopyWithImpl(
+      _$_PaginationRequestDtoUseCase _value,
+      $Res Function(_$_PaginationRequestDtoUseCase) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -113,7 +113,7 @@ class __$$_GetPackagesRequestDtoUseCaseCopyWithImpl<$Res>
     Object? filter = freezed,
     Object? path = freezed,
   }) {
-    return _then(_$_GetPackagesRequestDtoUseCase(
+    return _then(_$_PaginationRequestDtoUseCase(
       pageNumber: freezed == pageNumber
           ? _value.pageNumber
           : pageNumber // ignore: cast_nullable_to_non_nullable
@@ -136,14 +136,14 @@ class __$$_GetPackagesRequestDtoUseCaseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_GetPackagesRequestDtoUseCase
+class _$_PaginationRequestDtoUseCase
     with DiagnosticableTreeMixin
-    implements _GetPackagesRequestDtoUseCase {
-  const _$_GetPackagesRequestDtoUseCase(
+    implements _PaginationRequestDtoUseCase {
+  const _$_PaginationRequestDtoUseCase(
       {this.pageNumber, this.pageSize, this.filter, this.path});
 
-  factory _$_GetPackagesRequestDtoUseCase.fromJson(Map<String, dynamic> json) =>
-      _$$_GetPackagesRequestDtoUseCaseFromJson(json);
+  factory _$_PaginationRequestDtoUseCase.fromJson(Map<String, dynamic> json) =>
+      _$$_PaginationRequestDtoUseCaseFromJson(json);
 
   @override
   final int? pageNumber;
@@ -156,14 +156,14 @@ class _$_GetPackagesRequestDtoUseCase
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'GetPackagesRequestDtoUseCase(pageNumber: $pageNumber, pageSize: $pageSize, filter: $filter, path: $path)';
+    return 'PaginationRequestDtoUseCase(pageNumber: $pageNumber, pageSize: $pageSize, filter: $filter, path: $path)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'GetPackagesRequestDtoUseCase'))
+      ..add(DiagnosticsProperty('type', 'PaginationRequestDtoUseCase'))
       ..add(DiagnosticsProperty('pageNumber', pageNumber))
       ..add(DiagnosticsProperty('pageSize', pageSize))
       ..add(DiagnosticsProperty('filter', filter))
@@ -174,7 +174,7 @@ class _$_GetPackagesRequestDtoUseCase
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GetPackagesRequestDtoUseCase &&
+            other is _$_PaginationRequestDtoUseCase &&
             (identical(other.pageNumber, pageNumber) ||
                 other.pageNumber == pageNumber) &&
             (identical(other.pageSize, pageSize) ||
@@ -191,28 +191,28 @@ class _$_GetPackagesRequestDtoUseCase
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GetPackagesRequestDtoUseCaseCopyWith<_$_GetPackagesRequestDtoUseCase>
-      get copyWith => __$$_GetPackagesRequestDtoUseCaseCopyWithImpl<
-          _$_GetPackagesRequestDtoUseCase>(this, _$identity);
+  _$$_PaginationRequestDtoUseCaseCopyWith<_$_PaginationRequestDtoUseCase>
+      get copyWith => __$$_PaginationRequestDtoUseCaseCopyWithImpl<
+          _$_PaginationRequestDtoUseCase>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GetPackagesRequestDtoUseCaseToJson(
+    return _$$_PaginationRequestDtoUseCaseToJson(
       this,
     );
   }
 }
 
-abstract class _GetPackagesRequestDtoUseCase
-    implements GetPackagesRequestDtoUseCase {
-  const factory _GetPackagesRequestDtoUseCase(
+abstract class _PaginationRequestDtoUseCase
+    implements PaginationRequestDtoUseCase {
+  const factory _PaginationRequestDtoUseCase(
       {final int? pageNumber,
       final int? pageSize,
       final String? filter,
-      final String? path}) = _$_GetPackagesRequestDtoUseCase;
+      final String? path}) = _$_PaginationRequestDtoUseCase;
 
-  factory _GetPackagesRequestDtoUseCase.fromJson(Map<String, dynamic> json) =
-      _$_GetPackagesRequestDtoUseCase.fromJson;
+  factory _PaginationRequestDtoUseCase.fromJson(Map<String, dynamic> json) =
+      _$_PaginationRequestDtoUseCase.fromJson;
 
   @override
   int? get pageNumber;
@@ -224,6 +224,6 @@ abstract class _GetPackagesRequestDtoUseCase
   String? get path;
   @override
   @JsonKey(ignore: true)
-  _$$_GetPackagesRequestDtoUseCaseCopyWith<_$_GetPackagesRequestDtoUseCase>
+  _$$_PaginationRequestDtoUseCaseCopyWith<_$_PaginationRequestDtoUseCase>
       get copyWith => throw _privateConstructorUsedError;
 }

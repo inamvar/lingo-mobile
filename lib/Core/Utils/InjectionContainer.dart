@@ -17,6 +17,7 @@ import 'package:lingo/Core/Interfaces/UseCases/Course/IGetCourseByIdUseCase.dart
 import 'package:lingo/Core/Interfaces/UseCases/Course/IGetPackageCoursesUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/General/ISearchUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Packages/IGetPackagesUseCase.dart';
+import 'package:lingo/Core/Interfaces/UseCases/Report/IOrderHistoryUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Report/IPurchasedCoursesUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/User/IChangePassUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/User/IForgotPassUseCase.dart';
@@ -31,6 +32,7 @@ import 'package:lingo/Core/UseCases/CourseUseCases/GetCourseByIdUseCase.dart';
 import 'package:lingo/Core/UseCases/CourseUseCases/GetPackageCoursesUseCase.dart';
 import 'package:lingo/Core/UseCases/General/SearchUseCase.dart';
 import 'package:lingo/Core/UseCases/PackagesUseCases/GetPackagesUseCase.dart';
+import 'package:lingo/Core/UseCases/Report/OrderHistoryUseCase.dart';
 import 'package:lingo/Core/UseCases/Report/PurchasedCoursesUseCase.dart';
 import 'package:lingo/Core/UseCases/UserUseCases/ChangePassUseCase.dart';
 import 'package:lingo/Core/UseCases/UserUseCases/ForgotPassUseCase.dart';
@@ -87,6 +89,8 @@ initInjections() async {
       () => GetCourseByIdUseCase(appSingleton()));
   appSingleton.registerLazySingleton<IPurchasedCoursesUseCase>(
       () => PurchasedCoursesUseCase(appSingleton()));
+  appSingleton.registerLazySingleton<IOrderHistoryUseCase>(
+          () => OrderHistoryUseCase(appSingleton()));
 
   //Repositories
   appSingleton.registerLazySingleton<AuthRemoteRepository>(

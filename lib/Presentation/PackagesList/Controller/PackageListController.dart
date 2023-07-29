@@ -5,7 +5,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../../../Core/Configs/StringResource.dart';
 import '../../../Core/Dto/Models/Package.dart';
-import '../../../Core/Dto/UseCases/Requests/Packages/GetPackagesRequestDtoUseCase.dart';
+import '../../../Core/Dto/UseCases/Requests/PaginationRequestDtoUseCase.dart';
 import '../../../Core/Helpers/ShowMessage.dart';
 import '../../../Core/Interfaces/UseCases/Packages/IGetPackagesUseCase.dart';
 
@@ -47,7 +47,7 @@ class PackageListController extends GetxController {
       isLoading.value = true;
     }
 
-    var params = GetPackagesRequestDtoUseCase(
+    var params = PaginationRequestDtoUseCase(
         pageSize: perPage,
         pageNumber: currentPage,
         filter: type == PackageType.EDUCATIONAL ? "آموزش" : null,
