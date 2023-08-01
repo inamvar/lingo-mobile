@@ -28,6 +28,7 @@ mixin _$Order {
   int? get courseId => throw _privateConstructorUsedError;
   int? get orderId => throw _privateConstructorUsedError;
   String? get courseSlug => throw _privateConstructorUsedError;
+  String? get pdfReportLink => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,7 +48,8 @@ abstract class $OrderCopyWith<$Res> {
       int? finalPrice,
       int? courseId,
       int? orderId,
-      String? courseSlug});
+      String? courseSlug,
+      String? pdfReportLink});
 }
 
 /// @nodoc
@@ -71,6 +73,7 @@ class _$OrderCopyWithImpl<$Res, $Val extends Order>
     Object? courseId = freezed,
     Object? orderId = freezed,
     Object? courseSlug = freezed,
+    Object? pdfReportLink = freezed,
   }) {
     return _then(_value.copyWith(
       courseName: freezed == courseName
@@ -105,6 +108,10 @@ class _$OrderCopyWithImpl<$Res, $Val extends Order>
           ? _value.courseSlug
           : courseSlug // ignore: cast_nullable_to_non_nullable
               as String?,
+      pdfReportLink: freezed == pdfReportLink
+          ? _value.pdfReportLink
+          : pdfReportLink // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -123,7 +130,8 @@ abstract class _$$_OrderCopyWith<$Res> implements $OrderCopyWith<$Res> {
       int? finalPrice,
       int? courseId,
       int? orderId,
-      String? courseSlug});
+      String? courseSlug,
+      String? pdfReportLink});
 }
 
 /// @nodoc
@@ -143,6 +151,7 @@ class __$$_OrderCopyWithImpl<$Res> extends _$OrderCopyWithImpl<$Res, _$_Order>
     Object? courseId = freezed,
     Object? orderId = freezed,
     Object? courseSlug = freezed,
+    Object? pdfReportLink = freezed,
   }) {
     return _then(_$_Order(
       courseName: freezed == courseName
@@ -177,6 +186,10 @@ class __$$_OrderCopyWithImpl<$Res> extends _$OrderCopyWithImpl<$Res, _$_Order>
           ? _value.courseSlug
           : courseSlug // ignore: cast_nullable_to_non_nullable
               as String?,
+      pdfReportLink: freezed == pdfReportLink
+          ? _value.pdfReportLink
+          : pdfReportLink // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -192,7 +205,8 @@ class _$_Order with DiagnosticableTreeMixin implements _Order {
       this.finalPrice,
       this.courseId,
       this.orderId,
-      this.courseSlug});
+      this.courseSlug,
+      this.pdfReportLink});
 
   factory _$_Order.fromJson(Map<String, dynamic> json) =>
       _$$_OrderFromJson(json);
@@ -213,10 +227,12 @@ class _$_Order with DiagnosticableTreeMixin implements _Order {
   final int? orderId;
   @override
   final String? courseSlug;
+  @override
+  final String? pdfReportLink;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Order(courseName: $courseName, orderDate: $orderDate, price: $price, discount: $discount, finalPrice: $finalPrice, courseId: $courseId, orderId: $orderId, courseSlug: $courseSlug)';
+    return 'Order(courseName: $courseName, orderDate: $orderDate, price: $price, discount: $discount, finalPrice: $finalPrice, courseId: $courseId, orderId: $orderId, courseSlug: $courseSlug, pdfReportLink: $pdfReportLink)';
   }
 
   @override
@@ -231,7 +247,8 @@ class _$_Order with DiagnosticableTreeMixin implements _Order {
       ..add(DiagnosticsProperty('finalPrice', finalPrice))
       ..add(DiagnosticsProperty('courseId', courseId))
       ..add(DiagnosticsProperty('orderId', orderId))
-      ..add(DiagnosticsProperty('courseSlug', courseSlug));
+      ..add(DiagnosticsProperty('courseSlug', courseSlug))
+      ..add(DiagnosticsProperty('pdfReportLink', pdfReportLink));
   }
 
   @override
@@ -252,13 +269,15 @@ class _$_Order with DiagnosticableTreeMixin implements _Order {
                 other.courseId == courseId) &&
             (identical(other.orderId, orderId) || other.orderId == orderId) &&
             (identical(other.courseSlug, courseSlug) ||
-                other.courseSlug == courseSlug));
+                other.courseSlug == courseSlug) &&
+            (identical(other.pdfReportLink, pdfReportLink) ||
+                other.pdfReportLink == pdfReportLink));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, courseName, orderDate, price,
-      discount, finalPrice, courseId, orderId, courseSlug);
+      discount, finalPrice, courseId, orderId, courseSlug, pdfReportLink);
 
   @JsonKey(ignore: true)
   @override
@@ -283,7 +302,8 @@ abstract class _Order implements Order {
       final int? finalPrice,
       final int? courseId,
       final int? orderId,
-      final String? courseSlug}) = _$_Order;
+      final String? courseSlug,
+      final String? pdfReportLink}) = _$_Order;
 
   factory _Order.fromJson(Map<String, dynamic> json) = _$_Order.fromJson;
 
@@ -303,6 +323,8 @@ abstract class _Order implements Order {
   int? get orderId;
   @override
   String? get courseSlug;
+  @override
+  String? get pdfReportLink;
   @override
   @JsonKey(ignore: true)
   _$$_OrderCopyWith<_$_Order> get copyWith =>

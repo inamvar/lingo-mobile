@@ -6,19 +6,16 @@ part 'Order.g.dart';
 
 @freezed
 class Order with _$Order {
-  const factory Order({
-  String? courseName,
-  String? orderDate,
-  int? price,
-  int? discount,
-  int? finalPrice,
-  int? courseId,
-  int? orderId,
-  String? courseSlug,
-  }) = _Order;
-  
+  const factory Order(
+      {String? courseName,
+      String? orderDate,
+      int? price,
+      int? discount,
+      int? finalPrice,
+      int? courseId,
+      int? orderId,
+      String? courseSlug,
+      String? pdfReportLink}) = _Order;
 
-
-  factory Order.fromJson(Map<String, dynamic> json) =>
-      _$OrderFromJson(json);
+  factory Order.fromJson(Map<String, dynamic> json) => _$OrderFromJson(json);
 }

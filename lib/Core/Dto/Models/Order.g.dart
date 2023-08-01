@@ -15,6 +15,7 @@ _$_Order _$$_OrderFromJson(Map<String, dynamic> json) => _$_Order(
       courseId: json['courseId'] as int?,
       orderId: json['orderId'] as int?,
       courseSlug: json['courseSlug'] as String?,
+      pdfReportLink: json['pdfReportLink'] as String?,
     );
 
 Map<String, dynamic> _$$_OrderToJson(_$_Order instance) => <String, dynamic>{
@@ -26,4 +27,5 @@ Map<String, dynamic> _$$_OrderToJson(_$_Order instance) => <String, dynamic>{
       'courseId': instance.courseId,
       'orderId': instance.orderId,
       'courseSlug': instance.courseSlug,
+      'pdfReportLink': instance.pdfReportLink,
     };
