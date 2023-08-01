@@ -32,6 +32,7 @@ class StringResource{
   static const educationalPackages = "پکیج های آموزشی";
   static const discounts = "تخفیف ها";
   static const contactUs = "تماس با ما";
+  static const myMessages = "پیام های من";
   static const loginSuccessMessage = "خوش آمدید";
   static const registerSuccessMessage = "ثبت نام با موفقیت انجام شد";
   static const unauthError = "باید دوباره به حساب خود وارد شوید.";
@@ -71,4 +72,10 @@ class StringResource{
   static const discount = "تخفیف:";
   static const finalPrice = "قیمت نهایی:";
   static const downloadReceipt = "دانلود رسید";
+  static const yourMessage = "پیام شما";
+  static const adminResponse = "پاسخ مدیر";
+  static const addMessage = "ایجاد پیام جدید";
+  static const title = "عنوان";
+  static const messageHint = "متن پیام یا پرسش";
+  static const messageSentSuccessfully = "پیام با موفقیت ارسال شد";
 }

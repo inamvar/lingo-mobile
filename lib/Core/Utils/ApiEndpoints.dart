@@ -22,6 +22,10 @@ class ApiEndpoints{
   static const String orderHistory = "Report/OrderHistory";
   static const String orderPdfDownload = "Report/GetOrderHistoryPdf";
 
+  ///Comments Endpoints
+  static const String comments = "Comment";
+  static const String addComment = "Comment/ToAdmin";
+
   ///General Endpoints
   static const String search = "Search";
 }

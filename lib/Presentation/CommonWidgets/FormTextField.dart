@@ -9,16 +9,19 @@ import 'package:lingo/Core/Utils/Extensions/StringExtensions.dart';
 class FormTextField extends StatefulWidget {
   const FormTextField(
       {super.key,
-      required this.labelText,
+      this.labelText,
       this.hintColor,
       this.controller,
       this.formTextFieldType = FormTextFieldType.SIMPLE,
       this.fontSize = 14,
       this.required = false,
       this.readOnly = false,
-      this.autovalidateMode = AutovalidateMode.onUserInteraction});
+      this.autovalidateMode = AutovalidateMode.onUserInteraction,
+      this.maxLines,
+      this.hintText});
 
-  final String labelText;
+  final String? labelText;
+  final String? hintText;
   final Color? hintColor;
   final TextEditingController? controller;
   final FormTextFieldType formTextFieldType;
@@ -26,6 +29,7 @@ class FormTextField extends StatefulWidget {
   final bool required;
   final bool readOnly;
   final AutovalidateMode? autovalidateMode;
+  final int? maxLines;
 
   @override
   State<FormTextField> createState() => _FormTextFieldState();
@@ -46,6 +50,7 @@ class _FormTextFieldState extends State<FormTextField> {
   Widget build(BuildContext context) {
     return TextFormField(
       readOnly: widget.readOnly,
+      maxLines: widget.maxLines,
       controller: widget.controller,
       obscureText: (widget.formTextFieldType == FormTextFieldType.PASSWORD &&
               !passVisibility)
@@ -54,6 +59,7 @@ class _FormTextFieldState extends State<FormTextField> {
       autovalidateMode: widget.autovalidateMode,
       style: const TextStyle().withIranSans(color: const Color(0xff666262)),
       decoration: InputDecoration(
+          alignLabelWithHint: true,
           suffixIcon: (widget.formTextFieldType == FormTextFieldType.PASSWORD)
               ? IconButton(
                   iconSize: 18,
@@ -67,13 +73,21 @@ class _FormTextFieldState extends State<FormTextField> {
                   ))
               : null,
           errorMaxLines: 2,
-          label: Text(
-            widget.labelText,
-            style: const TextStyle().withIranSans(
-                fontSize: widget.fontSize,
-                color:
-                    widget.hintColor ?? Theme.of(context).colorScheme.primary),
-          )),
+          hintText: widget.hintText,
+          hintStyle: const TextStyle().withIranSans(
+            color: widget.hintColor
+          ),
+          errorStyle: const TextStyle()
+              .withIranSans(color: Colors.red.shade700, fontSize: 11),
+          label: (widget.labelText != null)
+              ? Text(
+                  widget.labelText!,
+                  style: const TextStyle().withIranSans(
+                      fontSize: widget.fontSize,
+                      color: widget.hintColor ??
+                          Theme.of(context).colorScheme.primary),
+                )
+              : null),
       validator: (text) {
         switch (widget.formTextFieldType) {
           case FormTextFieldType.EMAIL:

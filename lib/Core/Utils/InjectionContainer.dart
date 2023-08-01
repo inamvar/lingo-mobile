@@ -2,10 +2,12 @@ import 'package:get_it/get_it.dart';
 import 'package:lingo/Core/Helpers/BaseBrain.dart';
 import 'package:lingo/Core/Helpers/BaseDio.dart';
 import 'package:lingo/Core/Interfaces/DataSources/Remote/AuthRemoteDataSource.dart';
+import 'package:lingo/Core/Interfaces/DataSources/Remote/CommentsRemoteDataSource.dart';
 import 'package:lingo/Core/Interfaces/DataSources/Remote/CourseRemoteDataSource.dart';
 import 'package:lingo/Core/Interfaces/DataSources/Remote/PackagesRemoteDataSource.dart';
 import 'package:lingo/Core/Interfaces/DataSources/Remote/ReportRemoteDataSource.dart';
 import 'package:lingo/Core/Interfaces/DataSources/Remote/UserRemoteDataSource.dart';
+import 'package:lingo/Core/Interfaces/Repositories/CommentsRemoteRepository.dart';
 import 'package:lingo/Core/Interfaces/Repositories/CourseRemoteRepository.dart';
 import 'package:lingo/Core/Interfaces/Repositories/GeneralRemoteRepository.dart';
 import 'package:lingo/Core/Interfaces/Repositories/PackagesRemoteRepository.dart';
@@ -13,6 +15,8 @@ import 'package:lingo/Core/Interfaces/Repositories/ReportRemoteRepository.dart';
 import 'package:lingo/Core/Interfaces/Repositories/UserRemoteRepository.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Auth/ILogoutUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Auth/IRefreshTokenUseCase.dart';
+import 'package:lingo/Core/Interfaces/UseCases/Comments/IAddCommentUseCase.dart';
+import 'package:lingo/Core/Interfaces/UseCases/Comments/IGetCommentsUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Course/IGetCourseByIdUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Course/IGetPackageCoursesUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/General/ISearchUseCase.dart';
@@ -28,6 +32,8 @@ import 'package:lingo/Core/Interfaces/UseCases/User/IResetPassUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/User/IUpdateProfileUseCase.dart';
 import 'package:lingo/Core/UseCases/AuthUseCases/LogoutUseCase.dart';
 import 'package:lingo/Core/UseCases/AuthUseCases/RefreshTokenUseCase.dart';
+import 'package:lingo/Core/UseCases/CommentsUseCases/AddCommentUseCase.dart';
+import 'package:lingo/Core/UseCases/CommentsUseCases/GetCommentsUseCase.dart';
 import 'package:lingo/Core/UseCases/CourseUseCases/GetCourseByIdUseCase.dart';
 import 'package:lingo/Core/UseCases/CourseUseCases/GetPackageCoursesUseCase.dart';
 import 'package:lingo/Core/UseCases/General/SearchUseCase.dart';
@@ -41,10 +47,12 @@ import 'package:lingo/Core/UseCases/AuthUseCases/RegisterUseCase.dart';
 import 'package:lingo/Core/UseCases/UserUseCases/GetProfileUseCase.dart';
 import 'package:lingo/Core/UseCases/UserUseCases/ResetPassUseCase.dart';
 import 'package:lingo/infrastructure/DataSources/Remote/AuthRemoteDataSourceImpl.dart';
+import 'package:lingo/infrastructure/DataSources/Remote/CommentsRemoteDataSourceImpl.dart';
 import 'package:lingo/infrastructure/DataSources/Remote/CourseRemoteDataSourceImpl.dart';
 import 'package:lingo/infrastructure/DataSources/Remote/ReportRemoteDataSourceImpl.dart';
 import 'package:lingo/infrastructure/DataSources/Remote/UserRemoteDataSourceImpl.dart';
 import 'package:lingo/infrastructure/Repositories/AuthRepositoryImpl.dart';
+import 'package:lingo/infrastructure/Repositories/CommentsRepositoryImpl.dart';
 import 'package:lingo/infrastructure/Repositories/CourseRepositoryImpl.dart';
 import 'package:lingo/infrastructure/Repositories/GeneralRepositoryImpl.dart';
 import 'package:lingo/infrastructure/Repositories/PackagesRepositoryImpl.dart';
@@ -91,6 +99,10 @@ initInjections() async {
       () => PurchasedCoursesUseCase(appSingleton()));
   appSingleton.registerLazySingleton<IOrderHistoryUseCase>(
           () => OrderHistoryUseCase(appSingleton()));
+  appSingleton.registerLazySingleton<IGetCommentsUseCase>(
+          () => GetCommentsUseCase(appSingleton()));
+  appSingleton.registerLazySingleton<IAddCommentUseCase>(
+          () => AddCommentUseCase(appSingleton()));
 
   //Repositories
   appSingleton.registerLazySingleton<AuthRemoteRepository>(
@@ -105,6 +117,8 @@ initInjections() async {
       () => CourseRepositoryImpl(appSingleton()));
   appSingleton.registerLazySingleton<ReportRemoteRepository>(
           () => ReportRepositoryImpl(appSingleton()));
+  appSingleton.registerLazySingleton<CommentsRemoteRepository>(
+          () => CommentsRepositoryImpl(appSingleton()));
 
   //Data Sources
   appSingleton.registerLazySingleton<AuthRemoteDataSource>(
@@ -119,6 +133,8 @@ initInjections() async {
       () => CourseRemoteDataSourceImpl());
   appSingleton.registerLazySingleton<ReportRemoteDataSource>(
           () => ReportRemoteDataSourceImpl());
+  appSingleton.registerLazySingleton<CommentsRemoteDataSource>(
+          () => CommentsRemoteDataSourceImpl());
 
   BaseBrain.dio = BaseDio().dio;
 }

@@ -10,16 +10,23 @@ import 'package:lingo/Presentation/EducationalPackages/EducationalPackagesScreen
 import 'package:lingo/Presentation/FreePackages/FreePackagesScreen.dart';
 import 'package:lingo/Presentation/Main/MainScreen.dart';
 import 'package:lingo/Presentation/MyCourses/MyCoursesScreen.dart';
+import 'package:lingo/Presentation/MyMessages/AddMessageScreen.dart';
+import 'package:lingo/Presentation/MyMessages/MessageDetailScreen.dart';
+import 'package:lingo/Presentation/MyMessages/MyMessagesScreen.dart';
 import 'package:lingo/Presentation/MyTransactions/MyTransactionsScreen.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/AuthScreenControllerBindings.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/ChangePassControllerBindings.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/ResetPassControllerBindings.dart';
+import 'package:lingo/infrastructure/Navigation/Bindings/Comments/AddMessageControllerBinding.dart';
+import 'package:lingo/infrastructure/Navigation/Bindings/Comments/MessageDetailControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Courses/CourseDetailsControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Courses/CourseDisplayControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Courses/CoursesScreenControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Main/MainScreenControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Report/MyCoursesControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Report/MyTransactionsControllerBinding.dart';
+
+import 'Bindings/Comments/MyMessagesControllerBinding.dart';
 
 class Routes {
   static List<GetPage> navRoutes = [
@@ -49,11 +56,26 @@ class Routes {
         name: courseDisplay,
         page: () => CourseDisplayScreen(),
         binding: CourseDisplayControllerBinding()),
-    GetPage(name: purchasedCourses, page: () => MyCoursesScreen(),
-      binding: MyCoursesControllerBinding()
-    ),
-    GetPage(name: orderHistory, page: ()=> MyTransactionsScreen(),
-    binding: MyTransactionsControllerBinding())
+    GetPage(
+        name: purchasedCourses,
+        page: () => MyCoursesScreen(),
+        binding: MyCoursesControllerBinding()),
+    GetPage(
+        name: orderHistory,
+        page: () => MyTransactionsScreen(),
+        binding: MyTransactionsControllerBinding()),
+    GetPage(
+        name: messages,
+        page: () => MyMessagesScreen(),
+        binding: MyMessagesControllerBinding()),
+    GetPage(
+        name: messageDetail,
+        page: () => MessageDetailScreen(),
+        binding: MessageDetailControllerBinding()),
+    GetPage(
+        name: addMessage,
+        page: () => AddMessageScreen(),
+        binding: AddMessageControllerBinding())
   ];
 
   static const root = "/";
@@ -80,4 +102,9 @@ class Routes {
   static const report = "${root}Report";
   static const purchasedCourses = "$report/PurchasedCourses";
   static const orderHistory = "$report/OrderHistory";
+
+  //Messages
+  static const messages = "${root}Messages";
+  static const messageDetail = "$messages/Detail";
+  static const addMessage = "$messages/Add";
 }

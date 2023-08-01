@@ -93,6 +93,24 @@ class AfterLoginDrawerItems extends StatelessWidget {
         Material(
           color: const Color(0xffEDEFF3),
           child: InkWell(
+            onTap: () {
+              _controller.navMyMessages();
+            },
+            child: ListTile(
+              contentPadding: const EdgeInsets.only(right: 35),
+              title: Text(
+                StringResource.myMessages,
+                style: const TextStyle().withIranSans(
+                    fontWeight: FontWeight.w300,
+                    fontSize: 17,
+                    color: colorScheme.background),
+              ),
+            ),
+          ),
+        ),
+        Material(
+          color: const Color(0xffEDEFF3),
+          child: InkWell(
             onTap: () {},
             child: ListTile(
               contentPadding: const EdgeInsets.only(right: 35),

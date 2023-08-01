@@ -101,4 +101,9 @@ class MainScreenController extends GetxController {
     Get.back();
     Get.toNamed(Routes.eduPackages);
   }
+
+  void navMyMessages() {
+    Get.back();
+    Get.toNamed(Routes.messages);
+  }
 }
