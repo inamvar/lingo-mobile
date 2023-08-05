@@ -6,7 +6,7 @@ class MyTransactionsControllerBinding extends Bindings{
   @override
   void dependencies() {
     Get.lazyPut(
-            () => MyTransactionsController(appSingleton()));
+            () => MyTransactionsController(appSingleton(),appSingleton()));
   }
 
 }

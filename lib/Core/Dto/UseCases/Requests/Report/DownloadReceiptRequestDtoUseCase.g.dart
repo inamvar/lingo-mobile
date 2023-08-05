@@ -9,11 +9,13 @@ part of 'DownloadReceiptRequestDtoUseCase.dart';
 _$_DownloadReceiptRequestDtoUseCase
     _$$_DownloadReceiptRequestDtoUseCaseFromJson(Map<String, dynamic> json) =>
         _$_DownloadReceiptRequestDtoUseCase(
-          orderId: json['orderId'] as String?,
+          order: json['order'] == null
+              ? null
+              : Order.fromJson(json['order'] as Map<String, dynamic>),
         );
 
 Map<String, dynamic> _$$_DownloadReceiptRequestDtoUseCaseToJson(
         _$_DownloadReceiptRequestDtoUseCase instance) =>
     <String, dynamic>{
-      'orderId': instance.orderId,
+      'order': instance.order,
     };

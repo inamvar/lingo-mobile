@@ -17,7 +17,7 @@ class FormTextField extends StatefulWidget {
       this.required = false,
       this.readOnly = false,
       this.autovalidateMode = AutovalidateMode.onUserInteraction,
-      this.maxLines,
+      this.maxLines = 1,
       this.hintText});
 
   final String? labelText;

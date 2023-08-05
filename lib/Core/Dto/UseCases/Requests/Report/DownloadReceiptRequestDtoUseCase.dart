@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:lingo/Core/Dto/Models/Order.dart';
 
 part 'DownloadReceiptRequestDtoUseCase.freezed.dart';
 part 'DownloadReceiptRequestDtoUseCase.g.dart';
@@ -7,9 +8,9 @@ part 'DownloadReceiptRequestDtoUseCase.g.dart';
 @freezed
 class DownloadReceiptRequestDtoUseCase with _$DownloadReceiptRequestDtoUseCase {
   const factory DownloadReceiptRequestDtoUseCase({
-    String? orderId,
+    Order? order,
     @JsonKey(includeToJson: false,includeFromJson: false)
-    Function? onReceiveProgress,
+    Function(int,int)? onReceiveProgress,
   }) = _DownloadReceiptRequestDtoUseCase;
 
 

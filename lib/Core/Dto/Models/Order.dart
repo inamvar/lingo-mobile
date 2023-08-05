@@ -1,21 +1,30 @@
-import 'package:flutter/foundation.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-part 'Order.freezed.dart';
 part 'Order.g.dart';
 
-@freezed
-class Order with _$Order {
-  const factory Order(
-      {String? courseName,
-      String? orderDate,
-      int? price,
-      int? discount,
-      int? finalPrice,
-      int? courseId,
-      int? orderId,
-      String? courseSlug,
-      String? pdfReportLink}) = _Order;
+@JsonSerializable()
+class Order {
+  Order();
 
-  factory Order.fromJson(Map<String, dynamic> json) => _$OrderFromJson(json);
+  String? courseName;
+  String? orderDate;
+  int? price;
+  int? discount;
+  int? finalPrice;
+  int? courseId;
+  int? orderId;
+  String? courseSlug;
+  String? pdfReportLink;
+  @JsonKey(includeToJson: false,includeFromJson: false)
+  bool isExist = false;
+  @JsonKey(includeToJson: false,includeFromJson: false)
+  bool isDownloading = false;
+  @JsonKey(includeToJson: false,includeFromJson: false)
+  double downloadPercent = 0.1;
+
+  factory Order.fromJson(Map<String, dynamic> json) {
+    return _$OrderFromJson(json);
+  }
+
+  Map<String, dynamic> toJson() => _$OrderToJson(this);
 }

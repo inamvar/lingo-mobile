@@ -21,9 +21,10 @@ DownloadReceiptRequestDtoUseCase _$DownloadReceiptRequestDtoUseCaseFromJson(
 
 /// @nodoc
 mixin _$DownloadReceiptRequestDtoUseCase {
-  String? get orderId => throw _privateConstructorUsedError;
+  Order? get order => throw _privateConstructorUsedError;
   @JsonKey(includeToJson: false, includeFromJson: false)
-  Function? get onReceiveProgress => throw _privateConstructorUsedError;
+  dynamic Function(int, int)? get onReceiveProgress =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,9 +41,9 @@ abstract class $DownloadReceiptRequestDtoUseCaseCopyWith<$Res> {
           DownloadReceiptRequestDtoUseCase>;
   @useResult
   $Res call(
-      {String? orderId,
+      {Order? order,
       @JsonKey(includeToJson: false, includeFromJson: false)
-          Function? onReceiveProgress});
+          dynamic Function(int, int)? onReceiveProgress});
 }
 
 /// @nodoc
@@ -59,18 +60,18 @@ class _$DownloadReceiptRequestDtoUseCaseCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? orderId = freezed,
+    Object? order = freezed,
     Object? onReceiveProgress = freezed,
   }) {
     return _then(_value.copyWith(
-      orderId: freezed == orderId
-          ? _value.orderId
-          : orderId // ignore: cast_nullable_to_non_nullable
-              as String?,
+      order: freezed == order
+          ? _value.order
+          : order // ignore: cast_nullable_to_non_nullable
+              as Order?,
       onReceiveProgress: freezed == onReceiveProgress
           ? _value.onReceiveProgress
           : onReceiveProgress // ignore: cast_nullable_to_non_nullable
-              as Function?,
+              as dynamic Function(int, int)?,
     ) as $Val);
   }
 }
@@ -85,9 +86,9 @@ abstract class _$$_DownloadReceiptRequestDtoUseCaseCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? orderId,
+      {Order? order,
       @JsonKey(includeToJson: false, includeFromJson: false)
-          Function? onReceiveProgress});
+          dynamic Function(int, int)? onReceiveProgress});
 }
 
 /// @nodoc
@@ -103,18 +104,18 @@ class __$$_DownloadReceiptRequestDtoUseCaseCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? orderId = freezed,
+    Object? order = freezed,
     Object? onReceiveProgress = freezed,
   }) {
     return _then(_$_DownloadReceiptRequestDtoUseCase(
-      orderId: freezed == orderId
-          ? _value.orderId
-          : orderId // ignore: cast_nullable_to_non_nullable
-              as String?,
+      order: freezed == order
+          ? _value.order
+          : order // ignore: cast_nullable_to_non_nullable
+              as Order?,
       onReceiveProgress: freezed == onReceiveProgress
           ? _value.onReceiveProgress
           : onReceiveProgress // ignore: cast_nullable_to_non_nullable
-              as Function?,
+              as dynamic Function(int, int)?,
     ));
   }
 }
@@ -125,7 +126,7 @@ class _$_DownloadReceiptRequestDtoUseCase
     with DiagnosticableTreeMixin
     implements _DownloadReceiptRequestDtoUseCase {
   const _$_DownloadReceiptRequestDtoUseCase(
-      {this.orderId,
+      {this.order,
       @JsonKey(includeToJson: false, includeFromJson: false)
           this.onReceiveProgress});
 
@@ -134,14 +135,14 @@ class _$_DownloadReceiptRequestDtoUseCase
       _$$_DownloadReceiptRequestDtoUseCaseFromJson(json);
 
   @override
-  final String? orderId;
+  final Order? order;
   @override
   @JsonKey(includeToJson: false, includeFromJson: false)
-  final Function? onReceiveProgress;
+  final dynamic Function(int, int)? onReceiveProgress;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'DownloadReceiptRequestDtoUseCase(orderId: $orderId, onReceiveProgress: $onReceiveProgress)';
+    return 'DownloadReceiptRequestDtoUseCase(order: $order, onReceiveProgress: $onReceiveProgress)';
   }
 
   @override
@@ -149,7 +150,7 @@ class _$_DownloadReceiptRequestDtoUseCase
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'DownloadReceiptRequestDtoUseCase'))
-      ..add(DiagnosticsProperty('orderId', orderId))
+      ..add(DiagnosticsProperty('order', order))
       ..add(DiagnosticsProperty('onReceiveProgress', onReceiveProgress));
   }
 
@@ -158,14 +159,14 @@ class _$_DownloadReceiptRequestDtoUseCase
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DownloadReceiptRequestDtoUseCase &&
-            (identical(other.orderId, orderId) || other.orderId == orderId) &&
+            (identical(other.order, order) || other.order == order) &&
             (identical(other.onReceiveProgress, onReceiveProgress) ||
                 other.onReceiveProgress == onReceiveProgress));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, orderId, onReceiveProgress);
+  int get hashCode => Object.hash(runtimeType, order, onReceiveProgress);
 
   @JsonKey(ignore: true)
   @override
@@ -186,19 +187,19 @@ class _$_DownloadReceiptRequestDtoUseCase
 abstract class _DownloadReceiptRequestDtoUseCase
     implements DownloadReceiptRequestDtoUseCase {
   const factory _DownloadReceiptRequestDtoUseCase(
-          {final String? orderId,
+          {final Order? order,
           @JsonKey(includeToJson: false, includeFromJson: false)
-              final Function? onReceiveProgress}) =
+              final dynamic Function(int, int)? onReceiveProgress}) =
       _$_DownloadReceiptRequestDtoUseCase;
 
   factory _DownloadReceiptRequestDtoUseCase.fromJson(
       Map<String, dynamic> json) = _$_DownloadReceiptRequestDtoUseCase.fromJson;
 
   @override
-  String? get orderId;
+  Order? get order;
   @override
   @JsonKey(includeToJson: false, includeFromJson: false)
-  Function? get onReceiveProgress;
+  dynamic Function(int, int)? get onReceiveProgress;
   @override
   @JsonKey(ignore: true)
   _$$_DownloadReceiptRequestDtoUseCaseCopyWith<

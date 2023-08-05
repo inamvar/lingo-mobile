@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
 import 'package:lingo/Presentation/CommonWidgets/CustomButton.dart';
@@ -105,11 +106,13 @@ class MyTransactionsScreen extends StatelessWidget {
                                       Flexible(
                                           flex: 2,
                                           child: Container(
-                                            padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 10),
+                                            padding: const EdgeInsets.symmetric(
+                                                vertical: 5, horizontal: 10),
                                             decoration: BoxDecoration(
-                                              color: Colors.blueAccent.withAlpha(50),
-                                              borderRadius: BorderRadius.circular(10)
-                                            ),
+                                                color: Colors.blueAccent
+                                                    .withAlpha(50),
+                                                borderRadius:
+                                                    BorderRadius.circular(10)),
                                             child: Text(
                                               item.courseName ?? "",
                                               style: const TextStyle()
@@ -127,13 +130,15 @@ class MyTransactionsScreen extends StatelessWidget {
                                                 Tools.getOnlyDate(
                                                     item.orderDate!),
                                                 style: TextStyle().withIranSans(
-                                                    fontSize: 13,),
+                                                  fontSize: 13,
+                                                ),
                                               ),
                                               Text(
                                                 Tools.getTimeOfDate(
                                                     item.orderDate!),
                                                 style: TextStyle().withIranSans(
-                                                    fontSize: 12,),
+                                                  fontSize: 12,
+                                                ),
                                               ),
                                             ],
                                           ))
@@ -210,7 +215,7 @@ class MyTransactionsScreen extends StatelessWidget {
                                               ),
                                             ],
                                           ),
-                                          SizedBox(
+                                          const SizedBox(
                                             height: 10,
                                           ),
                                           Row(
@@ -231,22 +236,54 @@ class MyTransactionsScreen extends StatelessWidget {
                                               ),
                                               Text(
                                                 "${Tools.seRagham(item.finalPrice?.toString() ?? "")} تومان ",
-                                                style: const TextStyle().withIranSans(
-                                                    fontWeight: FontWeight.w400,
-                                                    fontSize: 12),
+                                                style: const TextStyle()
+                                                    .withIranSans(
+                                                        fontWeight:
+                                                            FontWeight.w400,
+                                                        fontSize: 12),
                                               ),
                                             ],
                                           ),
                                         ],
                                       ),
-                                      CustomButton(
-                                        onClick: () {
-                                          _controller.downloadReceipt(item);
-                                        },
+                                      SizedBox(
                                         width: 80,
                                         height: 40,
-                                        color: const Color(0xffF84C4D),
-                                        text: StringResource.downloadReceipt,
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(4),
+                                          child: Material(
+                                            borderRadius:
+                                                BorderRadius.circular(4),
+                                            color: const Color(0xffF84C4D),
+                                            child: InkWell(
+                                              onTap: () {
+                                                _controller
+                                                    .downloadReceipt(item);
+                                              },
+                                              child: Center(
+                                                child: (item.isDownloading)
+                                                    ? SizedBox(
+                                                  width: 15,
+                                                      height: 15,
+                                                      child: CircularProgressIndicator(
+                                                          value: item.downloadPercent,
+                                                        strokeWidth: 2,
+                                                        color: Colors.white,
+                                                        ),
+                                                    )
+                                                    : FaIcon(
+                                                        (item.isExist)
+                                                            ? FontAwesomeIcons
+                                                                .folderOpen
+                                                            : FontAwesomeIcons
+                                                                .download,
+                                                        color: Colors.white,
+                                                      ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
                                       )
                                     ],
                                   ),
