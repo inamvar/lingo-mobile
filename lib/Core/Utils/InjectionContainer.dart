@@ -16,6 +16,7 @@ import 'package:lingo/Core/Interfaces/Repositories/UserRemoteRepository.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Auth/ILogoutUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Auth/IRefreshTokenUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Comments/IAddCommentUseCase.dart';
+import 'package:lingo/Core/Interfaces/UseCases/Comments/IGetCommentByIdUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Comments/IGetCommentsUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Course/IGetCourseByIdUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Course/IGetPackageCoursesUseCase.dart';
@@ -34,6 +35,7 @@ import 'package:lingo/Core/Interfaces/UseCases/User/IUpdateProfileUseCase.dart';
 import 'package:lingo/Core/UseCases/AuthUseCases/LogoutUseCase.dart';
 import 'package:lingo/Core/UseCases/AuthUseCases/RefreshTokenUseCase.dart';
 import 'package:lingo/Core/UseCases/CommentsUseCases/AddCommentUseCase.dart';
+import 'package:lingo/Core/UseCases/CommentsUseCases/GetCommentByIdUseCase.dart';
 import 'package:lingo/Core/UseCases/CommentsUseCases/GetCommentsUseCase.dart';
 import 'package:lingo/Core/UseCases/CourseUseCases/GetCourseByIdUseCase.dart';
 import 'package:lingo/Core/UseCases/CourseUseCases/GetPackageCoursesUseCase.dart';
@@ -107,6 +109,8 @@ initInjections() async {
           () => AddCommentUseCase(appSingleton()));
   appSingleton.registerLazySingleton<IDownloadReceiptUseCase>(
           () => DownloadReceiptUseCase(appSingleton()));
+  appSingleton.registerLazySingleton<IGetCommentByIdUseCase>(
+          () => GetCommentByIdUseCase(appSingleton()));
 
   //Repositories
   appSingleton.registerLazySingleton<AuthRemoteRepository>(

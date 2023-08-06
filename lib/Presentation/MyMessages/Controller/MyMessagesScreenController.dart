@@ -8,7 +8,7 @@ import '../../../Core/Dto/UseCases/Requests/PaginationRequestDtoUseCase.dart';
 import '../../../Core/Helpers/ShowMessage.dart';
 import '../../../infrastructure/Navigation/Routes.dart';
 
-class MyMessagesScreenController extends GetxController{
+class MyMessagesScreenController extends GetxController {
   RefreshController? refreshController;
 
   final IGetCommentsUseCase getCommentsUseCase;
@@ -50,7 +50,8 @@ class MyMessagesScreenController extends GetxController{
 
     var params = PaginationRequestDtoUseCase(
       pageSize: perPage,
-      pageNumber: currentPage,);
+      pageNumber: currentPage,
+    );
 
     getCommentsUseCase.execute(params: params).then((result) {
       isLoading.value = false;
@@ -58,7 +59,7 @@ class MyMessagesScreenController extends GetxController{
       refreshController?.refreshCompleted();
 
       result.fold(
-              (serverError) => ShowMessage.getSnackBar(
+          (serverError) => ShowMessage.getSnackBar(
               message: serverError.errorMessage ??
                   StringResource.serverErrorOccurred), (response) {
         messages.addAll(response.data?.data ?? []);
@@ -77,7 +78,7 @@ class MyMessagesScreenController extends GetxController{
     }
   }
 
-  void refreshPage(){
+  void refreshPage() {
     currentPage = 1;
     messages.clear();
     getMessages(isFirstTime: false);
@@ -85,8 +86,14 @@ class MyMessagesScreenController extends GetxController{
 
   void addMessage() async {
     var result = await Get.toNamed(Routes.addMessage);
-    if(result){
+    if (result) {
       refreshController?.requestRefresh();
     }
+  }
+
+  void showMessage(Message message) {
+    message.seen = true;
+    messages.refresh();
+    Get.toNamed(Routes.messageDetail, arguments: {"messageId": message.id});
   }
 }

@@ -72,8 +72,7 @@ class MyMessagesScreen extends StatelessWidget {
                           color: Colors.white,
                           child: InkWell(
                             onTap: () {
-                              Get.toNamed(Routes.messageDetail,
-                              arguments: {"message":message});
+                              _controller.showMessage(message);
                             },
                             child: ListTile(
                               title: Text(

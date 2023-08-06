@@ -1,3 +1,4 @@
+import 'package:lingo/Core/Dto/Models/Message.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/Comments/SendMessageRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/Comments/GetCommentsResponseDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/ResponseDtoUseCase.dart';
@@ -13,5 +14,9 @@ abstract class CommentsRemoteDataSource {
 
   Future<BaseNetworkResponse<ResponseDtoUseCase>> addComment(
        SendMessageRequestDtoUseCase requestDtoUseCase
+      );
+
+  Future<BaseNetworkResponse<Message>> getCommentById(
+      int id
       );
 }

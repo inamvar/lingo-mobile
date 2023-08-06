@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:lingo/Core/Configs/StringResource.dart';
 import 'package:lingo/Core/Dto/Models/Message.dart';
@@ -13,85 +14,93 @@ class MessageDetailScreen extends StatelessWidget {
   final _controller = Get.find<MessageDetailScreenController>();
 
   late ColorScheme colorScheme;
-  late Message message;
 
   @override
   Widget build(BuildContext context) {
     colorScheme = Theme.of(context).colorScheme;
-    message = _controller.message;
     return BaseScreen(
-      child: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Padding(
-          padding: const EdgeInsets.all(32),
-          child: Column(
-            children: [
-              Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 5),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Obx(() => (_controller.isLoading.value)
+          ? SpinKitFadingCircle(
+              color: colorScheme.background,
+              size: 24,
+            )
+          : SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Padding(
+                padding: const EdgeInsets.all(32),
+                child: Column(
+                  children: [
+                    Column(
                       children: [
-                        Text(
-                          StringResource.yourMessage,
-                          style: const TextStyle().withIranSans(
-                              color: colorScheme.background,
-                              fontWeight: FontWeight.bold),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 5),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                StringResource.yourMessage,
+                                style: const TextStyle().withIranSans(
+                                    color: colorScheme.background,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                  Tools.getOnlyDate(
+                                      _controller.message!.createdAt!),
+                                  style: const TextStyle().withIranSans(
+                                      color: colorScheme.background,
+                                      fontWeight: FontWeight.bold)),
+                            ],
+                          ),
                         ),
-                        Text(Tools.getOnlyDate(message.createdAt!),
-                            style: const TextStyle().withIranSans(
-                                color: colorScheme.background,
-                                fontWeight: FontWeight.bold)),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.all(15),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(7)),
+                          child: Text(
+                            _controller.message!.subject ?? "",
+                            style: const TextStyle()
+                                .withIranSans(color: const Color(0xff525252)),
+                          ),
+                        ),
                       ],
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(7)),
-                    child: Text(
-                      message.subject ?? "",
-                      style: const TextStyle()
-                          .withIranSans(color: const Color(0xff525252)),
+                    const SizedBox(
+                      height: 15,
                     ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(7)),
-                child: Text(
-                  message.body ?? "",
-                  style:
-                      const TextStyle().withIranSans(color: const Color(0xff525252)),
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(7)),
+                      child: Text(
+                        _controller.message!.body ?? "",
+                        style: const TextStyle()
+                            .withIranSans(color: const Color(0xff525252)),
+                      ),
+                    ),
+                    if (_controller.message!.replies != null &&
+                        _controller.message!.replies!.isNotEmpty)
+                      buildAdminResponse()
+                  ],
                 ),
               ),
-              if(message.replies != null && message.replies!.isNotEmpty)
-                buildAdminResponse()
-            ],
-          ),
-        ),
-      ),
+            )),
     );
   }
 
-  buildAdminResponse(){
-    var response = message.replies![0];
+  buildAdminResponse() {
+    var response = _controller.message!.replies![0];
     return Column(
       children: [
-        const SizedBox(height: 20,),
+        const SizedBox(
+          height: 20,
+        ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 5),
           child: Row(
@@ -100,8 +109,7 @@ class MessageDetailScreen extends StatelessWidget {
               Text(
                 StringResource.adminResponse,
                 style: const TextStyle().withIranSans(
-                    color: colorScheme.background,
-                    fontWeight: FontWeight.bold),
+                    color: colorScheme.background, fontWeight: FontWeight.bold),
               ),
               Text(Tools.getOnlyDate(response.createdAt!),
                   style: const TextStyle().withIranSans(
@@ -120,12 +128,11 @@ class MessageDetailScreen extends StatelessWidget {
           width: double.infinity,
           padding: const EdgeInsets.all(15),
           decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(7)),
+              color: Colors.white, borderRadius: BorderRadius.circular(7)),
           child: Text(
             response.body ?? "",
             style:
-            const TextStyle().withIranSans(color: const Color(0xff525252)),
+                const TextStyle().withIranSans(color: const Color(0xff525252)),
           ),
         ),
       ],

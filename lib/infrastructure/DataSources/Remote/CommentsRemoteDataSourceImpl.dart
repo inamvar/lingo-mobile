@@ -1,4 +1,5 @@
 import 'package:lingo/Core/Dto/Models/BaseNetworkResponse.dart';
+import 'package:lingo/Core/Dto/Models/Message.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/Comments/SendMessageRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/PaginationRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/Packages/GetPackagesResponseDtoUseCase.dart';
@@ -39,6 +40,22 @@ class CommentsRemoteDataSourceImpl extends CommentsRemoteDataSource {
       ResponseDtoUseCase response = ResponseDtoUseCase.fromJson(value.data);
       return BaseNetworkResponse<ResponseDtoUseCase>(
           data: ResponseDtoUseCase.fromJson(response.data!),
+          message: response.message);
+    });
+
+    return result;
+  }
+
+  @override
+  Future<BaseNetworkResponse<Message>> getCommentById(int id) async {
+    var dio = BaseBrain.dio;
+    var url = '${ApiEndpoints.comments}/$id';
+    var result = await dio
+        .get(url)
+        .then((value) {
+      ResponseDtoUseCase response = ResponseDtoUseCase.fromJson(value.data);
+      return BaseNetworkResponse<Message>(
+          data: Message.fromJson(response.data!),
           message: response.message);
     });
 
