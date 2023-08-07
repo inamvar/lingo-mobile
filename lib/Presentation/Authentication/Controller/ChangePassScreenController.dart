@@ -118,7 +118,6 @@ class ChangePassScreenController extends GetxController {
       Timer.periodic(
         const Duration(seconds: 1),
             (Timer timer) {
-          print("remained time: $remainingTime");
           remainingTime -= const Duration(seconds: 1);
           resendTimerValue.value = remainingTime.inSeconds / wholeTime.inSeconds;
           if (remainingTime.inSeconds <= 0) {
