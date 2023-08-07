@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:lingo/Core/Dto/Enums/FormTextFieldType.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
@@ -31,6 +33,47 @@ class ChangePassFields extends StatelessWidget {
                   labelText: StringResource.confirmCode,
                   controller: controller.codeController,
                   required: true,
+                ),
+                Column(
+                  children: [
+                    SizedBox(height: 10,),
+                    Obx(() => (controller.resendCodeLoading.value)
+                        ? SpinKitFadingCircle(
+                            color: colorScheme.background,
+                            size: 14,
+                          )
+                        : (controller.resendTimerValue.value == 0)
+                            ? TextButton(
+                                onPressed: () {
+                                  controller.resetPassRequest();
+                                },
+                                child: Row(
+                                  children: [
+                                    const FaIcon(
+                                      FontAwesomeIcons.arrowRotateLeft,
+                                      size: 12,
+                                    ),
+                                    const SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      StringResource.resendCode,
+                                      style: const TextStyle().withIranSans(
+                                          color: colorScheme.background,
+                                          fontSize: 12),
+                                    ),
+                                  ],
+                                ))
+                            : ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: LinearProgressIndicator(
+                                  backgroundColor: const Color(0xffD9D9D9),
+                                  color: const Color(0xff47CB78),
+                                  value: controller.resendTimerValue.value,
+                                  minHeight: 9,
+                                ),
+                              )),
+                  ],
                 ),
                 FormTextField(
                   labelText: StringResource.password,

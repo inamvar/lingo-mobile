@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lingo/Core/Configs/StringResource.dart';
@@ -40,12 +42,14 @@ class ResetPassScreenController extends GetxController {
         value.fold(
             (serverError) => ShowMessage.getSnackBar(
                 message: serverError.errorMessage!,
-                type: MessageType.ERROR), (r) {
+                type: MessageType.ERROR), (response) {
           ShowMessage.getSnackBar(
               message: StringResource.resetPassEmailSentMsg,
               type: MessageType.SUCCESS);
-          Get.toNamed(Routes.changePassword,
-              arguments: {"email": emailController?.text});
+          Get.toNamed(Routes.changePassword, arguments: {
+            "email": emailController?.text,
+            "expireTime": response.data!.expirationTime!
+          });
         });
       });
     }

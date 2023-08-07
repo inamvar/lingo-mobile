@@ -28,25 +28,6 @@ class BaseAuthScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: colorScheme.background,
-        leading: IconButton(
-            onPressed: () {
-              Get.until((route) => route.settings.name == Routes.main);
-              _controller.changePage(page:MainPage.HOME);
-            },
-            icon: const FaIcon(
-              FontAwesomeIcons.house,
-              color: Colors.white,
-            )),
-        actions: [
-          IconButton(
-              onPressed: () {
-                Get.back();
-              },
-              icon: const FaIcon(
-                FontAwesomeIcons.arrowLeft,
-                color: Colors.white,
-              ))
-        ],
       ),
       body: SafeArea(
         child: Stack(

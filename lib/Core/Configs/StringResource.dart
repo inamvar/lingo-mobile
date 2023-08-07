@@ -78,4 +78,5 @@ class StringResource{
   static const title = "عنوان";
   static const messageHint = "متن پیام یا پرسش";
   static const messageSentSuccessfully = "پیام با موفقیت ارسال شد";
+  static const resendCode = "ارسال مجدد کد تایید";
 }

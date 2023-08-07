@@ -8,21 +8,22 @@ import 'package:lingo/Core/Dto/UseCases/Requests/User/UpdateProfileRequestDtoUse
 import 'package:lingo/Core/Dto/UseCases/Responses/ResponseDtoUseCase.dart';
 import 'package:lingo/Core/Interfaces/DataSources/Remote/UserRemoteDataSource.dart';
 
+import '../../../Core/Dto/UseCases/Responses/Auth/ResetPassResponseDtoUseCase.dart';
 import '../../../Core/Helpers/BaseBrain.dart';
 import '../../../Core/Utils/ApiEndpoints.dart';
 
 class UserRemoteDataSourceImpl extends UserRemoteDataSource {
   @override
-  Future<BaseNetworkResponse<ResponseDtoUseCase>> forgotPass(
+  Future<BaseNetworkResponse<ResetPassResponseDtoUseCase>> forgotPass(
       ForgotPassRequestDtoUseCase requestDtoUseCase) async {
     var dio = BaseBrain.dio;
 
     var result = await dio
         .post(ApiEndpoints.forgotPass, data: jsonEncode(requestDtoUseCase))
         .then((value) {
-      ResponseDtoUseCase response = ResponseDtoUseCase.fromJson(value.data);
-      return BaseNetworkResponse<ResponseDtoUseCase>(
-          data: response, message: response.message);
+      ResetPassResponseDtoUseCase response = ResetPassResponseDtoUseCase.fromJson(value.data["data"]);
+      return BaseNetworkResponse<ResetPassResponseDtoUseCase>(
+          data: response, message: value.data["message"]);
     });
 
     return result;

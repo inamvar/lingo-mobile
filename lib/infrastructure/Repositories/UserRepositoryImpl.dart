@@ -10,13 +10,15 @@ import 'package:lingo/Core/Dto/UseCases/Responses/ResponseDtoUseCase.dart';
 import 'package:lingo/Core/Interfaces/DataSources/Remote/UserRemoteDataSource.dart';
 import 'package:lingo/Core/Interfaces/Repositories/UserRemoteRepository.dart';
 
+import '../../Core/Dto/UseCases/Responses/Auth/ResetPassResponseDtoUseCase.dart';
+
 class UserRepositoryImpl extends UserRemoteRepository {
   final UserRemoteDataSource userRemoteDataSource;
 
   UserRepositoryImpl(this.userRemoteDataSource);
 
   @override
-  Future<Either<Failure, BaseNetworkResponse<ResponseDtoUseCase>>>? forgotPass(
+  Future<Either<Failure, BaseNetworkResponse<ResetPassResponseDtoUseCase>>>? forgotPass(
       ForgotPassRequestDtoUseCase requestDtoUseCase) async {
     try {
       var result = await userRemoteDataSource.forgotPass(requestDtoUseCase);

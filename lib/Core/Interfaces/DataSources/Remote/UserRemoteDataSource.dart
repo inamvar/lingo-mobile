@@ -4,10 +4,11 @@ import 'package:lingo/Core/Dto/UseCases/Requests/User/UpdateProfileRequestDtoUse
 
 import '../../../Dto/Models/BaseNetworkResponse.dart';
 import '../../../Dto/UseCases/Requests/User/ForgotPassRequestDtoUseCase.dart';
+import '../../../Dto/UseCases/Responses/Auth/ResetPassResponseDtoUseCase.dart';
 import '../../../Dto/UseCases/Responses/ResponseDtoUseCase.dart';
 
 abstract class UserRemoteDataSource {
-  Future<BaseNetworkResponse<ResponseDtoUseCase>> forgotPass(
+  Future<BaseNetworkResponse<ResetPassResponseDtoUseCase>> forgotPass(
       ForgotPassRequestDtoUseCase requestDtoUseCase);
 
   Future<BaseNetworkResponse<ResponseDtoUseCase>> resetPass(

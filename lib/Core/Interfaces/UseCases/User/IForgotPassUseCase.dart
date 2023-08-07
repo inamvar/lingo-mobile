@@ -4,5 +4,7 @@ import 'package:lingo/Core/Dto/UseCases/Requests/User/ForgotPassRequestDtoUseCas
 import 'package:lingo/Core/Dto/UseCases/Responses/ResponseDtoUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/IUseCase.dart';
 
+import '../../../Dto/UseCases/Responses/Auth/ResetPassResponseDtoUseCase.dart';
+
 abstract class IForgotPassUseCase extends IUseCase<
-    BaseNetworkResponse<ResponseDtoUseCase>, ForgotPassRequestDtoUseCase> {}
+    BaseNetworkResponse<ResetPassResponseDtoUseCase>, ForgotPassRequestDtoUseCase> {}

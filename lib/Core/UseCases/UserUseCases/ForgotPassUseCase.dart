@@ -7,13 +7,15 @@ import 'package:lingo/Core/Interfaces/Repositories/UserRemoteRepository.dart';
 import 'package:lingo/Core/Interfaces/UseCases/User/IForgotPassUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/IUseCase.dart';
 
+import '../../Dto/UseCases/Responses/Auth/ResetPassResponseDtoUseCase.dart';
+
 class ForgotPassUseCase extends IForgotPassUseCase {
   final UserRemoteRepository repository;
 
   ForgotPassUseCase({required this.repository});
 
   @override
-  Future<Either<Failure, BaseNetworkResponse<ResponseDtoUseCase>>> execute(
+  Future<Either<Failure, BaseNetworkResponse<ResetPassResponseDtoUseCase>>> execute(
       {ForgotPassRequestDtoUseCase? params}) async {
     return await repository.forgotPass(params!)!;
   }
