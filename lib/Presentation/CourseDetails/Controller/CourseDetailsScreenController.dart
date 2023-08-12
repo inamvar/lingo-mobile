@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:lingo/Core/Dto/Models/Course.dart';
+import 'package:lingo/Core/Helpers/BaseBrain.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Course/IGetCourseByIdUseCase.dart';
 import 'package:lingo/infrastructure/Navigation/Routes.dart';
 
@@ -75,8 +76,13 @@ class CourseDetailsScreenController extends GetxController {
   }
 
   void checkout() {
-    Get.toNamed(Routes.checkout,arguments: {
-      "course": course.value
-    });
+    if(BaseBrain.isLogin.value){
+      Get.toNamed(Routes.checkout,arguments: {
+        "course": course.value
+      });
+    }
+    else{
+      Get.toNamed(Routes.authentication);
+    }
   }
 }

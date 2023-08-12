@@ -2,7 +2,7 @@ name: lingo
 description: Lingo App
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 0.5.0-alpha+6
+version: 0.9.7-alpha+8
 
 environment:
   sdk: '>=2.19.5 <3.0.0'
