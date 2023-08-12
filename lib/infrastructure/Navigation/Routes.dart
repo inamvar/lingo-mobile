@@ -14,6 +14,7 @@ import 'package:lingo/Presentation/MyMessages/AddMessageScreen.dart';
 import 'package:lingo/Presentation/MyMessages/MessageDetailScreen.dart';
 import 'package:lingo/Presentation/MyMessages/MyMessagesScreen.dart';
 import 'package:lingo/Presentation/MyTransactions/MyTransactionsScreen.dart';
+import 'package:lingo/Presentation/Offers/OffersScreen.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/AuthScreenControllerBindings.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/ChangePassControllerBindings.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/ResetPassControllerBindings.dart';
@@ -78,8 +79,11 @@ class Routes {
         name: addMessage,
         page: () => AddMessageScreen(),
         binding: AddMessageControllerBinding()),
-    GetPage(name: checkout, page: ()=> CheckoutScreen(),
-    binding: CheckoutControllerBinding())
+    GetPage(
+        name: checkout,
+        page: () => CheckoutScreen(),
+        binding: CheckoutControllerBinding()),
+    GetPage(name: offers, page: () => const OffersScreen())
   ];
 
   static const root = "/";
@@ -114,4 +118,7 @@ class Routes {
 
   ///Checkout
   static const checkout = "${root}Checkout";
+
+  ///Offers
+  static const offers = "${root}Offers";
 }

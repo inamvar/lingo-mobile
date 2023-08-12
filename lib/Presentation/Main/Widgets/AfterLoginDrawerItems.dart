@@ -111,7 +111,9 @@ class AfterLoginDrawerItems extends StatelessWidget {
         Material(
           color: const Color(0xffEDEFF3),
           child: InkWell(
-            onTap: () {},
+            onTap: () {
+              _controller.navOffers();
+            },
             child: ListTile(
               contentPadding: const EdgeInsets.only(right: 35),
               title: Text(
