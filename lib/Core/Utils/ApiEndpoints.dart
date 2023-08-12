@@ -10,6 +10,9 @@ class ApiEndpoints{
   static const String resetPass = "User/ResetPassword";
   static const String profile = "User/Profile";
   static const String changePassword = "User/ChangePassword";
+  static const String checkPhone = "User/PhoneNumberStatus";
+  static const String requestPhoneConfirm = "User/ConfirmPhoneNumberRequest";
+  static const String confirmPhone = "User/ConfirmPhoneNumber";
 
   ///Packages Endpoints
   static const String findAll = "Package";
@@ -28,4 +31,5 @@ class ApiEndpoints{
 
   ///General Endpoints
   static const String search = "Search";
+  static const String createOrder = "Order";
 }

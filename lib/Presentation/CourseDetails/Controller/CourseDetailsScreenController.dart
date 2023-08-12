@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:lingo/Core/Dto/Models/Course.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Course/IGetCourseByIdUseCase.dart';
+import 'package:lingo/infrastructure/Navigation/Routes.dart';
 
 import '../../../Core/Configs/StringResource.dart';
 import '../../../Core/Dto/UseCases/Requests/PaginationRequestDtoUseCase.dart';
@@ -70,6 +71,12 @@ class CourseDetailsScreenController extends GetxController {
               StringResource.serverErrorOccurred), (response) {
         relatedCourses.value = response.data!.data!;
       });
+    });
+  }
+
+  void checkout() {
+    Get.toNamed(Routes.checkout,arguments: {
+      "course": course.value
     });
   }
 }

@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/User/ChangePassRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/User/ResetPassRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/User/UpdateProfileRequestDtoUseCase.dart';
+import 'package:lingo/Core/Dto/UseCases/Responses/User/PhoneStatusResponseDtoUseCase.dart';
 import 'package:lingo/Core/Interfaces/Repositories/BaseRemoteRepository.dart';
 
 import '../../Dto/Models/BaseNetworkResponse.dart';
@@ -11,8 +12,8 @@ import '../../Dto/UseCases/Responses/Auth/ResetPassResponseDtoUseCase.dart';
 import '../../Dto/UseCases/Responses/ResponseDtoUseCase.dart';
 
 abstract class UserRemoteRepository extends BaseRemoteRepository {
-  Future<Either<Failure, BaseNetworkResponse<ResetPassResponseDtoUseCase>>>? forgotPass(
-      ForgotPassRequestDtoUseCase requestDtoUseCase);
+  Future<Either<Failure, BaseNetworkResponse<ResetPassResponseDtoUseCase>>>?
+      forgotPass(ForgotPassRequestDtoUseCase requestDtoUseCase);
 
   Future<Either<Failure, BaseNetworkResponse<ResponseDtoUseCase>>>? resetPass(
       ResetPassRequestDtoUseCase requestDtoUseCase);
@@ -25,4 +26,13 @@ abstract class UserRemoteRepository extends BaseRemoteRepository {
 
   Future<Either<Failure, BaseNetworkResponse<ResponseDtoUseCase>>>? changePass(
       ChangePassRequestDtoUseCase requestDtoUseCase);
+
+  Future<Either<Failure, BaseNetworkResponse<PhoneStatusResponseDtoUseCase>>>?
+      checkPhoneStatus();
+
+  Future<Either<Failure, BaseNetworkResponse<ResponseDtoUseCase>>>?
+  requestPhoneConfirm(String phone);
+
+  Future<Either<Failure, BaseNetworkResponse<ResponseDtoUseCase>>>?
+  confirmPhone(String code);
 }

@@ -7,6 +7,7 @@ import 'package:lingo/Core/Dto/UseCases/Requests/User/ForgotPassRequestDtoUseCas
 import 'package:lingo/Core/Dto/UseCases/Requests/User/ResetPassRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/User/UpdateProfileRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/ResponseDtoUseCase.dart';
+import 'package:lingo/Core/Dto/UseCases/Responses/User/PhoneStatusResponseDtoUseCase.dart';
 import 'package:lingo/Core/Interfaces/DataSources/Remote/UserRemoteDataSource.dart';
 import 'package:lingo/Core/Interfaces/Repositories/UserRemoteRepository.dart';
 
@@ -18,8 +19,8 @@ class UserRepositoryImpl extends UserRemoteRepository {
   UserRepositoryImpl(this.userRemoteDataSource);
 
   @override
-  Future<Either<Failure, BaseNetworkResponse<ResetPassResponseDtoUseCase>>>? forgotPass(
-      ForgotPassRequestDtoUseCase requestDtoUseCase) async {
+  Future<Either<Failure, BaseNetworkResponse<ResetPassResponseDtoUseCase>>>?
+      forgotPass(ForgotPassRequestDtoUseCase requestDtoUseCase) async {
     try {
       var result = await userRemoteDataSource.forgotPass(requestDtoUseCase);
       return Right(result);
@@ -66,6 +67,39 @@ class UserRepositoryImpl extends UserRemoteRepository {
       ChangePassRequestDtoUseCase requestDtoUseCase) async {
     try {
       var result = await userRemoteDataSource.changePass(requestDtoUseCase);
+      return Right(result);
+    } on DioError catch (error) {
+      return Left(parseServerError(error));
+    }
+  }
+
+  @override
+  Future<Either<Failure, BaseNetworkResponse<PhoneStatusResponseDtoUseCase>>>?
+      checkPhoneStatus() async {
+    try {
+      var result = await userRemoteDataSource.checkPhoneStatus();
+      return Right(result);
+    } on DioError catch (error) {
+      return Left(parseServerError(error));
+    }
+  }
+
+  @override
+  Future<Either<Failure, BaseNetworkResponse<ResponseDtoUseCase>>>?
+      confirmPhone(String code) async {
+    try {
+      var result = await userRemoteDataSource.confirmPhone(code);
+      return Right(result);
+    } on DioError catch (error) {
+      return Left(parseServerError(error));
+    }
+  }
+
+  @override
+  Future<Either<Failure, BaseNetworkResponse<ResponseDtoUseCase>>>?
+      requestPhoneConfirm(String phone) async {
+    try {
+      var result = await userRemoteDataSource.requestPhoneConfirm(phone);
       return Right(result);
     } on DioError catch (error) {
       return Left(parseServerError(error));

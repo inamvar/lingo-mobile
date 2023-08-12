@@ -1,6 +1,7 @@
 import 'package:lingo/Core/Dto/UseCases/Requests/User/ChangePassRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/User/ResetPassRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/User/UpdateProfileRequestDtoUseCase.dart';
+import 'package:lingo/Core/Dto/UseCases/Responses/User/PhoneStatusResponseDtoUseCase.dart';
 
 import '../../../Dto/Models/BaseNetworkResponse.dart';
 import '../../../Dto/UseCases/Requests/User/ForgotPassRequestDtoUseCase.dart';
@@ -21,4 +22,10 @@ abstract class UserRemoteDataSource {
 
   Future<BaseNetworkResponse<ResponseDtoUseCase>> changePass(
       ChangePassRequestDtoUseCase requestDtoUseCase);
+
+  Future<BaseNetworkResponse<PhoneStatusResponseDtoUseCase>> checkPhoneStatus();
+
+  Future<BaseNetworkResponse<ResponseDtoUseCase>> requestPhoneConfirm(String phone);
+
+  Future<BaseNetworkResponse<ResponseDtoUseCase>> confirmPhone(String code);
 }

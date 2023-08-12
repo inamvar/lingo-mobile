@@ -10,7 +10,7 @@ class CustomButton extends StatelessWidget {
       this.height,
       this.onClick,
       required this.text,
-      this.color})
+      this.color, this.fontSize})
       : super(key: key);
 
   final EdgeInsets? margin;
@@ -19,6 +19,7 @@ class CustomButton extends StatelessWidget {
   final double? height;
   final void Function()? onClick;
   final String text;
+  final double? fontSize;
   final Color? color;
 
   @override
@@ -26,7 +27,6 @@ class CustomButton extends StatelessWidget {
     var colorScheme = Theme.of(context).colorScheme;
     return Container(
       margin: margin,
-      padding: padding,
       width: width,
       height: height,
       child: ClipRRect(
@@ -36,10 +36,14 @@ class CustomButton extends StatelessWidget {
           color: color ?? colorScheme.background,
           child: InkWell(
             onTap: onClick,
-            child: Center(
-              child: Text(
-                text,
-                style: const TextStyle().withIranSans(color: Colors.white),
+            child: Padding(
+              padding: padding ?? EdgeInsets.zero,
+              child: Center(
+                child: Text(
+                  text,
+                  style: const TextStyle().withIranSans(
+                      fontSize: fontSize ?? 14, color: Colors.white),
+                ),
               ),
             ),
           ),

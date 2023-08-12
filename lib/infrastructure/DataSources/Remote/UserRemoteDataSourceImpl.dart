@@ -6,6 +6,7 @@ import 'package:lingo/Core/Dto/UseCases/Requests/User/ForgotPassRequestDtoUseCas
 import 'package:lingo/Core/Dto/UseCases/Requests/User/ResetPassRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/User/UpdateProfileRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/ResponseDtoUseCase.dart';
+import 'package:lingo/Core/Dto/UseCases/Responses/User/PhoneStatusResponseDtoUseCase.dart';
 import 'package:lingo/Core/Interfaces/DataSources/Remote/UserRemoteDataSource.dart';
 
 import '../../../Core/Dto/UseCases/Responses/Auth/ResetPassResponseDtoUseCase.dart';
@@ -21,7 +22,8 @@ class UserRemoteDataSourceImpl extends UserRemoteDataSource {
     var result = await dio
         .post(ApiEndpoints.forgotPass, data: jsonEncode(requestDtoUseCase))
         .then((value) {
-      ResetPassResponseDtoUseCase response = ResetPassResponseDtoUseCase.fromJson(value.data["data"]);
+      ResetPassResponseDtoUseCase response =
+          ResetPassResponseDtoUseCase.fromJson(value.data["data"]);
       return BaseNetworkResponse<ResetPassResponseDtoUseCase>(
           data: response, message: value.data["message"]);
     });
@@ -82,6 +84,51 @@ class UserRemoteDataSourceImpl extends UserRemoteDataSource {
     var result = await dio
         .put(ApiEndpoints.changePassword, data: jsonEncode(requestDtoUseCase))
         .then((value) {
+      ResponseDtoUseCase response = ResponseDtoUseCase.fromJson(value.data);
+      return BaseNetworkResponse<ResponseDtoUseCase>(
+          data: response, message: response.message);
+    });
+
+    return result;
+  }
+
+  @override
+  Future<BaseNetworkResponse<PhoneStatusResponseDtoUseCase>>
+      checkPhoneStatus() async {
+    var dio = BaseBrain.dio;
+
+    var result = await dio.get(ApiEndpoints.checkPhone).then((value) {
+      ResponseDtoUseCase response = ResponseDtoUseCase.fromJson(value.data);
+      return BaseNetworkResponse<PhoneStatusResponseDtoUseCase>(
+          data: PhoneStatusResponseDtoUseCase.fromJson(response.data!),
+          message: response.message);
+    });
+
+    return result;
+  }
+
+  @override
+  Future<BaseNetworkResponse<ResponseDtoUseCase>> confirmPhone(
+      String code) async {
+    var dio = BaseBrain.dio;
+
+    var result = await dio.post(ApiEndpoints.confirmPhone,
+        data: {"securityCode": code}).then((value) {
+      ResponseDtoUseCase response = ResponseDtoUseCase.fromJson(value.data);
+      return BaseNetworkResponse<ResponseDtoUseCase>(
+          data: response, message: response.message);
+    });
+
+    return result;
+  }
+
+  @override
+  Future<BaseNetworkResponse<ResponseDtoUseCase>> requestPhoneConfirm(
+      String phone) async {
+    var dio = BaseBrain.dio;
+
+    var result = await dio.post(ApiEndpoints.requestPhoneConfirm,
+        data: {"phoneNumber": phone}).then((value) {
       ResponseDtoUseCase response = ResponseDtoUseCase.fromJson(value.data);
       return BaseNetworkResponse<ResponseDtoUseCase>(
           data: response, message: response.message);

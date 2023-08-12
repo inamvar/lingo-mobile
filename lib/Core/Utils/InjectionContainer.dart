@@ -20,16 +20,20 @@ import 'package:lingo/Core/Interfaces/UseCases/Comments/IGetCommentByIdUseCase.d
 import 'package:lingo/Core/Interfaces/UseCases/Comments/IGetCommentsUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Course/IGetCourseByIdUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Course/IGetPackageCoursesUseCase.dart';
+import 'package:lingo/Core/Interfaces/UseCases/General/ICreateOrderUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/General/ISearchUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Packages/IGetPackagesUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Report/IDownloadReceiptUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Report/IOrderHistoryUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Report/IPurchasedCoursesUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/User/IChangePassUseCase.dart';
+import 'package:lingo/Core/Interfaces/UseCases/User/ICheckPhoneStatusUseCase.dart';
+import 'package:lingo/Core/Interfaces/UseCases/User/IConfirmPhoneUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/User/IForgotPassUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Auth/IRegisterUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Auth/ISignInUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/User/IGetProfileUseCase.dart';
+import 'package:lingo/Core/Interfaces/UseCases/User/IRequestPhoneConfirmUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/User/IResetPassUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/User/IUpdateProfileUseCase.dart';
 import 'package:lingo/Core/UseCases/AuthUseCases/LogoutUseCase.dart';
@@ -39,16 +43,20 @@ import 'package:lingo/Core/UseCases/CommentsUseCases/GetCommentByIdUseCase.dart'
 import 'package:lingo/Core/UseCases/CommentsUseCases/GetCommentsUseCase.dart';
 import 'package:lingo/Core/UseCases/CourseUseCases/GetCourseByIdUseCase.dart';
 import 'package:lingo/Core/UseCases/CourseUseCases/GetPackageCoursesUseCase.dart';
+import 'package:lingo/Core/UseCases/General/CreateOrderUseCase.dart';
 import 'package:lingo/Core/UseCases/General/SearchUseCase.dart';
 import 'package:lingo/Core/UseCases/PackagesUseCases/GetPackagesUseCase.dart';
 import 'package:lingo/Core/UseCases/Report/DownloadReceiptUseCase.dart';
 import 'package:lingo/Core/UseCases/Report/OrderHistoryUseCase.dart';
 import 'package:lingo/Core/UseCases/Report/PurchasedCoursesUseCase.dart';
 import 'package:lingo/Core/UseCases/UserUseCases/ChangePassUseCase.dart';
+import 'package:lingo/Core/UseCases/UserUseCases/CheckPhoneUseCase.dart';
+import 'package:lingo/Core/UseCases/UserUseCases/ConfirmPhoneUseCase.dart';
 import 'package:lingo/Core/UseCases/UserUseCases/ForgotPassUseCase.dart';
 import 'package:lingo/Core/UseCases/AuthUseCases/LoginUseCase.dart';
 import 'package:lingo/Core/UseCases/AuthUseCases/RegisterUseCase.dart';
 import 'package:lingo/Core/UseCases/UserUseCases/GetProfileUseCase.dart';
+import 'package:lingo/Core/UseCases/UserUseCases/RequestPhoneConfirmUseCase.dart';
 import 'package:lingo/Core/UseCases/UserUseCases/ResetPassUseCase.dart';
 import 'package:lingo/infrastructure/DataSources/Remote/AuthRemoteDataSourceImpl.dart';
 import 'package:lingo/infrastructure/DataSources/Remote/CommentsRemoteDataSourceImpl.dart';
@@ -111,6 +119,14 @@ initInjections() async {
           () => DownloadReceiptUseCase(appSingleton()));
   appSingleton.registerLazySingleton<IGetCommentByIdUseCase>(
           () => GetCommentByIdUseCase(appSingleton()));
+  appSingleton.registerLazySingleton<ICheckPhoneStatusUseCase>(
+          () => CheckPhoneUseCase(appSingleton()));
+  appSingleton.registerLazySingleton<IRequestPhoneConfirmUseCase>(
+          () => RequestPhoneConfirmUseCase(appSingleton()));
+  appSingleton.registerLazySingleton<IConfirmPhoneUseCase>(
+          () => ConfirmPhoneUseCase(appSingleton()));
+  appSingleton.registerLazySingleton<ICreateOrderUseCase>(
+          () => CreateOrderUseCase(appSingleton()));
 
   //Repositories
   appSingleton.registerLazySingleton<AuthRemoteRepository>(

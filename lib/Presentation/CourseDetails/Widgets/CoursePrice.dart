@@ -48,7 +48,9 @@ class CoursePrice extends StatelessWidget {
                   child: ConfirmButton(
                       bottomMargin: 0,
                       buttonText: StringResource.buyCourseBtn,
-                      onConfirm: () {}),
+                      onConfirm: () {
+                        controller.checkout();
+                      }),
                 ),
                 Align(
                   alignment: Alignment.topLeft,

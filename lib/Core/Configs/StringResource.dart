@@ -79,4 +79,13 @@ class StringResource{
   static const messageHint = "متن پیام یا پرسش";
   static const messageSentSuccessfully = "پیام با موفقیت ارسال شد";
   static const resendCode = "ارسال مجدد کد تایید";
+  static const sendCode = "ارسال کد تایید";
+  static const enterPhoneNumber = "شماره همراه خود را وارد کنید";
+  static const orderDetails = "جزئیات سفارش";
+  static const confirmCodeSent = "کد تایید ارسال شد";
+  static const String enterSecurityCode = "لطفا کد تایید دریافت شده را وارد نمایید.";
+  static const String codeEmptyWarning = "کد وارد نشده است";
+  static const String phoneConfirmedMessage = "شماره همراه باموفقیت تایید شد.";
+  static const String payButtonTxt = "پرداخت میکنم";
+  static const String confirmPhoneFirst = "لطفا اول شماره موبایل خود را تایید کنید.";
 }

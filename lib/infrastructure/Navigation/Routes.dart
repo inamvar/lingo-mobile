@@ -17,6 +17,7 @@ import 'package:lingo/Presentation/MyTransactions/MyTransactionsScreen.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/AuthScreenControllerBindings.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/ChangePassControllerBindings.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/ResetPassControllerBindings.dart';
+import 'package:lingo/infrastructure/Navigation/Bindings/Checkout/CheckoutControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Comments/AddMessageControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Comments/MessageDetailControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Courses/CourseDetailsControllerBinding.dart';
@@ -26,6 +27,7 @@ import 'package:lingo/infrastructure/Navigation/Bindings/Main/MainScreenControll
 import 'package:lingo/infrastructure/Navigation/Bindings/Report/MyCoursesControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Report/MyTransactionsControllerBinding.dart';
 
+import '../../Presentation/Checkout/CheckoutScreen.dart';
 import 'Bindings/Comments/MyMessagesControllerBinding.dart';
 
 class Routes {
@@ -75,36 +77,41 @@ class Routes {
     GetPage(
         name: addMessage,
         page: () => AddMessageScreen(),
-        binding: AddMessageControllerBinding())
+        binding: AddMessageControllerBinding()),
+    GetPage(name: checkout, page: ()=> CheckoutScreen(),
+    binding: CheckoutControllerBinding())
   ];
 
   static const root = "/";
 
-  //Main
+  ///Main
   static const main = "${root}Main";
 
-  //Authentication
+  ///Authentication
   static const authentication = "${root}Authentication";
   static const resetPassword = "$authentication/ResetPassword";
   static const changePassword = "$authentication/ChangePassword";
 
-  //Courses
+  ///Courses
   static const courses = "${root}Courses";
   static const courseDetails = "$courses/CourseDetails";
   static const courseDisplay = "$courses/CourseDisplay";
 
-  //Packages
+  ///Packages
   static const packages = "${root}Packages";
   static const freePackages = "$packages/FreePackages";
   static const eduPackages = "$packages/EduPackages";
 
-  //Report
+  ///Report
   static const report = "${root}Report";
   static const purchasedCourses = "$report/PurchasedCourses";
   static const orderHistory = "$report/OrderHistory";
 
-  //Messages
+  ///Messages
   static const messages = "${root}Messages";
   static const messageDetail = "$messages/Detail";
   static const addMessage = "$messages/Add";
+
+  ///Checkout
+  static const checkout = "${root}Checkout";
 }
