@@ -16,57 +16,109 @@ class BeforeLoginDrawerItems extends StatelessWidget {
     var colorScheme = Theme.of(context).colorScheme;
     return Column(
       children: [
-        Material(
-          color: const Color(0xffEDEFF3),
-          child: InkWell(
-            onTap: () {
-              _controller.navFreePackagesBtnClick();
-            },
-            child: ListTile(
-              contentPadding: const EdgeInsets.only(right: 35),
-              title: Text(
-                StringResource.freePackages,
-                style: const TextStyle().withIranSans(
-                    fontWeight: FontWeight.w300,
-                    fontSize: 17,
-                    color: colorScheme.background),
-              ),
+        InkWell(
+          onTap: () {
+            _controller.navEduPackagesBtnClick();
+          },
+          child: ListTile(
+            horizontalTitleGap: 0,
+            contentPadding: const EdgeInsets.only(right: 20),
+            leading: Image.asset("assets/images/education_packages_ic.png",width: 25,height: 25,),
+            title: Text(
+              StringResource.educationalPackages,
+              style: const TextStyle().withIranSans(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 16,
+                  color: Colors.white),
             ),
           ),
         ),
-        Material(
-          color: const Color(0xffEDEFF3),
-          child: InkWell(
-            onTap: () {
-              _controller.navEduPackagesBtnClick();
-            },
-            child: ListTile(
-              contentPadding: const EdgeInsets.only(right: 35),
-              title: Text(
-                StringResource.educationalPackages,
-                style: const TextStyle().withIranSans(
-                    fontWeight: FontWeight.w300,
-                    fontSize: 17,
-                    color: colorScheme.background),
-              ),
+        InkWell(
+          onTap: () {
+          },
+          child: ListTile(
+            horizontalTitleGap: 0,
+            contentPadding: const EdgeInsets.only(right: 20),
+            leading: Image.asset("assets/images/gift_ic.png",color: Colors.white,width: 25,height: 25,),
+            title: Text(
+              StringResource.goldPackages,
+              style: const TextStyle().withIranSans(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 16,
+                  color: Colors.white),
             ),
           ),
         ),
-        Material(
-          color: const Color(0xffEDEFF3),
-          child: InkWell(
-            onTap: () {
-              _controller.navOffers();
-            },
-            child: ListTile(
-              contentPadding: const EdgeInsets.only(right: 35),
-              title: Text(
-                StringResource.discounts,
-                style: const TextStyle().withIranSans(
-                    fontWeight: FontWeight.w300,
-                    fontSize: 17,
-                    color: colorScheme.background),
-              ),
+        InkWell(
+          onTap: () {
+            _controller.navFreePackagesBtnClick();
+          },
+          child: ListTile(
+            horizontalTitleGap: 0,
+            contentPadding: const EdgeInsets.only(right: 20),
+            leading: Image.asset("assets/images/free_packages_ic.png",
+              width: 25,height: 25,),
+            title: Text(
+              StringResource.freePackages,
+              style: const TextStyle().withIranSans(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 16,
+                  color: Colors.white),
+            ),
+          ),
+        ),
+        const Divider(
+          thickness: 1,
+          endIndent: 20,
+          indent: 20,
+          color: Colors.white,
+        ),
+        InkWell(
+          onTap: () {
+            _controller.navOffers();
+          },
+          child: ListTile(
+            horizontalTitleGap: 0,
+            contentPadding: const EdgeInsets.only(right: 20),
+            leading: Image.asset("assets/images/discount_ic.png",width: 25,height: 20,),
+            title: Text(
+              StringResource.discounts,
+              style: const TextStyle().withIranSans(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 16,
+                  color: Colors.white),
+            ),
+          ),
+        ),
+        InkWell(
+          onTap: () {
+          },
+          child: ListTile(
+            horizontalTitleGap: 0,
+            contentPadding: const EdgeInsets.only(right: 20),
+            leading: Image.asset("assets/images/faq_ic.png",width: 25,height: 25,),
+            title: Text(
+              StringResource.faq,
+              style: const TextStyle().withIranSans(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 16,
+                  color: Colors.white),
+            ),
+          ),
+        ),
+        InkWell(
+          onTap: () {
+          },
+          child: ListTile(
+            horizontalTitleGap: 0,
+            contentPadding: const EdgeInsets.only(right: 20),
+            leading: Image.asset("assets/images/privacy_ic.png",width: 25,height: 25,),
+            title: Text(
+              StringResource.privacyAndPolicy,
+              style: const TextStyle().withIranSans(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 16,
+                  color: Colors.white),
             ),
           ),
         ),

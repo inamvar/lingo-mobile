@@ -17,162 +17,214 @@ class AfterLoginDrawerItems extends StatelessWidget {
     var colorScheme = Theme.of(context).colorScheme;
     return Column(
       children: [
-
-        Material(
-          color: const Color(0xffEDEFF3),
-          child: InkWell(
-            onTap: () {
-              _controller.navMyCourses();
-            },
-            child: ListTile(
-              contentPadding: const EdgeInsets.only(right: 35),
-              title: Text(
-                StringResource.myCourses,
-                style: const TextStyle().withIranSans(
-                    fontWeight: FontWeight.w300,
-                    fontSize: 17,
-                    color: colorScheme.background),
-              ),
+        InkWell(
+          onTap: () {
+            _controller.navMyCourses();
+          },
+          child: ListTile(
+            contentPadding: const EdgeInsets.only(right: 20),
+            leading: Image.asset("assets/images/package_ic.png",width: 25,height: 25,),
+            horizontalTitleGap: 0,
+            title: Text(
+              StringResource.myCourses,
+              style: const TextStyle().withIranSans(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 16,
+                  color: Colors.white),
             ),
           ),
         ),
-        Material(
-          color: const Color(0xffEDEFF3),
-          child: InkWell(
-            onTap: () {
-              _controller.navMyTransactions();
-            },
-            child: ListTile(
-              contentPadding: const EdgeInsets.only(right: 35),
-              title: Text(
-                StringResource.myTransaction,
-                style: const TextStyle().withIranSans(
-                    fontWeight: FontWeight.w300,
-                    fontSize: 17,
-                    color: colorScheme.background),
-              ),
+        InkWell(
+          onTap: () {
+            _controller.navMyTransactions();
+          },
+          child: ListTile(
+            horizontalTitleGap: 0,
+            contentPadding: const EdgeInsets.only(right: 20),
+            leading: Image.asset("assets/images/transaction_ic.png",width: 25,height: 25,),
+            title: Text(
+              StringResource.myTransaction,
+              style: const TextStyle().withIranSans(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 16,
+                  color: Colors.white),
             ),
           ),
         ),
-        Material(
-          color: const Color(0xffEDEFF3),
-          child: InkWell(
-            onTap: () {
-              _controller.navFreePackagesBtnClick();
-            },
-            child: ListTile(
-              contentPadding: const EdgeInsets.only(right: 35),
-              title: Text(
-                StringResource.freePackages,
-                style: const TextStyle().withIranSans(
-                    fontWeight: FontWeight.w300,
-                    fontSize: 17,
-                    color: colorScheme.background),
-              ),
+        InkWell(
+          onTap: () {
+            _controller.navMyMessages();
+          },
+          child: ListTile(
+            horizontalTitleGap: 0,
+            contentPadding: const EdgeInsets.only(right: 20),
+            leading: Image.asset("assets/images/message_ic.png",width: 25,height: 25,),
+            title: Text(
+              StringResource.myMessages,
+              style: const TextStyle().withIranSans(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 16,
+                  color: Colors.white),
             ),
           ),
         ),
-        Material(
-          color: const Color(0xffEDEFF3),
-          child: InkWell(
-            onTap: () {
-              _controller.navEduPackagesBtnClick();
-            },
-            child: ListTile(
-              contentPadding: const EdgeInsets.only(right: 35),
-              title: Text(
-                StringResource.educationalPackages,
-                style: const TextStyle().withIranSans(
-                    fontWeight: FontWeight.w300,
-                    fontSize: 17,
-                    color: colorScheme.background),
-              ),
+        const Divider(
+          thickness: 1,
+          endIndent: 20,
+          indent: 20,
+          color: Colors.white,
+        ),
+        InkWell(
+          onTap: () {
+            _controller.navEduPackagesBtnClick();
+          },
+          child: ListTile(
+            horizontalTitleGap: 0,
+            contentPadding: const EdgeInsets.only(right: 20),
+            leading: Image.asset("assets/images/education_packages_ic.png",width: 25,height: 25,),
+            title: Text(
+              StringResource.educationalPackages,
+              style: const TextStyle().withIranSans(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 16,
+                  color: Colors.white),
             ),
           ),
         ),
-        Material(
-          color: const Color(0xffEDEFF3),
-          child: InkWell(
-            onTap: () {
-              _controller.navMyMessages();
-            },
-            child: ListTile(
-              contentPadding: const EdgeInsets.only(right: 35),
-              title: Text(
-                StringResource.myMessages,
-                style: const TextStyle().withIranSans(
-                    fontWeight: FontWeight.w300,
-                    fontSize: 17,
-                    color: colorScheme.background),
-              ),
+        InkWell(
+          onTap: () {
+          },
+          child: ListTile(
+            horizontalTitleGap: 0,
+            contentPadding: const EdgeInsets.only(right: 20),
+            leading: Image.asset("assets/images/gift_ic.png",color: Colors.white,width: 25,height: 25,),
+            title: Text(
+              StringResource.goldPackages,
+              style: const TextStyle().withIranSans(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 16,
+                  color: Colors.white),
             ),
           ),
         ),
-        Material(
-          color: const Color(0xffEDEFF3),
-          child: InkWell(
-            onTap: () {
-              _controller.navOffers();
-            },
-            child: ListTile(
-              contentPadding: const EdgeInsets.only(right: 35),
-              title: Text(
-                StringResource.discounts,
-                style: const TextStyle().withIranSans(
-                    fontWeight: FontWeight.w300,
-                    fontSize: 17,
-                    color: colorScheme.background),
-              ),
+        InkWell(
+          onTap: () {
+            _controller.navFreePackagesBtnClick();
+          },
+          child: ListTile(
+            horizontalTitleGap: 0,
+            contentPadding: const EdgeInsets.only(right: 20),
+            leading: Image.asset("assets/images/free_packages_ic.png",width: 25,height: 25,),
+            title: Text(
+              StringResource.freePackages,
+              style: const TextStyle().withIranSans(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 16,
+                  color: Colors.white),
             ),
           ),
         ),
-        Material(
-          color: const Color(0xffEDEFF3),
-          child: InkWell(
-            onTap: () {
-              Get.defaultDialog(
-                  content: Text(StringResource.logoutDialogMessage,
-                      style: const TextStyle().withIranSans()),
-                  title: StringResource.logoutDialogTitle,
-                  titleStyle: const TextStyle().withIranSans(fontSize: 15),
-                  cancel: TextButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      child: Text(
-                        StringResource.cancel,
-                        style: const TextStyle().withIranSans(),
-                      )),
-                  confirm: TextButton(
-                      onPressed: () {
-                        Get.back();
-                        Get.showOverlay(
-                          opacity: 0.6,
-                            asyncFunction: _controller.logout,
-                            loadingWidget: Container(
-                              width: double.infinity,
-                                height: double.infinity,
-                                alignment: Alignment.center,
-                                child: const SpinKitCircle(
-                                  size: 24,
-                                  color: Colors.red,
-                                )));
-                      },
-                      child: Text(
-                        StringResource.confirm,
-                        style:
-                            const TextStyle().withIranSans(color: Colors.red),
-                      )));
-            },
-            child: ListTile(
-              contentPadding: const EdgeInsets.only(right: 35),
-              title: Text(
-                StringResource.logout,
-                style: const TextStyle().withIranSans(
-                    fontWeight: FontWeight.w300,
-                    fontSize: 17,
-                    color: colorScheme.background),
-              ),
+        const Divider(
+          thickness: 1,
+          endIndent: 20,
+          indent: 20,
+          color: Colors.white,
+        ),
+        InkWell(
+          onTap: () {
+            _controller.navOffers();
+          },
+          child: ListTile(
+            horizontalTitleGap: 0,
+            contentPadding: const EdgeInsets.only(right: 20),
+            leading: Image.asset("assets/images/discount_ic.png",width: 25,height: 20,),
+            title: Text(
+              StringResource.discounts,
+              style: const TextStyle().withIranSans(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 16,
+                  color: Colors.white),
+            ),
+          ),
+        ),
+        InkWell(
+          onTap: () {
+          },
+          child: ListTile(
+            horizontalTitleGap: 0,
+            contentPadding: const EdgeInsets.only(right: 20),
+            leading: Image.asset("assets/images/faq_ic.png",width: 25,height: 25,),
+            title: Text(
+              StringResource.faq,
+              style: const TextStyle().withIranSans(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 16,
+                  color: Colors.white),
+            ),
+          ),
+        ),
+        InkWell(
+          onTap: () {
+          },
+          child: ListTile(
+            horizontalTitleGap: 0,
+            contentPadding: const EdgeInsets.only(right: 20),
+            leading: Image.asset("assets/images/privacy_ic.png",width: 25,height: 25,),
+            title: Text(
+              StringResource.privacyAndPolicy,
+              style: const TextStyle().withIranSans(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 16,
+                  color: Colors.white),
+            ),
+          ),
+        ),
+        InkWell(
+          onTap: () {
+            Get.defaultDialog(
+                content: Text(StringResource.logoutDialogMessage,
+                    style: const TextStyle().withIranSans()),
+                title: StringResource.logoutDialogTitle,
+                titleStyle: const TextStyle().withIranSans(fontSize: 16),
+                cancel: TextButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    child: Text(
+                      StringResource.cancel,
+                      style: const TextStyle().withIranSans(),
+                    )),
+                confirm: TextButton(
+                    onPressed: () {
+                      Get.back();
+                      Get.showOverlay(
+                        opacity: 0.6,
+                          asyncFunction: _controller.logout,
+                          loadingWidget: Container(
+                            width: double.infinity,
+                              height: double.infinity,
+                              alignment: Alignment.center,
+                              child: const SpinKitCircle(
+                                size: 24,
+                                color: Colors.red,
+                              )));
+                    },
+                    child: Text(
+                      StringResource.confirm,
+                      style:
+                          const TextStyle().withIranSans(color: Colors.red),
+                    )));
+          },
+          child: ListTile(
+            horizontalTitleGap: 0,
+            contentPadding: const EdgeInsets.only(right: 20),
+            leading: Image.asset("assets/images/logout_ic.png",width: 25,height: 25,),
+            title: Text(
+              StringResource.logout,
+              style: const TextStyle().withIranSans(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 16,
+                  color: Colors.white),
             ),
           ),
         ),

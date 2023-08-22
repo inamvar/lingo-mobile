@@ -30,8 +30,11 @@ class StringResource{
   static const home = "خانه";
   static const freePackages = "پکیج های رایگان";
   static const educationalPackages = "پکیج های آموزشی";
+  static const goldPackages = "پکیج های طلائی لینگو";
   static const discounts = "تخفیف ها";
   static const contactUs = "تماس با ما";
+  static const faq = "سوالات متداول";
+  static const privacyAndPolicy = " قوانین و مقررات";
   static const myMessages = "پیام های من";
   static const loginSuccessMessage = "خوش آمدید";
   static const registerSuccessMessage = "ثبت نام با موفقیت انجام شد";

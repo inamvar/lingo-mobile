@@ -26,9 +26,7 @@ class MainScreen extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       key: _key,
       backgroundColor: const Color(0xffEDEFF3),
-      drawer: Drawer(
-        child: DrawerWidget(),
-      ),
+      drawer: DrawerWidget(),
       body: SafeArea(
         child: Stack(
           children: [
@@ -69,49 +67,49 @@ class MainScreen extends StatelessWidget {
             Align(
               alignment: Alignment.bottomCenter,
               child: Obx(() => CurvedNavigationBar(
-                height: 60,
-                letIndexChange: (index){
-                  if(index == 0 && BaseBrain.authToken == null){
-                    Get.toNamed(Routes.authentication);
-                    return false;
-                  }
-                  return true;
-                },
-                backgroundColor: Colors.transparent,
-                color: colorScheme.background,
-                index: _controller.currentIndex.value,
-                animationDuration: const Duration(milliseconds: 250),
-                items: const <Widget>[
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Icon(
-                      FontAwesomeIcons.solidUser,
-                      size: 20,
-                      color: Colors.white,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Icon(
-                      FontAwesomeIcons.house,
-                      size: 20,
-                      color: Colors.white,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Icon(
-                      FontAwesomeIcons.magnifyingGlass,
-                      size: 20,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-                onTap: (index) {
-                  _controller.changePage(pageIndex: index);
-                  //Handle button tap
-                },
-              )),
+                    height: 60,
+                    letIndexChange: (index) {
+                      if (index == 0 && BaseBrain.authToken == null) {
+                        Get.toNamed(Routes.authentication);
+                        return false;
+                      }
+                      return true;
+                    },
+                    backgroundColor: Colors.transparent,
+                    color: colorScheme.background,
+                    index: _controller.currentIndex.value,
+                    animationDuration: const Duration(milliseconds: 250),
+                    items: const <Widget>[
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Icon(
+                          FontAwesomeIcons.solidUser,
+                          size: 20,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Icon(
+                          FontAwesomeIcons.house,
+                          size: 20,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Icon(
+                          FontAwesomeIcons.magnifyingGlass,
+                          size: 20,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                    onTap: (index) {
+                      _controller.changePage(pageIndex: index);
+                      //Handle button tap
+                    },
+                  )),
             )
           ],
         ),

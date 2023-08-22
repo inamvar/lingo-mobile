@@ -25,93 +25,109 @@ class DrawerWidget extends StatelessWidget {
     var colorScheme = Theme.of(context).colorScheme;
 
     return Obx(() {
-      return Container(
-        color: const Color(0xffEDEFF3),
-        child: Stack(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(bottom: 60),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    Container(
-                      width: 120,
-                      height: 120,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: colorScheme.background,
-                      ),
-                      child: Center(
-                          child: Text(
-                        (BaseBrain.isLogin.value)
-                            ? "${BaseBrain.user.value.firstName!} ${BaseBrain.user.value.lastName!}"
-                            : StringResource.guestUser,
-                        style: const TextStyle().withIranSans(
-                            fontSize: 16,
+      return Theme(
+        data: Theme.of(context).copyWith(
+          canvasColor: colorScheme.background.withOpacity(0.8)
+        ),
+        child: SafeArea(
+          child: ClipRRect(
+            borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(20), bottomLeft: Radius.circular(20)),
+            child: Drawer(
+              child: Stack(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 60),
+                    child: SingleChildScrollView(
+                      physics: const BouncingScrollPhysics(),
+                      child: Column(
+                        children: [
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Container(
+                            width: 120,
+                            height: 120,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.white,
+                            ),
+                            child: Center(
+                                child: Text(
+                              (BaseBrain.isLogin.value)
+                                  ? "${BaseBrain.user.value.firstName!} ${BaseBrain.user.value.lastName!}"
+                                  : StringResource.guestUser,
+                              style: const TextStyle().withIranSans(
+                                  fontSize: 16,
+                                  color: colorScheme.background,
+                                  fontWeight: FontWeight.w300),
+                            )),
+                          ),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          TextButton(
+                              onPressed: () {
+                                if(!BaseBrain.isLogin.value){
+                                  Get.back();
+                                  Get.toNamed(Routes.authentication);
+                                }
+                                else{
+                                  _mainScreenController.navProfileButtonClick();
+                                }
+                              },
+                              child: Text(
+                                (BaseBrain.isLogin.value)
+                                    ? StringResource.seeProfile
+                                    : StringResource.loginIntoAccount,
+                                style: const TextStyle().withIranSans(
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: 15,
+                                    color: Colors.white),
+                              )),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          const Divider(
+                            thickness: 1,
+                            endIndent: 20,
+                            indent: 20,
                             color: Colors.white,
-                            fontWeight: FontWeight.w300),
-                      )),
-                    ),
-                    const SizedBox(
-                      height: 24,
-                    ),
-                    TextButton(
-                        onPressed: () {
-                          if(!BaseBrain.isLogin.value){
-                            Get.back();
-                            Get.toNamed(Routes.authentication);
-                          }
-                          else{
-                            _mainScreenController.navProfileButtonClick();
-                          }
-                        },
-                        child: Text(
+                          ),
                           (BaseBrain.isLogin.value)
-                              ? StringResource.seeProfile
-                              : StringResource.loginIntoAccount,
-                          style: const TextStyle().withIranSans(
-                              fontWeight: FontWeight.w300,
-                              fontSize: 17,
-                              color: colorScheme.background),
-                        )),
-                    const SizedBox(
-                      height: 15,
+                              ? AfterLoginDrawerItems()
+                              : BeforeLoginDrawerItems()
+                        ],
+                      ),
                     ),
-                    (BaseBrain.isLogin.value)
-                        ? AfterLoginDrawerItems()
-                        : BeforeLoginDrawerItems()
-                  ],
-                ),
+                  ),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                      width: double.infinity,
+                      height: 60,
+                      padding: const EdgeInsets.all(15),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          IconButton(
+                            padding: EdgeInsets.zero,
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            icon: const FaIcon(
+                              FontAwesomeIcons.arrowLeft,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
               ),
             ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                width: double.infinity,
-                color: colorScheme.background,
-                height: 60,
-                padding: const EdgeInsets.all(15),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    IconButton(
-                      padding: EdgeInsets.zero,
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: const FaIcon(
-                        FontAwesomeIcons.arrowLeft,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            )
-          ],
+          ),
         ),
       );
     });
