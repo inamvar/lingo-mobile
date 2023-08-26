@@ -21,6 +21,8 @@ import 'package:lingo/Core/Interfaces/UseCases/Comments/IGetCommentsUseCase.dart
 import 'package:lingo/Core/Interfaces/UseCases/Course/IGetCourseByIdUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Course/IGetPackageCoursesUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/General/ICreateOrderUseCase.dart';
+import 'package:lingo/Core/Interfaces/UseCases/General/IGetBannersUseCase.dart';
+import 'package:lingo/Core/Interfaces/UseCases/General/ISearchByTagUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/General/ISearchUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Packages/IGetPackagesUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Report/IDownloadReceiptUseCase.dart';
@@ -44,6 +46,7 @@ import 'package:lingo/Core/UseCases/CommentsUseCases/GetCommentsUseCase.dart';
 import 'package:lingo/Core/UseCases/CourseUseCases/GetCourseByIdUseCase.dart';
 import 'package:lingo/Core/UseCases/CourseUseCases/GetPackageCoursesUseCase.dart';
 import 'package:lingo/Core/UseCases/General/CreateOrderUseCase.dart';
+import 'package:lingo/Core/UseCases/General/GetBannersUseCase.dart';
 import 'package:lingo/Core/UseCases/General/SearchUseCase.dart';
 import 'package:lingo/Core/UseCases/PackagesUseCases/GetPackagesUseCase.dart';
 import 'package:lingo/Core/UseCases/Report/DownloadReceiptUseCase.dart';
@@ -75,6 +78,7 @@ import '../../infrastructure/DataSources/Remote/GeneralRemoteDataSourceImpl.dart
 import '../../infrastructure/DataSources/Remote/PackagesRemoteDataSourceImpl.dart';
 import '../Interfaces/DataSources/Remote/GeneralRemoteDataSource.dart';
 import '../Interfaces/Repositories/AuthRemoteRepository.dart';
+import '../UseCases/General/SearchByTagUseCase.dart';
 import '../UseCases/UserUseCases/UpdateProfileUseCase.dart';
 
 final appSingleton = GetIt.instance;
@@ -127,6 +131,10 @@ initInjections() async {
           () => ConfirmPhoneUseCase(appSingleton()));
   appSingleton.registerLazySingleton<ICreateOrderUseCase>(
           () => CreateOrderUseCase(appSingleton()));
+  appSingleton.registerLazySingleton<IGetBannersUseCase>(
+          () => GetBannersUseCase(appSingleton()));
+  appSingleton.registerLazySingleton<ISearchByTagUseCase>(
+          () => SearchByTagUseCase(appSingleton()));
 
   //Repositories
   appSingleton.registerLazySingleton<AuthRemoteRepository>(

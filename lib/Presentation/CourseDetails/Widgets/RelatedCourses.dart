@@ -36,14 +36,14 @@ class RelatedCourses extends StatelessWidget {
         ),
         SizedBox(
           width: double.infinity,
-          height: 340,
+          height: 260,
           child: ListView.builder(
             physics: const BouncingScrollPhysics(),
             itemCount: controller.relatedCourses.length,
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
-              return CourseItem(
+              return CourseItem(width: 180,
                   margin: const EdgeInsets.symmetric(
                       horizontal: 10),
                   course: controller.relatedCourses[index]);

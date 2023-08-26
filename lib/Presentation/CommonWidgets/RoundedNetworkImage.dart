@@ -18,6 +18,7 @@ class RoundedNetworkImage extends StatelessWidget {
         borderRadius: BorderRadius.circular(7),
         child: CachedNetworkImage(
           imageUrl: imageUrl ?? "",
+          fit: BoxFit.fill,
         ),
       ),
     );

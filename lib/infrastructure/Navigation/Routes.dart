@@ -7,6 +7,7 @@ import 'package:lingo/Presentation/CourseDisplay/Controller/CourseDisplayScreenC
 import 'package:lingo/Presentation/CourseDisplay/CourseDisplayScreen.dart';
 import 'package:lingo/Presentation/Courses/CoursesScreen.dart';
 import 'package:lingo/Presentation/EducationalPackages/EducationalPackagesScreen.dart';
+import 'package:lingo/Presentation/FAQ/FAQScreen.dart';
 import 'package:lingo/Presentation/FreePackages/FreePackagesScreen.dart';
 import 'package:lingo/Presentation/Main/MainScreen.dart';
 import 'package:lingo/Presentation/MyCourses/MyCoursesScreen.dart';
@@ -15,6 +16,8 @@ import 'package:lingo/Presentation/MyMessages/MessageDetailScreen.dart';
 import 'package:lingo/Presentation/MyMessages/MyMessagesScreen.dart';
 import 'package:lingo/Presentation/MyTransactions/MyTransactionsScreen.dart';
 import 'package:lingo/Presentation/Offers/OffersScreen.dart';
+import 'package:lingo/Presentation/PrivacyPolicy/PrivacyPolicyScreen.dart';
+import 'package:lingo/Presentation/SearchByTag/SearchByTagScreen.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/AuthScreenControllerBindings.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/ChangePassControllerBindings.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/ResetPassControllerBindings.dart';
@@ -30,6 +33,7 @@ import 'package:lingo/infrastructure/Navigation/Bindings/Report/MyTransactionsCo
 
 import '../../Presentation/Checkout/CheckoutScreen.dart';
 import 'Bindings/Comments/MyMessagesControllerBinding.dart';
+import 'Bindings/Search/SearchByTagControllerBinding.dart';
 
 class Routes {
   static List<GetPage> navRoutes = [
@@ -83,7 +87,13 @@ class Routes {
         name: checkout,
         page: () => CheckoutScreen(),
         binding: CheckoutControllerBinding()),
-    GetPage(name: offers, page: () => const OffersScreen())
+    GetPage(name: offers, page: () => const OffersScreen()),
+    GetPage(
+        name: searchByTag,
+        page: () => SearchByTagScreen(),
+        binding: SearchByTagControllerBinding()),
+    GetPage(name: privacy, page: ()=> PrivacyPolicyScreen()),
+    GetPage(name: faq, page: ()=> const FAQScreen())
   ];
 
   static const root = "/";
@@ -121,4 +131,13 @@ class Routes {
 
   ///Offers
   static const offers = "${root}Offers";
+
+  ///Search
+  static const searchByTag = "${root}SearchByTag";
+
+  ///Privacy and policies
+  static const privacy = "${root}privacy";
+
+  ///FAQ's
+  static const faq = "${root}faq";
 }

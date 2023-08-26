@@ -13,6 +13,11 @@ _$_SearchItem _$$_SearchItemFromJson(Map<String, dynamic> json) =>
       slug: json['slug'] as String?,
       id: json['id'] as int?,
       firstCourseSlug: json['firstCourseSlug'] as String?,
+      pricings: (json['pricings'] as List<dynamic>?)
+          ?.map((e) => Pricing.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      thumbnailUrl: json['thumbnailUrl'] as String?,
+      isFree: json['isFree'] as bool?,
     );
 
 Map<String, dynamic> _$$_SearchItemToJson(_$_SearchItem instance) =>
@@ -22,4 +27,7 @@ Map<String, dynamic> _$$_SearchItemToJson(_$_SearchItem instance) =>
       'slug': instance.slug,
       'id': instance.id,
       'firstCourseSlug': instance.firstCourseSlug,
+      'pricings': instance.pricings,
+      'thumbnailUrl': instance.thumbnailUrl,
+      'isFree': instance.isFree,
     };

@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'Pricing.dart';
+
 part 'SearchItem.freezed.dart';
 part 'SearchItem.g.dart';
 
@@ -12,6 +14,9 @@ class SearchItem with _$SearchItem {
     String? slug,
     int? id,
     String? firstCourseSlug,
+    List<Pricing>? pricings,
+    String? thumbnailUrl,
+    bool? isFree,
   }) = _SearchItem;
 
 

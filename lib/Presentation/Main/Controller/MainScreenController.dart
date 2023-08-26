@@ -111,4 +111,14 @@ class MainScreenController extends GetxController {
     Get.back();
     Get.toNamed(Routes.offers);
   }
+
+  void navPrivacy() {
+    Get.back();
+    Get.toNamed(Routes.privacy);
+  }
+
+  void navFaq() {
+    Get.back();
+    Get.toNamed(Routes.faq);
+  }
 }

@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:lingo/Core/Dto/Models/BaseNetworkResponse.dart';
 import 'package:lingo/Core/Dto/Models/Failure.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/PaginationRequestDtoUseCase.dart';
+import 'package:lingo/Core/Dto/UseCases/Responses/General/GetBannersResponseDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/Order/CreateOrderResponseDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/Search/SearchResponseDtoUseCase.dart';
 import 'package:lingo/Core/Interfaces/Repositories/GeneralRemoteRepository.dart';
@@ -30,6 +31,28 @@ class GeneralRepositoryImpl extends GeneralRemoteRepository {
       createOrder(String courseId) async {
     try {
       var result = await dataSource.createOrder(courseId);
+      return Right(result);
+    } on DioError catch (error) {
+      return Left(parseServerError(error));
+    }
+  }
+
+  @override
+  Future<Either<Failure, BaseNetworkResponse<GetBannersResponseDtoUseCase>>>?
+      getBanners() async {
+    try {
+      var result = await dataSource.getBanners();
+      return Right(result);
+    } on DioError catch (error) {
+      return Left(parseServerError(error));
+    }
+  }
+
+  @override
+  Future<Either<Failure, BaseNetworkResponse<SearchResponseDtoUseCase>>>?
+      searchByTag(PaginationRequestDtoUseCase requestDtoUseCase) async {
+    try {
+      var result = await dataSource.searchByTag(requestDtoUseCase);
       return Right(result);
     } on DioError catch (error) {
       return Left(parseServerError(error));

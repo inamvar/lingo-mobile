@@ -25,6 +25,9 @@ mixin _$SearchItem {
   String? get slug => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
   String? get firstCourseSlug => throw _privateConstructorUsedError;
+  List<Pricing>? get pricings => throw _privateConstructorUsedError;
+  String? get thumbnailUrl => throw _privateConstructorUsedError;
+  bool? get isFree => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +46,10 @@ abstract class $SearchItemCopyWith<$Res> {
       String? title,
       String? slug,
       int? id,
-      String? firstCourseSlug});
+      String? firstCourseSlug,
+      List<Pricing>? pricings,
+      String? thumbnailUrl,
+      bool? isFree});
 }
 
 /// @nodoc
@@ -64,6 +70,9 @@ class _$SearchItemCopyWithImpl<$Res, $Val extends SearchItem>
     Object? slug = freezed,
     Object? id = freezed,
     Object? firstCourseSlug = freezed,
+    Object? pricings = freezed,
+    Object? thumbnailUrl = freezed,
+    Object? isFree = freezed,
   }) {
     return _then(_value.copyWith(
       productType: freezed == productType
@@ -86,6 +95,18 @@ class _$SearchItemCopyWithImpl<$Res, $Val extends SearchItem>
           ? _value.firstCourseSlug
           : firstCourseSlug // ignore: cast_nullable_to_non_nullable
               as String?,
+      pricings: freezed == pricings
+          ? _value.pricings
+          : pricings // ignore: cast_nullable_to_non_nullable
+              as List<Pricing>?,
+      thumbnailUrl: freezed == thumbnailUrl
+          ? _value.thumbnailUrl
+          : thumbnailUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isFree: freezed == isFree
+          ? _value.isFree
+          : isFree // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -103,7 +124,10 @@ abstract class _$$_SearchItemCopyWith<$Res>
       String? title,
       String? slug,
       int? id,
-      String? firstCourseSlug});
+      String? firstCourseSlug,
+      List<Pricing>? pricings,
+      String? thumbnailUrl,
+      bool? isFree});
 }
 
 /// @nodoc
@@ -122,6 +146,9 @@ class __$$_SearchItemCopyWithImpl<$Res>
     Object? slug = freezed,
     Object? id = freezed,
     Object? firstCourseSlug = freezed,
+    Object? pricings = freezed,
+    Object? thumbnailUrl = freezed,
+    Object? isFree = freezed,
   }) {
     return _then(_$_SearchItem(
       productType: freezed == productType
@@ -144,6 +171,18 @@ class __$$_SearchItemCopyWithImpl<$Res>
           ? _value.firstCourseSlug
           : firstCourseSlug // ignore: cast_nullable_to_non_nullable
               as String?,
+      pricings: freezed == pricings
+          ? _value._pricings
+          : pricings // ignore: cast_nullable_to_non_nullable
+              as List<Pricing>?,
+      thumbnailUrl: freezed == thumbnailUrl
+          ? _value.thumbnailUrl
+          : thumbnailUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isFree: freezed == isFree
+          ? _value.isFree
+          : isFree // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -152,7 +191,15 @@ class __$$_SearchItemCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SearchItem with DiagnosticableTreeMixin implements _SearchItem {
   const _$_SearchItem(
-      {this.productType, this.title, this.slug, this.id, this.firstCourseSlug});
+      {this.productType,
+      this.title,
+      this.slug,
+      this.id,
+      this.firstCourseSlug,
+      final List<Pricing>? pricings,
+      this.thumbnailUrl,
+      this.isFree})
+      : _pricings = pricings;
 
   factory _$_SearchItem.fromJson(Map<String, dynamic> json) =>
       _$$_SearchItemFromJson(json);
@@ -167,10 +214,24 @@ class _$_SearchItem with DiagnosticableTreeMixin implements _SearchItem {
   final int? id;
   @override
   final String? firstCourseSlug;
+  final List<Pricing>? _pricings;
+  @override
+  List<Pricing>? get pricings {
+    final value = _pricings;
+    if (value == null) return null;
+    if (_pricings is EqualUnmodifiableListView) return _pricings;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  final String? thumbnailUrl;
+  @override
+  final bool? isFree;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SearchItem(productType: $productType, title: $title, slug: $slug, id: $id, firstCourseSlug: $firstCourseSlug)';
+    return 'SearchItem(productType: $productType, title: $title, slug: $slug, id: $id, firstCourseSlug: $firstCourseSlug, pricings: $pricings, thumbnailUrl: $thumbnailUrl, isFree: $isFree)';
   }
 
   @override
@@ -182,7 +243,10 @@ class _$_SearchItem with DiagnosticableTreeMixin implements _SearchItem {
       ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('slug', slug))
       ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('firstCourseSlug', firstCourseSlug));
+      ..add(DiagnosticsProperty('firstCourseSlug', firstCourseSlug))
+      ..add(DiagnosticsProperty('pricings', pricings))
+      ..add(DiagnosticsProperty('thumbnailUrl', thumbnailUrl))
+      ..add(DiagnosticsProperty('isFree', isFree));
   }
 
   @override
@@ -196,13 +260,25 @@ class _$_SearchItem with DiagnosticableTreeMixin implements _SearchItem {
             (identical(other.slug, slug) || other.slug == slug) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.firstCourseSlug, firstCourseSlug) ||
-                other.firstCourseSlug == firstCourseSlug));
+                other.firstCourseSlug == firstCourseSlug) &&
+            const DeepCollectionEquality().equals(other._pricings, _pricings) &&
+            (identical(other.thumbnailUrl, thumbnailUrl) ||
+                other.thumbnailUrl == thumbnailUrl) &&
+            (identical(other.isFree, isFree) || other.isFree == isFree));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, productType, title, slug, id, firstCourseSlug);
+  int get hashCode => Object.hash(
+      runtimeType,
+      productType,
+      title,
+      slug,
+      id,
+      firstCourseSlug,
+      const DeepCollectionEquality().hash(_pricings),
+      thumbnailUrl,
+      isFree);
 
   @JsonKey(ignore: true)
   @override
@@ -224,7 +300,10 @@ abstract class _SearchItem implements SearchItem {
       final String? title,
       final String? slug,
       final int? id,
-      final String? firstCourseSlug}) = _$_SearchItem;
+      final String? firstCourseSlug,
+      final List<Pricing>? pricings,
+      final String? thumbnailUrl,
+      final bool? isFree}) = _$_SearchItem;
 
   factory _SearchItem.fromJson(Map<String, dynamic> json) =
       _$_SearchItem.fromJson;
@@ -239,6 +318,12 @@ abstract class _SearchItem implements SearchItem {
   int? get id;
   @override
   String? get firstCourseSlug;
+  @override
+  List<Pricing>? get pricings;
+  @override
+  String? get thumbnailUrl;
+  @override
+  bool? get isFree;
   @override
   @JsonKey(ignore: true)
   _$$_SearchItemCopyWith<_$_SearchItem> get copyWith =>

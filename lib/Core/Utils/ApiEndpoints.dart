@@ -31,5 +31,7 @@ class ApiEndpoints{
 
   ///General Endpoints
   static const String search = "Search";
+  static const String searchByTag = "Search/ByTag";
   static const String createOrder = "Order";
+  static const String banners = "Banner/Images";
 }

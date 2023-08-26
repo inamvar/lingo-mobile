@@ -149,6 +149,7 @@ class AfterLoginDrawerItems extends StatelessWidget {
         ),
         InkWell(
           onTap: () {
+            _controller.navFaq();
           },
           child: ListTile(
             horizontalTitleGap: 0,
@@ -165,6 +166,7 @@ class AfterLoginDrawerItems extends StatelessWidget {
         ),
         InkWell(
           onTap: () {
+            _controller.navPrivacy();
           },
           child: ListTile(
             horizontalTitleGap: 0,
