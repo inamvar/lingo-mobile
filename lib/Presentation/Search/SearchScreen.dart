@@ -6,6 +6,8 @@ import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
 import 'package:lingo/Presentation/Search/Controller/SearchScreenController.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
+import '../../Core/Dto/Models/Course.dart';
+import '../Courses/Widgets/CourseItem.dart';
 import 'Widgets/SearchField.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -38,32 +40,34 @@ class SearchScreen extends StatelessWidget {
                       onRefresh: _controller.refreshPage,
                       onLoading: _controller.loadNextPage,
                       controller: _controller.refreshController,
-                      child: ListView.separated(
+                      child: GridView.builder(
                         itemCount: _controller.searchResults.length,
                         physics: const NeverScrollableScrollPhysics(),
-                        padding: const EdgeInsets.only(bottom: 80),
                         shrinkWrap: true,
+                        gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2),
                         itemBuilder: (context, index) {
                           var item = _controller.searchResults[index];
+                          var course = Course(
+                              thumbnailImageUrl: item.thumbnailUrl,
+                              title: item.title,
+                              pricings: item.pricings,
+                              id: item.id);
                           return InkWell(
-                            onTap: () {
+                            onTap: (){
                               _controller.handleItemClick(item);
                             },
-                            child: ListTile(
-                              contentPadding:
-                                  const EdgeInsets.symmetric(horizontal: 35),
-                              title: Text(
-                                item.title ?? "",
-                                style: const TextStyle().withIranSans(),
+                            child: IgnorePointer(
+                              child: CourseItem(
+                                height: 180,
+                                imageWidth: 118,
+                                imageHeight: 118,
+                                course: course,
+                                width: 150,
+                                margin: const EdgeInsets.all(10),
                               ),
                             ),
-                          );
-                        },
-                        separatorBuilder: (context, index) {
-                          return const Divider(
-                            thickness: 1,
-                            indent: 30,
-                            endIndent: 30,
                           );
                         },
                       ),

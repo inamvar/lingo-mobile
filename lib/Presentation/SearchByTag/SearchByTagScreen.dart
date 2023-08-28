@@ -71,7 +71,7 @@ class SearchByTagScreen extends StatelessWidget {
                                   const SliverGridDelegateWithFixedCrossAxisCount(
                                       crossAxisCount: 2),
                               itemBuilder: (context, index) {
-                                var item = controller.searchResults[0];
+                                var item = controller.searchResults[index];
                                 var course = Course(
                                     thumbnailImageUrl: item.thumbnailUrl,
                                     title: item.title,
