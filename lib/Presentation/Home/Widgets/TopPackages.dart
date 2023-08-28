@@ -22,7 +22,7 @@ class TopPackages extends StatelessWidget {
         const SizedBox(
           height: 30,
         ),
-        (_controller.isLoadingBestSells.value)
+        (_controller.isLoadingTopPackages.value)
             ? SizedBox(
             width: double.infinity,
             height: 180,
@@ -31,7 +31,7 @@ class TopPackages extends StatelessWidget {
                   color: colorScheme.background,
                   size: 24,
                 )))
-            : (_controller.bestSellPackages.isNotEmpty)
+            : (_controller.topPackages.isNotEmpty)
             ? Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
@@ -51,7 +51,7 @@ class TopPackages extends StatelessWidget {
                       onPressed: () {
                         Get.toNamed(Routes.searchByTag,
                             arguments: {
-                              "filter": "پکیج های برتر"
+                              "filter": "برتر"
                             });
                       },
                       child: Text(StringResource.seeMore,style: const TextStyle().withIranSans(
@@ -67,11 +67,11 @@ class TopPackages extends StatelessWidget {
                 height: 180,
                 child: ListView.builder(
                   physics: const BouncingScrollPhysics(),
-                  itemCount: _controller.bestSellPackages.length,
+                  itemCount: _controller.topPackages.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     var item =
-                    _controller.bestSellPackages[index];
+                    _controller.topPackages[index];
                     var course = Course(
                         thumbnailImageUrl: item.thumbnailUrl,
                         title: item.title,

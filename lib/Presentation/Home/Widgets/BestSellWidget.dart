@@ -51,7 +51,7 @@ class BestSellWidget extends StatelessWidget {
                                     onPressed: () {
                                       Get.toNamed(Routes.searchByTag,
                                           arguments: {
-                                            "filter": "پکیج های پرفروش"
+                                            "filter": "پرفروش"
                                           });
                                     },
                                     child: Text(

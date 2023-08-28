@@ -29,6 +29,7 @@ class HomeScreenController extends GetxController {
   void onReady() {
     getBanners();
     getBestSells();
+    getTopPackages();
     super.onReady();
   }
 
@@ -51,7 +52,7 @@ class HomeScreenController extends GetxController {
     isLoadingBestSells.value = true;
 
     PaginationRequestDtoUseCase params =
-        const PaginationRequestDtoUseCase(pageNumber: 1, filter: "آموزش");
+        const PaginationRequestDtoUseCase(pageNumber: 1, filter: "پرفروش");
     iSearchByTagUseCase.execute(params: params).then((result) {
       isLoadingBestSells.value = false;
 
@@ -60,6 +61,23 @@ class HomeScreenController extends GetxController {
               message: serverError.errorMessage ??
                   StringResource.serverErrorOccurred), (response) {
         bestSellPackages.addAll(response.data?.data ?? []);
+      });
+    });
+  }
+
+  getTopPackages() {
+    isLoadingTopPackages.value = true;
+
+    PaginationRequestDtoUseCase params =
+    const PaginationRequestDtoUseCase(pageNumber: 1, filter: "برتر");
+    iSearchByTagUseCase.execute(params: params).then((result) {
+      isLoadingTopPackages.value = false;
+
+      result.fold(
+              (serverError) => ShowMessage.getSnackBar(
+              message: serverError.errorMessage ??
+                  StringResource.serverErrorOccurred), (response) {
+        topPackages.addAll(response.data?.data ?? []);
       });
     });
   }
