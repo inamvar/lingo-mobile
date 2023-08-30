@@ -20,7 +20,7 @@ class BestSellWidget extends StatelessWidget {
     return Obx(() => Column(
           children: [
             const SizedBox(
-              height: 30,
+              height: 15,
             ),
             (_controller.isLoadingBestSells.value)
                 ? SizedBox(
@@ -44,7 +44,7 @@ class BestSellWidget extends StatelessWidget {
                                 Text(
                                   StringResource.bestSellPackages,
                                   style: const TextStyle().withIranSans(
-                                      fontSize: 16,
+                                      fontSize: 15,
                                       color: colorScheme.background),
                                 ),
                                 TextButton(

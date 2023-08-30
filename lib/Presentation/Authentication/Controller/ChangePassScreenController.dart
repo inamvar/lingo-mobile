@@ -7,6 +7,7 @@ import 'package:lingo/Core/Dto/Enums/MessageType.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/User/ResetPassRequestDtoUseCase.dart';
 import 'package:lingo/Core/Helpers/ShowMessage.dart';
 import 'package:lingo/Core/Interfaces/UseCases/User/IResetPassUseCase.dart';
+import 'package:lingo/infrastructure/Navigation/Routes.dart';
 
 import '../../../Core/Dto/UseCases/Requests/User/ForgotPassRequestDtoUseCase.dart';
 import '../../../Core/Interfaces/UseCases/User/IForgotPassUseCase.dart';
@@ -78,6 +79,7 @@ class ChangePassScreenController extends GetxController {
           ShowMessage.getSnackBar(
               message: r.message ?? "Reset Pass done",
               type: MessageType.SUCCESS);
+          Get.offNamedUntil(Routes.authentication, (route) => (route.settings.name == Routes.main));
         });
       });
     }
@@ -122,8 +124,6 @@ class ChangePassScreenController extends GetxController {
           resendTimerValue.value = remainingTime.inSeconds / wholeTime.inSeconds;
           if (remainingTime.inSeconds <= 0) {
             timer.cancel();
-          } else {
-
           }
         },
       );

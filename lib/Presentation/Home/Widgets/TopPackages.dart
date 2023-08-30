@@ -20,7 +20,7 @@ class TopPackages extends StatelessWidget {
     return Obx(() => Column(
       children: [
         const SizedBox(
-          height: 30,
+          height: 15,
         ),
         (_controller.isLoadingTopPackages.value)
             ? SizedBox(
@@ -44,7 +44,7 @@ class TopPackages extends StatelessWidget {
                   Text(
                     StringResource.topPackages,
                     style: const TextStyle().withIranSans(
-                        fontSize: 16,
+                        fontSize: 15,
                         color: colorScheme.background),
                   ),
                   TextButton(

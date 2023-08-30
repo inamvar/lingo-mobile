@@ -23,19 +23,32 @@ class SpecialItems extends StatelessWidget {
           shrinkWrap: true,
           children: [
             Container(
-              margin: const EdgeInsets.only(left: 15),
+              margin: const EdgeInsets.only(left: 5),
               child: InkWell(
                 onTap: (){
 
                 },
                 child: Column(
                   children: [
-                    ClipOval(
-                        child: Image.asset(
-                          "assets/images/grammer_ic.png",
-                          width: 60,
-                          height: 60,
-                        )),
+                    Container(
+                      margin: const EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            blurRadius: 5.0,
+                            spreadRadius: 2.0,
+                          )
+                        ]
+                      ),
+                      child: ClipOval(
+                          child: Image.asset(
+                            "assets/images/grammer_ic.png",
+                            width: 60,
+                            height: 60,
+                          )),
+                    ),
                     const SizedBox(
                       height: 8,
                     ),
@@ -44,26 +57,39 @@ class SpecialItems extends StatelessWidget {
                       maxLines: 1,
                       style: const TextStyle().withIranSans(
                           color: colorScheme.background,
-                          fontSize: 14),
+                          fontSize: 13),
                     )
                   ],
                 ),
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(left: 15),
+              margin: const EdgeInsets.only(left: 5),
               child: InkWell(
                 onTap: (){
                   Get.toNamed(Routes.searchByTag,arguments: {"filter":"لغات"});
                 },
                 child: Column(
                   children: [
-                    ClipOval(
-                        child: Image.asset(
-                          "assets/images/words_ic.png",
-                          width: 60,
-                          height: 60,
-                        )),
+                    Container(
+                      margin: const EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              blurRadius: 5.0,
+                              spreadRadius: 2.0,
+                            )
+                          ]
+                      ),
+                      child: ClipOval(
+                          child: Image.asset(
+                            "assets/images/words_ic.png",
+                            width: 60,
+                            height: 60,
+                          )),
+                    ),
                     const SizedBox(
                       height: 8,
                     ),
@@ -72,26 +98,39 @@ class SpecialItems extends StatelessWidget {
                       maxLines: 1,
                       style: const TextStyle().withIranSans(
                           color: colorScheme.background,
-                          fontSize: 14),
+                          fontSize: 13),
                     )
                   ],
                 ),
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(left: 15),
+              margin: const EdgeInsets.only(left: 5),
               child: InkWell(
                 onTap: (){
                   Get.toNamed(Routes.searchByTag,arguments: {"filter":"گرامر"});
                 },
                 child: Column(
                   children: [
-                    ClipOval(
-                        child: Image.asset(
-                          "assets/images/grammer_ic.png",
-                          width: 60,
-                          height: 60,
-                        )),
+                    Container(
+                      margin: const EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              blurRadius: 5.0,
+                              spreadRadius: 2.0,
+                            )
+                          ]
+                      ),
+                      child: ClipOval(
+                          child: Image.asset(
+                            "assets/images/grammer_ic.png",
+                            width: 60,
+                            height: 60,
+                          )),
+                    ),
                     const SizedBox(
                       height: 8,
                     ),
@@ -100,26 +139,39 @@ class SpecialItems extends StatelessWidget {
                       maxLines: 1,
                       style: const TextStyle().withIranSans(
                           color: colorScheme.background,
-                          fontSize: 14),
+                          fontSize: 13),
                     )
                   ],
                 ),
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(left: 15),
+              margin: const EdgeInsets.only(left: 5),
               child: InkWell(
                 onTap: (){
                   Get.toNamed(Routes.searchByTag,arguments: {"filter":"مکالمه"});
                 },
                 child: Column(
                   children: [
-                    ClipOval(
-                        child: Image.asset(
-                          "assets/images/speaking_ic.png",
-                          width: 60,
-                          height: 60,
-                        )),
+                    Container(
+                      margin: const EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              blurRadius: 5.0,
+                              spreadRadius: 2.0,
+                            )
+                          ]
+                      ),
+                      child: ClipOval(
+                          child: Image.asset(
+                            "assets/images/speaking_ic.png",
+                            width: 60,
+                            height: 60,
+                          )),
+                    ),
                     const SizedBox(
                       height: 8,
                     ),
@@ -128,26 +180,39 @@ class SpecialItems extends StatelessWidget {
                       maxLines: 1,
                       style: const TextStyle().withIranSans(
                           color: colorScheme.background,
-                          fontSize: 14),
+                          fontSize: 13),
                     )
                   ],
                 ),
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(left: 15),
+              margin: const EdgeInsets.only(left: 5),
               child: InkWell(
                 onTap: (){
                   Get.toNamed(Routes.searchByTag,arguments: {"filter":"سفر"});
                 },
                 child: Column(
                   children: [
-                    ClipOval(
-                        child: Image.asset(
-                          "assets/images/travel_ic.png",
-                          width: 60,
-                          height: 60,
-                        )),
+                    Container(
+                      margin: const EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              blurRadius: 5.0,
+                              spreadRadius: 2.0,
+                            )
+                          ]
+                      ),
+                      child: ClipOval(
+                          child: Image.asset(
+                            "assets/images/travel_ic.png",
+                            width: 60,
+                            height: 60,
+                          )),
+                    ),
                     const SizedBox(
                       height: 8,
                     ),
@@ -156,26 +221,39 @@ class SpecialItems extends StatelessWidget {
                       maxLines: 1,
                       style: const TextStyle().withIranSans(
                           color: colorScheme.background,
-                          fontSize: 14),
+                          fontSize: 13),
                     )
                   ],
                 ),
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(left: 15),
+              margin: const EdgeInsets.only(left: 5),
               child: InkWell(
                 onTap: (){
                   Get.toNamed(Routes.searchByTag,arguments: {"filter":"کودکان"});
                 },
                 child: Column(
                   children: [
-                    ClipOval(
-                        child: Image.asset(
-                          "assets/images/kids_ic.png",
-                          width: 60,
-                          height: 60,
-                        )),
+                    Container(
+                      margin: const EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              blurRadius: 5.0,
+                              spreadRadius: 2.0,
+                            )
+                          ]
+                      ),
+                      child: ClipOval(
+                          child: Image.asset(
+                            "assets/images/kids_ic.png",
+                            width: 60,
+                            height: 60,
+                          )),
+                    ),
                     const SizedBox(
                       height: 8,
                     ),
@@ -184,7 +262,7 @@ class SpecialItems extends StatelessWidget {
                       maxLines: 1,
                       style: const TextStyle().withIranSans(
                           color: colorScheme.background,
-                          fontSize: 14),
+                          fontSize: 13),
                     )
                   ],
                 ),
@@ -194,5 +272,9 @@ class SpecialItems extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  buildItem(Widget child){
+
   }
 }

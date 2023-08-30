@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           SliderWidget(),
                           const SizedBox(
-                            height: 30,
+                            height: 15,
                           ),
                           const SpecialItems(),
                           BestSellWidget(),

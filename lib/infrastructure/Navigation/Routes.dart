@@ -18,6 +18,7 @@ import 'package:lingo/Presentation/MyTransactions/MyTransactionsScreen.dart';
 import 'package:lingo/Presentation/Offers/OffersScreen.dart';
 import 'package:lingo/Presentation/PrivacyPolicy/PrivacyPolicyScreen.dart';
 import 'package:lingo/Presentation/SearchByTag/SearchByTagScreen.dart';
+import 'package:lingo/Presentation/Splash/SplashScreen.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/AuthScreenControllerBindings.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/ChangePassControllerBindings.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Auth/ResetPassControllerBindings.dart';
@@ -28,6 +29,7 @@ import 'package:lingo/infrastructure/Navigation/Bindings/Courses/CourseDetailsCo
 import 'package:lingo/infrastructure/Navigation/Bindings/Courses/CourseDisplayControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Courses/CoursesScreenControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Main/MainScreenControllerBinding.dart';
+import 'package:lingo/infrastructure/Navigation/Bindings/Main/SplashScreenControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Report/MyCoursesControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Report/MyTransactionsControllerBinding.dart';
 
@@ -92,8 +94,12 @@ class Routes {
         name: searchByTag,
         page: () => SearchByTagScreen(),
         binding: SearchByTagControllerBinding()),
-    GetPage(name: privacy, page: ()=> PrivacyPolicyScreen()),
-    GetPage(name: faq, page: ()=> const FAQScreen())
+    GetPage(name: privacy, page: () => PrivacyPolicyScreen()),
+    GetPage(name: faq, page: () => const FAQScreen()),
+    GetPage(
+        name: root,
+        page: () => const SplashScreen(),
+        binding: SplashScreenControllerBinding())
   ];
 
   static const root = "/";

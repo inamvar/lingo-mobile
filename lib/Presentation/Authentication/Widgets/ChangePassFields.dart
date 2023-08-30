@@ -36,7 +36,7 @@ class ChangePassFields extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    SizedBox(height: 10,),
+                    const SizedBox(height: 10,),
                     Obx(() => (controller.resendCodeLoading.value)
                         ? SpinKitFadingCircle(
                             color: colorScheme.background,

@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       title: 'Lingo',
       textDirection: TextDirection.rtl,
       theme: theme.toThemeData(),
-      initialRoute: Routes.main,
+      initialRoute: Routes.root,
       getPages: Routes.navRoutes,
       debugShowCheckedModeBanner: false,
     );

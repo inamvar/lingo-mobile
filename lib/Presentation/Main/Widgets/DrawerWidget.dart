@@ -26,9 +26,8 @@ class DrawerWidget extends StatelessWidget {
 
     return Obx(() {
       return Theme(
-        data: Theme.of(context).copyWith(
-          canvasColor: colorScheme.background.withOpacity(0.8)
-        ),
+        data: Theme.of(context)
+            .copyWith(canvasColor: colorScheme.background.withOpacity(0.8)),
         child: SafeArea(
           child: ClipRRect(
             borderRadius: const BorderRadius.only(
@@ -68,11 +67,10 @@ class DrawerWidget extends StatelessWidget {
                           ),
                           TextButton(
                               onPressed: () {
-                                if(!BaseBrain.isLogin.value){
+                                if (!BaseBrain.isLogin.value) {
                                   Get.back();
                                   Get.toNamed(Routes.authentication);
-                                }
-                                else{
+                                } else {
                                   _mainScreenController.navProfileButtonClick();
                                 }
                               },
@@ -96,7 +94,69 @@ class DrawerWidget extends StatelessWidget {
                           ),
                           (BaseBrain.isLogin.value)
                               ? AfterLoginDrawerItems()
-                              : BeforeLoginDrawerItems()
+                              : BeforeLoginDrawerItems(),
+                          const Divider(
+                            thickness: 1,
+                            endIndent: 20,
+                            indent: 20,
+                            color: Colors.white,
+                          ),
+                          const SizedBox(height: 10),
+                          Column(
+                            children: [
+                              Text(
+                                StringResource.contactInfo,
+                                style: const TextStyle()
+                                    .withIranSans(color: Colors.white,
+                                fontSize: 16),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  IconButton(
+                                      onPressed: () {},
+                                      icon: Image.asset(
+                                          width: 20,
+                                          height: 20,
+                                          "assets/images/twitter_ic.png")),
+                                  IconButton(
+                                      onPressed: () {},
+                                      icon: Image.asset(
+                                          width: 20,
+                                          height: 20,
+                                          "assets/images/whatsapp_ic.png")),
+                                  IconButton(
+                                      onPressed: () {},
+                                      icon: Image.asset(
+                                          width: 30,
+                                          height: 30,
+                                          "assets/images/tel_ic.png")),
+                                  IconButton(
+                                      onPressed: () {},
+                                      icon: Image.asset(
+                                          width: 20,
+                                          height: 20,
+                                          "assets/images/insta_ic.png")),
+                                ],
+                              ),
+                              const SizedBox(
+                                height: 5,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Info@lingo4030.com",
+                                    style: const TextStyle()
+                                        .withIranSans(color: Colors.white),
+                                  ),
+                                  const SizedBox(width: 10,),
+                                  Image.asset(width: 20,height: 20,"assets/images/message_ic.png"),
+                                ],
+                              )
+                            ],
+                          )
                         ],
                       ),
                     ),

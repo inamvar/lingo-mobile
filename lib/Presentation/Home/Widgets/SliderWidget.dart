@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
+import 'package:lingo/Presentation/CommonWidgets/RoundedNetworkImage.dart';
 
 import '../Controller/HomeScreenController.dart';
 
@@ -32,14 +33,22 @@ class SliderWidget extends StatelessWidget {
                     itemCount: _controller.banners.length,
                     itemBuilder: (context, index, pageIndex) {
                       var banner = _controller.banners[index];
-                      return ClipRRect(
-                        borderRadius: BorderRadius.circular(8),
-                        child: Container(
-                            color: Colors.redAccent,
-                            child: CachedNetworkImage(
-                              imageUrl: banner.fileUrl,
-                              fit: BoxFit.fill,
-                            )),
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Material(
+                          elevation: 5,
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.transparent,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child: SizedBox(
+                                width: double.infinity,
+                                child: CachedNetworkImage(
+                                  imageUrl: banner.fileUrl,
+                                  fit: BoxFit.fill,
+                                )),
+                          ),
+                        ),
                       );
                     },
                     options: CarouselOptions(

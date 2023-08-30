@@ -33,6 +33,7 @@ class StringResource{
   static const goldPackages = "پکیج های طلائی لینگو";
   static const discounts = "تخفیف ها";
   static const contactUs = "تماس با ما";
+  static const contactInfo = "اطلاعات تماس";
   static const faq = "سوالات متداول";
   static const privacyAndPolicy = " قوانین و مقررات";
   static const myMessages = "پیام های من";
@@ -93,7 +94,7 @@ class StringResource{
   static const String confirmPhoneFirst = "لطفا اول شماره موبایل خود را تایید کنید.";
   static const String bestSellPackages = "پکیج های پرفروش";
   static const String topPackages = "پکیج های برتر";
-  static const String seeMore = "مشاهده بیشتر";
+  static const String seeMore = "نمایش بیشتر";
   static const String privacyPageTitle = "راهنمای خرید, قوانین و مقررات, شرایط استرداد";
   static const String privacyText = '''برای تهیه پکیج های آموزشی لینگو4030 ابتدا می‌بایست از قسمت منوی عضویت ، عضو‌ شوید و برای احراز هویت شماره تلفن همراه خود را وارد نمایید، پس از انتخاب پکیج آموزشی و مطالعه توضیحات و شرایط آن، اقدام به خرید نمایید.
 پس از خرید، محصول در پروفایل شما قرار خواهد گرفت و‌ از طریق منوی « دوره های من »به آنها دسترسی پیدا کنید.

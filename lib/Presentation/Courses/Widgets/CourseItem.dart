@@ -48,10 +48,17 @@ class CourseItem extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              RoundedNetworkImage(
-                  width: imageWidth ?? 200,
-                  height: imageHeight ?? 200,
-                  imageUrl: course.thumbnailImageUrl ?? ""),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Material(
+                  elevation: 4,
+                  color: Colors.transparent,
+                  child: RoundedNetworkImage(
+                      width: imageWidth ?? 200,
+                      height: imageHeight ?? 200,
+                      imageUrl: course.thumbnailImageUrl ?? ""),
+                ),
+              ),
               AutoSizeText(
                 course.title ?? "",
                 textAlign: TextAlign.center,
