@@ -7,7 +7,7 @@ extension CourseExtensions on Course {
   String getPriceIRR() {
     var price = "";
     pricings?.forEach((element) {
-      if (element.currencyType! == "IRR") price = element.amount.toString();
+      if (element.currencyType! == "IRR") price = (element.amount! / 10).round().toString();
     });
     return "${Tools.seRagham(price)} تومان ";
   }
@@ -15,7 +15,7 @@ extension CourseExtensions on Course {
   String getFinalPriceIRR() {
     var price = "";
     discount?.finalAmounts?.forEach((element) {
-      if (element.currencyType! == "IRR") price = element.amount.toString();
+      if (element.currencyType! == "IRR") price = (element.amount! / 10).round().toString();
     });
     return "${Tools.seRagham(price)} تومان ";
   }

@@ -4,11 +4,13 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:lingo/Core/Dto/Enums/MainPages.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
+import 'package:lingo/Core/Utils/Extensions/StringExtensions.dart';
 import 'package:lingo/Presentation/Main/Controller/MainScreenController.dart';
 import 'package:lingo/Presentation/Main/Widgets/AfterLoginDrawerItems.dart';
 import 'package:lingo/Presentation/Main/Widgets/BeforeLoginDrawerItems.dart';
 
 import '../../../Core/Configs/StringResource.dart';
+import '../../../Core/Dto/Models/Setting.dart';
 import '../../../Core/Helpers/BaseBrain.dart';
 import '../../../infrastructure/Navigation/Routes.dart';
 
@@ -115,25 +117,33 @@ class DrawerWidget extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   IconButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        openItem("TwitterAddress");
+                                      },
                                       icon: Image.asset(
                                           width: 20,
                                           height: 20,
                                           "assets/images/twitter_ic.png")),
                                   IconButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        openItem("WhatsappNumber");
+                                      },
                                       icon: Image.asset(
                                           width: 20,
                                           height: 20,
                                           "assets/images/whatsapp_ic.png")),
                                   IconButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        openItem("TelegramChannelAddress");
+                                      },
                                       icon: Image.asset(
-                                          width: 30,
-                                          height: 30,
+                                          width: 20,
+                                          height: 20,
                                           "assets/images/tel_ic.png")),
                                   IconButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        openItem("InstagramAddress");
+                                      },
                                       icon: Image.asset(
                                           width: 20,
                                           height: 20,
@@ -191,5 +201,14 @@ class DrawerWidget extends StatelessWidget {
         ),
       );
     });
+  }
+
+  void openItem(String key) {
+    var settings = BaseBrain.settings;
+    int itemIndex = settings.indexWhere((item) => item.key == key);
+    if(itemIndex != -1){
+      var settingItem = settings[itemIndex];
+      settingItem.value?.openAsUrl();
+    }
   }
 }

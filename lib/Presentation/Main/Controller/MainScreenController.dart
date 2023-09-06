@@ -121,4 +121,9 @@ class MainScreenController extends GetxController {
     Get.back();
     Get.toNamed(Routes.faq);
   }
+
+  void navGoldenPackages() {
+    Get.back();
+    Get.toNamed(Routes.goldenPackage);
+  }
 }

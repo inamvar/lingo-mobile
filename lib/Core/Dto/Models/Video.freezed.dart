@@ -28,7 +28,7 @@ mixin _$Video {
   dynamic? get size => throw _privateConstructorUsedError;
   bool? get isFree => throw _privateConstructorUsedError;
   String? get status => throw _privateConstructorUsedError;
-  String? get podcastStatus => throw _privateConstructorUsedError;
+  dynamic? get podcastStatus => throw _privateConstructorUsedError;
   String? get examFileUrl => throw _privateConstructorUsedError;
   int? get priority => throw _privateConstructorUsedError;
   String? get stockIn => throw _privateConstructorUsedError;
@@ -62,7 +62,7 @@ abstract class $VideoCopyWith<$Res> {
       dynamic? size,
       bool? isFree,
       String? status,
-      String? podcastStatus,
+      dynamic? podcastStatus,
       String? examFileUrl,
       int? priority,
       String? stockIn,
@@ -150,7 +150,7 @@ class _$VideoCopyWithImpl<$Res, $Val extends Video>
       podcastStatus: freezed == podcastStatus
           ? _value.podcastStatus
           : podcastStatus // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic?,
       examFileUrl: freezed == examFileUrl
           ? _value.examFileUrl
           : examFileUrl // ignore: cast_nullable_to_non_nullable
@@ -222,7 +222,7 @@ abstract class _$$_VideoCopyWith<$Res> implements $VideoCopyWith<$Res> {
       dynamic? size,
       bool? isFree,
       String? status,
-      String? podcastStatus,
+      dynamic? podcastStatus,
       String? examFileUrl,
       int? priority,
       String? stockIn,
@@ -306,7 +306,7 @@ class __$$_VideoCopyWithImpl<$Res> extends _$VideoCopyWithImpl<$Res, _$_Video>
       podcastStatus: freezed == podcastStatus
           ? _value.podcastStatus
           : podcastStatus // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic?,
       examFileUrl: freezed == examFileUrl
           ? _value.examFileUrl
           : examFileUrl // ignore: cast_nullable_to_non_nullable
@@ -410,7 +410,7 @@ class _$_Video with DiagnosticableTreeMixin implements _Video {
   @override
   final String? status;
   @override
-  final String? podcastStatus;
+  final dynamic? podcastStatus;
   @override
   final String? examFileUrl;
   @override
@@ -488,8 +488,8 @@ class _$_Video with DiagnosticableTreeMixin implements _Video {
             const DeepCollectionEquality().equals(other.size, size) &&
             (identical(other.isFree, isFree) || other.isFree == isFree) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.podcastStatus, podcastStatus) ||
-                other.podcastStatus == podcastStatus) &&
+            const DeepCollectionEquality()
+                .equals(other.podcastStatus, podcastStatus) &&
             (identical(other.examFileUrl, examFileUrl) ||
                 other.examFileUrl == examFileUrl) &&
             (identical(other.priority, priority) ||
@@ -527,7 +527,7 @@ class _$_Video with DiagnosticableTreeMixin implements _Video {
         const DeepCollectionEquality().hash(size),
         isFree,
         status,
-        podcastStatus,
+        const DeepCollectionEquality().hash(podcastStatus),
         examFileUrl,
         priority,
         stockIn,
@@ -567,7 +567,7 @@ abstract class _Video implements Video {
       final dynamic? size,
       final bool? isFree,
       final String? status,
-      final String? podcastStatus,
+      final dynamic? podcastStatus,
       final String? examFileUrl,
       final int? priority,
       final String? stockIn,
@@ -601,7 +601,7 @@ abstract class _Video implements Video {
   @override
   String? get status;
   @override
-  String? get podcastStatus;
+  dynamic? get podcastStatus;
   @override
   String? get examFileUrl;
   @override

@@ -1,4 +1,5 @@
 import 'package:lingo/Core/Dto/Models/Banner.dart';
+import 'package:lingo/Core/Dto/Models/Setting.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/PaginationRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/General/GetBannersResponseDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/Order/CreateOrderResponseDtoUseCase.dart';
@@ -17,4 +18,7 @@ abstract class GeneralRemoteDataSource {
       String courseId);
 
   Future<BaseNetworkResponse<GetBannersResponseDtoUseCase>> getBanners();
+
+  Future<BaseNetworkResponse<List<Setting>>> getSettings();
+
 }

@@ -22,8 +22,10 @@ import 'package:lingo/Core/Interfaces/UseCases/Course/IGetCourseByIdUseCase.dart
 import 'package:lingo/Core/Interfaces/UseCases/Course/IGetPackageCoursesUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/General/ICreateOrderUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/General/IGetBannersUseCase.dart';
+import 'package:lingo/Core/Interfaces/UseCases/General/IGetSettingsUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/General/ISearchByTagUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/General/ISearchUseCase.dart';
+import 'package:lingo/Core/Interfaces/UseCases/Packages/IGetGoldenPackageUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Packages/IGetPackagesUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Report/IDownloadReceiptUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Report/IOrderHistoryUseCase.dart';
@@ -47,7 +49,9 @@ import 'package:lingo/Core/UseCases/CourseUseCases/GetCourseByIdUseCase.dart';
 import 'package:lingo/Core/UseCases/CourseUseCases/GetPackageCoursesUseCase.dart';
 import 'package:lingo/Core/UseCases/General/CreateOrderUseCase.dart';
 import 'package:lingo/Core/UseCases/General/GetBannersUseCase.dart';
+import 'package:lingo/Core/UseCases/General/GetSettingsUseCase.dart';
 import 'package:lingo/Core/UseCases/General/SearchUseCase.dart';
+import 'package:lingo/Core/UseCases/PackagesUseCases/GetGoldenPackageUseCase.dart';
 import 'package:lingo/Core/UseCases/PackagesUseCases/GetPackagesUseCase.dart';
 import 'package:lingo/Core/UseCases/Report/DownloadReceiptUseCase.dart';
 import 'package:lingo/Core/UseCases/Report/OrderHistoryUseCase.dart';
@@ -135,6 +139,10 @@ initInjections() async {
           () => GetBannersUseCase(appSingleton()));
   appSingleton.registerLazySingleton<ISearchByTagUseCase>(
           () => SearchByTagUseCase(appSingleton()));
+  appSingleton.registerLazySingleton<IGetSettingsUseCase>(
+          () => GetSettingsUseCase(appSingleton()));
+  appSingleton.registerLazySingleton<IGetGoldenPackageUseCase>(
+          () => GetGoldenPackageUseCase(appSingleton()));
 
   //Repositories
   appSingleton.registerLazySingleton<AuthRemoteRepository>(

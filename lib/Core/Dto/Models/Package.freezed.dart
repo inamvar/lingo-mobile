@@ -29,7 +29,7 @@ mixin _$Package {
   String? get stockIn => throw _privateConstructorUsedError;
   String? get slug => throw _privateConstructorUsedError;
   dynamic? get firstCourseSlug => throw _privateConstructorUsedError;
-  String? get costType => throw _privateConstructorUsedError;
+  dynamic? get costType => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
@@ -54,7 +54,7 @@ abstract class $PackageCopyWith<$Res> {
       String? stockIn,
       String? slug,
       dynamic? firstCourseSlug,
-      String? costType,
+      dynamic? costType,
       int? id,
       DateTime? createdAt,
       DateTime? updatedAt});
@@ -127,7 +127,7 @@ class _$PackageCopyWithImpl<$Res, $Val extends Package>
       costType: freezed == costType
           ? _value.costType
           : costType // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -161,7 +161,7 @@ abstract class _$$_PackageCopyWith<$Res> implements $PackageCopyWith<$Res> {
       String? stockIn,
       String? slug,
       dynamic? firstCourseSlug,
-      String? costType,
+      dynamic? costType,
       int? id,
       DateTime? createdAt,
       DateTime? updatedAt});
@@ -231,7 +231,7 @@ class __$$_PackageCopyWithImpl<$Res>
       costType: freezed == costType
           ? _value.costType
           : costType // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -297,7 +297,7 @@ class _$_Package implements _Package {
   @override
   final dynamic? firstCourseSlug;
   @override
-  final String? costType;
+  final dynamic? costType;
   @override
   final int? id;
   @override
@@ -329,8 +329,7 @@ class _$_Package implements _Package {
             (identical(other.slug, slug) || other.slug == slug) &&
             const DeepCollectionEquality()
                 .equals(other.firstCourseSlug, firstCourseSlug) &&
-            (identical(other.costType, costType) ||
-                other.costType == costType) &&
+            const DeepCollectionEquality().equals(other.costType, costType) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -351,7 +350,7 @@ class _$_Package implements _Package {
       stockIn,
       slug,
       const DeepCollectionEquality().hash(firstCourseSlug),
-      costType,
+      const DeepCollectionEquality().hash(costType),
       id,
       createdAt,
       updatedAt);
@@ -381,7 +380,7 @@ abstract class _Package implements Package {
       final String? stockIn,
       final String? slug,
       final dynamic? firstCourseSlug,
-      final String? costType,
+      final dynamic? costType,
       final int? id,
       final DateTime? createdAt,
       final DateTime? updatedAt}) = _$_Package;
@@ -407,7 +406,7 @@ abstract class _Package implements Package {
   @override
   dynamic? get firstCourseSlug;
   @override
-  String? get costType;
+  dynamic? get costType;
   @override
   int? get id;
   @override

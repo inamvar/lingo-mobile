@@ -1,6 +1,7 @@
 
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
+import 'package:lingo/Core/Dto/Models/Setting.dart';
 import 'package:lingo/Core/Dto/Models/User.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/Auth/TokenResponseDtoUseCase.dart';
 
@@ -12,6 +13,7 @@ class BaseBrain{
   static TokenResponseDtoUseCase? authToken;
   static Rx<User> user = User().obs;
   static Rx<bool> isLogin = false.obs;
+  static List<Setting> settings = [];
 
   static Future<bool> logout() async{
     authToken = null;

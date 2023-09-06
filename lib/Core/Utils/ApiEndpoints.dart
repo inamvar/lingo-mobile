@@ -16,6 +16,7 @@ class ApiEndpoints{
 
   ///Packages Endpoints
   static const String findAll = "Package";
+  static const String goldenPackage = "Package/Golden";
 
   ///Course Endpoints
   static const String course = "Course";
@@ -34,4 +35,5 @@ class ApiEndpoints{
   static const String searchByTag = "Search/ByTag";
   static const String createOrder = "Order";
   static const String banners = "Banner/Images";
+  static const String settings = "Setting";
 }

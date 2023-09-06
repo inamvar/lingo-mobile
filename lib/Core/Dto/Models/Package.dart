@@ -18,7 +18,7 @@ class Package with _$Package {
     String? stockIn,
     String? slug,
     dynamic? firstCourseSlug,
-    String? costType,
+    dynamic? costType,
     int? id,
     DateTime? createdAt,
     DateTime? updatedAt,

@@ -19,7 +19,7 @@ _$_Package _$$_PackageFromJson(Map<String, dynamic> json) => _$_Package(
       stockIn: json['stockIn'] as String?,
       slug: json['slug'] as String?,
       firstCourseSlug: json['firstCourseSlug'],
-      costType: json['costType'] as String?,
+      costType: json['costType'],
       id: json['id'] as int?,
       createdAt: json['createdAt'] == null
           ? null

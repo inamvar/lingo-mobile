@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:lingo/Core/Dto/Models/Banner.dart';
 import 'package:lingo/Core/Dto/Models/Failure.dart';
+import 'package:lingo/Core/Dto/Models/Setting.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/PaginationRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/General/GetBannersResponseDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/Order/CreateOrderResponseDtoUseCase.dart';
@@ -21,4 +22,7 @@ abstract class GeneralRemoteRepository extends BaseRemoteRepository {
 
   Future<Either<Failure, BaseNetworkResponse<GetBannersResponseDtoUseCase>>>?
       getBanners();
+
+  Future<Either<Failure, BaseNetworkResponse<List<Setting>>>>?
+  getSettings();
 }

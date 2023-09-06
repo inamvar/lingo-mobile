@@ -1,13 +1,14 @@
 import 'package:better_player/better_player.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lingo/Presentation/CommonControllers/BaseVideoPlayerController.dart';
 
 import '../Controller/CourseDisplayScreenController.dart';
 
 class VideoPlayerWidget extends StatelessWidget {
   VideoPlayerWidget({super.key});
 
-  final _controller = Get.find<CourseDisplayScreenController>();
+  final _controller = Get.find<BaseVideoPlayerController>();
 
   @override
   Widget build(BuildContext context) {

@@ -20,7 +20,7 @@ class BestSellWidget extends StatelessWidget {
     return Obx(() => Column(
           children: [
             const SizedBox(
-              height: 15,
+              height: 5,
             ),
             (_controller.isLoadingBestSells.value)
                 ? SizedBox(

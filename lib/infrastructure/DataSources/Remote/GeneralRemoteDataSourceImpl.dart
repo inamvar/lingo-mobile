@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dartz/dartz_unsafe.dart';
 import 'package:lingo/Core/Dto/Models/Banner.dart';
 import 'package:lingo/Core/Dto/Models/BaseNetworkResponse.dart';
+import 'package:lingo/Core/Dto/Models/Setting.dart';
 
 import 'package:lingo/Core/Dto/UseCases/Requests/PaginationRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/General/GetBannersResponseDtoUseCase.dart';
@@ -86,6 +87,23 @@ class GeneralRemoteDataSourceImpl implements GeneralRemoteDataSource {
       return BaseNetworkResponse<SearchResponseDtoUseCase>(
           data: SearchResponseDtoUseCase.fromJson(response.data!),
           message: response.message);
+    });
+
+    return result;
+  }
+
+  @override
+  Future<BaseNetworkResponse<List<Setting>>> getSettings() async {
+    var dio = BaseBrain.dio;
+    var result = await dio.get(ApiEndpoints.settings).then((value) {
+      List<Setting> settings = [];
+      List<dynamic> settingsArrayObj = value.data["data"];
+      settingsArrayObj.forEach((banner) {
+        settings.add(Setting.fromJson(banner));
+      });
+      return BaseNetworkResponse<List<Setting>>(
+          data: settings,
+          message: value.data!["message"]);
     });
 
     return result;

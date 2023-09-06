@@ -93,6 +93,7 @@ class AfterLoginDrawerItems extends StatelessWidget {
         ),
         InkWell(
           onTap: () {
+            _controller.navGoldenPackages();
           },
           child: ListTile(
             horizontalTitleGap: 0,

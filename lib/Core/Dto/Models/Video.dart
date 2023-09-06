@@ -15,7 +15,7 @@ class Video with _$Video {
     dynamic? size,
     bool? isFree,
     String? status,
-    String? podcastStatus,
+    dynamic? podcastStatus,
     String? examFileUrl,
     int? priority,
     String? stockIn,

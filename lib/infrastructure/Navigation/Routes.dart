@@ -9,6 +9,7 @@ import 'package:lingo/Presentation/Courses/CoursesScreen.dart';
 import 'package:lingo/Presentation/EducationalPackages/EducationalPackagesScreen.dart';
 import 'package:lingo/Presentation/FAQ/FAQScreen.dart';
 import 'package:lingo/Presentation/FreePackages/FreePackagesScreen.dart';
+import 'package:lingo/Presentation/GoldenPackage/GoldenPackageScreen.dart';
 import 'package:lingo/Presentation/Main/MainScreen.dart';
 import 'package:lingo/Presentation/MyCourses/MyCoursesScreen.dart';
 import 'package:lingo/Presentation/MyMessages/AddMessageScreen.dart';
@@ -28,6 +29,7 @@ import 'package:lingo/infrastructure/Navigation/Bindings/Comments/MessageDetailC
 import 'package:lingo/infrastructure/Navigation/Bindings/Courses/CourseDetailsControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Courses/CourseDisplayControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Courses/CoursesScreenControllerBinding.dart';
+import 'package:lingo/infrastructure/Navigation/Bindings/Main/GoldenPackageControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Main/MainScreenControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Main/SplashScreenControllerBinding.dart';
 import 'package:lingo/infrastructure/Navigation/Bindings/Report/MyCoursesControllerBinding.dart';
@@ -99,7 +101,11 @@ class Routes {
     GetPage(
         name: root,
         page: () => const SplashScreen(),
-        binding: SplashScreenControllerBinding())
+        binding: SplashScreenControllerBinding()),
+    GetPage(
+        name: goldenPackage,
+        page: () => GoldenPackageScreen(),
+        binding: GoldenPackageControllerBinding())
   ];
 
   static const root = "/";
@@ -146,4 +152,7 @@ class Routes {
 
   ///FAQ's
   static const faq = "${root}faq";
+
+  ///Golden Package
+  static const goldenPackage = "${root}goldenPackage";
 }

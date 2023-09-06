@@ -26,28 +26,20 @@ class SpecialItems extends StatelessWidget {
               margin: const EdgeInsets.only(left: 5),
               child: InkWell(
                 onTap: (){
-
+                  Get.toNamed(Routes.goldenPackage);
                 },
                 child: Column(
                   children: [
-                    Container(
-                      margin: const EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            blurRadius: 5.0,
-                            spreadRadius: 2.0,
-                          )
-                        ]
+                    Card(
+                      elevation: 3,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)
                       ),
-                      child: ClipOval(
-                          child: Image.asset(
-                            "assets/images/grammer_ic.png",
-                            width: 60,
-                            height: 60,
-                          )),
+                      child: Image.asset(
+                        "assets/images/golden_package_ic.png",
+                        width: 60,
+                        height: 60,
+                      ),
                     ),
                     const SizedBox(
                       height: 8,
@@ -71,24 +63,16 @@ class SpecialItems extends StatelessWidget {
                 },
                 child: Column(
                   children: [
-                    Container(
-                      margin: const EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              blurRadius: 5.0,
-                              spreadRadius: 2.0,
-                            )
-                          ]
+                    Card(
+                      elevation: 3,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)
                       ),
-                      child: ClipOval(
-                          child: Image.asset(
-                            "assets/images/words_ic.png",
-                            width: 60,
-                            height: 60,
-                          )),
+                      child: Image.asset(
+                        "assets/images/words_ic.png",
+                        width: 60,
+                        height: 60,
+                      ),
                     ),
                     const SizedBox(
                       height: 8,
@@ -112,24 +96,16 @@ class SpecialItems extends StatelessWidget {
                 },
                 child: Column(
                   children: [
-                    Container(
-                      margin: const EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              blurRadius: 5.0,
-                              spreadRadius: 2.0,
-                            )
-                          ]
+                    Card(
+                      elevation: 3,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)
                       ),
-                      child: ClipOval(
-                          child: Image.asset(
-                            "assets/images/grammer_ic.png",
-                            width: 60,
-                            height: 60,
-                          )),
+                      child: Image.asset(
+                        "assets/images/grammer_ic.png",
+                        width: 60,
+                        height: 60,
+                      ),
                     ),
                     const SizedBox(
                       height: 8,
@@ -153,24 +129,16 @@ class SpecialItems extends StatelessWidget {
                 },
                 child: Column(
                   children: [
-                    Container(
-                      margin: const EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              blurRadius: 5.0,
-                              spreadRadius: 2.0,
-                            )
-                          ]
+                    Card(
+                      elevation: 3,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)
                       ),
-                      child: ClipOval(
-                          child: Image.asset(
-                            "assets/images/speaking_ic.png",
-                            width: 60,
-                            height: 60,
-                          )),
+                      child: Image.asset(
+                        "assets/images/speaking_ic.png",
+                        width: 60,
+                        height: 60,
+                      ),
                     ),
                     const SizedBox(
                       height: 8,
@@ -194,24 +162,16 @@ class SpecialItems extends StatelessWidget {
                 },
                 child: Column(
                   children: [
-                    Container(
-                      margin: const EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              blurRadius: 5.0,
-                              spreadRadius: 2.0,
-                            )
-                          ]
+                    Card(
+                      elevation: 3,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)
                       ),
-                      child: ClipOval(
-                          child: Image.asset(
-                            "assets/images/travel_ic.png",
-                            width: 60,
-                            height: 60,
-                          )),
+                      child: Image.asset(
+                        "assets/images/travel_ic.png",
+                        width: 60,
+                        height: 60,
+                      ),
                     ),
                     const SizedBox(
                       height: 8,
@@ -235,24 +195,16 @@ class SpecialItems extends StatelessWidget {
                 },
                 child: Column(
                   children: [
-                    Container(
-                      margin: const EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              blurRadius: 5.0,
-                              spreadRadius: 2.0,
-                            )
-                          ]
+                    Card(
+                      elevation: 3,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)
                       ),
-                      child: ClipOval(
-                          child: Image.asset(
-                            "assets/images/kids_ic.png",
-                            width: 60,
-                            height: 60,
-                          )),
+                      child: Image.asset(
+                        "assets/images/kids_ic.png",
+                        width: 60,
+                        height: 60,
+                      ),
                     ),
                     const SizedBox(
                       height: 8,

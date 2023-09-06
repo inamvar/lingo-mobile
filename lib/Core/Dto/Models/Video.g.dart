@@ -15,7 +15,7 @@ _$_Video _$$_VideoFromJson(Map<String, dynamic> json) => _$_Video(
       size: json['size'],
       isFree: json['isFree'] as bool?,
       status: json['status'] as String?,
-      podcastStatus: json['podcastStatus'] as String?,
+      podcastStatus: json['podcastStatus'],
       examFileUrl: json['examFileUrl'] as String?,
       priority: json['priority'] as int?,
       stockIn: json['stockIn'] as String?,

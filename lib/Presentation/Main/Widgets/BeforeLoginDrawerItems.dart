@@ -35,6 +35,7 @@ class BeforeLoginDrawerItems extends StatelessWidget {
         ),
         InkWell(
           onTap: () {
+            _controller.navGoldenPackages();
           },
           child: ListTile(
             horizontalTitleGap: 0,
@@ -80,7 +81,7 @@ class BeforeLoginDrawerItems extends StatelessWidget {
           child: ListTile(
             horizontalTitleGap: 0,
             contentPadding: const EdgeInsets.only(right: 20),
-            leading: Image.asset("assets/images/discount_ic.png",width: 25,height: 20,),
+            leading: Image.asset("assets/images/discount_ic.png",width: 23,height: 23,),
             title: Text(
               StringResource.discounts,
               style: const TextStyle().withIranSans(

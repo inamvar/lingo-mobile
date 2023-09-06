@@ -41,7 +41,7 @@ class Header extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 15,),
-                Text(_controller.course.getFinalPriceIRR() ?? "",
+                Text(_controller.course.getPriceIRR() ?? "",
                     textAlign: TextAlign.center,
                     style: const TextStyle().withIranSans(
                         fontWeight: FontWeight.bold,

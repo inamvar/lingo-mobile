@@ -1,6 +1,7 @@
 import 'package:better_player/better_player.dart';
 import 'package:get/get.dart';
 import 'package:lingo/Core/Dto/Models/Video.dart';
+import 'package:lingo/Presentation/CommonControllers/BaseVideoPlayerController.dart';
 
 class CourseDisplayScreenController extends GetxController {
   late Video video;
@@ -13,7 +14,7 @@ class CourseDisplayScreenController extends GetxController {
   @override
   void onInit() {
     video = Get.arguments["video"];
-
+    Get.put(BaseVideoPlayerController(video));
 
     if (video.videoHls != null) {
       initializeVideoControllers();

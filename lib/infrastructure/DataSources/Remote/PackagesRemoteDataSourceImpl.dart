@@ -1,4 +1,5 @@
 import 'package:lingo/Core/Dto/Models/BaseNetworkResponse.dart';
+import 'package:lingo/Core/Dto/Models/Package.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/PaginationRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/Packages/GetPackagesResponseDtoUseCase.dart';
 import 'package:lingo/Core/Interfaces/DataSources/Remote/PackagesRemoteDataSource.dart';
@@ -20,6 +21,22 @@ class PackagesRemoteDataSourceImpl extends PackagesRemoteDataSource {
       ResponseDtoUseCase response = ResponseDtoUseCase.fromJson(value.data);
       return BaseNetworkResponse<GetPackagesResponseDtoUseCase>(
           data: GetPackagesResponseDtoUseCase.fromJson(response.data!),
+          message: response.message);
+    });
+
+    return result;
+  }
+
+  @override
+  Future<BaseNetworkResponse<Package>> getGoldenPackage() async{
+    var dio = BaseBrain.dio;
+    var result = await dio
+        .get(ApiEndpoints.goldenPackage)
+        .then((value) {
+      ResponseDtoUseCase response = ResponseDtoUseCase.fromJson(value.data);
+      Package package = Package.fromJson(response.data!["data"][0]);
+      return BaseNetworkResponse<Package>(
+          data: package,
           message: response.message);
     });
 

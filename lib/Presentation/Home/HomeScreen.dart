@@ -37,7 +37,23 @@ class HomeScreen extends StatelessWidget {
                           const SizedBox(
                             height: 15,
                           ),
+                          const Divider(
+                            thickness: 1,
+                            endIndent: 20,
+                            indent: 20,
+                          ),
+                          const SizedBox(
+                            height: 15,
+                          ),
                           const SpecialItems(),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          const Divider(
+                            thickness: 1,
+                            endIndent: 20,
+                            indent: 20,
+                          ),
                           BestSellWidget(),
                           TopPackages()
                         ],

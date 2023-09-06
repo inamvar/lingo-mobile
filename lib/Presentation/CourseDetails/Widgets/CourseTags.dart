@@ -26,31 +26,36 @@ class CourseTags extends StatelessWidget {
         const SizedBox(
           height: 10,
         ),
-        GridView.builder(
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: controller.course.value.tags?.length ?? 0,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                mainAxisSpacing: 10,
-                crossAxisCount: 4,
-                mainAxisExtent: 40,
-                crossAxisSpacing: 10),
-            itemBuilder: (context, index) {
-              var tag = controller.course.value.tags![index];
-              return ClipRRect(
-                borderRadius: BorderRadius.circular(7),
-                child: InkWell(
-                  onTap: () {},
-                  child: Material(
-                      color: const Color(0xff7A7272).withOpacity(0.3),
-                      child: Center(
-                          child: Text(
-                        tag,
-                        style: const TextStyle().withIranSans(),
-                      ))),
-                ),
-              );
-            })
+        SizedBox(
+          height: 40,
+          child: ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: controller.course.value.tags?.length ?? 0,
+              itemBuilder: (context, index) {
+                var tag = controller.course.value.tags![index];
+                return Container(
+                  margin: const EdgeInsets.only(left: 5),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(7),
+                    child: InkWell(
+                      onTap: () {},
+                      child: Material(
+                          color: const Color(0xff7A7272).withOpacity(0.3),
+                          child: Center(
+                              child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Text(
+                              tag,
+                              style: const TextStyle().withIranSans(),
+                            ),
+                          ))),
+                    ),
+                  ),
+                );
+              }),
+        )
       ],
     );
   }
