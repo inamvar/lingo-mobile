@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:lingo/Core/Dto/Enums/MessageType.dart';
 import 'package:lingo/Core/Dto/Models/Course.dart';
+import 'package:lingo/Core/Dto/Models/Pricing.dart';
+import 'package:lingo/Core/Dto/UseCases/Requests/General/CreateOrderRequestDtoUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/General/ICreateOrderUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/User/ICheckPhoneStatusUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/User/IConfirmPhoneUseCase.dart';
@@ -44,11 +46,19 @@ class CheckoutScreenController extends GetxController {
 
   var isCreatingOrder = false.obs;
 
+  Rx<Pricing?> selectedPaymentMethod = Rx(null);
+
   @override
   void onInit() {
     phoneController = TextEditingController();
     confirmCodeController = TextEditingController();
     course = Get.arguments["course"];
+    List<Pricing>? filteredPrices = course.pricings?.toList();
+    filteredPrices?.removeWhere((element) => element.currencyType == "USD");
+    course = course.copyWith(
+      pricings: filteredPrices
+    );
+    selectedPaymentMethod.value = filteredPrices?[0];
     super.onInit();
   }
 
@@ -159,7 +169,10 @@ class CheckoutScreenController extends GetxController {
   void createOrder() {
     if (isPhoneConfirmed.value) {
       isCreatingOrder.value = true;
-      iCreateOrderUseCase.execute(params: course.id.toString()).then((result) {
+      iCreateOrderUseCase.execute(params: CreateOrderRequestDtoUseCase(
+        courseId: course.id.toString(),
+        currencyType: (selectedPaymentMethod.value!.currencyType == "IRR") ? 1 : 2
+      )).then((result) {
         isCreatingOrder.value = false;
 
         result.fold(

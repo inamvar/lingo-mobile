@@ -4,6 +4,7 @@ import 'package:dartz/dartz_unsafe.dart';
 import 'package:lingo/Core/Dto/Models/Banner.dart';
 import 'package:lingo/Core/Dto/Models/BaseNetworkResponse.dart';
 import 'package:lingo/Core/Dto/Models/Setting.dart';
+import 'package:lingo/Core/Dto/UseCases/Requests/General/CreateOrderRequestDtoUseCase.dart';
 
 import 'package:lingo/Core/Dto/UseCases/Requests/PaginationRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/General/GetBannersResponseDtoUseCase.dart';
@@ -35,15 +36,15 @@ class GeneralRemoteDataSourceImpl implements GeneralRemoteDataSource {
 
   @override
   Future<BaseNetworkResponse<CreateOrderResponseDtoUseCase>> createOrder(
-      String courseId) async {
+      CreateOrderRequestDtoUseCase requestDtoUseCase) async {
     var dio = BaseBrain.dio;
     var result = await dio
         .post(ApiEndpoints.createOrder,
             data: jsonEncode({
               "items": [
-                {"courseId": int.parse(courseId)}
+                {"courseId": int.parse(requestDtoUseCase.courseId!)}
               ],
-              "CurrencyType": 1,
+              "CurrencyType": requestDtoUseCase.currencyType,
               "ClientType": "MobileApp"
             }))
         .then((value) {

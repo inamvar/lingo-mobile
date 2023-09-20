@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:lingo/Core/Dto/Models/BaseNetworkResponse.dart';
 import 'package:lingo/Core/Dto/Models/Failure.dart';
 import 'package:lingo/Core/Dto/Models/Setting.dart';
+import 'package:lingo/Core/Dto/UseCases/Requests/General/CreateOrderRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/PaginationRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/General/GetBannersResponseDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/Order/CreateOrderResponseDtoUseCase.dart';
@@ -29,9 +30,9 @@ class GeneralRepositoryImpl extends GeneralRemoteRepository {
 
   @override
   Future<Either<Failure, BaseNetworkResponse<CreateOrderResponseDtoUseCase>>>?
-      createOrder(String courseId) async {
+      createOrder(CreateOrderRequestDtoUseCase requestDtoUseCase) async {
     try {
-      var result = await dataSource.createOrder(courseId);
+      var result = await dataSource.createOrder(requestDtoUseCase);
       return Right(result);
     } on DioError catch (error) {
       return Left(parseServerError(error));

@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:lingo/Core/Dto/Models/BaseNetworkResponse.dart';
 import 'package:lingo/Core/Dto/Models/Failure.dart';
+import 'package:lingo/Core/Dto/UseCases/Requests/General/CreateOrderRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/Order/CreateOrderResponseDtoUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/General/ICreateOrderUseCase.dart';
 
@@ -13,7 +14,7 @@ class CreateOrderUseCase extends ICreateOrderUseCase {
 
   @override
   Future<Either<Failure, BaseNetworkResponse<CreateOrderResponseDtoUseCase>>>
-      execute({String? params}) async {
+      execute({CreateOrderRequestDtoUseCase? params}) async {
     return await repository.createOrder(params!)!;
   }
 }

@@ -106,4 +106,5 @@ class StringResource{
 ''';
   static const String goldPackageScreenTitle = "معرفی و آشنایی با پکیج طلائی";
   static const String goldPackageBuyBtnTxt = "پکیج طلائی را می خرم";
+  static const String paymentMethod = "روش پرداخت";
 }

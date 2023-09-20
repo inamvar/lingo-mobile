@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:lingo/Core/Dto/Models/Banner.dart';
 import 'package:lingo/Core/Dto/Models/Failure.dart';
 import 'package:lingo/Core/Dto/Models/Setting.dart';
+import 'package:lingo/Core/Dto/UseCases/Requests/General/CreateOrderRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/PaginationRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/General/GetBannersResponseDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/Order/CreateOrderResponseDtoUseCase.dart';
@@ -18,7 +19,7 @@ abstract class GeneralRemoteRepository extends BaseRemoteRepository {
       searchByTag(PaginationRequestDtoUseCase requestDtoUseCase);
 
   Future<Either<Failure, BaseNetworkResponse<CreateOrderResponseDtoUseCase>>>?
-      createOrder(String courseId);
+      createOrder(CreateOrderRequestDtoUseCase requestDtoUseCase);
 
   Future<Either<Failure, BaseNetworkResponse<GetBannersResponseDtoUseCase>>>?
       getBanners();

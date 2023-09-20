@@ -7,7 +7,7 @@ part 'Pricing.g.dart';
 class Pricing with _$Pricing {
   const factory Pricing({
     String? currencyType,
-    int? amount,
+    double? amount,
   }) = _Pricing;
 
   factory Pricing.fromJson(Map<String, dynamic> json) => _$PricingFromJson(json);

@@ -8,7 +8,7 @@ part of 'Pricing.dart';
 
 _$_Pricing _$$_PricingFromJson(Map<String, dynamic> json) => _$_Pricing(
       currencyType: json['currencyType'] as String?,
-      amount: json['amount'] as int?,
+      amount: (json['amount'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$_PricingToJson(_$_Pricing instance) =>

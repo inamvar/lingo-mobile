@@ -21,7 +21,7 @@ Pricing _$PricingFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Pricing {
   String? get currencyType => throw _privateConstructorUsedError;
-  int? get amount => throw _privateConstructorUsedError;
+  double? get amount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +33,7 @@ abstract class $PricingCopyWith<$Res> {
   factory $PricingCopyWith(Pricing value, $Res Function(Pricing) then) =
       _$PricingCopyWithImpl<$Res, Pricing>;
   @useResult
-  $Res call({String? currencyType, int? amount});
+  $Res call({String? currencyType, double? amount});
 }
 
 /// @nodoc
@@ -60,7 +60,7 @@ class _$PricingCopyWithImpl<$Res, $Val extends Pricing>
       amount: freezed == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
     ) as $Val);
   }
 }
@@ -72,7 +72,7 @@ abstract class _$$_PricingCopyWith<$Res> implements $PricingCopyWith<$Res> {
       __$$_PricingCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? currencyType, int? amount});
+  $Res call({String? currencyType, double? amount});
 }
 
 /// @nodoc
@@ -96,7 +96,7 @@ class __$$_PricingCopyWithImpl<$Res>
       amount: freezed == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
     ));
   }
 }
@@ -112,7 +112,7 @@ class _$_Pricing implements _Pricing {
   @override
   final String? currencyType;
   @override
-  final int? amount;
+  final double? amount;
 
   @override
   String toString() {
@@ -148,7 +148,7 @@ class _$_Pricing implements _Pricing {
 }
 
 abstract class _Pricing implements Pricing {
-  const factory _Pricing({final String? currencyType, final int? amount}) =
+  const factory _Pricing({final String? currencyType, final double? amount}) =
       _$_Pricing;
 
   factory _Pricing.fromJson(Map<String, dynamic> json) = _$_Pricing.fromJson;
@@ -156,7 +156,7 @@ abstract class _Pricing implements Pricing {
   @override
   String? get currencyType;
   @override
-  int? get amount;
+  double? get amount;
   @override
   @JsonKey(ignore: true)
   _$$_PricingCopyWith<_$_Pricing> get copyWith =>

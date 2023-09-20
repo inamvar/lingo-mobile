@@ -6,6 +6,7 @@ import 'package:lingo/Core/Configs/StringResource.dart';
 import 'package:lingo/Core/Utils/Extensions/CourseExtensions.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
 import 'package:lingo/Presentation/Checkout/Controller/CheckoutScreenController.dart';
+import 'package:lingo/Presentation/Checkout/Widgets/PaymentMethod.dart';
 import 'package:lingo/Presentation/CommonWidgets/BaseScreen.dart';
 import 'package:lingo/Presentation/CommonWidgets/ConfirmButton.dart';
 import 'package:lingo/Presentation/CommonWidgets/CustomButton.dart';
@@ -43,6 +44,7 @@ class CheckoutScreen extends StatelessWidget {
                       PhoneConfirmation(),
                     OrderDetails(
                         colorScheme: colorScheme, controller: _controller),
+                    PaymentMethod(controller: _controller),
                     Obx(() => ConfirmButton(
                         buttonText: StringResource.payButtonTxt,
                         isLoading: _controller.isCreatingOrder.value,
