@@ -42,12 +42,13 @@ class PaymentMethod extends StatelessWidget {
             itemBuilder: (context, index) {
               var pricingItem =
               _controller.course.pricings![index];
+              var title = (pricingItem.currencyType == "IRR") ? "درگاه داخلی" : "رمز ارز";
 
               return Obx(() => InkWell(
                 onTap: (){},
                 child: RadioListTile(
                     contentPadding: EdgeInsets.zero,
-                    title: Text(pricingItem.currencyType!,
+                    title: Text(title,
                       style: const TextStyle().withIranSans(),),
                     value: pricingItem,
                     groupValue:
