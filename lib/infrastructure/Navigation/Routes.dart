@@ -64,10 +64,6 @@ class Routes {
     GetPage(name: freePackages, page: () => FreePackagesScreen()),
     GetPage(name: eduPackages, page: () => EducationalPackagesScreen()),
     GetPage(
-        name: courseDisplay,
-        page: () => CourseDisplayScreen(),
-        binding: CourseDisplayControllerBinding()),
-    GetPage(
         name: purchasedCourses,
         page: () => MyCoursesScreen(),
         binding: MyCoursesControllerBinding()),

@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:lingo/Core/Dto/Models/Course.dart';
 import 'package:lingo/Core/Dto/Models/Package.dart';
+import 'package:lingo/Core/Dto/Models/Video.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Packages/IGetGoldenPackageUseCase.dart';
 import 'package:lingo/Presentation/CommonControllers/BaseVideoPlayerController.dart';
 
@@ -18,6 +19,8 @@ class GoldenPackageController extends GetxController {
   var course = Rx<Course>(const Course());
 
   var isLoading = false.obs;
+
+  late Video video;
 
   @override
   void onInit() async {
@@ -43,8 +46,8 @@ class GoldenPackageController extends GetxController {
   }
 
   initVideoPlayer() {
-    var video = course.value.chapters!.first.videos!.first;
-    Get.put(BaseVideoPlayerController(video));
+    video = course.value.chapters!.first.videos!.first;
+    Get.put(BaseVideoPlayerController(video),tag: video.id!.toString());
   }
 
   void checkout() {

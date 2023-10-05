@@ -32,7 +32,7 @@ class GoldenPackageScreen extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(20, 20, 20, 200),
                 child: Column(
                   children: [
-                    VideoPlayerWidget(),
+                    VideoPlayerWidget(controller: Get.find(tag: _controller.video.id!.toString()),),
                     Row(
                       children: [
                         Text(

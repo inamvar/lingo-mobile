@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:lingo/Core/Configs/StringResource.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
 import 'package:lingo/Core/Utils/Extensions/StringExtensions.dart';
+import 'package:lingo/Core/Utils/InjectionContainer.dart';
 import 'package:lingo/Presentation/CommonWidgets/BaseScreen.dart';
 import 'package:lingo/Presentation/CommonWidgets/DescriptionWidget.dart';
+import 'package:lingo/Presentation/CourseDetails/Widgets/CourseVideos.dart';
 import 'package:lingo/Presentation/CourseDisplay/Controller/SoundPlayerController.dart';
 import 'package:lingo/Presentation/CourseDisplay/Widgets/VideoPlayerWidget.dart';
 import 'package:lingo/Presentation/CourseDisplay/Widgets/SoundPlayerBottomSheet.dart';
@@ -13,34 +16,43 @@ import 'package:lingo/Presentation/CourseDisplay/Widgets/SoundPlayerBottomSheet.
 import 'Controller/CourseDisplayScreenController.dart';
 
 class CourseDisplayScreen extends StatelessWidget {
-  CourseDisplayScreen({super.key});
+  const CourseDisplayScreen({super.key, required this.controllerTag});
 
-  final _controller = Get.find<CourseDisplayScreenController>();
+  final String controllerTag;
 
   @override
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
 
+    var controller = Get.put(
+        CourseDisplayScreenController(appSingleton()),
+        tag: controllerTag);
+
     return BaseScreen(
-      child: SingleChildScrollView(
+      child: Obx(() => SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.only(left: 17, right: 17, bottom: 70),
-          child: Column(
+          child: (controller.isLoading.value)
+              ? SpinKitFadingCircle(
+            color: colorScheme.background,
+            size: 24,
+          )
+              : Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                _controller.video.title ?? "",
+                controller.video.title ?? "",
                 style: const TextStyle().withIranSans(
                     color: colorScheme.background,
                     fontSize: 17,
                     fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
-              VideoPlayerWidget(),
+              VideoPlayerWidget(controller: Get.find(tag: controller.video.id.toString()),),
               DescriptionWidget(
-                content: _controller.video.description ?? "",
+                content: controller.video.description ?? "",
               ),
               const SizedBox(
                 height: 20,
@@ -48,11 +60,11 @@ class CourseDisplayScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  if (_controller.video.examFileUrl != null &&
-                      _controller.video.examFileUrl!.isNotEmpty)
+                  if (controller.video.examFileUrl != null &&
+                      controller.video.examFileUrl!.isNotEmpty)
                     InkWell(
                       onTap: () {
-                        _controller.video.examFileUrl?.openAsUrl();
+                        controller.video.examFileUrl?.openAsUrl();
                       },
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -76,22 +88,22 @@ class CourseDisplayScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                  if (_controller.video.podcastHls != null)
+                  if (controller.video.podcastHls != null)
                     InkWell(
                       onTap: () {
                         Get.bottomSheet(
-                            SoundPlayerBottomSheet(
-                              title: _controller.video.title ?? "",
-                              audioUrl: _controller.video.podcastHls!,
-                            ),
-                            shape: const RoundedRectangleBorder(
+                          SoundPlayerBottomSheet(
+                            title: controller.video.title ?? "",
+                            audioUrl: controller.video.podcastHls!,
+                          ),
+                          shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(15),
                                 topRight: Radius.circular(15),
-                              )
-                            ),
-                            barrierColor: Colors.black.withOpacity(0.5),
-                            backgroundColor: colorScheme.background,);
+                              )),
+                          barrierColor: Colors.black.withOpacity(0.5),
+                          backgroundColor: colorScheme.background,
+                        );
                       },
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -116,11 +128,13 @@ class CourseDisplayScreen extends StatelessWidget {
                       ),
                     ),
                 ],
-              )
+              ),
+              const SizedBox(height: 20,),
+              CourseVideos(course: controller.course)
             ],
           ),
         ),
-      ),
+      )),
     );
   }
 }

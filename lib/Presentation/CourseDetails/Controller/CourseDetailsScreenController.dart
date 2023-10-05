@@ -8,6 +8,7 @@ import '../../../Core/Configs/StringResource.dart';
 import '../../../Core/Dto/UseCases/Requests/PaginationRequestDtoUseCase.dart';
 import '../../../Core/Helpers/ShowMessage.dart';
 import '../../../Core/Interfaces/UseCases/Course/IGetPackageCoursesUseCase.dart';
+import '../../CourseDisplay/CourseDisplayScreen.dart';
 
 class CourseDetailsScreenController extends GetxController {
   Rx<Course> course = const Course().obs;
@@ -52,6 +53,17 @@ class CourseDetailsScreenController extends GetxController {
                   StringResource.serverErrorOccurred), (response) {
         course.value = response.data!;
         getRelatedCourses();
+
+        var lastSeenSlug = course.value.lastSeenVideoSlug;
+        if(lastSeenSlug != null && lastSeenSlug.isNotEmpty){
+          Get.to(
+                  () => CourseDisplayScreen(controllerTag: course.value.lastSeenVideoId!.toString()),
+              preventDuplicates: false,
+              arguments: {
+                "videoSlug": lastSeenSlug,
+                "course": course.value
+              });
+        }
       });
     });
   }

@@ -6,13 +6,14 @@ import 'package:lingo/Presentation/CommonControllers/BaseVideoPlayerController.d
 import '../Controller/CourseDisplayScreenController.dart';
 
 class VideoPlayerWidget extends StatelessWidget {
-  VideoPlayerWidget({super.key});
+  VideoPlayerWidget({super.key, required this.controller});
 
-  final _controller = Get.find<BaseVideoPlayerController>();
+
+  final BaseVideoPlayerController controller;
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() => (_controller.isPlayerInitialized.value) ? Column(
+    return Obx(() => (controller.isPlayerInitialized.value) ? Column(
       children: [
         const SizedBox(
           height: 24,
@@ -25,7 +26,7 @@ class VideoPlayerWidget extends StatelessWidget {
               height: 210,
               child: Directionality(
                   textDirection: TextDirection.ltr,
-                  child: BetterPlayer(controller: _controller.betterPlayerController!,)),
+                  child: BetterPlayer(controller: controller.betterPlayerController!,)),
             ),
           ),
         ),

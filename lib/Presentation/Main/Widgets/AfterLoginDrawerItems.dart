@@ -3,6 +3,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:lingo/Core/Helpers/BaseBrain.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
+import 'package:lingo/Core/Utils/Extensions/StringExtensions.dart';
 import 'package:lingo/Presentation/Main/Controller/MainScreenController.dart';
 
 import '../../../Core/Configs/StringResource.dart';
@@ -175,6 +176,23 @@ class AfterLoginDrawerItems extends StatelessWidget {
             leading: Image.asset("assets/images/privacy_ic.png",width: 25,height: 25,),
             title: Text(
               StringResource.privacyAndPolicy,
+              style: const TextStyle().withIranSans(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 16,
+                  color: Colors.white),
+            ),
+          ),
+        ),
+        InkWell(
+          onTap: () {
+            "https://lingo4030.com/contactus".openAsUrl();
+          },
+          child: ListTile(
+            horizontalTitleGap: 0,
+            contentPadding: const EdgeInsets.only(right: 20),
+            leading: Image.asset("assets/images/message_ic.png",width: 25,height: 25,),
+            title: Text(
+              StringResource.contactUs,
               style: const TextStyle().withIranSans(
                   fontWeight: FontWeight.w300,
                   fontSize: 16,

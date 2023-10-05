@@ -43,7 +43,7 @@ class CourseDetailsScreen extends StatelessWidget {
                     runSpacing: 30,
                     children: [
                       CourseHead(controller: controller),
-                      CourseVideos(controller: controller),
+                      CourseVideos(course: controller.course.value),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

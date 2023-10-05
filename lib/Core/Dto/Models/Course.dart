@@ -4,6 +4,7 @@ import 'package:lingo/Core/Dto/Models/Package.dart';
 
 import 'Discount.dart';
 import 'Pricing.dart';
+import 'Video.dart';
 
 part 'Course.freezed.dart';
 part 'Course.g.dart';
@@ -30,14 +31,16 @@ class Course with _$Course {
     Package? package,
     int? packageId,
     List<Pricing>? pricings,
-    dynamic? currentVideo,
+    Video? currentVideo,
     dynamic? costType,
     Discount? discount,
     int? id,
     DateTime? createdAt,
     DateTime? updatedAt,
     int? videoCount,
-    String? videoTotalDuration
+    String? videoTotalDuration,
+    String? lastSeenVideoSlug,
+    int? lastSeenVideoId,
   }) = _Course;
 
   factory Course.fromJson(Map<String, dynamic> json) => _$CourseFromJson(json);

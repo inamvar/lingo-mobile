@@ -39,7 +39,7 @@ mixin _$Course {
   Package? get package => throw _privateConstructorUsedError;
   int? get packageId => throw _privateConstructorUsedError;
   List<Pricing>? get pricings => throw _privateConstructorUsedError;
-  dynamic? get currentVideo => throw _privateConstructorUsedError;
+  Video? get currentVideo => throw _privateConstructorUsedError;
   dynamic? get costType => throw _privateConstructorUsedError;
   Discount? get discount => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
@@ -47,6 +47,8 @@ mixin _$Course {
   DateTime? get updatedAt => throw _privateConstructorUsedError;
   int? get videoCount => throw _privateConstructorUsedError;
   String? get videoTotalDuration => throw _privateConstructorUsedError;
+  String? get lastSeenVideoSlug => throw _privateConstructorUsedError;
+  int? get lastSeenVideoId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -78,16 +80,19 @@ abstract class $CourseCopyWith<$Res> {
       Package? package,
       int? packageId,
       List<Pricing>? pricings,
-      dynamic? currentVideo,
+      Video? currentVideo,
       dynamic? costType,
       Discount? discount,
       int? id,
       DateTime? createdAt,
       DateTime? updatedAt,
       int? videoCount,
-      String? videoTotalDuration});
+      String? videoTotalDuration,
+      String? lastSeenVideoSlug,
+      int? lastSeenVideoId});
 
   $PackageCopyWith<$Res>? get package;
+  $VideoCopyWith<$Res>? get currentVideo;
   $DiscountCopyWith<$Res>? get discount;
 }
 
@@ -131,6 +136,8 @@ class _$CourseCopyWithImpl<$Res, $Val extends Course>
     Object? updatedAt = freezed,
     Object? videoCount = freezed,
     Object? videoTotalDuration = freezed,
+    Object? lastSeenVideoSlug = freezed,
+    Object? lastSeenVideoId = freezed,
   }) {
     return _then(_value.copyWith(
       title: freezed == title
@@ -212,7 +219,7 @@ class _$CourseCopyWithImpl<$Res, $Val extends Course>
       currentVideo: freezed == currentVideo
           ? _value.currentVideo
           : currentVideo // ignore: cast_nullable_to_non_nullable
-              as dynamic?,
+              as Video?,
       costType: freezed == costType
           ? _value.costType
           : costType // ignore: cast_nullable_to_non_nullable
@@ -241,6 +248,14 @@ class _$CourseCopyWithImpl<$Res, $Val extends Course>
           ? _value.videoTotalDuration
           : videoTotalDuration // ignore: cast_nullable_to_non_nullable
               as String?,
+      lastSeenVideoSlug: freezed == lastSeenVideoSlug
+          ? _value.lastSeenVideoSlug
+          : lastSeenVideoSlug // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lastSeenVideoId: freezed == lastSeenVideoId
+          ? _value.lastSeenVideoId
+          : lastSeenVideoId // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 
@@ -253,6 +268,18 @@ class _$CourseCopyWithImpl<$Res, $Val extends Course>
 
     return $PackageCopyWith<$Res>(_value.package!, (value) {
       return _then(_value.copyWith(package: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $VideoCopyWith<$Res>? get currentVideo {
+    if (_value.currentVideo == null) {
+      return null;
+    }
+
+    return $VideoCopyWith<$Res>(_value.currentVideo!, (value) {
+      return _then(_value.copyWith(currentVideo: value) as $Val);
     });
   }
 
@@ -295,17 +322,21 @@ abstract class _$$_CourseCopyWith<$Res> implements $CourseCopyWith<$Res> {
       Package? package,
       int? packageId,
       List<Pricing>? pricings,
-      dynamic? currentVideo,
+      Video? currentVideo,
       dynamic? costType,
       Discount? discount,
       int? id,
       DateTime? createdAt,
       DateTime? updatedAt,
       int? videoCount,
-      String? videoTotalDuration});
+      String? videoTotalDuration,
+      String? lastSeenVideoSlug,
+      int? lastSeenVideoId});
 
   @override
   $PackageCopyWith<$Res>? get package;
+  @override
+  $VideoCopyWith<$Res>? get currentVideo;
   @override
   $DiscountCopyWith<$Res>? get discount;
 }
@@ -347,6 +378,8 @@ class __$$_CourseCopyWithImpl<$Res>
     Object? updatedAt = freezed,
     Object? videoCount = freezed,
     Object? videoTotalDuration = freezed,
+    Object? lastSeenVideoSlug = freezed,
+    Object? lastSeenVideoId = freezed,
   }) {
     return _then(_$_Course(
       title: freezed == title
@@ -428,7 +461,7 @@ class __$$_CourseCopyWithImpl<$Res>
       currentVideo: freezed == currentVideo
           ? _value.currentVideo
           : currentVideo // ignore: cast_nullable_to_non_nullable
-              as dynamic?,
+              as Video?,
       costType: freezed == costType
           ? _value.costType
           : costType // ignore: cast_nullable_to_non_nullable
@@ -457,6 +490,14 @@ class __$$_CourseCopyWithImpl<$Res>
           ? _value.videoTotalDuration
           : videoTotalDuration // ignore: cast_nullable_to_non_nullable
               as String?,
+      lastSeenVideoSlug: freezed == lastSeenVideoSlug
+          ? _value.lastSeenVideoSlug
+          : lastSeenVideoSlug // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lastSeenVideoId: freezed == lastSeenVideoId
+          ? _value.lastSeenVideoId
+          : lastSeenVideoId // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -491,7 +532,9 @@ class _$_Course implements _Course {
       this.createdAt,
       this.updatedAt,
       this.videoCount,
-      this.videoTotalDuration})
+      this.videoTotalDuration,
+      this.lastSeenVideoSlug,
+      this.lastSeenVideoId})
       : _tags = tags,
         _chapters = chapters,
         _pricings = pricings;
@@ -562,7 +605,7 @@ class _$_Course implements _Course {
   }
 
   @override
-  final dynamic? currentVideo;
+  final Video? currentVideo;
   @override
   final dynamic? costType;
   @override
@@ -577,10 +620,14 @@ class _$_Course implements _Course {
   final int? videoCount;
   @override
   final String? videoTotalDuration;
+  @override
+  final String? lastSeenVideoSlug;
+  @override
+  final int? lastSeenVideoId;
 
   @override
   String toString() {
-    return 'Course(title: $title, description: $description, slug: $slug, tags: $tags, flowStep: $flowStep, code: $code, categories: $categories, availableMonth: $availableMonth, sellingType: $sellingType, chapters: $chapters, teacher: $teacher, teacherId: $teacherId, duration: $duration, imageName: $imageName, imageBucket: $imageBucket, thumbnailImageUrl: $thumbnailImageUrl, package: $package, packageId: $packageId, pricings: $pricings, currentVideo: $currentVideo, costType: $costType, discount: $discount, id: $id, createdAt: $createdAt, updatedAt: $updatedAt, videoCount: $videoCount, videoTotalDuration: $videoTotalDuration)';
+    return 'Course(title: $title, description: $description, slug: $slug, tags: $tags, flowStep: $flowStep, code: $code, categories: $categories, availableMonth: $availableMonth, sellingType: $sellingType, chapters: $chapters, teacher: $teacher, teacherId: $teacherId, duration: $duration, imageName: $imageName, imageBucket: $imageBucket, thumbnailImageUrl: $thumbnailImageUrl, package: $package, packageId: $packageId, pricings: $pricings, currentVideo: $currentVideo, costType: $costType, discount: $discount, id: $id, createdAt: $createdAt, updatedAt: $updatedAt, videoCount: $videoCount, videoTotalDuration: $videoTotalDuration, lastSeenVideoSlug: $lastSeenVideoSlug, lastSeenVideoId: $lastSeenVideoId)';
   }
 
   @override
@@ -616,8 +663,8 @@ class _$_Course implements _Course {
             (identical(other.packageId, packageId) ||
                 other.packageId == packageId) &&
             const DeepCollectionEquality().equals(other._pricings, _pricings) &&
-            const DeepCollectionEquality()
-                .equals(other.currentVideo, currentVideo) &&
+            (identical(other.currentVideo, currentVideo) ||
+                other.currentVideo == currentVideo) &&
             const DeepCollectionEquality().equals(other.costType, costType) &&
             (identical(other.discount, discount) ||
                 other.discount == discount) &&
@@ -629,7 +676,11 @@ class _$_Course implements _Course {
             (identical(other.videoCount, videoCount) ||
                 other.videoCount == videoCount) &&
             (identical(other.videoTotalDuration, videoTotalDuration) ||
-                other.videoTotalDuration == videoTotalDuration));
+                other.videoTotalDuration == videoTotalDuration) &&
+            (identical(other.lastSeenVideoSlug, lastSeenVideoSlug) ||
+                other.lastSeenVideoSlug == lastSeenVideoSlug) &&
+            (identical(other.lastSeenVideoId, lastSeenVideoId) ||
+                other.lastSeenVideoId == lastSeenVideoId));
   }
 
   @JsonKey(ignore: true)
@@ -655,14 +706,16 @@ class _$_Course implements _Course {
         package,
         packageId,
         const DeepCollectionEquality().hash(_pricings),
-        const DeepCollectionEquality().hash(currentVideo),
+        currentVideo,
         const DeepCollectionEquality().hash(costType),
         discount,
         id,
         createdAt,
         updatedAt,
         videoCount,
-        videoTotalDuration
+        videoTotalDuration,
+        lastSeenVideoSlug,
+        lastSeenVideoId
       ]);
 
   @JsonKey(ignore: true)
@@ -700,14 +753,16 @@ abstract class _Course implements Course {
       final Package? package,
       final int? packageId,
       final List<Pricing>? pricings,
-      final dynamic? currentVideo,
+      final Video? currentVideo,
       final dynamic? costType,
       final Discount? discount,
       final int? id,
       final DateTime? createdAt,
       final DateTime? updatedAt,
       final int? videoCount,
-      final String? videoTotalDuration}) = _$_Course;
+      final String? videoTotalDuration,
+      final String? lastSeenVideoSlug,
+      final int? lastSeenVideoId}) = _$_Course;
 
   factory _Course.fromJson(Map<String, dynamic> json) = _$_Course.fromJson;
 
@@ -750,7 +805,7 @@ abstract class _Course implements Course {
   @override
   List<Pricing>? get pricings;
   @override
-  dynamic? get currentVideo;
+  Video? get currentVideo;
   @override
   dynamic? get costType;
   @override
@@ -765,6 +820,10 @@ abstract class _Course implements Course {
   int? get videoCount;
   @override
   String? get videoTotalDuration;
+  @override
+  String? get lastSeenVideoSlug;
+  @override
+  int? get lastSeenVideoId;
   @override
   @JsonKey(ignore: true)
   _$$_CourseCopyWith<_$_Course> get copyWith =>

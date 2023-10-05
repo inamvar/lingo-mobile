@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
+import 'package:lingo/Core/Utils/Extensions/StringExtensions.dart';
 import 'package:lingo/Presentation/Main/Controller/MainScreenController.dart';
 import 'package:lingo/infrastructure/Navigation/Routes.dart';
 
@@ -125,6 +126,24 @@ class BeforeLoginDrawerItems extends StatelessWidget {
             ),
           ),
         ),
+        InkWell(
+          onTap: () {
+            "https://lingo4030.com/contactus".openAsUrl();
+          },
+          child: ListTile(
+            horizontalTitleGap: 0,
+            contentPadding: const EdgeInsets.only(right: 20),
+            leading: Image.asset("assets/images/message_ic.png",width: 25,height: 25,),
+            title: Text(
+              StringResource.contactUs,
+              style: const TextStyle().withIranSans(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 16,
+                  color: Colors.white),
+            ),
+          ),
+        ),
+
       ],
     );
   }

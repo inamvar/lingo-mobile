@@ -153,17 +153,22 @@ class DrawerWidget extends StatelessWidget {
                               const SizedBox(
                                 height: 5,
                               ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    "Info@lingo4030.com",
-                                    style: const TextStyle()
-                                        .withIranSans(color: Colors.white),
-                                  ),
-                                  const SizedBox(width: 10,),
-                                  Image.asset(width: 20,height: 20,"assets/images/message_ic.png"),
-                                ],
+                              InkWell(
+                                onTap: (){
+                                  "mailto:info@lingo4030.com".openAsUrl();
+                                },
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "Info@lingo4030.com",
+                                      style: const TextStyle()
+                                          .withIranSans(color: Colors.white),
+                                    ),
+                                    const SizedBox(width: 10,),
+                                    Image.asset(width: 20,height: 20,"assets/images/message_ic.png"),
+                                  ],
+                                ),
                               )
                             ],
                           )

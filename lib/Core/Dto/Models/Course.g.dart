@@ -32,7 +32,9 @@ _$_Course _$$_CourseFromJson(Map<String, dynamic> json) => _$_Course(
       pricings: (json['pricings'] as List<dynamic>?)
           ?.map((e) => Pricing.fromJson(e as Map<String, dynamic>))
           .toList(),
-      currentVideo: json['currentVideo'],
+      currentVideo: json['currentVideo'] == null
+          ? null
+          : Video.fromJson(json['currentVideo'] as Map<String, dynamic>),
       costType: json['costType'],
       discount: json['discount'] == null
           ? null
@@ -46,6 +48,8 @@ _$_Course _$$_CourseFromJson(Map<String, dynamic> json) => _$_Course(
           : DateTime.parse(json['updatedAt'] as String),
       videoCount: json['videoCount'] as int?,
       videoTotalDuration: json['videoTotalDuration'] as String?,
+      lastSeenVideoSlug: json['lastSeenVideoSlug'] as String?,
+      lastSeenVideoId: json['lastSeenVideoId'] as int?,
     );
 
 Map<String, dynamic> _$$_CourseToJson(_$_Course instance) => <String, dynamic>{
@@ -76,4 +80,6 @@ Map<String, dynamic> _$$_CourseToJson(_$_Course instance) => <String, dynamic>{
       'updatedAt': instance.updatedAt?.toIso8601String(),
       'videoCount': instance.videoCount,
       'videoTotalDuration': instance.videoTotalDuration,
+      'lastSeenVideoSlug': instance.lastSeenVideoSlug,
+      'lastSeenVideoId': instance.lastSeenVideoId,
     };

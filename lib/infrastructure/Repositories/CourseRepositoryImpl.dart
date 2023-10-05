@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:lingo/Core/Dto/Models/BaseNetworkResponse.dart';
 import 'package:lingo/Core/Dto/Models/Course.dart';
 import 'package:lingo/Core/Dto/Models/Failure.dart';
+import 'package:lingo/Core/Dto/Models/Video.dart';
 import 'package:lingo/Core/Dto/UseCases/Requests/PaginationRequestDtoUseCase.dart';
 import 'package:lingo/Core/Dto/UseCases/Responses/Course/GetCoursesResponseDtoUseCase.dart';
 import 'package:lingo/Core/Interfaces/DataSources/Remote/CourseRemoteDataSource.dart';
@@ -29,6 +30,17 @@ class CourseRepositoryImpl extends CourseRemoteRepository {
       String courseId) async {
     try {
       var result = await dataSource.getCourseById(courseId);
+      return Right(result);
+    } on DioError catch (error) {
+      return Left(parseServerError(error));
+    }
+  }
+
+  @override
+  Future<Either<Failure, BaseNetworkResponse<Video>>> getVideoBySlug(
+      String slug) async {
+    try {
+      var result = await dataSource.getVideoBySlug(slug);
       return Right(result);
     } on DioError catch (error) {
       return Left(parseServerError(error));

@@ -20,6 +20,7 @@ import 'package:lingo/Core/Interfaces/UseCases/Comments/IGetCommentByIdUseCase.d
 import 'package:lingo/Core/Interfaces/UseCases/Comments/IGetCommentsUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Course/IGetCourseByIdUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/Course/IGetPackageCoursesUseCase.dart';
+import 'package:lingo/Core/Interfaces/UseCases/Course/IGetVideoBySlugUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/General/ICreateOrderUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/General/IGetBannersUseCase.dart';
 import 'package:lingo/Core/Interfaces/UseCases/General/IGetSettingsUseCase.dart';
@@ -82,6 +83,7 @@ import '../../infrastructure/DataSources/Remote/GeneralRemoteDataSourceImpl.dart
 import '../../infrastructure/DataSources/Remote/PackagesRemoteDataSourceImpl.dart';
 import '../Interfaces/DataSources/Remote/GeneralRemoteDataSource.dart';
 import '../Interfaces/Repositories/AuthRemoteRepository.dart';
+import '../UseCases/CourseUseCases/GetVideoBySlugUseCase.dart';
 import '../UseCases/General/SearchByTagUseCase.dart';
 import '../UseCases/UserUseCases/UpdateProfileUseCase.dart';
 
@@ -143,6 +145,8 @@ initInjections() async {
           () => GetSettingsUseCase(appSingleton()));
   appSingleton.registerLazySingleton<IGetGoldenPackageUseCase>(
           () => GetGoldenPackageUseCase(appSingleton()));
+  appSingleton.registerLazySingleton<IGetVideoBySlugUseCase>(
+          () => GetVideoBySlugUseCase(appSingleton()));
 
   //Repositories
   appSingleton.registerLazySingleton<AuthRemoteRepository>(

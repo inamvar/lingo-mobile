@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lingo/Core/Dto/Models/Course.dart';
 import 'package:lingo/Core/Utils/Extensions/CustomTextStyle.dart';
 import 'package:lingo/Presentation/CourseDetails/Controller/CourseDetailsScreenController.dart';
+import 'package:lingo/Presentation/CourseDisplay/CourseDisplayScreen.dart';
 import 'package:lingo/infrastructure/Navigation/Routes.dart';
 
 import '../../../Core/Configs/StringResource.dart';
 
 class CourseVideos extends StatelessWidget {
-  const CourseVideos({Key? key, required this.controller}) : super(key: key);
+  const CourseVideos({
+    Key? key,
+    required this.course,
+  }) : super(key: key);
 
-  final CourseDetailsScreenController controller;
+  final Course course;
 
   @override
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
-    if (controller.course.value.chapters == null ||
-        controller.course.value.chapters!.isEmpty) {
+    if (course.chapters == null || course.chapters!.isEmpty) {
       return Container(
         padding: EdgeInsets.all(20),
         decoration: BoxDecoration(
@@ -41,9 +45,9 @@ class CourseVideos extends StatelessWidget {
         ListView.builder(
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
-          itemCount: controller.course.value.chapters?.length,
+          itemCount: course.chapters?.length,
           itemBuilder: (context, index) {
-            var chapter = controller.course.value.chapters![index];
+            var chapter = course.chapters![index];
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: ClipRRect(
@@ -73,8 +77,13 @@ class CourseVideos extends StatelessWidget {
                             child: InkWell(
                               onTap: () {
                                 if (video.isActive!) {
-                                  Get.toNamed(Routes.courseDisplay,
-                                      arguments: {"video": video});
+                                  Get.to(
+                                          () => CourseDisplayScreen(controllerTag: video.id!.toString()),
+                                      preventDuplicates: false,
+                                      arguments: {
+                                        "videoSlug": video.slug,
+                                        "course": course
+                                      });
                                 }
                               },
                               child: ListTile(
