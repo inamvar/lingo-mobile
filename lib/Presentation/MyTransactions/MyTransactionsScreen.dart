@@ -181,7 +181,7 @@ class MyTransactionsScreen extends StatelessWidget {
                                                 width: 10,
                                               ),
                                               Text(
-                                                "${Tools.seRagham(item.price?.toString() ?? "")} تومان ",
+                                                "${Tools.seRagham(item.price?.toInt().toString() ?? "")} تومان ",
                                                 style: TextStyle().withIranSans(
                                                     fontWeight: FontWeight.w400,
                                                     fontSize: 12),
@@ -208,7 +208,7 @@ class MyTransactionsScreen extends StatelessWidget {
                                                 width: 10,
                                               ),
                                               Text(
-                                                "${Tools.seRagham(item.discount?.toString() ?? "-")} تومان ",
+                                                "${Tools.seRagham(item.discount?.toInt().toString() ?? "-")} تومان ",
                                                 style: TextStyle().withIranSans(
                                                     fontWeight: FontWeight.w400,
                                                     fontSize: 12),
@@ -235,7 +235,7 @@ class MyTransactionsScreen extends StatelessWidget {
                                                 width: 10,
                                               ),
                                               Text(
-                                                "${Tools.seRagham(item.finalPrice?.toString() ?? "")} تومان ",
+                                                "${Tools.seRagham(item.finalPrice?.toInt().toString() ?? "")} تومان ",
                                                 style: const TextStyle()
                                                     .withIranSans(
                                                         fontWeight:

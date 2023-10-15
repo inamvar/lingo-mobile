@@ -8,9 +8,9 @@ class Order {
 
   String? courseName;
   String? orderDate;
-  int? price;
-  int? discount;
-  int? finalPrice;
+  double? price;
+  double? discount;
+  double? finalPrice;
   int? courseId;
   int? orderId;
   String? courseSlug;

@@ -9,9 +9,9 @@ part of 'Order.dart';
 Order _$OrderFromJson(Map<String, dynamic> json) => Order()
   ..courseName = json['courseName'] as String?
   ..orderDate = json['orderDate'] as String?
-  ..price = json['price'] as int?
-  ..discount = json['discount'] as int?
-  ..finalPrice = json['finalPrice'] as int?
+  ..price = (json['price'] as num?)?.toDouble()
+  ..discount = (json['discount'] as num?)?.toDouble()
+  ..finalPrice = (json['finalPrice'] as num?)?.toDouble()
   ..courseId = json['courseId'] as int?
   ..orderId = json['orderId'] as int?
   ..courseSlug = json['courseSlug'] as String?
